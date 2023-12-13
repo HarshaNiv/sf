@@ -1,0 +1,1423 @@
+<!DOCTYPE html>
+<html lang="en_US">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+        <meta name="lwr-revised" content="236.0" />
+        
+        <title>Salesforce B2B Commerce</title>
+
+        <style>
+            /* required to give the component width/height and make it visible to test framework */
+            :root {
+                --lwc-borderWidthThin: 1px;
+            }
+            webruntime-app {
+                display: block;
+            }
+        </style>
+        
+        <script type="text/javascript" nonce="84c6d1d5-3804-4eca-a669-d31c7b31237d">!function(){const e={documentCreateElement:Document.prototype.createElement,elementSetAttribute:Element.prototype.setAttribute,elementAttachShadow:Element.prototype.attachShadow,elementAppendChild:Element.prototype.appendChild,htmlelementAddEventListener:Element.prototype.addEventListener,iframeContentDocumentGet:Object.getOwnPropertyDescriptor(HTMLIFrameElement.prototype,"contentDocument").get,iframeContentWindowGet:Object.getOwnPropertyDescriptor(HTMLIFrameElement.prototype,"contentWindow").get};Object.freeze(e),Object.defineProperty(window,"originalDomApis",{writable:!1,value:e});const t=window.frames;Object.defineProperty(window,"frames",{get:function(){const e=[];for(let n=0;n<t.length;n++)try{t[n].frameElement.getRootNode().nodeType===Node.DOCUMENT_FRAGMENT_NODE||e.push(t[n])}catch(o){e.push(t[n])}return e.length===t.length?t:e}})}();</script>
+        <script type="text/javascript" nonce="84c6d1d5-3804-4eca-a669-d31c7b31237d">!function(){"use strict";window.isBrowserSupportedByWebruntime=function(){const n="performance"in window&&"mark"in window.performance,e="customElements"in window;return n&&e}()}();
+</script>
+        <script type="text/javascript" nonce="84c6d1d5-3804-4eca-a669-d31c7b31237d">globalThis.LWR = globalThis.LWR || {};
+globalThis.LWR.customInit = (lwr) => {
+
+        LWR.define('@app/apexApiBasePath', [], function() { return "webruntime/api"; });
+        LWR.define('@app/apiBasePath', [], function() { return "webruntime/api"; });
+        LWR.define('@app/basePath', [], function() { return ""; });
+        LWR.define('@app/deployTarget', [], function() { return null; });
+        LWR.define('@app/guestUuidCookieName', [], function() { return null; });
+        LWR.define('@app/isDesignMode', [], function() { return false; });
+        LWR.define('@app/isPreviewMode', [], function() { return false; });
+        LWR.define('@app/routes', [], function() { return [{"label":"Too Many Requests","isPublic":true,"viewId":"2b9a8ddb-8842-4527-8db0-605a4267f432","hasVanityURL":false,"patternMap":{},"id":"9bebfdc1-82b2-4593-bb00-7f1c2051480c","path":"/toomanyrequests.html","view":"tooManyRequests","isRoot":true,"isDefault":true,"page":{"type":"comm__namedPage","attributes":{"name":"Too_Many_Requests"}}}]; });
+        LWR.define('@app/uiBasePath', [], function() { return ""; });
+        LWR.define('@app/versionKey', [], function() { return "0DBMU0000004CE8:2480"; });
+        LWR.define('@app/viewToThemeLayoutMap', [], function() { return {"tooManyRequests":"snaThemeLayout"}; });
+        LWR.define('@salesforce/i18n/lang', [], function() { return "en_US"; });
+        LWR.define('@salesforce/site/Id', [], function() { return "0DMMU0000004CMT4A2"; });
+lwr.define("webruntime/dispatcher", [], function(){ return function o11yDipatcherInit(dispatcher) { typeof lwr !== 'undefined' && lwr.attachDispatcher(dispatcher); };});
+LWR.define('@salesforce/user/Id', ['@app/user'], function(m) { return (m && typeof m === 'object' && 'default' in m ? m.default : m)['id'] });
+LWR.define('@salesforce/user/isGuest', ['@app/user'], function(m) { return (m && typeof m === 'object' && 'default' in m ? m.default : m)['isGuest'] });
+lwr.initializeApp();
+globalThis.process = { env: { NODE_ENV: "dev" } };};</script>
+        <script type="text/javascript" nonce="84c6d1d5-3804-4eca-a669-d31c7b31237d">globalThis.LWR = globalThis.LWR || {};
+Object.assign(globalThis.LWR, {
+  "bootstrapModule": "@lwrjs/app-service/communities_app/module/amd/v/0_10_11",
+  "autoBoot": false,
+  "rootComponents": [
+    "webruntime/app/v/1"
+  ],
+  "requiredModules": [
+    "lwc/v/3_0_4",
+    "@lwrjs/app-service/communities_app/module/amd/v/0_10_11"
+  ],
+  "importMappings": {
+    "default": "webruntime/component/latest/prod/en_US/",
+    "imports": {
+      "/webruntime/component/latest/prod/en_US/lwc": "webruntime/framework/9c1fab0c3c/prod/lwr_lwc",
+      "@app/csrfToken": "webruntime/module/@app/csrfToken",
+      "@app/user": "webruntime/module/@app/user",
+      "@perm/": "webruntime/perm/",
+      "@salesforce/client/formFactor": "webruntime/module/@salesforce/client/formFactor",
+      "@salesforce/featureFlag/": "webruntime/module/@salesforce/featureFlag/",
+      "@salesforce/user/Id": "webruntime/module/@salesforce/user/Id",
+      "@salesforce/user/isGuest": "webruntime/module/@salesforce/user/isGuest",
+      "@salesforce/userPermission/": "webruntime/perm/",
+      "@udd/": "webruntime/module/@udd/",
+      "@view/snaThemeLayout": "webruntime/view/864b93a61ceabb9b23fa176677c8fede/prod/en_US/snaThemeLayout_view",
+      "@view/tooManyRequests": "webruntime/view/2838658205a5764a5a4dee17be19a0b9/prod/en_US/tooManyRequests_view",
+      "mobileruntime/hybridAppManager": "webruntime/framework/67e285a0d7/prod/lwr_mobile",
+      "o11y/collectors": "webruntime/component/d76853d91cc69c86af9798d9d20d6a51/prod/en_US/o11y/collectors_cmp",
+      "o11y/simple_collector": "webruntime/component/af44d16fbf77952a80ee66b92d2437df/prod/en_US/o11y/simple_collector_cmp"
+    }
+  }
+});</script>
+        <script src="webruntime/framework/5d828c2b28/prod/lwr_loader"></script>
+        <script src="webruntime/framework/aa9bf7ccbe/prod/lwr_bootstrap"></script>
+        <script src="webruntime/framework/9c1fab0c3c/prod/lwr_lwc"></script>
+        <script src="webruntime/framework/abe1d3a328/prod/lwr_app"></script>
+        <script type="text/javascript" nonce="84c6d1d5-3804-4eca-a669-d31c7b31237d">LWR.define('lwc', ['lwc/v/3_0_4'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script type="text/javascript" nonce="84c6d1d5-3804-4eca-a669-d31c7b31237d">
+        LWR.define('@app/authenticationCookieName', [], function() { return "__Secure-has-sid"; });
+        LWR.define('@app/extraRouteParams', [], function() { return {}; });
+        LWR.define('@app/isMobileAppMode', [], function() { return false; });
+        LWR.define('@app/loginPath', [], function() { return null; });
+        LWR.define('@app/user', [], function() { return {"isGuest":true,"id":null,"csrfToken":null}; });</script>
+        <script type="text/javascript" nonce="84c6d1d5-3804-4eca-a669-d31c7b31237d">LWR.define('@app/apiBasePath/v/1', ['@app/apiBasePath'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script type="text/javascript" nonce="84c6d1d5-3804-4eca-a669-d31c7b31237d">LWR.define('@app/authenticationCookieName/v/1', ['@app/authenticationCookieName'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script type="text/javascript" nonce="84c6d1d5-3804-4eca-a669-d31c7b31237d">LWR.define('@app/basePath/v/1', ['@app/basePath'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script type="text/javascript" nonce="84c6d1d5-3804-4eca-a669-d31c7b31237d">LWR.define('@app/csrfToken/v/1', ['@app/csrfToken'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script type="text/javascript" nonce="84c6d1d5-3804-4eca-a669-d31c7b31237d">LWR.define('@app/deployTarget/v/1', ['@app/deployTarget'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script type="text/javascript" nonce="84c6d1d5-3804-4eca-a669-d31c7b31237d">LWR.define('@app/isDesignMode/v/1', ['@app/isDesignMode'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script type="text/javascript" nonce="84c6d1d5-3804-4eca-a669-d31c7b31237d">LWR.define('@app/isMobileAppMode/v/1', ['@app/isMobileAppMode'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script type="text/javascript" nonce="84c6d1d5-3804-4eca-a669-d31c7b31237d">LWR.define('@app/isPreviewMode/v/1', ['@app/isPreviewMode'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script type="text/javascript" nonce="84c6d1d5-3804-4eca-a669-d31c7b31237d">LWR.define('@app/o11yApiEndpoint/v/1', ['@app/o11yApiEndpoint'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script type="text/javascript" nonce="84c6d1d5-3804-4eca-a669-d31c7b31237d">LWR.define('@app/o11yConfiguration/v/1', ['@app/o11yConfiguration'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script type="text/javascript" nonce="84c6d1d5-3804-4eca-a669-d31c7b31237d">LWR.define('@app/o11yFalconEnabled/v/1', ['@app/o11yFalconEnabled'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script type="text/javascript" nonce="84c6d1d5-3804-4eca-a669-d31c7b31237d">LWR.define('@app/o11yGuestToken/v/1', ['@app/o11yGuestToken'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script type="text/javascript" nonce="84c6d1d5-3804-4eca-a669-d31c7b31237d">LWR.define('@app/o11ySamplingRate/v/1', ['@app/o11ySamplingRate'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script type="text/javascript" nonce="84c6d1d5-3804-4eca-a669-d31c7b31237d">LWR.define('@app/uiBasePath/v/1', ['@app/uiBasePath'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script type="text/javascript" nonce="84c6d1d5-3804-4eca-a669-d31c7b31237d">LWR.define('@app/user/v/1', ['@app/user'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script type="text/javascript" nonce="84c6d1d5-3804-4eca-a669-d31c7b31237d">LWR.define('@app/versionKey/v/1', ['@app/versionKey'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script type="text/javascript" nonce="84c6d1d5-3804-4eca-a669-d31c7b31237d">LWR.define('@salesforce/i18n/lang/v/1', ['@salesforce/i18n/lang'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script type="text/javascript" nonce="84c6d1d5-3804-4eca-a669-d31c7b31237d">LWR.define('@salesforce/site/Id/v/1', ['@salesforce/site/Id'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script type="text/javascript" nonce="84c6d1d5-3804-4eca-a669-d31c7b31237d">LWR.define('webruntime/dispatcher/v/1', ['webruntime/dispatcher'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script src="webruntime/view/2838658205a5764a5a4dee17be19a0b9/prod/en_US/tooManyRequests_view"></script>
+        <script src="webruntime/view/864b93a61ceabb9b23fa176677c8fede/prod/en_US/snaThemeLayout_view"></script>
+        <link rel="icon" href="sfsites/c/cms/delivery/media/MCV32JS7ERSFGRZJSADVUCWNSKKM?width=32&height=32">
+        <link rel="apple-touch-icon" href="sfsites/c/cms/delivery/media/MCV32JS7ERSFGRZJSADVUCWNSKKM?width=180&height=180"><style type="text/css" id="webruntime-branding">:root{--dxp-g-success:#58bb62;--dxp-g-brand:rgb(253, 195, 0);--dxp-s-text-heading-medium-letter-spacing:0em;--dxp-s-text-heading-small-text-decoration:none;--dxp-s-dropdown-text-color:var(--dxp-g-root-contrast);--dxp-s-text-heading-extra-large-line-height:1.25;--dxp-s-button-large-font-size:1.25rem;--dxp-g-warning-contrast-3:#fff;--dxp-s-button-small-radius-border:4px;--dxp-s-body-font-size:1rem;--dxp-s-dropdown-color-background:var(--dxp-g-root);--dxp-s-body-small-text-decoration:none;--dxp-s-text-heading-large-line-height:1.25;--dxp-g-neutral-contrast-3:#ffffff;--dxp-s-button-color-hover:rgb(252, 194, 0);--dxp-s-text-heading-medium-text-transform:none;--dxp-g-neutral-contrast-2:#000000;--dxp-g-neutral-contrast-1:#000000;--dxp-s-button-font-size:1rem;--dxp-s-button-letter-spacing:0em;--dxp-s-button-color-focus-contrast:#000;--dxp-g-warning-contrast-2:#fff;--dxp-g-warning-contrast-1:#000;--dxp-s-link-text-color-1:rgb(0, 0, 0);--dxp-g-info:#16325c;--dxp-g-root:#ffffff;--dxp-g-root-contrast-1:rgb(8, 8, 8);--dxp-g-root-contrast:#1c1c1c;--dxp-g-root-contrast-2:rgb(0, 0, 0);--dxp-g-root-contrast-3:rgb(0, 0, 0);--dxp-s-header-content-max-width:1800px;--dxp-s-section-columns-max-width:1800px;--dxp-s-button-text-transform:none;--dxp-s-body-line-height:1.5;--dxp-s-body-text-decoration:none;--dxp-s-section-content-spacing-inline-end-mobile:0.75rem;--dxp-s-body-text-transform:none;--dxp-s-text-heading-medium-font-style:normal;--dxp-g-warning-2:rgb(145, 111, 15);--dxp-g-warning-3:rgb(34, 26, 3);--dxp-s-form-element-color-border:var(--dxp-g-neutral-3);--dxp-g-warning-1:rgb(219, 167, 22);--dxp-s-header-content-max-width-mobile:none;--dxp-s-text-heading-large-letter-spacing:0em;--dxp-s-body-font-style:normal;--dxp-s-body-letter-spacing:0em;--dxp-g-warning-contrast:#000;--dxp-s-body-small-font-style:normal;--dxp-s-text-heading-small-font-style:normal;--dxp-s-text-heading-medium-line-height:1.25;--dxp-s-column-spacer-size:1rem;--dxp-s-text-heading-extra-large-letter-spacing:0em;--dxp-s-text-heading-large-text-transform:none;--dxp-s-text-heading-large-font-size:1.875rem;--dxp-s-text-heading-small-color:var(--dxp-g-root-contrast);--dxp-s-section-content-spacing-block-start:1rem;--dxp-s-html-font-size-mobile:14px;--dxp-s-section-content-spacing-inline-end:1rem;--dxp-s-body-small-font-weight:400;--dxp-s-button-font-family:Salesforce Sans;--dxp-s-form-element-color-background:rgb(255, 255, 255);--dxp-g-offline-3:#000000;--dxp-g-offline-2:#070707;--dxp-g-offline-1:#303030;--dxp-s-button-font-weight:400;--dxp-s-body-font-weight:400;--dxp-s-body-small-line-height:1.25;--dxp-g-offline:#444444;--dxp-s-button-small-font-size:0.75rem;--dxp-s-text-heading-extra-large-text-decoration:none;--dxp-s-button-radius-border:4px;--dxp-g-success-contrast:#000;--dxp-s-text-heading-small-font-size:1.125rem;--dxp-s-button-font-style:normal;--dxp-s-body-small-text-transform:none;--dxp-g-brand-contrast-1:rgb(214, 218, 208);--dxp-s-component-wrapper-spacer-size-mobile:1.5rem;--dxp-s-text-heading-small-line-height:1.25;--dxp-s-section-content-spacing-block-end:1rem;--dxp-g-brand-contrast-3:rgb(114, 124, 98);--dxp-s-button-color-hover-contrast:#000;--dxp-g-brand-contrast-2:rgb(174, 182, 163);--dxp-g-brand-1:rgb(212, 164, 0);--dxp-g-brand-2:rgb(131, 101, 0);--dxp-g-warning:#ffb75d;--dxp-g-success-3:rgb(9, 21, 10);--dxp-g-brand-3:rgb(8, 6, 0);--dxp-g-success-2:rgb(44, 108, 51);--dxp-g-success-1:rgb(68, 166, 78);--dxp-s-link-text-color-hover:rgb(253, 195, 0);--dxp-s-text-heading-small-font-family:Salesforce Sans;--dxp-s-column-spacer-size-mobile:0.75rem;--dxp-g-offline-contrast-3:#ffffff;--dxp-s-text-heading-large-font-style:normal;--dxp-g-offline-contrast-2:#ffffff;--dxp-g-info-contrast-3:#fff;--dxp-s-body-small-font-size:0.75rem;--dxp-g-destructive-1:#a2302b;--dxp-s-button-color-active:rgb(252, 194, 0);--dxp-s-text-heading-small-text-transform:none;--dxp-g-offline-contrast-1:#ffffff;--dxp-s-section-content-spacing-inline-start-mobile:0.75rem;--dxp-s-section-content-spacing-block-end-mobile:1rem;--dxp-g-info-contrast:#fff;--dxp-s-html-font-size:14px;--dxp-s-body-font-family:Salesforce Sans;--dxp-s-link-text-color:rgb(0, 0, 0);--dxp-s-link-text-decoration-focus:underline;--dxp-g-destructive-2:#611d1a;--dxp-g-neutral:#ecebea;--dxp-g-destructive-3:#010000;--dxp-g-info-contrast-1:#fff;--dxp-s-dropdown-text-color-hover:var(--dxp-g-neutral-contrast);--dxp-g-info-contrast-2:#fff;--dxp-s-text-heading-extra-large-font-family:Salesforce Sans;--dxp-s-form-element-label-color:var(--dxp-g-root-contrast);--dxp-s-text-heading-large-font-family:Salesforce Sans;--dxp-s-text-heading-extra-large-font-weight:300;--dxp-s-text-heading-medium-text-decoration:none;--dxp-s-text-heading-extra-large-font-style:normal;--dxp-s-button-large-padding:1.25rem;--dxp-s-text-heading-small-font-weight:300;--dxp-s-text-heading-large-font-weight:300;--dxp-g-info-2:rgb(0, 47, 88);--dxp-s-form-element-text-color:var(--dxp-g-root-contrast);--dxp-g-destructive-contrast:#ffffff;--dxp-g-info-3:rgb(0, 0, 0);--dxp-s-text-heading-medium-font-weight:300;--dxp-g-info-1:rgb(0, 90, 169);--dxp-g-destructive-contrast-1:#ffffff;--dxp-g-neutral-contrast:#000000;--dxp-s-dropdown-color-background-hover:rgb(234, 236, 231);--dxp-g-destructive-contrast-2:#ffffff;--dxp-g-root-1:#ebebeb;--dxp-g-destructive-contrast-3:#ffffff;--dxp-g-root-2:#c2c2c2;--dxp-s-section-content-spacing-inline-start:1rem;--dxp-g-root-3:#858585;--dxp-s-button-color-1:rgb(214, 218, 208);--dxp-s-body-text-color:var(--dxp-g-root-contrast);--dxp-s-footer-content-max-width-mobile:none;--dxp-g-brand-contrast:rgb(234, 236, 231);--dxp-s-button-color:rgb(234, 236, 231);--dxp-s-form-element-width-border:1px;--dxp-g-neutral-3:#76716b;--dxp-s-body-small-text-color:var(--dxp-g-root-contrast);--dxp-g-neutral-2:#b2aeaa;--dxp-s-text-heading-extra-large-color:var(--dxp-g-root-contrast);--dxp-g-neutral-1:#d9d7d5;--dxp-s-button-color-active-contrast:#000;--dxp-g-success-contrast-3:#fff;--dxp-g-success-contrast-2:#fff;--dxp-s-button-line-height:2;--dxp-s-text-heading-extra-large-font-size:2.5rem;--dxp-s-button-large-radius-border:4px;--dxp-g-success-contrast-1:#000;--dxp-s-form-element-radius-border:4px;--dxp-s-component-wrapper-spacer-size:1.5rem;--dxp-s-link-text-decoration:none;--dxp-s-text-heading-medium-font-size:1.25rem;--dxp-g-destructive:#c23934;--dxp-s-dropdown-color-border:rgb(0, 0, 0);--dxp-s-button-color-contrast:#000;--dxp-s-section-columns-max-width-mobile:none;--dxp-g-offline-contrast:#ffffff;--dxp-s-text-heading-medium-color:var(--dxp-g-root-contrast);--dxp-s-button-small-padding:0.75rem;--dxp-s-text-heading-large-color:var(--dxp-g-root-contrast);--dxp-s-text-heading-large-text-decoration:none;--dxp-s-link-text-decoration-hover:underline;--dxp-s-button-color-focus:rgb(234, 236, 231);--dxp-s-button-padding:0.875rem;--dxp-s-text-heading-medium-font-family:Salesforce Sans;--dxp-s-footer-content-max-width:1800px;--dxp-s-body-small-font-family:Salesforce Sans;--dxp-s-text-heading-small-letter-spacing:0em;--dxp-s-body-small-letter-spacing:0em;--dxp-s-section-content-spacing-block-start-mobile:1rem;--dxp-s-text-heading-extra-large-text-transform:none;}</style> <!-- General -->
+<link rel="shortcut icon" href="assets/favicon.ico?0DBMU0000004CE8:2480">
+<link rel="stylesheet" href="assets/css/font-awesome.css?0DBMU0000004CE8:2480">
+<link rel="stylesheet" href="assets/css/theme.css?0DBMU0000004CE8:2480">
+
+
+<!-- webruntime-branding-shared stylesheets -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="assets/styles/salesforce-lightning-design-system.min.css?0DBMU0000004CE8:2480" />
+<link rel="stylesheet" href="assets/styles/dxp-site-spacing-styling-hooks.min.css?0DBMU0000004CE8:2480" />
+<link rel="stylesheet" href="assets/styles/dxp-styling-hooks.min.css?0DBMU0000004CE8:2480" />
+<link rel="stylesheet" href="assets/styles/dxp-slds-extensions.min.css?0DBMU0000004CE8:2480" />
+<link rel="stylesheet" href="assets/themes/alpine.css?0DBMU0000004CE8:2480" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" >
+
+
+<!-- webruntime-branding-shared stylesheets -->
+
+<style >
+    :root{
+        --snp-theme-clr-yellow:#FDC300;
+        --snp-clr-white:#ffffff;
+        --snp-clr-black:#000000;
+        --snp-clr-geygreen:#EAECE7;
+        --dxp-g-brand:#FDC300 !important;
+        --sun-power-font:'SunFont';
+
+    }
+
+    
+     /*-----------------@ Author krishnamurthy Donta (profile icon)--------*/
+    .my-account-icon-slot svg {
+        fill: var(--snp-theme-clr-yellow) !important;
+    }
+    
+    .my-account-icon-slot p {
+          color: var(--snp-theme-clr-yellow) !important;
+    }
+    
+    
+    /*---------model pop icon "x" ------------*/
+    .slds-icon_container lightning-primitive-icon {
+		fill:white;
+    }
+    
+ /* @font-face {
+    font-family:'SunFont';
+    src: url('/sfsites/c/resource/CENTURYGOTHIC/century-gothic-grassetto.ttf') format('TrueType');
+}
+  /*  *{
+         font-family:'SunFont';
+     }*/
+    
+
+/*--------------------------------------------@Author Aditya GLOBAL CONTAINER CSS START HERE---------------------------------------------*/
+    .custom-container{
+        max-width:100%;
+        width:100%;
+        margin: 0 auto;
+        padding:0 16px;
+    }
+    @media only screen and (min-width: 576px) {
+        .custom-container{
+            max-width:550px;
+            padding:0 8px;
+        }
+    }
+
+    @media only screen and (min-width: 768px) {
+        .custom-container{
+            max-width:730px;
+            padding:0 8px;
+        }
+    }
+
+    @media only screen and (min-width: 992px) {
+        .custom-container{
+            max-width:970px;
+            padding:0 8px;
+        }
+    }
+
+    @media only screen and (min-width: 1200px) {
+        .custom-container{
+            max-width:1150px;
+            padding:0 8px;
+        }
+    }
+
+    @media only screen and (min-width: 1400px) {
+        .custom-container{
+            max-width:1330px;
+            padding:0 8px;
+        }
+    }
+
+
+    
+/*--------------------------------------------@Author Aditya GLOBAL CONTAINER CSS ENDS HERE---------------------------------------------*/    
+    
+/*-----------------------HOME PAGE @author-Aditya Lenka -----START HERE----------------*/
+        .about-us-slot-wrapper slot[name="aboutUsStandardButton"] a{
+    		padding: 0.181rem 1.588rem;
+			}
+    .homepage-img-txt .explore-more-para{
+        line-height:2.8rem;
+    }
+/*-----------------------HOME PAGE @author-Aditya Lenka -------END HERE--------------*/
+    
+ 
+
+ 
+   /*Overrides Standard My Account Icon Styling*/    
+.standard-profile-menu-component-slot slot[name="StandardProfileMenuComponent"] button.menu-button {
+    border: none;
+    background: transparent;
+    color: white;
+    outline: none;
+}
+
+.standard-profile-menu-component-slot slot[name="StandardProfileMenuComponent"] button.menu-button:focus {
+	box-shadow:none;
+}
+
+.standard-profile-menu-component-slot slot[name="StandardProfileMenuComponent"] button.menu-button+div.dropdown-ctn>ul {
+    padding: 0;
+}
+.standard-profile-menu-component-slot slot[name="StandardProfileMenuComponent"] button.menu-button+div.dropdown-ctn>ul>li>a:hover {
+    color: var(--snp-clr-balck);
+    text-decoration: underline;
+      background-color: #eaece7;
+}
+
+.standard-profile-menu-component-slot slot[name="StandardProfileMenuComponent"] button.menu-button+div.dropdown-ctn>ul>li>a>span {
+    color: var(--snp-clr-balck);
+}
+
+.standard-profile-menu-component-slot slot[name="StandardProfileMenuComponent"] button.menu-button svg[data-key="user"] {
+    height: 20px !important;
+    width: 20px !important;
+}
+ /*Overrides Standard My Account Icon Styling Ends Here*/  
+   
+  [data-component-id="section-87ca"] .slds-button:hover {
+        color:black !important;
+        background-color: #fdc300 !important;
+    }
+   [data-component-id="button-b2af"] .slds-button {
+        width: 7.6rem !important;
+        height: 2.3rem !important;
+        background-color: #EAECE7 !important;
+        border-radius: 3.7px !important;
+    }
+    
+    [data-component-id="textBlock-91ef"] .dxp_base-textBlock_textBlock {
+      		line-height:34pt !important;
+    }
+    [data-component-id="button-b2af"] .slds-button:hover {
+        color:black !important;
+        background-color: #fdc300 !important;
+    }
+   /*   [data-component-id="snp_Recommendation_comp-7c4e"] .slds-button {
+        width: 7.6rem !important;
+        height: 2.3rem !important;
+        background-color: #EAECE7 !important;
+        border-radius: 3.7px !important;
+    }*/
+    
+    
+    
+    .component-wrapper-spacer{
+        margin:0px !important;
+    }
+    [data-component-id="columns-a49d"] .component-wrapper-spacer {
+    margin: 0px !important;
+    padding-right: 10px !important;
+}
+    [data-component-id="section-c2f1"] .background-image-overlay {
+        padding:5px 0px 5px 0px !important;
+    }    
+    
+    [data-component-id="layoutSite-6c1e"] .webruntimedesign-componentWrapper_componentWrapper-host {
+        margin:0px !important;
+    }
+   [data-component-id="columns-a49d"] .component-wrapper-spacer {
+        margin:0px !important;
+    }
+    [data-component-id="layoutHeader-2400"] .commerce-layoutHeader_templateWithoutWishlistSlot {
+        padding:0px !important;
+    }
+    .comm-section-container {
+        padding:0px !important;
+    }
+    
+
+    
+  
+    
+
+    
+ 
+ 
+ 
+  
+    [data-component-id="snp_currencySelectorIoco-c42c"].component-wrapper-spacer{
+        margin:0 1.25rem 0 0 !important;
+      
+    }
+    [data-component-id="cartBadge-9451"]{
+        margin:0 1.25rem 0 0  !important;
+        
+    }
+    [data-component-id="textBlock-75f5"] >h2:hover{
+        color:#FDC300 !important;
+    }
+    
+    
+
+    
+
+
+/*Overrides ModelButton - @author-Ganesh*/
+    .slds-theme_warning[lightning-interactiveDialogBase_interactiveDialogBase], .slds-theme--warning[lightning-interactiveDialogBase_interactiveDialogBase] {
+        background-color: #fdc300 !important;
+    }
+    /*.slds-button_brand{
+        background-color:#f0f0f0 !important;
+        color: black !important;
+    } */
+    [data-component-id="snp_footer_Component-c46b"] .slds-button {
+    	padding: 1px 28px !important;
+        background: #eaece7 !important;
+    }
+    [data-component-id="snp_footer_Component-c46b"] .slds-button:hover {
+        color:black !important;
+        background-color: #fdc300 !important;
+    }
+    /*---------------- filters-sort by @author -Krishnamurthy Donta-----------------*/
+    .sortby-filters-wrapper button {
+        border:1px solid black !important ;
+    }
+    .sortby-filters-wrapper .slds-listbox{
+        color: black !important;
+        background-color: white !important;
+    }
+    .sortby-filters-wrapper h3 {
+        margin:0px !important;
+    }
+    .sortby-filters-wrapper [role="listbox"]>*[aria-checked="true"]{
+        background-color:#595959 !important;
+    }
+    .sortby-filters-wrapper [role="listbox"]>*:not(span):hover{
+        background-color:var(--snp-clr-geygreen)!important;
+        
+    }
+    .sortby-filters-wrapper [role="listbox"]>*[aria-checked="true"]>span:first-child {
+        visibility:hidden;
+    }
+    .sortby-filters-wrapper [role="listbox"]>*{
+        text-align:left !important;
+    }
+/*-----------------------Filter @author-Krishnamurthy Donat ---------------------*/
+    /* -- FOR CATEGOLY LINK HOVER UNDERLINE COLOR -@AUTHOR ADITYA---*/
+    .category-breadcrumb-wrapper slot[name="standardCategoryBreadCrumb"]  ol li a[href]{
+        text-decoration-color: var(--snp-theme-clr-yellow);
+    }
+    .category-breadcrumb-wrapper slot[name="standardCategoryBreadCrumb"]  ol{
+        margin-bottom: 1.3125rem;
+    }
+    /*----------END OF CATEGORY LINK UNDERLINE CSS---@AUTHOR ADITYA*/
+    /*-----------------------Filter @author-Krishnamurthy Donat ---------------------*/
+    
+    .filter-section .category-tree-section {
+        margin-top:0 !important;
+        padding-top:0 !important;
+    }
+    .filter-section .facets-section {
+        margin-top:0 !important;
+        padding-top:0 !important;
+    }
+    .filter-section .filters-title {
+	    color: transparent !important;
+	} 
+    .filter-section lightning-primitive-icon {
+        display:none !important;
+    }
+    .filter-section .expand-button {
+        display:none !important;
+    }
+    .filter-section .slds-checkbox_faux {
+        border:1px solid var(--snp-clr-black)!important;
+    }
+ 
+    
+    .product-tiles-wrapper .slds-button_brand {
+         background-color: var(--snp-clr-geygreen)!important;
+    }
+    
+
+    .filter-section h2 {
+     	padding: 0 2.0625rem !important;
+    	font-size: 1.25rem !important;
+    }
+    .filter-section .slds-form-element__label {
+	    margin: 0;
+    padding: 2px;
+    }
+    .filter-section .lwc-64711lksfdt {
+        padding: 0 2.25rem;
+    }
+    .filter-section .slds-checkbox_faux {
+            border-radius: 0 !important;
+    }
+ 
+    
+    .filters-header .clear-all > button {
+        font-size:0;
+    }
+    .filters-header .clear-all > button:hover {
+	   text-decoration-color:var(--snp-theme-clr-yellow) !important;
+        text-decoration:underline;
+	}
+    .filters-header .clear-all > button::before{
+        content:"Clear Filters";
+    	font-size: 1rem;
+    	letter-spacing: 0.1rem;
+        color:var(--snp-clr-black);
+    }
+    
+	.filter-section span [part="indicator"]::after {
+    border-color:var(--snp-clr-black)!important;
+    }
+   	.filter-section span [part="indicator"]:hover {
+    border-color: var(--snp-theme-clr-yellow)!important;
+    }
+    .product-tiles-wrapper-off button {
+    color:var(--snp-clr-black);
+    }
+     .product-tiles-wrapper .callToActionButton {
+        border-radius: 5px;
+        border: 1px solid var(--snp-clr-black);
+    }
+    .product-tiles-wrapper button {
+    color:var(--snp-clr-black);
+    }
+    .product-tiles-wrapper img {
+       object-fit: cover;
+    	max-width: 100%;
+    	aspect-ratio: 1/1;
+    }
+    .product-tiles-wrapper img:hover {
+     border:2px solid var(--snp-theme-clr-yellow)!important;   
+    }
+    .product-tiles-wrapper a {
+        text-decoration: none !important;
+    }
+    
+    .product-tiles-wrapper .cardContainerGrid .fieldsArea div:nth-child(2) div {
+            white-space: normal !important; 
+            display: -webkit-box !important;
+            -webkit-line-clamp: 3 !important;
+            -webkit-box-orient: vertical !important;
+            word-break: break-word !important;
+            word-spacing: 0.1rem !important;
+            font-size: 16px!important;
+            line-height: 1.8333rem !important;
+        	height:5.4375rem !important;
+        	margin:calc(10 / 16 * 1rem) 0 1.25rem 0 !important;
+    }
+    
+    .product-tiles-wrapper .cardContainerGrid .fieldsArea div:nth-child(1) div {
+    font-size : calc(18 / 16 * 1rem);}
+
+
+    .product-tiles-wrapper .cardContainerGrid .priceArea .negotiated-price{
+     font-size : calc(18 / 16 * 1rem);}
+
+    .product-tiles-wrapper .cardContainerGrid .priceArea .slds-align-bottom{
+    margin-bottom:calc(5 / 16 * 1rem);}
+
+    .product-tiles-wrapper-off .cardContainerGrid .fieldsArea div:nth-child(1) div {
+    font-size : calc(18 / 16 * 1rem);}
+
+
+    .product-tiles-wrapper-off .cardContainerGrid .priceArea .negotiated-price{
+     font-size : calc(18 / 16 * 1rem);}
+
+    .product-tiles-wrapper-off .cardContainerGrid .priceArea .slds-align-bottom{
+    margin-bottom:calc(5 / 16 * 1rem);}
+    
+    .product-tiles-wrapper-off .cardContainerGrid .fieldsArea div:nth-child(2) div {
+            white-space: normal !important; 
+            display: -webkit-box !important;
+            -webkit-line-clamp: 3 !important;
+            -webkit-box-orient: vertical !important;
+            word-break: break-word !important;
+            word-spacing: 0.1rem !important;
+            font-size: 16px!important;
+            line-height: 1.8333rem !important;
+        	height:5.4375rem !important;
+        	margin:calc(10 / 16 * 1rem) 0 1.25rem 0 !important;
+        
+    }
+    .product-tiles-wrapper-off .slds-button_brand {
+         background-color: var(--snp-clr-geygreen)!important;
+    }
+    .product-tiles-wrapper-off a {
+        text-decoration: none !important;
+    }
+    .product-tiles-wrapper-off img:hover {
+     border:2px solid var(--snp-theme-clr-yellow)!important;   
+    }
+    .product-tiles-wrapper-off img {
+            aspect-ratio: 1/1;
+    }
+     .product-tiles-wrapper-off .callToActionButton {
+        border-radius: 5px;
+        border: 1px solid black;
+    }
+    .product-tiles-wrapper.pageControlPart button:hover {
+    background-color:white !important;
+    border:1px solid var(--snp-theme-clr-yellow)!important;
+    }
+    .product-tiles-wrapper-off.pageControlPart button:hover {
+    background-color:white !important;
+    border:1px solid var(--snp-theme-clr-yellow)!important;
+    }
+    .product-tiles-wrapper .slds-button:hover {
+        color:var(--snp-clr-black)!important;
+        background-color: var(--snp-theme-clr-yellow)!important;
+    }
+    .product-tiles-wrapper-off .slds-button:hover {
+        color:var(--snp-clr-black)!important;
+        background-color: var(--snp-theme-clr-yellow)!important;
+    }
+    /* Override PDP carousal css @Author- Ganesh Wattamwar */
+    [data-component-id="snp_pdp_productImageCarousel-0466"] .slick-list{
+        Padding: 0 !important;
+    }
+    
+    /*--------------------  @krishnamurthy donta----filters tab mode --------------*/
+    @media screen and (max-width:1024px){
+        .filter-section .slds-button {
+            color : var(--snp-clr-black)!important;
+            padding :0 50px !important;
+            
+        }
+        .filter-section .slds-button:hover {
+            color : var(--snp-clr-black)!important;
+            background-color:var(--snp-theme-clr-yellow) !important;
+            
+        }
+    } 
+    
+
+    
+        /*-----------------------Filter & search "Model" changing from view cart to view basket @author- Krishnamurthy Donta---------------------*/
+    
+    .slds-modal__container div .slds-modal__header {
+        background-color: var(--snp-theme-clr-yellow) !important;
+    }
+    
+    .slds-modal__container .slds-modal__header {
+        background-color: var(--snp-theme-clr-yellow) !important;
+    }
+    
+    .slds-modal  .slds-modal__container .slds-modal__header h1::before {
+	content:'Item was added to Basket' ;
+	font-size : 16px ;
+	color:black;
+    }
+    
+    /*---the below line is specific to the checkout page model---*/
+    /*-Start-*/
+    [aria-description="Accessible description of modal's purpose"] .slds-modal__container .slds-modal__header h1::before {
+        content:"Add Shipping Address" !important;
+        font-size : 16px ;
+	color:black;
+    }
+    /*-End-*/
+
+    .slds-modal  .slds-modal__container .slds-modal__header h1{
+        font-size:0;
+    }
+    
+    .slds-modal  .slds-modal__container .slds-modal__content button[aria-label='Continue Shopping'] {
+	color:black;
+	border : 1px solid black !important;
+        background-color: #eaece7 !important;
+    }
+    .slds-modal  .slds-modal__container .slds-modal__content button[aria-label='Continue Shopping']:hover {
+        color:black;
+        background-color : var(--snp-theme-clr-yellow) !important ;
+
+    }
+
+    .slds-modal  .slds-modal__container .slds-modal__content button[aria-label='View Cart'] {
+        font-size : 0;
+        border : 1px solid black !important;
+    }
+    .slds-modal  .slds-modal__container .slds-modal__content button[aria-label='View Cart']:hover {
+        background-color:var(--snp-theme-clr-yellow);
+        color:black ;	
+    }
+
+
+    .slds-modal  .slds-modal__container .slds-modal__content button[aria-label='View Cart']::before {
+        content:'View Basket' ;
+        font-size : 16px ;
+        color:black;
+    }
+    
+    /*-----------------------Filter mobile view @author- Krishnamurthy Donta---------------------*/
+            .product-tiles-wrapper .slds-modal__container {
+            margin:0px !important;
+        }
+        .product-tiles-wrapper .slds-modal__content_has-hidden-footer {
+            box-shadow:none !important;
+        padding-top: 25px !important;
+        padding-bottom: 25px !important;
+        }
+        .product-tiles-wrapper .slds-scrollable {
+            width:100% !important;
+            height:77vh !important ;
+            overflow:hidden !important ;
+            overflow-y :scroll !important;
+        }
+        .product-tiles-wrapper #modal-content-259 {
+        height: 100% !important;
+        }
+        .product-tiles-wrapper .slds-modal__container {
+        padding:0px !important;
+        background-color:white !important;
+        }
+        @media screen and (max-width:768px) {
+            .product-tiles-wrapper figure {
+                margin:0!important;
+            }
+            .product-tiles-wrapper h2 {
+                font-size: 16px !important;
+                margin: 0 !important;
+                padding:0 !important;
+            }
+            .product-tiles-wrapper .commerce_search-inputFacet_inputFacet {
+                padding: 0 17px !important;
+            }
+            .product-tiles-wrapper .facets-section {
+                padding: 0 !important;
+                 margin: 0 !important;
+            }
+        }
+/* Override bredcrum css @Author- Harshvardhan T */
+    [data-component-id="breadcrumbs-b5dd"] nav{
+        margin-top: 10px !important;
+    }
+     /*--------------- @krishnamurthy --> currency Selector------------*/
+    [data-component-id="snp_currencySelectorIoco-a801"] .slds-icon {
+        fill:white !important;
+    }
+    
+/* Override PDP product detail css @Author- Ganesh Wattamwar*/
+    [data-component-id="textBlock-1e0d"] .dxp_base-textBlock_textBlock{
+        display:none !important;
+    } 
+    [data-component-id="variantSelector-5ee1"] abbr{
+        display: none !important;
+    }
+    
+    [data-component-id="textBlock-675e"] .slds-grid{
+        display: none !important;
+    }
+    
+    [data-component-id="productFieldsTable-9ab9"] .slds-cell-wrap{
+        padding: 0 !important;
+	} 
+    [data-component-id="productFieldsTable-9ab9"] .slds-table{
+        width: 295px !important;
+    }
+    [data-component-id="purchaseOptions-0030"] .commerce_product_details-addToCartButton_addToCartButton{
+        height: 38px !important;
+        background-color: var(--snp-clr-geygreen)!important;
+    }
+    
+    [data-component-id="purchaseOptions-0030"] .commerce_product_details-addToCartButton_addToCartButton:disabled{
+        height: 38px !important;
+        background-color: white !important;
+    }
+    [data-component-id="purchaseOptions-0030"] .commerce_product_details-addToCartButton_addToCartButton:disabled:hover{
+        height: 38px !important;
+        background-color: white !important;
+    }
+    [data-component-id="purchaseOptions-0030"] button{
+        border: 1px black solid !important;
+        border-radius: 3px !important;
+    }
+    [data-component-id="purchaseOptions-0030"] input{
+        border-top: 1px black solid !important;
+        border-bottom: 1px black solid !important;
+        border-radius: 0 !important;
+    }
+    [data-component-id="purchaseOptions-0030"] .commerce_product_details-addToCartButton_addToCartButton:hover{
+        background-color:var(--snp-theme-clr-yellow)!important;
+    }
+    
+    
+    
+    [data-component-id="variantSelector-5ee1"] select{
+        border-radius: 3.7px !important;
+    }
+    [data-component-id="variantSelector-5ee1"] select:hover{
+        border : 1px solid #fdc300 !important;
+        border-radius: 3.7px !important;
+    }
+    [data-component-id="productFieldsTable-9ab9"] .slds-border_bottom{
+        border-bottom: 0 solid white !important;
+    }
+    [id="modal-content-91"] button.commerce_builder-purchaseOptions_purchaseOptions:hover{
+        background-color: #fdc300 !important;
+    }
+    
+    /* Override PDP product detail css @Author- Ganesh Wattamwar*/
+    [data-component-id="snp_footer_Component-bbf6"] .slds-button:hover{
+        background-color: #fdc300  !important;
+    }
+    
+     /*------------------@Author Krishnamurthy, for-> ProductAdditionalInformation ---------------------*/
+   
+     .Download-wrapper .Download-contant-wrapper a {
+        color:var(--snp-clr-black) !important;
+        font-family:SunFont !important;
+    }
+    .Download-wrapper .Download-contant-wrapper a:hover {
+        color:var(--snp-theme-clr-yellow)!important;
+        font-family:SunFont !important;
+    }
+    .Download-wrapper .Download-contant-wrapper li {
+        width:100% !important;
+        padding:0.5rem 1.5rem !important;
+    }
+
+    
+        /*------------------@Author Krishnamurthy, --> cart ---------------------*/
+            /*--Cart summary Stickey - --*/
+                [data-component-id="sNP_Cart_Summary-23e1"]  {
+                    display: block !important;
+                position: sticky !important;
+                top: 125px !important;
+                }
+            /*--End --*/
+
+    .product-cart-page .main_actions_remove {
+        color: var(--snp-clr-black) !important ;
+        border:none !important;
+    }
+    /*----@Auther---krishnamurthy donta ----this below line is to hide the blue spinner in the cart page  */
+    [data-component-id="section-e138"] .slds-spinner_container .slds-spinner{
+        display: none !important;
+    }
+   
+    .product-cart-page .main_actions_remove:hover{
+        color:var(--snp-theme-clr-yellow)!important;
+        text-decoration:underline !important;
+        border:none !important;
+    }
+
+    .checkout-button-wrapper .slds-button_brand {
+        border:1px solid var(--snp-clr-black) !important;
+    }
+    .product-cart-page .items button[part] {
+        color:var(--snp-clr-black) !important;
+        border:none !important;
+    }
+    .product-cart-page .items button[part]:hover {
+        text-decoration-color:var(--snp-theme-clr-yellow)!important;
+        text-decoration:underline;
+        border:none !important;
+    }
+
+    .product-cart-page .lwc-4b2blbsh91f header {
+        padding:20px !important;
+        position: sticky;
+        top: 120px;
+        background: white;
+        z-index: 1;
+    }
+
+    .product-cart-page .lwc-4b2blbsh91f header h3:hover{
+        text-decoration: underline;
+        text-decoration-color: var(--snp-theme-clr-yellow)!important;
+    }
+    
+    @media only screen and (max-width: 1024px) {
+        .product-cart-page .lwc-26kv81bckgr .lwc-1noralhrh9q-host {
+            margin:0 20px !important;
+        }	
+    }
+
+     /*------------------@Author Krishnamurthy Donta, -->  Search  ---------------------*/
+    .no-search-page-button .slds-button_brand {
+        border:1px solid black !important;
+        color:black !important;
+    }
+    
+   /*------------------@Author Aditya, --> Order History ---------------------*/
+  	div.commerce_my_account-orders_orders .commerce_my_account-order_order .three-column-layout {
+    width: 25%;
+    font-size: 0.9rem;
+	}
+    
+    .order-list-wrapper button.slds-button {
+        border:1px solid black;
+    	color:black;
+    }
+    .order-list-wrapper button.slds-button_icon[title],
+    .order-list-wrapper button.slds-button[title="Reset"] ,
+    .order-list-wrapper button.slds-button[aria-expanded] {
+        border:none;
+    }
+    .order-list-wrapper [role='grid'] [role='row'] div.slds-grid a{
+        color: var(--snp-clr-black);
+    }
+    .order-list-wrapper [role='grid'] [role='row'] div.slds-grid a:hover{
+        text-decoration-color:var(--snp-theme-clr-yellow);
+    }
+        
+   
+    
+    .order-list-wrapper .slds-button:focus{
+        box-shadow: none!important;
+    }
+    
+    @media screen and (max-width:768px){
+         [data-component-id="section-6b3c"] .commerce_cart-items_items-host {
+            height: auto !important;     
+       }
+        [data-component-id="b2bCartContents-ae91"] .commerce_builder-cartContents_cartContents {
+                 padding:10px !important;
+             }
+    [data-component-id="b2bCartContents-ae91"] .commerce_cart-header_header-host {
+        padding:10px !important;
+    }
+        
+    }
+    /*-------------------To Customise Modal Button Label From Cart To Basket cart page model popup-----------------*/
+    
+    
+        .slds-modal .slds-modal__container .slds-modal__header h2 {
+        font-size:0;
+        }
+
+        .slds-modal .slds-modal__container .slds-modal__header h2::before {
+            content:'Remove all items from your Basket ?' ;
+            font-size : 16px ;
+            color:black;
+        }
+        .slds-modal .slds-modal__container .slds-modal__content slot div.slds-grid > div:nth-child(2) > button {
+            font-size:0px;
+            border:1px solid black !important;
+        }
+        .slds-modal .slds-modal__container .slds-modal__content slot div.slds-grid > div:nth-child(2) > button::before {
+        content: "Clear Basket";
+        padding: 4px;
+        font-size: 16px;
+        line-height: 23px;
+
+        }
+        .slds-modal .slds-modal__container .slds-modal__content slot div.slds-grid > div:nth-child(1) > button {
+            background-color : #eaece7 !important;
+            color:black ;
+            border:1px solid black !important;
+        }
+        .slds-modal .slds-modal__container .slds-modal__content slot div.slds-grid > div:nth-child(1) > button:hover {
+            background-color : var(--snp-theme-clr-yellow) !important;
+            color:black ;
+        }
+    
+/*---------------pdp @Author Aditya------------------------*/
+    
+    .slds-button_icon-inverse [title="Cancel and close"]:hover{
+		background:#fdc300 !important;
+    }
+    .productName slot div:last-child{
+        display:none;
+    }
+    .productSKU > .product-sku-info > slot > [slot="SKU"] table[role="presentation"] tr {
+		display: flex;
+		gap: 20px;
+	}
+    .productSKU > .product-sku-info > slot > [slot="SKU"] table[role="presentation"] tr:hover > td{
+        background-color:var(--snp-clr-white);
+    }
+	.productSKU > .product-sku-info > slot > [slot="SKU"] table[role="presentation"] tr > td:first-child {
+		max-width: 100px;
+		width: 18%;
+	}
+    
+     .product-discount-details .pricing-tiers::-webkit-scrollbar {
+      height: 0.5rem;
+    }
+    .product-discount-details .pricing-tiers::-webkit-scrollbar-track {
+      background: var(--snp-clr-geygreen);
+    }
+    .product-discount-details .pricing-tiers::-webkit-scrollbar-thumb {
+      background-color: var(--snp-theme-clr-yellow);
+      border-radius: 5px;
+    }
+    
+    .pricing-tiers .adjustment-tiers-container{
+       /* flex-wrap: wrap;*/
+        overflow:unset !important;
+    	gap: 10px;
+    	justify-content: space-around;
+        padding-bottom:0.375rem;
+        padding-top: 0.125rem;
+    }
+    .pricing-tiers .adjustment-tiers-container .tier-row-title{
+        position: sticky;
+    	left: -1px;
+    	background: white;
+    	padding: 4px;
+    }
+    .commerce_builder-purchaseOptions_purchaseOptions .commerce_product_details-addQuantity_addQuantity:first-child {
+        padding: 0;
+    }
+	.commerce_product_details-addToCartButton_addToCartButton{
+    	background-color: #EAECE7 !important;
+	}
+	.commerce_product_details-addToCartButton_addToCartButton:hover{
+    	background-color: #fdc300!important;
+	}
+    button.commerce_product_details-addToCartButton_addToCartButton {
+        flex-grow: 0 !important;
+    }
+    .commerce-productPricing_productPricing > tbody {
+            display:flex ;
+            gap:1.25rem;
+     }
+    
+     .product-quantity-deatils .quantity-list-container button.slds-button_brand:is([disabled]):hover {
+            background-color: var(--snp-clr-white);
+     }
+     .product-quantity-deatils .quantity-list-container button.slds-button_brand:not([disabled]):hover {
+            background-color: var( --snp-theme-clr-yellow) !important;
+        }
+      .product-quantity-deatils .quantity-list-container .quantity-list-action .container button[aria-label="Add To Basket"].slds-button_brand:is([disabled]) {
+            background-color: var(--snp-clr-white);
+        }
+     .product-quantity-deatils .quantity-list-container .quantity-list-action .container button[aria-label="Add To Basket"].slds-button_brand:not([disabled]) {
+            background-color: var(--snp-clr-geygreen);
+        }
+    .product-quantity-deatils .quantity-list-container input {
+        background-color: var(--snp-clr-white); 
+        border-top: 1px solid var(--snp-clr-black);
+    	border-bottom: 1px solid var(--snp-clr-black);
+    }
+    .productPrice .product-price-details .price-container {
+	flex-direction: row-reverse;
+    min-width: 31%;
+    width: 31% !important;
+   /* min-width: 66%;
+    width: 66% !important;*/
+    justify-content:flex-end;
+        }
+    .product-discount-details slot[name='tierDiscount'] .pricing-tiers .tier{
+        padding: 0 0.438rem;
+     }
+    div.quantity-list-action .container{
+			padding:0;
+        }
+    @media only screen and (max-width: 48em){
+        div.quantity-list-action .container{
+            flex-direction: row;
+    		flex-wrap: wrap;
+        }
+		div.commerce_product_details-addQuantity_addQuantity {
+
+		}
+    	.commerce_product_details-addToCartButton_addToCartButton-host {
+            margin:0 !important;
+      	}
+
+        table.commerce-productPricing_productPricing {
+            justify-content: flex-start !important;
+        }
+        
+
+    }
+ /* Override PDP carousal css @Author- Ganesh Wattamwar */
+    .carousel-wrapper .inner-wrapper .slick-vertical .slick-list,.draggable{
+		padding: 0 !important;
+	}
+    
+    
+    /*----------------------------@Author Krishnamurthy, --> My account-------------------*/
+    .current-user-nav-wrapper a {
+        color:black !important;
+    }
+    .user-Detail .slds-card__body {
+        margin-bottom: 0px !important;
+    }
+    .user-Detail .slds-card {
+           box-shadow: none !important;
+   		   border: none !important;
+    }
+    .user-Detail .slds-button {
+        display:none    
+    }
+    .myprofile-password-wrapper .slds-button {
+        color: var(--snp-clr-black);
+    }
+    .myprofile-password-wrapper .slds-button:hover {
+        text-decoration: underline;
+        text-decoration-color: var(--snp-theme-clr-yellow);
+    }
+    .myprofile-password-wrapper .slds-card {
+        box-shadow: none !important;
+        border: 1px solid !important;
+	}
+    .current-user-nav-wrapper .slds-nav-vertical__section {
+        background: white !important;
+    }
+    .current-user-nav-wrapper h2 {
+        display:none !important;
+        padding:0 !important;
+        margin:0 !important;
+    }
+    .current-user-nav-wrapper a {   
+        -webkit-box-shadow: none !important;
+        box-shadow:none !important;
+    }
+    .current-user-nav-wrapper .slds-nav-vertical__item:hover:before {
+        background-color: var(--snp-clr-geygreen)!important;
+    }
+    [data-component-id="sldsFlexibleLayout-aaea"] *{
+        color:black !important;
+    }
+    .current-user-nav-wrapper  .slds-nav-vertical__item.slds-is-active::before {
+        background: var(--snp-theme-clr-yellow)!important;
+    }
+    
+    /*---------------@Author Aditya-- All the elemnts in one place whose background color wants to chnage to theme yellow----------------------*/
+    
+    /*--------------------------------------------@Author Aditya ALL CMS PAGES CSS START HERE---------------------------------------------*/
+    
+    	/* @Author- Wasim Sheikh-------------ArchitecturalLEDLightningManufacture-----CommonComponent */
+            .cms-common-para
+            {
+            	margin: 0 0 0.75rem 0;
+            	line-height: 2.125rem;
+            }
+            .cms-common-para:last-child {
+           		 margin-bottom:0;
+            }
+            .common-para
+            {
+                margin:0;
+                line-height: 2.063rem;
+            }
+    
+    /* @Author- Harsha Nivas Ravilla & Shreyash Myaccount->address-START HERE----*/
+         /* -address page modal close button color-----*/
+    .outer-container .slds-modal-container .slds-icon {
+          fill: #fff;
+    }
+   		/* ------------------------------------------------------------------*/
+    	
+    /*--------------------------------------------------------End OF ALL CMS PAGES CSS HERE--------------------------------------------------------*/
+    
+    
+    /*----------------------------@Author Krishnamurthy, --> search results page-------------------*/
+    
+    .no-search-page nav {
+        padding:0.625rem 1.25rem;
+    }
+    .no-search-page aside {
+        background-color: #eaece7	
+    }
+
+    .no-search-page h1  {
+        font-size: 1.625rem !important;
+    }
+    .no-search-page h2 {
+        font-size: 1.625rem !important;
+    }
+
+    .no-search-page .filters-header{
+        margin:0 0.625rem;
+    }
+
+    .no-search-page .lwc-36vevjtd9ac {
+        margin: 0 0.625rem;
+    }
+
+    .no-search-page .clear-all {
+        align-self: center !important;
+    }
+    .no-search-page .clear-all button:hover {
+         text-decoration: underline;
+    }
+    .no-search-page .clear-all .slds-button::before:hover{
+        background-color:var(--snp-clr-geygreen) !important;
+        text-decoration: underline;
+        
+    }
+  
+
+    .no-search-page .clear-all .slds-button {
+        border: none !important;
+    }
+
+    .no-search-page .product-grid-container .slds-button:hover{
+        
+              color: var(--snp-clr-black) !important;
+
+    }
+
+    .no-search-page .lwc-4u4j45agqbn {
+        margin:0 0.625rem ;
+    }
+
+
+    .no-search-page .expand-button {
+        display:none !important;
+    }
+
+    .no-search-page .facet-header {
+        margin: 0 0.625rem ;
+    }
+
+    .no-search-page .facet-body {
+        margin:0 0.625rem;
+    }
+    .no-search-page .facets-section {
+        margin:0 !important;
+        padding:0 !important;
+    }
+    .no-search-page .lwc-1q54g11aet8-host {
+        padding-top:0.3125rem !important;
+    }
+   
+
+    .no-search-page button {
+    color:var(--snp-clr-black);
+    }
+    .no-search-page img {
+     height:275px !important;   
+    }
+    .no-search-page img:hover {
+     border:2px solid var(--snp-theme-clr-yellow)!important;   
+    }
+    .no-search-page a {
+        text-decoration: none !important;
+    }
+    .no-search-page .product-grid-container .slds-button {
+        border:1px solid var(--snp-clr-black) !important; 
+    }
+    .no-search-page .product-grid-container .slds-button:hover {
+        background-color :var(--snp-theme-clr-yellow) !important;
+        color:var(--snp-clr-black) !important;
+    }
+
+    .no-search-page .cardContainerGrid .fieldsArea div:nth-child(2) div {
+            white-space: normal !important; 
+            display: -webkit-box !important;
+            -webkit-line-clamp: 3 !important;
+            -webkit-box-orient: vertical !important;
+            word-break: break-word !important;
+            word-spacing: 0.1rem !important;
+            font-size: 1rem!important;
+            line-height: 1.8333rem !important;
+            height:5.4375rem !important;
+            margin:calc(10 / 16 * 1rem) 0 1.25rem 0 !important;
+    }
+
+    .no-search-page .cardContainerGrid .fieldsArea div:nth-child(1) div {
+    font-size : calc(18 / 16 * 1rem);}
+
+
+    .no-search-page .cardContainerGrid .priceArea .negotiated-price{
+     font-size : calc(18 / 16 * 1rem);}
+
+    .no-search-page .cardContainerGrid .priceArea .slds-align-bottom{
+    margin-bottom:calc(5 / 16 * 1rem);}
+
+
+
+    .no-search-page .slds-grid_vertical-align-center {
+        padding :0 1.25rem ;
+    }
+    .no-search-page button {
+        border:1px solid var(--snp-clr-black) !important ;
+    }
+    .no-search-page .slds-listbox{
+        color: var(--snp-clr-black) !important;
+        background-color: white !important;
+    }
+    .no-search-page h3 {
+        margin:0px !important;
+    }
+    .no-search-page [role="listbox"]>*[aria-checked="true"]{
+        background-color:#595959 !important;
+    }
+   
+    .no-search-page [role="listbox"]>*[aria-checked="true"]>span:first-child {
+        visibility:hidden;
+    }
+    .no-search-page [role="listbox"]>*{
+        text-align:left !important;
+    }
+
+        /* @Author- Aditya Lenka-------------Banner Page standard button */
+       
+    .about-us-slot-wrapper slot[name="aboutUsStandardButton"] a ,
+    .homepage-img-txt .content-button-wrapper slot[name="redirectCmsPageBtn"] a {
+        padding: 0.156rem 1.1rem;
+        border: 1px solid var(--snp-clr-black);
+    	color: var(--snp-clr-black);
+    }
+    .homepage-img-txt .content-button-wrapper slot[name="redirectCmsPageBtn"] a {
+        padding: 0.156rem 0.625rem;
+    }
+    @media only screen and (max-width: 991px) {
+            .about-us-slot-wrapper slot[name="aboutUsStandardButton"] a,
+        	.homepage-img-txt .content-button-wrapper slot[name="redirectCmsPageBtn"] a {
+            font-size: 0.7rem;
+    		}
+    }
+    @media only screen and (max-width: 576px) {
+            .about-us-slot-wrapper slot[name="aboutUsStandardButton"] a,
+        	.homepage-img-txt .content-button-wrapper slot[name="redirectCmsPageBtn"] a{
+            font-size: 0.6rem;
+    		padding: 0.2rem 0.8rem;
+    		letter-spacing: 0.04rem;	
+    		}
+    }
+    /* @Author- Aditya Lenka-------------Banner Page standard button */
+    
+    
+    /* @Author- Prashanti Potti-------------Marine and Harsh environment */
+    [data-component-id="htmlEditor-e766"]  .page-content-text{
+        line-height: 2.5 !important;
+        letter-spacing: 3 !important;
+        font-size: 17px !important;
+         padding-left :40px !important;
+          padding-right : 40px !important
+        
+    }
+  
+    [data-component-id="columns-81cc"] .columns{
+        background-color:#eaece7 !important; 
+         line-height :2.5!important;
+        letter-spacing : 3 !important;
+        font-size :17px !important;
+        padding-left :40px !important;
+        padding-right : 40px !important
+        padding-top : 25px !important;
+    }
+    
+     /* @Author- Prashanti Potti2-------------Marine and Harsh environment */
+    .cms-para-points{
+        list-style-type:disc; 
+    }
+    .cms-para-points li{
+      margin-bottom: 0.688rem;  
+    }
+    
+    
+       /* @Author- Wasim Sheikh-------------powercmspage-----CommonComponent */
+    .power-cms-top
+    {
+       display:flex;
+       justify-content:space-between;
+    }
+    .power-cms-bottom
+    {
+       display:flex;
+       justify-content:space-between;
+    }
+ .power-cms-wrapper
+{
+width:100%;
+}
+.power-top-left
+{
+width:44%;
+}
+.power-top-right
+{
+width:44%;
+}
+.power-bottom-left
+{
+width:44%;
+}
+.power-bottom-right
+{
+width:44%;
+}
+    .common-power-para
+    {
+        font-size:1rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 1.938rem;
+        margin-top:1.94rem;
+    }
+    @media only screen and (max-width: 768px)
+    {
+        .cms-btm-para
+        {
+            margin-bottom:1.94rem;
+        }
+    }
+   @media only screen and (max-width: 992px)
+   {
+ .heading-common-class
+{
+ font-size:0.75rem
+}
+.font-common-class
+{
+font-size:0.75rem
+}
+ .common-power-para
+       {
+           line-height:1.5rem;
+       }
+   }
+    
+    /*----------------------------@Author Krishnamurthy, -->checkout-->( Cart Summary)-------------------*/
+    [data-component-id="section-95bd"] .col-large-size_4-of-12 div {
+        position: sticky;
+        top: 125px;
+        }
+    [data-component-id="section-95bd"] .col-large-size_4-of-12 {
+        display:block !important;
+    }
+    [data-component-id="cartSummary-2218"] .lwc-5annsfgtgga {
+		padding: 3px 15px;
+    }
+    
+    /*---------Shipping---------------*/
+    .checkout-details-wrapper .address-stretch{
+        display: flex;
+    flex-direction: row;
+    }
+    .checkout-details-wrapper .slds-truncate{
+        white-space: normal;
+    }
+    .checkout-details-wrapper .slds-gutters_direct-x-small > .slds-col{
+        border: 1px solid black;
+        margin-left: 0.5rem;
+        margin-bottom: 0.5rem;
+        width:30% !important;
+    }
+    .checkout-details-wrapper .slds-gutters_direct-x-small > .slds-col:focus{
+         border-color:#fdc300;
+    }
+    .checkout-details-wrapper .address-stretch > div:has(input[type="radio"]:checked){
+        border:1px solid var(--snp-theme-clr-yellow);
+    }
+    .checkout-details-wrapper .slds-badge{
+        position: relative;
+        top: 0.5rem;
+        background-color: #b3b2a8;
+    }
+    
+    .checkout-details-wrapper .slds-combobox__form-element .slds-combobox__input:focus{
+        border:1px solid var(--snp-theme-clr-yellow) !important;
+        box-shadow:none;    
+    }
+     .slds-has-error {
+        color: #c23934 !important;
+   border-color: #c23934 !important;
+    }
+    .checkout-details-wrapper .slds-combobox__form-element .slds-combobox__input{
+        border:1px solid black;
+    }
+    .checkout-details-wrapper .slds-button_neutral{
+     border: 1px solid black;
+    color: black;
+    background-color: #eaece7;
+    }
+    .checkout-details-wrapper .slds-button_neutral:hover{
+        color:#fdc300;
+    }
+</style>
+<!-------Google Analytics------------------>
+<!--<x-oasis-script async src="https://www.googletagmanager.com/gtag/js?id=G-T18GQP5JYW"></x-oasis-script>
+<x-oasis-script>
+ window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+     document.addEventListener('analyticsSupport', function(e) {
+      //get the details of the event and parse into an object
+      let detail = JSON.parse(JSON.stringify(e.detail));
+        console.log('from markup'+JSON.stringify(detail));
+      //set the gtag config with the proper G- measurement ID and
+      //the detail object containing the user properties and user id
+      gtag('config', 'G-T18GQP5JYW', detail);
+  });
+</x-oasis-script>-->
+<!-------Google Analytics------------------>
+
+
+<!-- Links for Slick carousal @Author-Ganesh Wattamwar -->
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    </head>
+    <body id="main">
+        <webruntime-app></webruntime-app>
+    </body>
+</html>

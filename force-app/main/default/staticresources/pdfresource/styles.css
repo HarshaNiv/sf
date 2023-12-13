@@ -1,0 +1,96 @@
+@page
+{
+	size: 8.27in 11.69in;  <!-- A4 -->
+	margin: 1.5in .5in 1in .5in;
+	@top-center {content: element(header);}
+	@bottom-center {content: element(footer);}
+}
+div.header {position: running(header);}
+div.footer {position: running(footer);}
+.pagenumber:before {content: counter(page);}
+.pagecount:before {content: counter(pages);}
+.col25b {width:25%; text-align:left; font-weight: bold; font-family:'sans-serif'; font-size:8pt; vertical-align: text-top;}
+.col50 {width:50%; text-align:left; font-family:'sans-serif'; font-size:8pt; vertical-align: text-top;}
+.col60 {width:60%; text-align:left; font-family:'sans-serif'; font-size:8pt; vertical-align: text-top;}
+col40 {width:40%; text-align:left; font-family:'sans-serif'; font-size:8pt; vertical-align: text-top;}
+.col70 {width:70%; text-align:left; font-family:'sans-serif'; font-size:8pt; vertical-align: text-top;}
+.col30 {width:30%; text-align:left; font-family:'sans-serif'; font-size:8pt; vertical-align: text-top;}
+.col100 {width:30%; text-align:left; font-family:'sans-serif'; font-size:8pt; vertical-align: text-top;}
+.col15b {width:15%; text-align:left; font-weight: bold; font-family:'sans-serif'; font-size:8pt; vertical-align: text-top;}
+.col25 {width:25%; text-align:left; font-family:'sans-serif'; font-size:8pt; vertical-align: text-top;}
+.col85 {width:85%; text-align:left; font-family:'sans-serif'; font-size:8pt; vertical-align: text-top;}
+.col40r {width:40%; text-align:right; font-weight: bold; font-family:'sans-serif'; font-size:8pt; vertical-align: text-top;}        
+.col10r {width:10%; text-align:right; font-family:'sans-serif'; font-size:8pt; vertical-align: text-top;} 
+.headerTitle {font-family:sans-serif; font-size:10pt; color:#808080; text-align:right;}
+.companyName {
+	
+	font-weight:bold;
+	font-size:16px;
+}
+
+.customerName {
+	
+	text-transform:uppercase;
+	font-size:14px;
+	
+}
+
+.contactName {
+	
+	font-weight:bold;
+	font-size:14px;
+	
+}
+
+.line {
+	background-image: url(/s.gif);
+	background-color:black;
+	height:4px;
+	margin:10px 3px;
+}
+
+.lineSmall {
+	background-image: url(/s.gif);
+	background-color:black;
+	height:2px;
+	margin:10px 3px;
+}
+
+body {
+	padding:5px;
+}
+
+.companyTable {
+	padding-top:15px;
+}
+
+.left {
+	text-align:left;
+	vertical-align:top;
+}
+
+.right {
+	text-align:right;
+	vertical-align:top;
+}
+
+.total {
+	width:20%;
+	font-weight:bold;
+	font-size:12px;
+}
+
+.totalLabel {
+	width:80%;
+	font-weight:bold;
+	font-size:12px;
+}
+
+.productName {
+	font-weight:bold;
+	font-size:14px;
+}
+
+.productDetail {
+	margin-left:10px;
+}
