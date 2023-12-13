@@ -1,0 +1,228 @@
+/* For color code use below css variable's value */
+:host {
+    --snp-login-yellow-clr:#fdc300;
+    --snp-login-red-error-clr: #f60606;
+    --snp-login-skyblue-clr: #6DE0F6;
+    --snp-login-black-clr:#000000;
+    --snp-login-dark-clr: #1e1e13;
+    --snp-login-grey-btn-clr:#eaece7;
+}
+
+/* For rem conversion use calc() function
+    calc(<desried pixel value> / 16 * 1rem); all the remaining args must be same
+ */
+
+@font-face {
+    font-family: 'Sunpower';
+    src: url('/s/sfsites/c/resource/SUNPOWERFONTS/Futura-Medium.ttf') format('TrueType');
+}
+
+.input-wrapper{
+    margin-top: calc(116 / 16 * 1rem);
+    font-family:'Sunpower' !important;
+    letter-spacing:  0.1rem;
+}
+
+.form-wrapper, .sign-up-wrapper{
+    max-width: 443px !important;
+    position: relative !important;
+    margin: 0 auto !important;
+}
+
+.form-header-wrapper{
+text-align:center;
+}
+
+.form-heading{
+display:inline-block;
+font-size: 2rem;
+}
+
+.form-heading:hover{
+    color: var(--snp-theme-clr-yellow);
+}
+
+.error {
+    font-weight: 500;
+    text-align: center;
+    word-break: break-word;
+    max-width: 20rem;
+    color: var(--snp-login-red-error-clr);
+}
+
+.input-element {
+    width: 100%;
+    padding: 0.5rem 0rem 0.5rem 2rem;
+    font-size: calc(16 / 16 * 1rem);
+    letter-spacing: 0.1rem;
+    border-radius: 3.7px;
+    border: 1px solid var(--snp-login-black-clr) !important;
+    box-shadow: none;
+}
+
+.input-element::placeholder {
+    letter-spacing: 0.1rem;
+}
+
+.input-element:hover {
+    /* box-shadow: 1px 0px 2px 3px rgb(223 211 81 / 47%) !important; */
+    outline-color: var(--snp-login-dark-clr);
+    outline-width: calc(6 / 16 * 1rem);;
+    border: 1px solid  var(--snp-login-yellow-clr)  !important;
+}
+
+.input-element:focus-within {
+    border: 1px solid var(--snp-login-yellow-clr) !important;
+}
+
+input:focus::placeholder {
+    color: transparent;
+  }
+
+.email-error{
+    margin-left: 14px;
+    color: var(--snp-login-red-error-clr);
+  }
+
+.login-form-separator{
+    background: var(--snp-login-black-clr);
+    height: calc(2 / 16 * 1rem);
+    width: 93%;
+    margin: 4.8rem auto 1.7rem auto;
+    position: relative;
+    left: 0;
+    right: 0;
+}
+
+.signup-form-button{
+    background: var(--snp-login-grey-btn-clr);
+    border-radius: 3.7px;
+    font-size: 1.3rem;
+    font-weight: 500;
+    width: 100%;
+    height: calc(47 / 16 * 1rem);
+    margin-top: 15px;
+    margin-bottom: 180px;
+    border: 1px solid var(--snp-login-black-clr);
+}
+.no-account-title {
+    margin: calc(34 / 16 * 1rem) 0 calc(23 / 16 * 1rem) 0;
+    text-align: center;
+    font-weight: 500;
+}
+
+.forgot-password:hover{
+    text-decoration: underline;
+    text-decoration-color: var(--snp-login-yellow-clr);
+}
+
+.signup-form-button:hover{
+    background-color: var(--snp-login-yellow-clr);
+}
+
+
+.eye-sign {
+    position: absolute;
+    right: calc(14 / 16 * 1rem);
+    top: calc(14 / 16 * 1rem);
+    font-size: calc(19 / 16 * 1rem);
+}
+
+.center {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-button {
+
+    background-color: var(--snp-login-skyblue-clr);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    width: 100%;
+    display: block;
+    padding: 0.5rem;
+    font-size: calc(16 / 16 * 1rem);
+    font-family: Arial;
+}
+
+/* .main-heading {
+
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+}
+
+.sub-heading {
+
+    font-size: 14px;
+    color: rgb(255, 255, 255);
+} */
+
+/* .text-align-center {
+    text-align: center;
+} */
+.forgot-password-wrapper{
+    text-align: center;
+}
+
+.forgot-password-text {
+
+    color: var(--snp-login-black-clr);
+    font-size: calc(14 / 16 * 1rem);
+    text-align: center;
+    font-weight: 500;
+    font-size: 16px;
+    /* font-size: 1.875rem; */
+}
+
+.forgot-password{
+    display: inline-block;
+    cursor: pointer;
+    color: var(--snp-clr-black) !important;
+}
+
+.register-text {
+
+    color: var(--snp-login-black-clr);
+    font-size: calc(14 / 16 * 1rem);
+    float: center;
+}
+
+
+
+    
+
+
+/* .testButton{
+    width: 326px ;
+    border: 2px solid balck;
+} */
+
+.login-form-button {
+    background: var(--snp-login-grey-btn-clr);
+    border-radius: 3.7px;
+    font-size: 1.3rem;
+    font-weight: 500;
+    width: 100%;
+    margin-top: calc(20 / 16 * 1rem);
+    height: calc(47 / 16 * 1rem);
+    border: 1px solid var(--snp-login-black-clr);
+}
+
+.login-form-button:hover{
+
+    background-color: var(--snp-login-yellow-clr);
+}
+
+/* .login-form-separtor-wrapper{
+} */
+
+@media only screen and (max-width: 768px) {
+    .input-wrapper{
+        padding: 0rem 1rem;
+    }
+    .login-form-separator{
+        margin: 2rem auto 1rem auto;
+    }
+}

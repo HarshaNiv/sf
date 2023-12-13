@@ -1,0 +1,60 @@
+/* .collapse-wrapper {
+    width: 2%;
+}
+.text-plusMark-wrapper {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    border: none;
+    padding: 0.625rem;
+}
+
+.Specification-contant-wrapper {
+    display: flex;
+}
+
+.innere-content-wrapper {
+    padding: 0.5rem 1.5rem;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-around;
+}
+
+.icon-wrapper {
+    font-size: 0.75rem;
+}
+.content{
+    width: 89%;
+} */
+.icon-main-wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: baseline;
+    gap: 5px 0;
+}
+
+.icon-outer-wrapper{
+	text-align: center;
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap:8px;
+}
+
+.icon-image-wrapper{
+    max-width: 70px;
+}
+
+.iconography-img{
+	width: 100%;
+    height: auto;
+}
+
+.icon-inner-value{
+    font-weight: bold;
+}

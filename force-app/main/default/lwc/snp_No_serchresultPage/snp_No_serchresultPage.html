@@ -1,0 +1,17 @@
+<template>
+<!-- if:true ={showNoResultImage} -->
+    <div if:false={showNoResultImage}>
+        <div class="no-search-page">
+            <slot name="Result-Page">Result-Page-</slot>
+        </div>
+    </div>
+
+    <div if:true ={showNoResultImage} >
+        <div class="text-wrapper">
+            <h1 class="no-search-text">No Results Found For The Search !!!  </h1>
+        </div>
+        <div class="no-search-page-button">
+            <slot name="Redirection-Home-Button">Redirection-Home-Button</slot>
+        </div>
+    </div>
+</template>

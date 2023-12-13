@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>57.0</apiVersion>
+    <isExposed>true</isExposed>
+    <targets>
+        <target>lightningCommunity__Page</target>
+        <target>lightningCommunity__Default</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightningCommunity__Default">
+            <property name="promoBannerMsg" type="String" label="Promotion Banner Message" default="5% Off On 20,000 Products" />
+            <property name="fontSize" type="Integer" label="Text Size" default="20"/>
+            <property name="backgroundColor" type="String" label="Colour Of banner" default="#fac400" />
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

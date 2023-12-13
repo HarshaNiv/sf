@@ -4,13 +4,28 @@ import COUNTRY_CODE from '@salesforce/schema/Account.BillingCountryCode';
 import BILLING_STATE_CODE from '@salesforce/schema/Account.BillingStateCode';
 import { getObjectInfo } from 'lightning/uiObjectInfoApi';
 import ACCOUNT_OBJECT from "@salesforce/schema/Account";
-//import getCountryAndDialCode from '@salesforce/apex/snp_address_form_dialNumbers.countryDialCode';
+import getCountryAndDialCode from '@salesforce/apex/snp_address_form_dialNumbers.countryDialCode';
 import pointaddress from '@salesforce/apex/snp_address_form_dialNumbers.pointaddress';
+import Updateaddress from '@salesforce/apex/snp_address_form_dialNumbers.Updateaddress';
 import UserId from '@salesforce/user/Id';
-import { NavigationMixin } from 'lightning/navigation';
+//import { NavigationMixin } from 'lightning/navigation';
+import editaddress from '@salesforce/apex/snp_address_form_dialNumbers.editaddress';
 // import AddressemessageChannel from '@salesforce/messageChannel/AddressemessageChannel__c';
 // import { subscribe, MessageContext } from 'lightning/messageService';
-export default class Snp_AddressForm extends NavigationMixin(LightningElement) {
+export default class Snp_AddressForm extends LightningElement {
+
+    // 
+    addressRequried = '*';
+    FirstNameRequried = '*';
+    LastNameRequried = '*';
+    CompanyRequried = '*';
+    CountryRequried = '*';
+    StreetRequried = '*';
+    cityRequried = '*';
+    zipRequried = '*';
+    PhoneRequried = '*';
+    stateRequried = '*';
+    state = '';
 
     // subscription = null;
     // @wire(MessageContext) messageContext;
@@ -19,20 +34,98 @@ export default class Snp_AddressForm extends NavigationMixin(LightningElement) {
         //let addressidurl=window.location.href;
         const urlParams = new URLSearchParams(window.location.search);
         this.addressidurl = urlParams.get('addressId');
-        console.log('this.addressidurl --',  this.addressidurl);
-        // this.handleSubscribe();
+        console.log('this.addressidurl --', this.addressidurl);
+        if (this.addressidurl != null) {
+            this.handledata();
+        }
+
     }
-    // handleSubscribe() {
-    //     if (this.subscription) {
-    //         return;
-    //     } 
-    //     debugger;
-    //     this.subscription = subscribe(this.messageContext, AddressemessageChannel, (addressformId) => {
-    //         console.log('addressformId----'+JSON.stringify(addressformId));
-    //         //this.publisherMessage = message.message;
-    //         //this.ShowToast('Success', message.message, 'success', 'dismissable';
-    //     });
-    // }
+    handledata() {
+
+        editaddress({ formid: this.addressidurl })
+            .then((result) => {
+                console.log('result-->' + JSON.stringify(result));
+                if (result.AddressType != null) {
+                    this.Addresslabel = result.AddressType;
+                    this.addressRequried = '';
+                }
+                debugger;
+                if (result.AddressFirstName != null) {
+                    this.FirstName1 = '';
+                    this.FirstNameRequried = '';
+                    this.firstName = result.AddressFirstName;
+
+                }
+                if (result.AddressLastName != null) {
+                    this.LastName1 = '';
+                    this.LastNameRequried = '';
+                    this.LastName = result.AddressLastName;
+                }
+                if (result.City != null) {
+                    this.cityRequried = '';
+                    this.city1 = '';
+                    this.city = result.City;
+
+                }
+                if (result.State != null) {
+                    this.stateRequried = '';
+                    this.StateLabel = result.State;
+                } else {
+                    this.stateRequried = '';
+                    this.StateLabel = this.newlist.label;
+                }
+                if (result.PostalCode != null) {
+                    this.zipRequried = '';
+                    this.ZIP1 = '';
+                    this.zip = result.PostalCode;
+
+                }
+                if (result.PhoneNumber != null) {
+                    this.PhoneRequried = '';
+                    this.Phone = result.PhoneNumber;
+                    this.Phone1 = '';
+
+                }
+                if (result.CompanyName != null) {
+                    this.CompanyRequried = '';
+                    this.Company = result.CompanyName
+                    this.Company1 = '';
+                }
+                if (result.Street != null) {
+                    this.StreetRequried = '';
+                    this.StreetAddress = result.Street;
+                    this.StreetAddress1 = '';
+                }
+                if (result.Country != null) {
+                    this.CountryRequried = '';
+                    this.Countrylabel = result.Country;
+                    getCountryAndDialCode({ countrylabel: this.Countrylabel })
+                        .then((result) => {
+                            debugger;
+                            console.log('result----------->' + JSON.stringify(result));
+                            this.dialcode = '+' + result;
+                            console.log('this.dialcode----------->' + this.dialcode);
+                        })
+                        .catch((error) => {
+                            console.log('error' + error);
+                        })
+                    debugger;
+                    //this.itemhandlerCountry(event);
+                    this.countryvalue = result.CountryCode;
+                    console.log(' this.countryvalue---' + this.countryvalue);
+                }
+
+                debugger;
+                if (result.IsDefault != null) {
+                    this.checkval = result.IsDefault;
+                }
+
+            })
+
+            .catch((error) => {
+                console.log('error-->' + error);
+            })
+    }
 
     @api Recordtype;
     listCountry;
@@ -44,6 +137,14 @@ export default class Snp_AddressForm extends NavigationMixin(LightningElement) {
     dialcode;
     checkval = false;
     url;
+
+    FirstName1 = 'First Name';
+    LastName1 = 'Last Name';
+    StreetAddress1 = 'Street Address';
+    city1 = 'City';
+    ZIP1 = 'ZIP/Postal Code';
+    Phone1 = 'Phone Number';
+    Company1 = 'Company';
 
     @wire(getObjectInfo, { objectApiName: ACCOUNT_OBJECT })
     objectInfo({ data, error }) {
@@ -69,8 +170,10 @@ export default class Snp_AddressForm extends NavigationMixin(LightningElement) {
     @wire(getPicklistValues, { recordTypeId: '$Recordtype', fieldApiName: BILLING_STATE_CODE })
     wiredStates({ data }) {
         if (!data) {
+            debugger;
             return;
         }
+        debugger;
         console.log('data' + JSON.stringify(data));
         const validForNumberToCountry = Object.fromEntries(Object.entries(data.controllerValues).map(([key, value]) => [value, key]));
         console.log('validForNumberToCountry' + JSON.stringify(validForNumberToCountry));
@@ -79,6 +182,12 @@ export default class Snp_AddressForm extends NavigationMixin(LightningElement) {
             return { ...accumulatedStates, [countryIsoCode]: [...(accumulatedStates?.[countryIsoCode] || []), state] };
         }, {});
         console.log('this._countryToStates' + JSON.stringify(this._countryToStates));
+        if (this.countryvalue != null) {
+            this.stateData1 = false;
+            this.listState = this._countryToStates[this.countryvalue];
+            this.listState1 = this.listState;
+            console.log('this.listState' + JSON.stringify(this.listState));
+        }
     }
     // 
     // 
@@ -102,7 +211,11 @@ export default class Snp_AddressForm extends NavigationMixin(LightningElement) {
     @track handleZipError = false;
     @track handlePhoneError = false;
     @track handlecompanyError = false;
+    handleZipValidError = false;
+
     showOptions = false;
+    showOptionsState=false;
+    showOptionsCountry=false;
     selectedstate1;
 
 
@@ -141,6 +254,8 @@ export default class Snp_AddressForm extends NavigationMixin(LightningElement) {
         event.currentTarget.focus();
         this.addressData = !this.addressData;
         this.showOptions = !this.showOptions;
+        // let target = this.template.querySelector(".list-options-address");
+        // target.classList.toggle('show-toggle');
         setTimeout(() => {
             var selectedaAddress = this.template.querySelectorAll('.options-list');
             var selectedaAddress1 = selectedaAddress[0].dataset.item;
@@ -151,7 +266,7 @@ export default class Snp_AddressForm extends NavigationMixin(LightningElement) {
                     selectedaAddress[i].classList.add('selected-option');
                 }
             }
-        }, 1);
+        }, 0);
 
     }
 
@@ -159,8 +274,8 @@ export default class Snp_AddressForm extends NavigationMixin(LightningElement) {
     Countrylabel = 'Country';
     listCountry = ['india', 'usa', 'China'];
     itemhandlerCountry(event) {
-        //  debugger;
-        this.showOptions = !this.showOptions;
+        debugger;
+        this.showOptionsCountry = !this.showOptionsCountry;
         let selectedCountry = event.currentTarget.dataset.item;
         this.Countrylabel = selectedCountry;
         this.countryvalue = event.currentTarget.dataset.item1;
@@ -168,7 +283,8 @@ export default class Snp_AddressForm extends NavigationMixin(LightningElement) {
         this.handleCountryError = false;
         getCountryAndDialCode({ countrylabel: selectedCountry })
             .then((result) => {
-                console.log('result----------->' + result);
+                debugger;
+                console.log('result----------->' + JSON.stringify(result));
                 this.dialcode = '+' + result;
                 console.log('this.dialcode----------->' + this.dialcode);
             })
@@ -194,10 +310,11 @@ export default class Snp_AddressForm extends NavigationMixin(LightningElement) {
         this.Countrydata = false
     }
     buttoneventCountry(event) {
+        debugger;
         event.currentTarget.focus();
         //console.log('-------------------->Ok');
         this.Countrydata = !this.Countrydata;
-        this.showOptions = !this.showOptions;
+        this.showOptionsCountry = !this.showOptionsCountry;
         setTimeout(() => {
             var selectedaAddress = this.template.querySelectorAll('.options-list');
             var selectedaAddress1 = selectedaAddress[0].dataset.item;
@@ -212,11 +329,10 @@ export default class Snp_AddressForm extends NavigationMixin(LightningElement) {
     }
 
     //for state
-    StateLabel = 'State/Province';
-    listState = ['Maharashtra', 'Gujrat', 'Telengana', 'Rajasthan'];
+    @track StateLabel = 'State/Province';
     itemhandlerstate(event) {
         //  debugger;
-        this.showOptions = !this.showOptions;
+        this.showOptionsState = !this.showOptionsState;
         let selectedstate = event.currentTarget.dataset.item;
         this.StateLabel = selectedstate;
 
@@ -229,7 +345,7 @@ export default class Snp_AddressForm extends NavigationMixin(LightningElement) {
     }
     buttoneventState(event) {
         event.currentTarget.focus();
-        this.showOptions = !this.showOptions;
+        this.showOptionsState = !this.showOptionsState;
         if (this.listState1 != null) {
             //this.stateData1=!this.stateData1;  
             this.stateData = !this.stateData;
@@ -254,7 +370,7 @@ export default class Snp_AddressForm extends NavigationMixin(LightningElement) {
 
     // for address
     handleInputAddress() {
-
+        console.log("Hi blur ");
         setTimeout(() => {
             this.addressData = false;
             this.showOptions = false;
@@ -268,7 +384,7 @@ export default class Snp_AddressForm extends NavigationMixin(LightningElement) {
         setTimeout(() => {
             this.addressData = false;
             this.showOptions = false;
-        }, 200)
+        }, 300)
 
     }
     //for country
@@ -276,7 +392,7 @@ export default class Snp_AddressForm extends NavigationMixin(LightningElement) {
         //console.log('------------------------------> okoko');
         setTimeout(() => {
             this.Countrydata = false;
-            this.showOptions = false;
+            this.showOptionsCountry = false;
         }, 300)
 
     }
@@ -286,18 +402,23 @@ export default class Snp_AddressForm extends NavigationMixin(LightningElement) {
         setTimeout(() => {
             this.stateData = false;
             this.stateData1 = false;
-            this.showOptions = false;
-        }, 300)
+            this.showOptionsState = false;
+        }, 250)
 
     }
 
     // for firstname
     handleInputLabelFirstname(event) {
+        if (this.firstName == '') {
+            this.FirstName1 = 'First Name';
+            this.FirstNameRequried = '*';
+        }
         if (event.target.value !== "") {
             var targetLabel = this.template.querySelector(".fname-label");
             targetLabel.classList.add("labelup");
         }
         else {
+            //this.FN='';
             if (this.template.querySelector(".fname-label").classList.contains("labelup")) {
                 this.template.querySelector(".fname-label").classList.remove("labelup");
             }
@@ -321,6 +442,12 @@ export default class Snp_AddressForm extends NavigationMixin(LightningElement) {
         // console.log('i am code' , event.target.value);
 
         this.firstName = event.target.value;
+        //this.FN=this.firstName
+        debugger;
+        // if(this.addressidurl != null){
+        //     this.FN=this.firstName
+        // }
+
         console.log(this.firstName)
         if (this.firstName == '' || this.firstName) {
             this.handleFirstNameError = false;
@@ -343,6 +470,10 @@ export default class Snp_AddressForm extends NavigationMixin(LightningElement) {
 
     //for last-name
     handleInputLabelLastname(event) {
+        if (this.LastName == '') {
+            this.LastName1 = 'Last Name';
+            this.LastNameRequried = '*';
+        }
         if (event.target.value !== "") {
             var targetLabel = this.template.querySelector(".lname-label");
             targetLabel.classList.add("labelup");
@@ -358,6 +489,9 @@ export default class Snp_AddressForm extends NavigationMixin(LightningElement) {
     handleLastNameChange(event) {
 
         this.LastName = event.target.value;
+        //if(this.addressidurl != null){
+        //this.LN=this.LastName
+        //}
         console.log(this.LastName)
         if (this.LastName == '' || this.LastName) {
             this.handleLastNameError = false;
@@ -379,6 +513,10 @@ export default class Snp_AddressForm extends NavigationMixin(LightningElement) {
     }
     //for Company
     handleInputCompany(event) {
+        if (this.Company == '') {
+            this.Company1 = 'Company';
+            this.CompanyRequried = '*';
+        }
         if (event.target.value !== "") {
             var targetLabel = this.template.querySelector(".company-label");
             targetLabel.classList.add("labelup");
@@ -395,6 +533,9 @@ export default class Snp_AddressForm extends NavigationMixin(LightningElement) {
     handleCompanyChange(event) {
 
         this.Company = event.target.value;
+        // if(this.addressidurl != null){
+        //this.comp=this.Company
+        //  }
         console.log(this.Company)
         if (this.Company == '' || this.Company) {
             this.handlecompanyError = false;
@@ -418,6 +559,11 @@ export default class Snp_AddressForm extends NavigationMixin(LightningElement) {
 
     //for street address
     handleInputLabeStreetAddress(event) {
+        debugger;
+        if (this.StreetAddress == '') {
+            this.StreetAddress1 = 'Street Address';
+            this.StreetRequried = '*';
+        }
         if (event.target.value !== "") {
             var targetLabel = this.template.querySelector(".street-label");
             targetLabel.classList.add("labelup");
@@ -433,6 +579,9 @@ export default class Snp_AddressForm extends NavigationMixin(LightningElement) {
     handleStreetAddressChange(event) {
 
         this.StreetAddress = event.target.value;
+        //if(this.addressidurl != null){
+        //this.str=this.StreetAddress;
+        // }
         console.log(this.StreetAddress)
         if (this.StreetAddress == '' || this.StreetAddress) {
             this.handleStreetError = false;
@@ -453,6 +602,10 @@ export default class Snp_AddressForm extends NavigationMixin(LightningElement) {
 
     //for city
     handleInputLabeCity(event) {
+        if (this.city == '') {
+            this.city1 = 'City';
+            this.cityRequried = '*';
+        }
         if (event.target.value !== "") {
             var targetLabel = this.template.querySelector(".city-label");
             targetLabel.classList.add("labelup");
@@ -472,6 +625,9 @@ export default class Snp_AddressForm extends NavigationMixin(LightningElement) {
     //for city
     handleCityChange(event) {
         this.city = event.target.value;
+        // if(this.addressidurl != null){
+        // this.cities=this.city
+        //  }
         console.log(this.city)
         const isValidCity = this.validateCity(this.city)
         console.log('validateCity-------->' + isValidCity);
@@ -500,8 +656,13 @@ export default class Snp_AddressForm extends NavigationMixin(LightningElement) {
 
     }
 
+
     // for zip 
     handleInputLabeZip(event) {
+        if (this.zip == '') {
+            this.ZIP1 = 'ZIP/Postal Code';
+            this.zipRequried = '*';
+        }
         if (event.target.value !== "") {
             var targetLabel = this.template.querySelector(".Zip-label");
             targetLabel.classList.add("labelup");
@@ -512,9 +673,25 @@ export default class Snp_AddressForm extends NavigationMixin(LightningElement) {
             }
         }
     }
+    validatezip(inputValue) {
+        const zipPattern = /[^a-zA-Z0-9-]/g;
+        return zipPattern.test(inputValue);
+    }
 
     handleZipChange(event) {
         this.zip = event.target.value;
+        //   if(this.addressidurl != null){
+        // this.postal=this.zip
+        //   }
+        console.log(this.zip)
+        const isValidzip = this.validatezip(this.zip);
+        console.log('isValidzip------>' + isValidzip);
+        if (isValidzip != true) {
+            this.handleZipValidError = false;
+        } else {
+            this.handleZipValidError = true;
+            this.handleZipError = false;
+        }
         console.log(this.zip)
         if (this.zip == '' || this.zip) {
             this.handleZipError = false;
@@ -534,8 +711,11 @@ export default class Snp_AddressForm extends NavigationMixin(LightningElement) {
     }
 
     //for Phone number
-
     handleInputLabePhone(event) {
+        if (this.Phone == '') {
+            this.Phone1 = 'Phone Number';
+            this.PhoneRequried = '*';
+        }
         if (event.target.value !== "") {
             var targetLabel = this.template.querySelector(".Phone-label");
             targetLabel.classList.add("labelup");
@@ -556,7 +736,9 @@ export default class Snp_AddressForm extends NavigationMixin(LightningElement) {
 
     handlePhoneChange(event) {
         this.Phone = event.target.value;
-
+        // if(this.addressidurl != null){
+        //this.phnum=this.Phone
+        //  }
         console.log(this.Phone)
         const isValidPhoneNumber = this.validatePhoneNumber(this.Phone)
         console.log('isValidPhoneNumber-------->' + isValidPhoneNumber);
@@ -583,7 +765,7 @@ export default class Snp_AddressForm extends NavigationMixin(LightningElement) {
 
     //checkbox
     handleInputLabel() {
-        console.log('check');
+        console.log('this.checkval');
 
     }
     checkboxValidation(event) {
@@ -595,13 +777,18 @@ export default class Snp_AddressForm extends NavigationMixin(LightningElement) {
     handlerSumbit() {
         this.showLoader = true;
         let submitPhoneCheck = this.validatePhoneNumber(this.Phone)
+        let isValidzip = this.validatezip(this.zip);
         let submitCity = this.validateCity(this.city);
         //firstName filled or not
+        if (isValidzip == true) {
+            this.showLoader = false;
+        }
         if (this.firstName === '' || this.firstName === null) {
             this.handleFirstNameError = true;
             this.showLoader = false;
         } else if (this.firstName) {
             this.handleFirstNameError = false;
+
 
         }
         //Lastname filled or Not
@@ -625,7 +812,7 @@ export default class Snp_AddressForm extends NavigationMixin(LightningElement) {
             this.handleCityError = true;
             this.handleCityValidError = false;
             this.showLoader = false;
-        } else {
+        } else if (this.city) {
             this.handleCityError = false;
         }
 
@@ -655,6 +842,7 @@ export default class Snp_AddressForm extends NavigationMixin(LightningElement) {
         } else if (this.zip) {
             this.handleZipError = false;
         }
+
         // for phone Filled or Not
         if ((this.Phone === '' || this.Phone === null)) {
             this.handlePhoneError = true;
@@ -699,45 +887,76 @@ export default class Snp_AddressForm extends NavigationMixin(LightningElement) {
         else {
             this.handleStateError = false;
         }
-        if (this.firstName != '' && this.LastName != '' && this.StreetAddress != '' && this.city != '' && this.zip != '' && this.Phone != '' && this.city != '' && this.Countrylabel != 'Country' && (this.StateLabel != 'State/Province' || this.StateLabel == 'none') && this.Addresslabel != 'Address Type' && this.handlePhoneError == false && this.Company != '' && this.handelPhoneValidError == false && this.handleCityValidError == false && this.handleCityError == false && this.handlecompanyError == false) {
+        if (this.firstName != '' && this.LastName != '' && this.StreetAddress != '' && this.city != '' && this.zip != '' && this.Phone != '' && this.city != '' && this.Countrylabel != 'Country' && (this.StateLabel != 'State/Province' || this.StateLabel == 'none') && this.Addresslabel != 'Address Type' && this.handlePhoneError == false && this.Company != '' && this.handelPhoneValidError == false && this.handleCityValidError == false && this.handleCityError == false && this.handlecompanyError == false && isValidzip == false) {
             // if(this.StateLabel =='none'){
             //     this.StateLabel=  this.selectedstate1;
             // }
-            pointaddress({
-                fname: this.firstName, lname: this.LastName, addresstype: this.Addresslabel, isdefault: this.checkval, country: this.Countrylabel, city: this.city,
-                state: this.StateLabel,
-                postalcode: this.zip, phonenum: this.Phone, companyname: this.Company,
-                address: this.StreetAddress, userId: UserId
-            })
-                .then((result) => {
-                    console.log('result----------->' + JSON.stringify(result));
-                    var newurl = window.location.pathname;
-                    var orginurl = window.location.origin;
-                    var newurl1 = newurl.replace('/addressForm', '')
-                    var finalurl = newurl1;
-                    console.log('newurl----------->' + newurl);
-                    console.log('orginurl----------->' + orginurl);
-                    window.location.href = orginurl + finalurl + '/addresses?addressType=' + this.Addresslabel;
-                    window.location.href
-                    // this.url=window.location.href;
-                    // window.location.href=this.url;
-                    // window.location.href;
-                    // this.showLoader =false;
-                    // this[NavigationMixin.Navigate]({
-                    //     type: 'standard__webPage',
-                    //     attributes: {
-                    //         url: `/powerleduk/en-US/addresses?addressType=`+ this.Addresslabel
-                    //     }
-                    // },
-                    // true
-                    // );
-                })
-                .catch((error) => {
-                    this.showLoader = true;
-                    console.log('error' + JSON.stringify(error));
-                    this.showLoader = false;
 
+            debugger;
+            if (this.addressidurl == null) {
+                pointaddress({
+                    fname: this.firstName, lname: this.LastName, addresstype: this.Addresslabel, isdefault: this.checkval, country: this.Countrylabel, city: this.city,
+                    state: this.StateLabel,
+                    postalcode: this.zip, phonenum: this.Phone, companyname: this.Company,
+                    address: this.StreetAddress, userId: UserId
                 })
+                    .then((result) => {
+                        console.log('result----------->' + JSON.stringify(result));
+                        var newurl = window.location.pathname;
+                        var orginurl = window.location.origin;
+                        var newurl1 = newurl.replace('/addressForm', '')
+                        var finalurl = newurl1;
+                        console.log('newurl----------->' + newurl);
+                        console.log('orginurl----------->' + orginurl);
+                        window.location.href = orginurl + finalurl + '/addresses?addressType=' + this.Addresslabel;
+                        window.location.href
+                        // this.url=window.location.href;
+                        // window.location.href=this.url;
+                        // window.location.href;
+                        // this.showLoader =false;
+                        // this[NavigationMixin.Navigate]({
+                        //     type: 'standard__webPage',
+                        //     attributes: {
+                        //         url: `/powerleduk/en-US/addresses?addressType=`+ this.Addresslabel
+                        //     } 
+                        // },
+                        // true
+                        // );
+                    })
+                    .catch((error) => {
+                        this.showLoader = true;
+                        // alert(JSON.stringify(error));
+                        console.log('error' + JSON.stringify(error));
+                        this.showLoader = false;
+
+                    })
+            }
+            else {
+                Updateaddress({
+                    fname: this.firstName, lname: this.LastName, addresstype: this.Addresslabel, isdefault: this.checkval, country: this.Countrylabel, city: this.city,
+                    state: this.StateLabel,
+                    postalcode: this.zip, phonenum: this.Phone, companyname: this.Company,
+                    address: this.StreetAddress, formid: this.addressidurl
+                })
+                    .then((result) => {
+                        console.log('result----------->' + JSON.stringify(result));
+                        var newurl = window.location.pathname;
+                        var orginurl = window.location.origin;
+                        var newurl1 = newurl.replace('/addressForm', '')
+                        var finalurl = newurl1;
+                        console.log('newurl----------->' + newurl);
+                        console.log('orginurl----------->' + orginurl);
+                        window.location.href = orginurl + finalurl + '/addresses?addressType=' + this.Addresslabel;
+                        window.location.href;
+                    })
+                    .catch((error) => {
+                        this.showLoader = true;
+                        //alert(JSON.stringify(error));
+                        console.log('error' + JSON.stringify(error));
+                        this.showLoader = false;
+
+                    })
+            }
         }
 
     }

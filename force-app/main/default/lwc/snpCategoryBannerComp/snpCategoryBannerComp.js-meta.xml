@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>58.0</apiVersion>
+        <isExposed>true</isExposed>
+        <targets>
+        <target>lightningCommunity__Page</target>
+        <target>lightningCommunity__Default</target>
+    </targets>
+<targetConfigs>
+    <targetConfig targets="lightningCommunity__Default">
+                <property
+                type="String"
+                name="categoryId"
+                label="Category Id"
+                description="Mention Category Id Expression"
+                default="{!Route.recordId}"
+            />
+        <property type="Color"  name="headTextColor" label="Main Heading Text Clor" default="#ffffff" description="Change Color of Main Heading Text"/>
+        <property type="Color"  name="subHeadTextColor" label="Sub Heading Text Color" default="#ffffff" description="Change Color of Sub-Heading Text"/>
+    </targetConfig>
+</targetConfigs>
+</LightningComponentBundle>

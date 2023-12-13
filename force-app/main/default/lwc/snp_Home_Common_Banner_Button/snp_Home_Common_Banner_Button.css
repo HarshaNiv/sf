@@ -1,0 +1,78 @@
+/* imageWithButton.css */
+
+/* .container {
+    text-align: center;
+    width: 100%;
+} */
+
+.banner-image-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+
+.about-us-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.banner-wrapper{
+    position: relative;
+    margin: 6.625rem 0 6.875rem 0;
+}
+
+.about-us-slot-wrapper{
+    position: absolute;
+
+}
+
+.about-us-button-right{
+    bottom: 25%;
+    right: 7%;
+}
+.about-us-button-left{
+    bottom: 25%;
+    left: 7%;
+}
+
+.about-us-button-center{
+    bottom: 13%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+
+
+.about-button:hover {
+    background-color: var(--snp-theme-clr-yellow);
+    color: var(--snp-clr-black);
+}
+
+.banner-small .banner-image-wrapper{
+    max-height: 398px;
+    aspect-ratio: 3/6;
+    overflow: hidden;
+}
+
+.banner-medium .banner-image-wrapper{
+    max-height: 473px;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+}
+
+.banner-large .banner-image-wrapper{
+    max-height: 700px;
+    aspect-ratio: 2/6;
+    overflow: hidden;
+}
+
+@media only screen and (max-width: 768px) {
+    .about-us-image {
+    max-height: 350px;
+	}
+   .about-button {
+    font-size: 0.7rem;
+	}
+}

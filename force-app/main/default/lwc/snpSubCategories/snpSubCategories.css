@@ -1,0 +1,117 @@
+.parent-container {
+         display: flex;
+         flex-direction: row;
+         justify-content: space-evenly;
+         flex-wrap: wrap;
+     }
+
+     .tile {
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         width: 25%;
+         margin-top: 3.125rem;
+
+     }
+
+
+     .image-container:hover {
+         border: 0.1875rem solid #fdc300;
+
+     }
+
+     .text-container {
+         text-decoration: none !important;
+         color: black;
+         font-family: 'SunFont';
+         margin-top: 1.25rem;
+     }
+
+     .text-container:hover {
+
+         color: #FDC300;
+     }
+
+    .image-wrapper {
+        width: 80%;
+    }
+
+    .image-container {
+       
+       height: auto;
+       width: 100%;
+       object-fit: cover;
+       aspect-ratio: 1/1;
+    }
+
+     /* Mobile Responsive Styles */
+     @media (max-width: 48rem) {
+         .parent-container {
+             flex-direction: column;
+             align-items: center;
+         }
+
+         .tile {
+             width: 90%;
+         }
+
+         .image-container {
+             /* height: 9.375rem;
+             max-width: 9.375rem; */
+            height: auto;
+            width: 100%;
+            object-fit: cover;
+            aspect-ratio: 1/1;
+         }
+
+        .image-wrapper {
+            display: block;
+            width: 80%;
+
+        }
+
+     }
+
+     /* Pagination Styles */
+     .main-pagination {
+         display: flex;
+         flex-direction: row;
+         justify-content: center;
+         flex-wrap: wrap;
+         margin: 3.125rem auto 1.875rem auto;
+         max-width: 25rem;
+
+     }
+
+     .btn-icon-pages {
+         background-color: white;
+         border: 0.0625rem solid black;
+         width: 2rem;
+         height: 2rem;
+         margin: 0rem 0.75rem 0rem 0.25rem;
+         padding: 0.188rem 0.5rem;
+
+     }
+
+     .btn-icon-pages:hover {
+         background-color: #FDC300;
+     }
+
+     .btn-number-pages {
+         background-color: white;
+         border: 0.0625rem solid black;
+         margin: 0rem 0.75rem 0rem 0.25rem;
+         width: 2rem;
+         height: 2rem;
+         padding: 0.188rem 0.5rem;
+     }
+
+     .btn-number-pages:hover {
+         background-color: #FDC300;
+     }
+
+
+     .selected-page {
+         background-color: #eaece7;
+
+     }

@@ -1,0 +1,37 @@
+.promo-banner-container {
+    border-bottom: 0.125rem solid var(--snp-clr-black);
+    display: flex;
+    position: relative;
+    width: 100%;
+    background-color: var(--snp-theme-clr-yellow); 
+    padding: 0;
+  }
+  
+  .promo-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: 0 1.25rem;
+    color: var(--snp-clr-black);
+  }
+  
+  .close-icon {
+    margin: 0 0.2rem 0 0;
+    cursor: pointer;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--snp-clr-black);
+  }
+  
+  .prmo-text {
+    margin: 0;
+    font-size: 1rem;
+  }
+  
+  @media screen and (max-width:480px) {
+    .prmo-text {
+      margin: 0;
+      font-size: 0.8rem !important;
+    }
+  }

@@ -1,0 +1,41 @@
+.drop-down-wrapper
+{
+    position: relative;
+    width: 20%;
+    
+}
+.drop-down-btn
+{    
+    width: 100%;
+    outline: none;
+}
+.drop-down-btn:hover{
+    border: 1px solid yellow;
+}
+ul {
+    padding: 0;
+    margin: 0;
+}
+li {
+    padding: 0;
+    margin: 0;
+}
+.options-wrapper
+{
+    position: absolute;
+    z-index: 1;
+    background-color: #efe8e8;
+    margin-top: -3px;
+    border: 1px solid black;
+    overflow: hidden;
+    overflow-y: scroll;
+    width: 100%;
+   
+}
+
+@media only screen and (max-width: 576px) {
+    .drop-down-wrapper {
+        width: 50%;
+    }
+    
+    }

@@ -1,0 +1,32 @@
+<template>
+    <template lwc:if={showRelatedProdcts}>
+    <div class="related-main-wrapper">
+        <template if:true={loading}>LOADING...</template>
+        <h2 class="related-products-heading">Related Products</h2>
+        <template if:true={showProducts}>
+            <div class="related-products-wrapper container">
+                <!-- <h2 class="related-products-heading">Related Products</h2> -->
+                <div class="products ">
+                    <lightning-layout multiple-rows>
+                        <template for:each={productList} for:item="product">
+                            <lightning-layout-item size="12" small-device-size="12" medium-device-size="3" large-device-size="3" padding="horizontal-small" key={product.Id}>
+                                <div class="product">
+                                    <div class="productImage">
+                                        <img class="imageofProduct" data-pid={product.Id} src={product.url} onclick={handleClickProduct}>
+                                    </div>
+                                    <div class="productName">
+                                        <a class="proName" data-pid={product.Id} onclick={handleClickProduct}>{product.Name}</a>
+                                    </div>
+                                    <div class="productPrice">
+                                        Price: {product.Price}
+                                    </div>
+                                </div>
+                            </lightning-layout-item>
+                        </template>
+                    </lightning-layout>
+                </div>
+            </div>
+        </template>
+    </div>
+</template>
+</template>

@@ -1,0 +1,11 @@
+<template>
+  <!-- Ignore the style Error -->
+    <div class="promo-banner-container" style={dynamicStyleForColor} if:true={showBanner}>
+      <div class="promo-banner">
+          <p class="prmo-text" style={dynamicStyleForText}> {promoBannerMsg}</p>
+      </div>
+      <div class="close-icon">
+        <span class="close-icon" onclick={handleClose}>&times;</span>
+      </div>
+    </div>
+  </template>

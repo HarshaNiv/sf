@@ -1,0 +1,26 @@
+<template>
+    <div class="drop-down-wrapper">
+        <button class="drop-down-btn" onclick={opneDropDown} onblur={closeDrowDown}>{selectedLabel}</button>
+        <template if:true={isOpen}>
+            <div class="options-wrapper">
+                <template for:each={cars} for:item="car">
+                    <ul key={car}>
+                        <li class="options" data-item={car} onclick={items} onfocusout={closeDrowDown}>{car}</li>
+                    </ul>
+                </template>
+            </div>
+
+        </template>
+    </div>
+    <!-- picklistWithButton.html -->
+<!-- 2 component -->
+
+        <!-- <div class="slds-p-around_medium">
+            <lightning-combobox
+                name="number"
+                value={selectedValue}
+                options={picklistOptions}
+                onchange={handlePicklistChange}>
+            </lightning-combobox>
+        </div> -->
+</template>

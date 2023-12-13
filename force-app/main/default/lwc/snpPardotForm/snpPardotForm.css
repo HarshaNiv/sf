@@ -1,0 +1,7 @@
+.frameContainer{
+background-color: grey;
+border: 5px solid yellow;
+/* background-image: url('/resource/IMAGES/bulb1.jpg'); */
+/* background-image: url(${imageUrl}); */
+background-size: cover;
+}

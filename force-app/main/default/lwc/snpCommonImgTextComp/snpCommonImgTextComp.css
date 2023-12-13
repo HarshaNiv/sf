@@ -1,0 +1,328 @@
+/* HomePage-Img-Txt,CmsPage-Industy-Report,CmsPage-Our-Company,CmsPage-Our-Company-Reverse,CmsPage-Our-Approach,CmsPage-Our-Approach-Reverse */
+/* "homepage-img-txt,cmspage-industy-report,cmspage-our-company,cmspage-our-company-reverse,cmspage-our-approach,cmspage-our-approach-reverse"  */
+/* All common Css for all pages */
+@import 'c/snpGlobalCssStylingLibrary';
+.content-common-inner-wrapper{
+    display: flex;
+}
+
+.common-content-img
+{
+    max-width: 100%;
+    width: 100%;
+    object-fit: cover;
+    /* aspect-ratio: 16/9; */
+}
+.content-common-inner-wrapper {
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.content-common-left 
+{
+    width: 45%;
+}
+.content-common-right
+{
+    width: 45%;
+    
+}
+
+.content-img-wrapper
+{
+    max-width: 100%;
+    width: 100%;
+}
+
+.content-left-top ,.content-right-top {
+    max-width: 100%;
+    width: 100%;
+}
+
+/* homepage-img-txt Css Styles */
+.homepage-img-txt{
+    /* margin: 12.0625rem auto 8.3125rem auto; */
+    margin: 0.0625rem auto 3.3125rem auto;
+}
+
+.homepage-img-txt .content-img-wrapper{
+    max-height: 502px;
+    overflow: hidden;
+}
+
+.homepage-img-txt .common-content-img {
+    aspect-ratio: 1/1;
+}
+
+.homepage-img-txt .content-common-left .content-left-bottom{
+    display: none;
+}
+
+.homepage-img-txt .content-common-right {
+    position: relative;
+}
+.homepage-img-txt .content-common-right .content-right-top{
+    display: none;
+}
+
+.homepage-img-txt .content-common-right .content-button-wrapper{
+    position: absolute;
+    bottom: 0;
+    right: 15%;
+}
+
+
+
+
+/* cmspage-industy-report Css Styles */
+.cmspage-industy-report {
+    margin: 76px auto 55px auto;
+}
+
+/* .cmspage-industy-report:last-child {
+    margin-bottom: 183px;
+} */
+
+.cmspage-industy-report .content-common-right .content-button-wrapper {
+    display: none;
+}
+
+.cmspage-industy-report .content-img-wrapper{
+    max-height: 300px;
+    overflow: hidden;
+}
+
+.cmspage-industy-report .common-content-img {
+    aspect-ratio: 1.95/1;
+}
+
+
+
+/* cmspage-our-company Css Styles */
+.cmspage-our-company{
+    margin: 69px auto 55px auto;
+    align-items: center;
+}
+.cmspage-our-company .content-common-left .content-left-bottom {
+    display: none;
+}
+
+.cmspage-our-company .content-common-right .content-right-top,
+.cmspage-our-company .content-common-right .content-button-wrapper {
+    display: none;
+}
+
+.cmspage-our-company .content-img-wrapper {
+    max-height: 300px;
+    overflow: hidden;
+}
+
+.cmspage-our-company .common-content-img {
+    aspect-ratio: 16/9;
+}
+
+/* cmspage-our-approach Css Styles */
+.cmspage-our-approach{
+    margin: 69px auto 55px auto;
+    align-items: center;
+}
+.cmspage-our-approach .content-common-left .content-left-bottom {
+    display: none;
+}
+
+.cmspage-our-approach .content-common-right .content-right-top,
+.cmspage-our-approach .content-common-right .content-button-wrapper {
+    display: none;
+}
+
+.cmspage-our-approach .content-img-wrapper {
+    max-height: 700px;
+    overflow: hidden;
+}
+
+.cmspage-our-approach .common-content-img {
+    aspect-ratio: 0.99/1;
+}
+
+
+
+/* cmspage-our-company-reverse Css Styles*/
+
+.cmspage-our-company-reverse{
+    margin: 69px auto 55px auto;
+    align-items: center;
+}
+/* .cmspage-our-company-reverse:last-child{
+    margin-bottom: 89px;
+} */
+
+.cmspage-our-company-reverse .content-common-left .content-left-top {
+    display: none;
+}
+
+.cmspage-our-company-reverse .content-common-right .content-right-bottom,
+.cmspage-our-company-reverse .content-common-right .content-button-wrapper {
+    display: none;
+}
+
+.cmspage-our-company-reverse .content-img-wrapper {
+    max-height: 300px;
+    overflow: hidden;
+}
+
+.cmspage-our-company-reverse .common-content-img {
+    aspect-ratio: 16/9;
+}
+
+
+/* cmspage-our-approach-reverse Css Styles */
+
+.cmspage-our-approach-reverse{
+    margin: 69px auto 55px auto;
+    align-items: center;
+}
+/* .cmspage-our-company-reverse:last-child{
+    margin-bottom: 89px;
+} */
+
+.cmspage-our-approach-reverse .content-common-left .content-left-top {
+    display: none;
+}
+
+.cmspage-our-approach-reverse .content-common-right .content-right-bottom,
+.cmspage-our-approach-reverse .content-common-right .content-button-wrapper {
+    display: none;
+}
+
+.cmspage-our-approach-reverse .content-img-wrapper {
+    max-height: 700px;
+    overflow: hidden;
+}
+
+.cmspage-our-approach-reverse .common-content-img {
+    aspect-ratio: 0.99/1;
+}
+
+
+
+/* All Pages Media query */
+@media only screen and (max-width: 991px) {
+    /* cmspage-our-company Css Styles */
+    .cmspage-our-company{
+        margin: 53px auto 53px auto;
+    }
+    /* cmspage-our-company-reverse Css Styles*/
+    .cmspage-our-company-reverse{
+            margin: 53px auto 53px auto;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    /* homepage-img-txt Css Styles */
+    .homepage-img-txt{
+        align-items: center;
+       flex-direction: column;
+       width: 100%;
+    }
+
+    .homepage-img-txt .content-common-left 
+    {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .homepage-img-txt .content-common-right
+    {
+        max-width: 100%;
+        width: 100%;
+        
+    }
+    .homepage-img-txt .content-common-right .content-button-wrapper{
+        bottom: unset;
+        
+    }
+
+    /* cmspage-industy-report Css Styles */
+    .cmspage-industy-report {
+        margin: 76px auto 55px auto;
+        flex-direction: column;
+        gap:5rem;
+    }
+
+    .cmspage-industy-report .content-common-left 
+    {
+        width: 100%;
+    }
+    .cmspage-industy-report .content-common-right
+    {
+        width: 100%;
+        
+    }
+
+    /* cmspage-our-company Css Styles */
+    .cmspage-our-company{
+        flex-direction: column;
+        margin: 40px auto 30px auto;
+    }
+
+    .cmspage-our-company .content-common-left 
+    {
+        width: 100%;
+    }
+
+    .cmspage-our-company .content-common-right
+    {
+        width: 100%;
+    }
+
+    /* cmspage-our-approach Css Styles */
+    .cmspage-our-approach{
+        flex-direction: column;
+        margin: 40px auto 30px auto;
+    }
+
+    .cmspage-our-approach .content-common-left 
+    {
+        width: 100%;
+    }
+
+    .cmspage-our-approach .content-common-right
+    {
+        width: 100%;
+    }
+    
+
+    /* cmspage-our-company-reverse Css Styles*/
+    .cmspage-our-company-reverse {
+        flex-direction: column-reverse;
+        margin: 40px auto 30px auto;
+    }
+
+    .cmspage-our-company-reverse .content-common-left 
+    {
+        width: 100%;
+    }
+
+    .cmspage-our-company-reverse .content-common-right
+    {
+        width: 100%;
+    }
+
+    /* cmspage-our-approach-reverse Css Styles */
+    .cmspage-our-approach-reverse {
+        flex-direction: column-reverse;
+        margin: 40px auto 30px auto;
+    }
+
+    .cmspage-our-approach-reverse .content-common-left {
+        width: 100%;
+    }
+
+    .cmspage-our-approach-reverse .content-common-right {
+        width: 100%;
+    }
+
+}
+
+@media only screen and (max-width: 567px) {
+    
+}

@@ -1,0 +1,212 @@
+ul{
+    padding: 0;
+    margin: 0;
+}
+.footer-links-wrapper{
+    /* margin-left: 2rem; */
+    margin-bottom: 1rem;
+}
+.footer-outer-wrapper{
+    background-color: black;
+    color: white;
+    /* font-family: 'SunFont' !important; */
+    letter-spacing:  0.1rem;
+}
+.slds-align_absolute-center{
+    margin-top:0em;
+}
+
+
+.emailInput{
+    margin-right: 1rem;
+    max-width: 14.75rem;
+    width: 14.563rem;
+
+}
+.footer-links:hover{
+    cursor: pointer;
+    color: white !important; 
+    border-bottom: 2px solid #fdc300 !important;
+    text-decoration: none !important;
+}
+
+.email-wrapper{
+    align-items: center;
+    margin-right: 2.75rem;
+    
+}
+.social-img{
+    max-width: 100%;
+}
+.imgWrapperSocialLink{
+    display: inline-block;
+}
+
+.social-links{
+    width:1.875rem;
+    /* margin-left: 70px; */
+    min-width: 1.25rem;
+    max-width: 1.75rem;
+}
+.emailSubscribe{
+    margin: 10px 0 70px 0;
+}
+.slds-input{
+    background-color: black;
+    color: white;
+    border:1px solid white;
+    width: 250px;
+    height: 35px;
+}
+.slds-input:hover{
+    border:1px solid #fdc300;
+}
+.slds-input::placeholder{
+    color: white;
+    /* font-family: Sunpower Font; */
+}
+.slds-input:focus::placeholder{
+    color: transparent;
+}
+.social-links-wrapper{
+    padding: 0;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 0.75rem 0 2.25rem 0;
+}
+.contactUsIcon{
+    width: 17px;
+    height: 17px;
+}
+.policyLinks{
+    padding: 0 50px 0 0;
+}
+.privacySection{
+    height: 30px;
+    margin-left: 20px;
+}
+form{
+    display: flex;
+}
+.subscribe-input-field{
+    width: 100%;
+    height: 0;
+}
+.subscribe-input-field::placeholder{
+    /* font-family: 'SunFont'; */
+}
+
+
+/* model */
+
+.model-succes-font
+{
+    font-weight: 400;
+}
+
+.model-succes-footer
+{
+    display: flex;
+    /* margin: auto; */
+    align-items: center;
+    justify-content: center;
+}
+.log-in
+{
+    color: black;
+    border: 1px solid black;
+    background-color: #EAECE7;
+}
+
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 768px) {
+    .footer-links-wrapper{
+        margin: 0;
+}
+    .emailSubscribe{
+        position: relative;
+        margin: auto;
+        max-width: 360px;
+        margin-bottom: 50px;
+
+        /* position: relative;
+        margin: 35px 0; */
+    }
+    /* .emailInput{
+        position: absolute;
+        left: 0;
+    }
+    .subscribeButton{
+        position: absolute;
+        right: 0;
+    } */
+    .footer-outer-wrapper{
+        padding-top: 10px;
+    }
+    .privacySection{
+        height: 50px;
+        margin: 10px 0 0 0;
+        padding-left: 0 !important;
+        align-items: center;
+        text-align: center;
+
+    }
+    .footer-inner-wrapper>:first-child{
+        display: block;
+    }
+    /* .social-links{
+        padding: 30px;
+        margin: auto;
+        max-width: 100px;
+        
+        /* margin-left: 0;
+        padding-left: 0;
+        padding: 25px; */
+    /* }  */
+    .socialLinksList{
+        padding-left: 0 !important;
+    }
+    .copyright{
+        margin-top: 10px;
+        text-align: center;
+    }
+    .policyLinks{
+        padding: 5px;
+    }
+    .followUs{
+        padding-bottom: 0px !important;
+    }
+    .email-subscribe-form{
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        flex-wrap: wrap;
+        gap: 1.25rem;
+    }
+    .emailInput{
+        flex: 1 0 12.5rem;
+    }
+    .email-wrapper{
+        width: 100%;
+        display: flex;
+        margin-right: 0;
+    }
+    
+}
+
+@media only screen and (max-width: 991px) and (min-width: 768px) {
+    .social-links-wrapper{
+        gap: 2.375rem;
+    }
+    .email-wrapper{
+        margin-right: 0;
+    }
+}

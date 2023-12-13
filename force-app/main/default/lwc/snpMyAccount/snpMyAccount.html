@@ -1,0 +1,37 @@
+<!--
+    @description       : Account dropdown component
+    @author            : Owais Amin Ahanger
+    @last modified on  : 08-29-2023
+   
+-->
+<template>
+  <div class="account-container">
+    <template lwc:if={isGuest}>
+      <div class="custom-profile-menu-component">
+        <button onclick={handleShowDropDown} onfocusout={handleHideDropDown} class="account-icon">
+          <img src={userIconUrl} alt="My Account" class="image-size">
+        </button>
+      </div>
+      <template lwc:if={showDropDown}>
+        <div>
+          <ul class="account-list">
+            <!-- Login option -->
+            <li onclick={handleLogin} class={getLoginClass} data-id="login"><a class="account-link-items">Login</a>
+            </li>
+            <!-- Register option -->
+            <li onclick={handleRegister} class={getRegisterClass} data-id="register"><a
+                class="account-link-items">Register</a>
+            </li>
+          </ul>
+        </div>
+      </template>
+    </template>
+
+    <template lwc:else>
+      <div class="standard-profile-menu-component-slot">
+        <!-- Standard Account Section -->
+        <slot name="StandardProfileMenuComponent">Standard Account Section</slot>
+      </div>
+    </template>
+  </div>
+</template>

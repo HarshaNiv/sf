@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>58.0</apiVersion>
+           <isExposed>true</isExposed>
+    <targets>
+        <target>lightningCommunity__Page</target>
+        <target>lightningCommunity__Default</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightningCommunity__Default">
+            <property type="ContentReference" name="leftImageContentId" label="Left Side Image" filter="cms_image"/>
+            <property type="ContentReference" name="rightImageContentId" label="Right Side Image" filter="cms_image"/>
+            <!-- <property type="String" name="contentFirstHeading" label="Content First Heading"/>
+            <property type="String" name="contentSecondHeading" label="Content Second Heading"/>
+            <property type="Color" name="textColor" default="#ffffff" /> -->
+            <!-- <property name="selectedOption" type="String" default="block" datasource="lightning__combobox" label="Selected Option" required="true" placeholder="Select an option" options="Display, Hide" /> -->
+            <!-- <property label="Select for Left Top Image" name="leftTopImage" type="String" datasource="Display,Hide" default="Display"/>
+            <property label="Select for Left Bottom Text" name="leftBottomTextSlot" type="String" datasource="Display,Hide" default="Display"/>
+            <property label="Select for Right Top Image" name="rightTopImage" type="String" datasource="Display,Hide" default="Display"/>
+            <property label="Select for Right Bottom Text" name="rightBottomTextSlot" type="String" datasource="Display,Hide" default="Display"/>
+			<property label="Select for Image View Type" name="imageViewType" type="String" datasource="Landscape,Potrait" default="Landscape"/>
+            <property label="Select for Button Visibility" name="buttonVisibleSlot" type="String" datasource="Display,Hide" default="Hide"/> -->
+            <property type="String" name="pageType" label="Select Based On Page Type" datasource="HomePage-Img-Txt,CmsPage-Industy-Report,CmsPage-Our-Company,CmsPage-Our-Company-Reverse,CmsPage-Our-Approach,CmsPage-Our-Approach-Reverse" default="HomePage-Img-Txt" description="Select For Which Page You Want this Component"/>
+            <!-- <property label="Select for Button Position" name="buttonPosition" type="String" datasource="Right,Center,Left" default="Center"/> -->
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

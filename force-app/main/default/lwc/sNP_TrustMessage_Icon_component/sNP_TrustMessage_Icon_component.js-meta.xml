@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>58.0</apiVersion>
+    <isExposed>true</isExposed>
+    <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+</targets>
+<targetConfigs>
+<targetConfig targets="lightningCommunity__Default">
+    <property type="String" name="recordId" label="Record Id"  default="{!Route.recordId}" description="This Property Value is Mandatory for Catrgory Page : {!recordId}"/>
+    <property type="ContentReference" name="contentId" label="Content ID" filter="cms_image" description="Select the Desired Image Based on Page"/>
+    </targetConfig>
+</targetConfigs>
+</LightningComponentBundle>

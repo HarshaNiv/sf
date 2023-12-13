@@ -1,0 +1,141 @@
+<template>
+    <div class="order-history-wrapper">
+        <h3 class="order-history-heading">Order History</h3>
+        <div class="order-history-top">
+            <div class="filter-section-title">Filters By Date :</div>
+            <div class="date-filters-wrapper">
+                <div class="left-date-wrapper">
+                    <!-- <label for="start">Start Date (M/d/yyyy)</label>
+                    <input type="date" class="start-date" name="trip-start" value={startDate}/> -->
+                    <lightning-input type="date" name="input3" label="Start Date (M/d/yyyy)" value={startDate} onchange={getStartDate}></lightning-input>
+                </div>
+                <div class="right-date-wrapper">
+                    <!-- <label for="start">Start Date (M/d/yyyy)</label>
+                    <input type="date" class="end-date" name="trip-end" value={endDate}/> -->
+                    <lightning-input type="date" name="input4" label="End Date (M/d/yyyy)" value={endDate} onchange={getEndDate}></lightning-input>
+                </div>
+                <button class="apply-button" onclick={applyFilterOrders}>Apply</button>
+                <button class="reset-button" onclick={resetFiterDate}>Reset</button>
+            </div>
+        </div>
+        <div class="filter-lists">
+            <div class="drp-main-wrapper">
+                <div class="drop-down-wrapper">
+                    <button class="drop-down-btn drp-label arrow-down" onclick={btnClickDrop}>{selectedLabel}</button>
+                    <ul class="drop-down-options toogle-option ok">
+                        <!-- <template for:item="sortOption" for:each={sortOrderBasedOnFilters} > -->
+                            <li class="options selected" data-seq="1" onclick={handleOptions}>Sort items by most recent order</li>
+                            <li class="options" data-seq="2"  onclick={handleOptions}>Sort items by oldest order</li>
+                        <!-- </template> -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <template if:false={noOrdersForView}>
+            <div class="order-summary-count">{orderSummarySize} items</div>
+        </template>
+        <div class="order-history-bottom">
+            <template if:true={noOrdersForView}>
+                <div class="no-roders">To view Orders, adjust your filters</div>
+            </template>
+            <template for:each={orderSummaryList} for:item="orderSummary" for:index="index">
+                <div class="order-summary-line-item" key={orderSummary.orderNumber} >
+                    <div class="order-line-item-wrapper ">
+                        <div class="order-line-item-left">
+                            <div class="order-line-left">
+                                <div class="order-number">
+                                    <div class="order-numbrer-title"> Order Summary Number: </div>
+                                    <div class="order-number-value" onclick={redirectToViewDeatils} data-id={index}> {orderSummary.OrderNumber}</div>
+                                </div>
+                                <div class="order-total">
+                                    <div class="order-total-title">Total:</div>
+                                    <div class="order-total-value">{orderSummary.GrandTotalAmount}</div>
+                                </div>
+                            </div>
+                            <div class="order-line-middle">
+                                <div class="order-date">
+                                    <div class="order-date-title">Ordered Date:</div>
+                                    <div class="order-date-value">
+                                        <lightning-formatted-date-time value={orderSummary.OrderedDate} year="numeric" month="numeric" day="numeric" hour="2-digit"
+                                                minute="2-digit"></lightning-formatted-date-time>
+                                        </div>
+                                </div>
+                                <div class="order-sage-id">
+                                    <div class="order-total-title">Sold to account :</div>
+                                    <div class="order-total-value">{sageId}</div>
+                                </div>
+                            </div>
+                            <div class="order-line-right">
+                                <div class="order-status">
+                                    <div class="order-status-title">Status:</div>
+                                    <div class="order-status-value"> {orderSummary.Status}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="order-line-item-right">
+                            <button class="reorder-button" data-reorder={orderSummary.OrderNumber} onclick={showModal}>Start Reorder</button>
+                            <a href="#" class="view-details-button" data-id={index} onclick={handleViewDetails}>View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </template>
+            <template lwc:if={showLoader}>
+                <div class="loader-wrapper">
+                    <div class="loader"></div>
+                </div>
+            </template>
+            <div class="show-more-wrapper">
+                <template lwc:if={showMoreBtnLoader}>
+                    <div class="loader-wrapper show-loader-wrapper">
+                        <div class="loader"></div>
+                    </div>
+                </template>
+                <template lwc:if={showNoMoreOrders}>
+                    <div class="loader-wrapper show-loader-wrapper">
+                        <div class="no-more-toast">No More Order History found</div>
+                    </div>
+                </template>
+                <template lwc:if={showMoreButtonVisiblity}>
+                    <button class="show-more-btn" onclick={showMoreLoader}>Show More</button>
+                </template>
+                
+            </div>
+        </div>
+    </div>
+    <template lwc:if={openModal}>
+
+    <div class="modal-wrapper">
+        <div class="modal-box">
+            <template lwc:if={viewCartModal}>
+                <div class="modal-heading">All Items Were Add to Cart</div>
+                <div class="modal-body">
+                    <div class="link-wrapper">
+                        <a href="#" class="view-cart-link" onclick={handleOrderToCart} data-reorder={orderSummid}>View Basket</a>
+                        <a href="#" class="continue-shopping-link" onclick={continueShopping}>Continue Shopping</a>
+                    </div>
+                </div>
+            </template>
+
+            <!-- <div class="modal-cross-sign">
+            </div> -->
+            <template lwc:if={startReorderProcess}>
+                <div class="loader-wrapper show-loader-wrapper view-cart-modal-loader">
+                    <div class="modal-heading">Reorder is in Processing</div>
+                    <div class="modal-sub-heading">All itmes add to your Cart</div>
+                    <!-- <div class="loader"></div> -->
+                    <div class="demo-only demo-only_viewport" style="height:6rem;position:relative">
+                        <div role="status" class="slds-spinner slds-spinner_medium">
+                        <span class="slds-assistive-text">Loading</span>
+                        <div class="slds-spinner__dot-a"></div>
+                        <div class="slds-spinner__dot-b"></div>
+                        </div>
+                        </div>
+                </div>
+            </template>
+            <span class="modal-cross-sign close" onclick={closeModal}></span>
+        </div>
+    
+    </div>
+    </template>
+    
+    </template>

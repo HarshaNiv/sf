@@ -1,0 +1,38 @@
+<template>
+    <lightning-card title="Product Pricing" icon-name="standard:pricebook">
+        <div class="slds-m-around_medium spacer">
+            <div onkeyup={handleKeyUp}>
+                <lightning-input
+                    name="searchCriteria"
+                    label="Product Search"
+                    type="search"
+                >
+                </lightning-input>
+            </div>
+            <ul class="slds-list_vertical slds-has-dividers_top-space">
+                <template for:each={prods} for:item="item" if:true={prods}>
+                    <li key={item.Id} class="slds-list__item">
+                        <c-r3-Account-Product item={item}>
+                        </c-r3-Account-Product>
+                    </li>
+                </template>
+                <template if:true={noData}>
+                    <li class="slds-list__item">
+                        <h3
+                            class="
+                                slds-text-heading_small
+                                slds-text-color_error
+                            "
+                        >
+                            No matching products found!
+                        </h3>
+                    </li>
+                </template>
+            </ul>
+        </div>
+        <template if:false={prods}>
+            <lightning-spinner variant="brand" size="large">
+            </lightning-spinner>
+        </template>
+    </lightning-card>
+</template>

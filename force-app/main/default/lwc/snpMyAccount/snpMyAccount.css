@@ -1,0 +1,67 @@
+.account-container {
+display: inline-block;
+position: relative;
+
+}
+
+.image-size {
+max-width: 100%;
+height: 1.125rem;
+}
+
+.account-list {
+position: absolute;
+top: 2.5rem;
+right: -10px;
+background-color: white;
+border: 0.0625rem solid lightgray;
+border-radius: 0.25rem;
+list-style: none;
+z-index: 16;
+margin: 0;
+width: 7.8125rem;
+padding: 0.625rem 0;
+
+
+}
+
+.account-list::before {
+content: "";
+position: absolute;
+top: -23%;
+right: 5px;
+margin-left: -0.3125rem;
+border-width: 0.75rem;
+border-style: solid;
+border-color: transparent transparent white transparent;
+}
+
+.account-list li:hover {
+background-color: #eaece7;
+}
+
+.account-list-items {
+padding: 0.438rem 0.625rem;
+}
+
+.account-link-items {
+color: black !important;
+text-decoration: none;
+}
+
+.account-link-items:hover {
+color: black;
+text-decoration: underline;
+}
+
+.account-icon {
+background-color: black;
+border: none;
+padding: 0;
+outline: none;
+
+}
+
+.account-list-items-selected {
+background-color: #b3b2aa;
+}

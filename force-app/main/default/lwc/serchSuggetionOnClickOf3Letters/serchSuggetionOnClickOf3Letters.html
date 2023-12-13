@@ -1,0 +1,23 @@
+<template>
+        <div class="search-container">
+      <div class="search-bar" onclick={toggleSearchBar}>
+        <lightning-icon icon-name="utility:search" alternative-text="Search" size="small"></lightning-icon>
+      </div>
+      <div class="search-input-container" if:true={isSearchBarVisible}>
+        <input
+          type="text"
+          class="search-input text-color"
+          placeholder="Search over (number) products here"
+          onfocus={handleSearchFocus}
+          oninput={handleSearchInput}
+          onblur={handleSearchBlur}
+          onkeydown={handleKeyDown}
+        />
+        <div class="search-flyout" if:true={isSearchFlyoutVisible} >
+          <!-- Display search suggestions here -->
+          <div class="products"></div>
+          <div class="category"></div>
+        </div>
+      </div>
+    </div>
+</template>

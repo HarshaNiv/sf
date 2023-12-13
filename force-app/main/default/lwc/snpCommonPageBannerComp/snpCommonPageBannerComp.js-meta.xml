@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>58.0</apiVersion>
+    <isExposed>true</isExposed>
+        <targets>
+        <target>lightningCommunity__Page</target>
+        <target>lightningCommunity__Default</target>
+    </targets>
+<targetConfigs>
+    <targetConfig targets="lightningCommunity__Default">
+        <property type="String" name="recordId" label="Record Id"  default="{!Route.recordId}" description="This Property Value is Mandatory for Catrgory Page : {!recordId}"/>
+        <property type="ContentReference" name="contentId" label="Content ID" filter="cms_image" description="Select the Desired Image Based on Page"/>
+        <property type="String" name="bannerPageType" label="Select for Banner Page Type" datasource="CMS-Hero-Banner,Category-Hero-Banner,Home-Page-Hero-Banner,About-Us-Company-Banner,HomePage-LearMore-Banner,HomePage-AboutUs-Banner,HomePage-ReadMore-Banner" default="Home-Page-Hero-Banner" description="Select For Which Page You Want this Banner"/>
+        <property type="String" name="contentFirstHeading" label="Content First Heading" default="Heading" description="Manage Main Heading Content Of Banner"/>
+        <property type="String" name="contentSecondHeading" label="Content Second Heading" default="Title" description="Manage Sub Heading Content Of Banner"/>
+        <property type="String" name="buttonPosition" label="Select for Button Position"  datasource="Left,right,center" default="Left" description="Manage Button Position Over Banner"/>
+        <property type="Color"  name="headTextColor" label="Main Heading Text Clor" default="#ffffff" description="Change Color of Main Heading Text"/>
+        <property type="Color"  name="subHeadTextColor" label="Sub Heading Text Color" default="#ffffff" description="Change Color of Sub-Heading Text"/>
+    </targetConfig>
+</targetConfigs>
+</LightningComponentBundle>

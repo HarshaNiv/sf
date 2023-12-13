@@ -1,0 +1,7 @@
+.orders-title{
+    font-size: 1rem;
+}
+
+.order-list-wrapper .slds-button_icon{
+    color: unset !important;
+}

@@ -1,0 +1,111 @@
+<template>
+  <div class="loader" if:true={showLoader}></div>
+    <div class="currency-selector">
+      <button class="icon-container icon-btn" onclick={togglePicklist} onblur={hidePickList}>
+        <!-- <lightning-icon
+          icon-name="utility:currency"
+          alternative-text="Currency Selector"
+        ></lightning-icon> -->
+        <img src={multiCurrencyIconImageIMage} class="currency-image-icon" alt="currency ImageIcon" >
+      </button>
+      
+      <!-- working currency Selector -->
+      <!-- <template if:true={showPicklist}>
+        <ul class="currency-list">
+          <template for:each={currencyListWithIcons} for:item="currency"> -->
+            <!-- <li key={currency} onclick={showModelforGuestForRegister} >{currency}</li> -->
+            <!-- <template for:each={currency} for:item="item">
+              <li key={item} onclick={showModelforGuestForRegister}> <span><img src={item.image} class="image" alt=""></span> {item.name}</li>
+            </template>
+          </template>
+        </ul>
+      </template> -->
+
+      <template if:true={showPicklist}>
+        <ul class="currency-list">
+          <template for:each={currencyListWithIcons} for:item="currency">
+            <!-- <li key={currency} onclick={showModelforGuestForRegister} >{currency}</li> -->
+            <template for:each={currency} for:item="item">
+              <li key={item} class="currencyOptions" onclick={showModelforGuestForRegister}> <span><img src={item.image} class="multiple-currency-image" alt=""></span> {item.name}</li>
+            </template>
+          </template>
+        </ul>
+      </template>
+
+    <!-- modal start guest User -->      
+   <template if:true={isShowModalGuest}>
+      <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+<div class="slds-modal__container">
+    <!-- modal header start "slds-modal__header"-->
+    <header class="slds-modal__header guest-popup-header">
+        <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={hideModalBoxGuest}>
+          <lightning-icon icon-name="utility:close"
+              alternative-text="close"
+              variant="inverse"
+              size="small" ></lightning-icon>
+          <span class="slds-assistive-text">Close</span>
+        </button>
+        <h3 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Want to change the currency?</h3>
+    </header>
+
+    <!-- modal body start -->
+    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+          <p class="Model-body-conteny">To change the currency, Kindly login or signup. </p>
+    </div>
+
+    <!-- modal footer start-->
+    <footer class="slds-modal__footer guest-user-model">
+        <button class="slds-button slds-button_neutral log-in" onclick={LoginPageRedirection}>Login</button>
+        <button class="slds-button slds-button_neutral sign-in" onclick={SignInPageRedirection}>SignUp</button>
+    </footer>
+
+    </div>
+      </section>
+      <div class="slds-backdrop slds-backdrop_open"></div>
+   </template>
+    <!-- modal end -->
+
+
+    <!-- modal start registe User -->      
+   <template if:true={isShowModalRegister}>
+    <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+      <div class="slds-modal__container">
+      <!-- modal header start -->
+      <header class="slds-modal__header register-popup-header">
+          <button class="slds-button closee-model-popup slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={hideModalBoxRegister}>
+            <lightning-icon icon-name="utility:close"
+                alternative-text="close"
+                variant="inverse"
+                size="small" 
+                class="icon-color"
+                ></lightning-icon>
+            <span class="slds-assistive-text">Close</span>
+          </button>
+          <h2 id="modal-heading-02" class="slds-text-heading_medium slds-hyphenate">Want to change the currency? </h2>
+      </header>
+
+      <!-- modal body start -->
+      <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-2">
+            <p class="Model-body-conteny">Items in the basket will be cleared on changing the currency.
+              Press ok to continue.
+            </p>
+      </div>
+
+      <!-- modal footer start-->
+      <footer class="slds-modal__footer register-user-model">
+          <button class="slds-button slds-button_neutral register-user" onclick={handleLanguageSelect}>OK</button>
+          <button class="slds-button slds-button_neutral register-user" onclick={handleCancel}>Cancel</button>
+      </footer>
+      </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+  </template>
+  <!-- modal end -->
+
+
+
+  <!-- .slds-modal__container div .slds-modal__header {background-color: #fdc300;} -->
+   
+
+    </div>
+  </template>

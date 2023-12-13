@@ -1,0 +1,163 @@
+<!--
+
+  @description     :   This component is used to display recommendations and client can upload image and product image by himself 
+
+  @author            :  yeswanthkamaraju    
+
+  @Createddate   :   16-jun-2023
+
+  @Controller Class: N/A
+
+  @Test Class:  N/A
+
+  @modification summary: Nameofmodifier - modification date - modifications made
+
+-->
+<template>
+<div class="footer-outer-wrapper ">
+ <div class="custom-container footer-inner-wrapper">
+    <!-- Row 1 -->
+    <div class="slds-grid slds-wrap">
+	    <div class="slds-col slds-small-size_12-of-12 slds-medium-size_2-of-12 slds-large-size_2-of-12 slds-m-top_x-large">
+		    <ul class="footer-links-wrapper">
+                 <li class="slds-p-vertical_xx-small" data-name="About_Us__c" onclick={handleNavigateToCmsPage}><span class="footer-links">COMPANY</span></li>
+                 <li class="slds-p-vertical_xx-small" data-name="About_Us__c" onclick={handleNavigateToCmsPage}><span class="footer-links">ABOUT</span></li>
+                 <li class="slds-p-vertical_xx-small" data-name="Contact_Us__c" onclick={handleNavigateToCmsPage}><span class="footer-links">CONTACT</span></li>
+                 <li class="slds-p-vertical_xx-small" data-name="Solutions__c" onclick={handleNavigateToCmsPage}><span class="footer-links">SOLUTIONS</span></li>
+                 <li class="slds-p-vertical_xx-small" data-name="Careers__c" onclick={redirectToCareer}><span class="footer-links">CAREERS</span></li>
+             </ul>
+	    </div>
+	    <div class="slds-col slds-small-size_12-of-12 slds-medium-size_2-of-12 slds-large-size_2-of-12 slds-m-top_x-large">
+		    <ul class="footer-links-wrapper">
+                <li class="slds-p-vertical_xx-small" data-name="Contact_Us__c" onclick={handleNavigateToCmsPage}><span class="footer-links">HELP &amp; SUPPORT</span></li>
+                <li class="slds-p-vertical_xx-small" data-name="Delivery_and_Returns__c" onclick={handleNavigateToCmsPage}><span class="footer-links">DELIVERY &amp; RETURNS</span></li>
+                <li class="slds-p-vertical_xx-small" data-name="Shipping__c" onclick={handleNavigateToCmsPage}><span class="footer-links">SHIPPING</span></li>
+             </ul>
+	    </div>
+	    <div class="slds-col slds-small-size_12-of-12 slds-medium-size_2-of-12 slds-large-size_2-of-12 slds-m-top_x-large">
+		    <ul class="footer-links-wrapper">
+                <li class="slds-p-vertical_xx-small"> ORION HOUSE </li>
+                <li class="slds-p-vertical_xx-small"> CALLEVA PARK </li>
+                <li class="slds-p-vertical_xx-small"> ALDERMASTON </li>
+                <li class="slds-p-vertical_xx-small"> BERKSHIRE&#44; RG7 8SN </li>
+                <li class="slds-p-vertical_xx-small" >UNITED KINGDOM </li>
+             </ul>
+	    </div>
+	    <div class="slds-col slds-small-size_12-of-12 slds-medium-size_2-of-12 slds-large-size_2-of-12 slds-m-top_x-large">
+		    <ul class="footer-links-wrapper">
+                <li class="slds-p-vertical_xx-small"> CONTACT US </li>
+                <li class="slds-p-vertical_xx-small"><img src={contactUsIcon} alt="Contact Us" class="contactUsIcon"> +44(0)118 9823745 </li>
+                <li class="slds-p-vertical_xx-small">Mon-Fri&#8282; 08:45-17:30</li>
+             </ul>
+	    </div>
+	    <div class="slds-col slds-small-size_12-of-12 slds-medium-size_4-of-12 slds-large-size_4-of-12 slds-m-top_x-large">
+            <ul style="padding-top:5px;" class="socialLinksList footer-links-wrapper">
+                <li class="slds-align_absolute-center slds-p-bottom_large followUs">
+                    <h5>Follow Us On</h5>
+                </li>
+                <li >
+                    <ul class="slds-grid social-links-wrapper">
+                        <li class="slds-col social-links"><a href="https://www.facebook.com/PowerLEDUK" target="_blank" class="imgWrapperSocialLink"><img src={facebookImg} alt="FaceBook Icon" class="social-img"></a></li>
+                        <li class="slds-col social-links"><a href="https://www.linkedin.com/company/powerled-uk-ltd/" target="_blank" class="imgWrapperSocialLink"><img src={LinkedIn_Icon} alt="linkedIn Icon" class="social-img"></a></li>
+                        <li class="slds-col social-links"><a href="https://twitter.com/i/flow/login?redirect_after_login=%2Fpowerleduk" target="_blank" class="imgWrapperSocialLink"><img src={twitterImage} alt="Twitter Icon" class="social-img"></a></li>
+                        <li class="slds-col social-links"><a href="https://www.youtube.com/channel/UCiT8MG-WhqHRXTXgAV20Rgw" target="_blank" class="imgWrapperSocialLink"><img src={youtubeImage} alt="YouTube Icon" class="social-img"></a></li>
+                    </ul>
+                </li>
+            </ul>
+	    </div>
+    </div>
+<!-- Row 2 -->
+    <div class="slds-grid slds-wrap slds-m-vertical_medium emailSubscribe">
+	    <div class="slds-col slds-small-size_12-of-12 slds-medium-size_12-of-12 slds-large-size_12-of-12 ">
+            <div class="slds-grid slds-wrap slds-grid_align-end email-wrapper">
+                <form action="https://pr.sunpowermarketing.co.uk/l/308921/2018-10-31/w8q66" class="email-subscribe-form">
+                    <div class="emailInput">
+                        <!-- <lightning-input class="emailinput" type="text" data-id="txtEmailAddress" placeholder="Email Address"></lightning-input> -->
+                        <input type="email" id="text-input-id-47" placeholder="Enter Email To Subscribe" name="your-message" onkeyup={inputHandler} class="slds-input subscribe-input-field" />
+                    </div>
+                    <div class="subscribeButton">
+                        <lightning-button classs="slds-m-left_small  slds-col subscribeButton" variant="brand" label="Subscribe" title="" onclick={handleAlertClick} ></lightning-button>
+                    </div>
+                </form>
+            </div>
+	    </div>
+    </div>
+<!-- Row 3 -->
+    <div class="slds-grid slds-wrap slds-m-vertical_medium">
+	    <div class="slds-col slds-small-size_12-of-12 slds-medium-size_12-of-12 slds-large-size_12-of-12 slds-align_absolute-center">
+            <ul class="slds-grid slds-gutters privacySection">
+                <li class="slds-col policyLinks slds-align_absolute-center" data-name="Privacy__c" onclick={handleNavigateToCmsPage}><P class="footer-links">PRIVACY</P></li>
+                <li class="slds-col slds-m-horizontal_x-small policyLinks slds-align_absolute-center" data-name="Terms_and_Conditions__c" onclick={handleNavigateToCmsPage}><p class="footer-links">TERMS &amp; CONDITIONS</p></li>
+                <li class="slds-c0l slds-m-horizontal_x-small policyLinks slds-align_absolute-center" data-name="Cookie_Policy__c" onclick={handleNavigateToCmsPage}><p class="footer-links">COOKIE POLICY</p></li>
+            </ul>
+	    </div>
+    </div>
+<!-- Row 4 -->
+    <div class="slds-grid ">
+	    <div class="slds-col slds-small-size_12-of-12 slds-medium-size_12-of-12 slds-large-size_12-of-12 slds-align_absolute-center slds-p-bottom_large copyright">
+		    <span class="custom-box">COPYRIGHT © 2023 SUNPOWER GROUP HOLDINGS LTD</span>
+	    </div>
+    </div>
+    </div>
+</div>
+<!-- model Popup -->
+<template if:true={modelSuccess}>
+    <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+<div class="slds-modal__container">
+  <!-- modal header start "slds-modal__header"-->
+  <header class="slds-modal__header guest-popup-header">
+      <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={modelHandlerSuccess}>
+        <lightning-icon icon-name="utility:close"
+            alternative-text="close"
+            variant="inverse"
+            size="small" ></lightning-icon>
+        <span class="slds-assistive-text">Close</span>
+      </button>
+      <h5 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate model-succes-font">Success !!</h5>
+  </header>
+
+  <!-- modal body start -->
+  <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+        <p class="Model-body-conteny">Thanks For Subscribing. </p>
+  </div>    
+  <!-- modal footer start-->
+  <footer class="slds-modal__footer guest-user-model model-succes-footer">
+      <button class="slds-button slds-button_neutral log-in" onclick={modelHandlerSuccess}>Ok</button>
+  </footer>
+
+  </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+ </template>
+
+
+ <!-- model 2 -->
+ <template if:true={modelFail}>
+    <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+<div class="slds-modal__container">
+  <!-- modal header start "slds-modal__header"-->
+  <header class="slds-modal__header guest-popup-header">
+      <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={modelHandlerFail}>
+        <lightning-icon icon-name="utility:close"
+            alternative-text="close"
+            variant="inverse"
+            size="small" ></lightning-icon>
+        <span class="slds-assistive-text">Close</span>
+      </button>
+      <h5 id="modal-heading-02" class="slds-text-heading_medium slds-hyphenate model-succes-font">Email Not valid !!</h5>
+  </header>
+
+  <!-- modal body start -->
+  <!-- <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+        <p class="Model-body-conteny">To change the currency, Kindly login or signup. </p>
+  </div>     -->
+  <!-- modal footer start-->
+  <footer class="slds-modal__footer guest-user-model  model-succes-footer">
+      <button class="slds-button slds-button_neutral log-in" onclick={modelHandlerFail}>Ok</button>
+  </footer>
+
+  </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+ </template>
+</template>

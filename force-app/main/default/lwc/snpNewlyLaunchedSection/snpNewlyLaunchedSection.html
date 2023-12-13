@@ -1,0 +1,23 @@
+<!--
+  @description:Display featured products
+  @author: Owais Amin Ahanger
+  @last modified on: 08-23-2023
+ 
+-->
+<template>
+  <!-- Image Section -->
+  <div class="image-section">
+    <!-- Image Container -->
+    <div>
+      <!-- Image with click handler -->
+      <a>
+        <img src={url} alt="Product" class="image-container" onclick={handleProductClick}>
+      </a>
+    </div>
+    <!-- Title Section -->
+    <div class="title-class">
+      <!-- Title with click handler -->
+      <a onclick={handleProductClick}>{title}</a>
+    </div>
+  </div>
+</template>

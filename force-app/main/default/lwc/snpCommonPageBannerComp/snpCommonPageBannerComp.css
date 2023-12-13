@@ -1,0 +1,493 @@
+/* 'cms-hero-banner,category-hero-banner,home-page-hero-banner,home-page-sub-banner','about-us-company-banner' */
+/*'homepage-learmore-banner,homepage-aboutus-banner,homepage-readmore-banner'*/
+
+/* common-css to all banner page type elements */
+.banner-image {
+    height: auto;
+    width: 100%;
+    object-fit: cover;
+}
+.about-us-slot-wrapper {
+    position: absolute;
+}
+
+.banner-heading-wrapper {
+    position: absolute;
+    z-index: 1;
+}
+
+.banner-heading{
+    padding: 0.313rem;
+    font-style: normal;
+    font-weight: 400;
+    text-align: start;
+}
+
+.banner-image-wrapper {
+    position: relative;
+}
+
+/* cms-hero-banner page css */
+
+.cms-hero-banner .banner-image {
+    aspect-ratio: 3.21/1;
+}
+
+.cms-hero-banner .banner-image-wrapper {
+    max-height: 500px;
+    overflow: hidden;
+}
+
+.cms-hero-banner .about-us-slot-wrapper {
+    display: none;
+}
+
+.cms-hero-banner .banner-heading-wrapper{
+    left: 4.4%;
+    top: 29%;
+}
+
+.cms-hero-banner .banner-heading{
+    padding: 0.313rem;
+    font-size: 2.25rem;
+    font-style: normal;
+    font-weight: 400;
+    text-align: start;
+}
+
+.cms-hero-banner .banner-heading:first-child{
+    margin-bottom: 1.75rem;
+}
+
+
+
+
+
+
+
+
+
+
+/* category-hero-banner page css */
+
+.category-hero-banner .banner-image {
+    aspect-ratio: 3.21/1;
+}
+
+.category-hero-banner .banner-image-wrapper {
+    max-height: 448px;
+    overflow: hidden;
+}
+
+.category-hero-banner .about-us-slot-wrapper {
+    display: none;
+}
+
+.category-hero-banner .banner-heading-wrapper {
+    left: 4.4%;
+    top: 18%;
+}
+
+.category-hero-banner .banner-heading{
+    font-style: normal;
+    max-width: 404px;
+    white-space: normal;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    word-break: break-word;
+    word-spacing: 0.1rem;
+    line-height: 29.3333px;
+    overflow: hidden;
+}
+.category-hero-banner .banner-heading:first-child{
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 0.8rem;
+    max-height: 54px;
+    font-weight: 400;
+    -webkit-line-clamp: 1;
+}
+
+.category-hero-banner .banner-heading:last-child{
+    max-height: 125px;
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 0;
+    -webkit-line-clamp: 4;
+}
+
+
+
+/* home-page-hero-banner css */
+
+.home-page-hero-banner .banner-image {
+    aspect-ratio: 2.2/1;
+}
+
+.home-page-hero-banner .banner-image-wrapper {
+    /* max-height: 654px; */
+    max-height: 456px;
+    overflow: hidden;
+}
+
+.home-page-hero-banner .about-us-slot-wrapper{
+    display: none;
+}
+
+.home-page-hero-banner .banner-heading-wrapper {
+    display: none;
+}
+
+
+
+
+
+/* home-page-sub-banner css */
+
+.home-page-sub-banner {
+    margin: 106px 0 110px 0;
+}
+.home-page-sub-banner .banner-image {
+    aspect-ratio: 3.62/1;
+}
+
+.home-page-sub-banner .banner-image-wrapper {
+    max-height: 24.875rem;
+    overflow: hidden;
+}
+
+
+.home-page-sub-banner .about-us-button-right{
+    bottom: 25%;
+    right: 7%;
+}
+.home-page-sub-banner .about-us-button-left{
+    bottom: 25%;
+    left: 7%;
+}
+
+.home-page-sub-banner .about-us-button-center{
+    bottom: 13%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+
+.home-page-sub-banner .banner-heading-wrapper {
+    display: none;
+}
+
+/* homepage-learmore-banner css */
+.homepage-learmore-banner{
+    /* margin:135px 0 193px 0; */
+    margin: 4.875rem 0 4.875rem 0;
+}
+
+.homepage-learmore-banner .banner-image {
+    aspect-ratio: 3.62/1;
+}
+
+.homepage-learmore-banner .banner-image-wrapper {
+    max-height: 24.875rem;
+    overflow: hidden;
+}
+
+
+.homepage-learmore-banner .about-us-button-right{
+    bottom: 8%;
+    right: 8.6%;
+}
+.homepage-learmore-banner .about-us-button-left{
+    bottom: 8%;
+    left: 8.6%;
+}
+
+.homepage-learmore-banner .about-us-button-center{
+    bottom: 8%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+
+.homepage-learmore-banner .banner-heading-wrapper {
+    display: none;
+}
+
+/*homepage-aboutus-banner css*/
+.homepage-aboutus-banner{
+    margin:108px 0 80px 0;
+}
+
+.homepage-aboutus-banner .banner-image {
+    /* aspect-ratio: 1.84/1; */
+    aspect-ratio: 3.13/1;
+}
+
+.homepage-aboutus-banner .banner-image-wrapper {
+    /* max-height: 783px; */
+    max-height: 460px;
+    overflow: hidden;
+}
+
+
+.homepage-aboutus-banner .about-us-button-right{
+    bottom: 25%;
+    right: 8.6%;
+}
+.homepage-aboutus-banner .about-us-button-left{
+    bottom: 25%;
+    left: 8.6%;
+}s
+
+.homepage-aboutus-banner .about-us-button-center{
+    bottom: 25%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+
+.homepage-aboutus-banner .banner-heading-wrapper {
+    display: none;
+}
+
+
+
+/*homepage-readmore-banner css*/
+.homepage-readmore-banner{
+    margin:0 0 80px 0;
+}
+
+.homepage-readmore-banner .banner-image {
+    aspect-ratio: 3.13/1;
+}
+
+.homepage-readmore-banner .banner-image-wrapper {
+    max-height: 460px;
+    overflow: hidden;
+}
+
+
+.homepage-readmore-banner .about-us-button-right{
+    bottom: 25%;
+    right: 8.6%;
+}
+.homepage-readmore-banner .about-us-button-left{
+    bottom: 25%;
+    left: 7%;
+}
+
+.homepage-readmore-banner .about-us-button-center{
+    bottom: 13%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+
+.homepage-readmore-banner .banner-heading-wrapper {
+    display: none;
+}
+
+
+
+
+/* about-us-company-banner css */
+
+.about-us-company-banner .banner-image {
+    aspect-ratio: 2.06/1;
+}
+
+.about-us-company-banner .banner-image-wrapper {
+    max-height: 700px;
+    overflow: hidden;
+}
+
+.about-us-company-banner .about-us-slot-wrapper{
+    display: none;
+}
+
+.about-us-company-banner .banner-heading-wrapper {
+    left: 0;
+    right: 0;
+    top: 60%;
+    bottom: 0;
+}       
+
+.about-us-company-banner .banner-heading-wrapper h1.banner-heading {
+    text-align: center;
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.about-us-company-banner .banner-heading-wrapper h2.banner-heading {
+    display: none;
+}
+
+
+
+
+/* media query for all different type of page Banner */
+@media only screen and (max-width: 991px) {
+
+    /* cms-hero-banner page css */
+    .cms-hero-banner .banner-heading{
+        font-size: 2rem;
+    }
+    .cms-hero-banner .banner-heading:first-child{
+        margin-bottom: 1.2rem;
+    }
+
+    /* category-hero-banner page css */
+.category-hero-banner .banner-heading{
+    max-width: 330px;
+    line-height: 1.4rem;
+}
+.category-hero-banner .banner-heading:first-child{
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.category-hero-banner .banner-heading:last-child{
+    font-size: 0.8rem;
+    line-height: 1.2rem;
+}
+
+
+}
+
+@media only screen and (max-width: 768px) {
+    /* cms-hero-banner page css */
+    .cms-hero-banner .banner-heading{
+        font-size: 1.7rem;
+    }
+    .cms-hero-banner .banner-heading:first-child{
+        margin-bottom: 0.8rem;
+    }
+
+
+/* category-hero-banner page css */
+.category-hero-banner .banner-heading{
+    max-width: 273px;
+    line-height: 1.2rem;
+}
+.category-hero-banner .banner-heading:first-child{
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.category-hero-banner .banner-heading:last-child{
+    font-size: 0.6rem;
+    line-height: 1.2rem;
+}
+
+/* about-us-company-banner css */
+.about-us-company-banner .banner-heading-wrapper h1.banner-heading {
+    font-size: 1.5rem;
+}
+
+    /* homepage-learmore-banner css */
+    .homepage-learmore-banner{
+        margin:25px 0 46px 0;
+    }
+
+    .homepage-learmore-banner .banner-image {
+        aspect-ratio: 2/1;
+        object-fit: fill;
+    }
+    
+    .homepage-learmore-banner .banner-image-wrapper {
+        max-height: 15.875rem;
+        overflow: hidden;
+    }
+
+    /*homepage-aboutus-banner css*/
+    .homepage-aboutus-banner{
+        margin:108px 0 105px 0;
+    }
+
+    .homepage-aboutus-banner .banner-image {
+        aspect-ratio: 2/1;
+        object-fit: fill;
+    }
+
+    .homepage-aboutus-banner .banner-image-wrapper {
+        max-height: 783px;
+        overflow: hidden;
+    }
+
+    /*homepage-readmore-banner css*/
+    .homepage-readmore-banner{
+        margin:25px 0 46px 0;
+    }
+
+    .homepage-readmore-banner .banner-image {
+        aspect-ratio: 2/1;
+        object-fit: fill;
+    }
+
+    .homepage-readmore-banner .banner-image-wrapper {
+        max-height: 316px;
+        overflow: hidden;
+    }
+
+    /* category-hero-banner page css */
+
+    .category-hero-banner .banner-image {
+        aspect-ratio: 2/1;
+        object-fit: fill;
+    }
+
+    .category-hero-banner .banner-image-wrapper {
+        max-height: 448px;
+        overflow: hidden;
+    }
+
+}
+
+@media only screen and (max-width: 576px) {
+    /* cms-hero-banner page css */
+    .cms-hero-banner .banner-heading{
+        font-size: 0.9rem;
+    }
+    .cms-hero-banner .banner-heading:first-child{
+        margin-bottom: 0.3rem;
+    }
+
+    
+    /* category-hero-banner page css */
+    .category-hero-banner .banner-heading{
+        max-width: 161px;
+        word-spacing: 0.1rem;
+        line-height: 0.6rem;
+    }
+    .category-hero-banner .banner-heading:first-child{
+        margin-bottom: 0.3rem;
+        font-size: 0.9rem;
+        max-height: 54px;
+    }
+    
+    .category-hero-banner .banner-heading:last-child{
+        max-height: 125px;
+        font-size: 0.4rem;
+        line-height: 0.7rem;
+    }
+
+    /* about-us-company-banner css */
+    .about-us-company-banner .banner-heading-wrapper h1.banner-heading {
+        font-size: 0.9rem;
+    }
+    .about-us-slot-wrapper slot[name="aboutUsStandardButton"] a {
+        font-size: 0.6rem;
+    }
+
+    /* homepage-learmore-banner css */
+    .homepage-learmore-banner{
+        margin:25px 0 46px 0;
+    }
+
+
+    /*homepage-aboutus-banner css*/
+    .homepage-aboutus-banner{
+        margin: 33px 0 17px 0;
+    }
+}

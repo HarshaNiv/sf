@@ -1,0 +1,35 @@
+.quote-Button1{
+    border-radius: 3.7px;
+    font-size: 1rem;
+    font-weight: 500;
+    border: none;
+    /* width: 7.6rem; */
+    /* height: 2.3rem; */
+    margin-top: 9px;
+    border: 1px solid black;
+    margin: 0;
+    /* width: 100%; */
+    padding: 0.5rem 1.563rem;
+    background-color:white;
+}
+
+.quote-Button2{
+    border-radius: 3.7px;
+    font-size: 1rem;
+    font-weight: 500;
+    border: none;
+    /* width: 7.6rem; */
+    /* height: 2.3rem; */
+    margin-top: 9px;
+    border: 1px solid black;
+    margin: 0;
+    /* width: 100%; */
+    padding: 0.5rem 1.563rem;
+}
+
+.quote-Button2{
+    background-color: #EAECE7;
+}
+.quote-Button2:hover{
+    background-color: #fdc300;
+}

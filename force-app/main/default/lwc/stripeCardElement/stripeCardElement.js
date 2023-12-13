@@ -79,7 +79,7 @@ export default class StripeCardElement extends LightningElement {
                     address: {
                         country: billingAddress.country,
                         city: billingAddress.city,
-                        // state: billingAddress.region,
+                        state: billingAddress.region,
                         postal_code: billingAddress.postalCode,
                         line1: billingAddress.street,
                     },

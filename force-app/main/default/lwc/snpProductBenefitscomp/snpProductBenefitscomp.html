@@ -1,0 +1,45 @@
+<template >
+    <template  if:true={productBenifitsDisplay}>
+            <!-- for mobile-section -->
+            <div class="mobile-benifit-section">
+                <div class="tabclass">
+                    <button class="tabitem"  for:each={filteredsections} for:item="section" for:index="index"  key={section.id} data-section-id={index} onclick={mobbuttonhandler}>{section.verticalHeading}</button>
+                </div>
+                <div>
+                    <div class="mob-section" for:each={filteredsections} for:item="section" for:index="index"  key={section.id} data-section-id={index}>
+                        <div class="mob-section-imagewrapper">
+                            <div style="max-width:750px;display:block">
+                                <img src={section.contentKey} alt="mobile-slider-img"/>
+                            </div>
+                            <p class="product-desc-mob">{section.description}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- for desktop Section -->
+            <div class="product-benifit-container" >
+                <div class="product-benifit-section"  for:each={filteredsections} for:item="section" for:index="index"  key={section.id}>
+                    <div class="product-benifit-section-outer" data-section-id={index} onmouseenter={closedSectionMouseEnterHandle}>
+                        <div class="product-benifit-section-middle">
+                            <div class="product-benifit-expandsection-outer highlight-para-hide">
+                                <div class="image-section-level1">
+                                    <div class="image-section-level2">
+                                        <div class="image-inner-wrapper">
+                                        <img src={section.contentKey} alt="desktop-slider-img"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="content-section-level1">
+                                    <h2 class="content-section-heading">{section.horizontalHeading}</h2>
+                                    <p class="content-section-description">{section.description}</p>
+                                </div>
+                            </div>
+                            <div class="section-highlight-para">
+                                <p class="pb-section-heading">{section.verticalHeading}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </template>
+</template>

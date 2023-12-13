@@ -1,0 +1,9 @@
+.trust-icon-image-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.trust-Icon-image{
+    margin-top: 1.25rem;
+    height: 4.6875rem;
+}

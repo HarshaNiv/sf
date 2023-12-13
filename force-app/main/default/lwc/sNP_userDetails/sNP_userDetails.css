@@ -1,0 +1,17 @@
+.user-Detai{
+    color: black;
+}
+.company-wrapper {
+    padding-left: 31px;
+}
+.comapny-name-wrapper {
+    font-weight: 700;
+}
+.userAccountDetail {
+    border: 1px solid black !important;
+    /* box-shadow: 3px 3px lightslategray; */
+}
+.user-company-name-wrapper {
+    padding-bottom: 10px ;
+    font-size: .875rem;
+}

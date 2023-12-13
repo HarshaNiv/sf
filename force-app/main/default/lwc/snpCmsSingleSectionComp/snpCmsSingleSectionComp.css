@@ -1,0 +1,24 @@
+:host{
+    /* --three-section-light-blue:#EAECE7; */
+}
+.Single-section-info-wrapper{
+    /* background-color: var(--three-section-light-blue); */
+    margin-bottom: 3.394rem;
+    position: relative;
+    top: 54px;
+}
+.Single-section-info{
+    display: flex;
+    padding: 2rem 0.938rem;
+    justify-content: space-between;
+}
+
+.common-info-section{
+    line-height: 1.875rem;
+    width: calc(100% / 5);
+}
+@media only screen and (max-width: 576px) {
+    .Single-section-info-wrapper{
+        margin-top: 0px;
+    }
+}

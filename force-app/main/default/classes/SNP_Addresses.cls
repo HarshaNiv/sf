@@ -6,7 +6,7 @@ public class SNP_Addresses {
         // id userid=[select AccountId,id from account where id:=userid]
         
          list<ContactPointAddress> addresslist=[SELECT Id, AddressFirstName,ParentId, AddressLastName, Name,AddressType, City, State, CountryCode, StateCode,
-                                               Country, PostalCode,IsDefault,CompanyName,PhoneNumber,Street FROM ContactPointAddress where ParentId =:userdetails and AddressType =:addtype];
+                                               Country, PostalCode,IsDefault,CompanyName,PhoneNumber,Street FROM ContactPointAddress where ParentId =:userdetails and AddressType =:addtype ORDER BY IsDefault DESC];
             
             return addresslist;
         

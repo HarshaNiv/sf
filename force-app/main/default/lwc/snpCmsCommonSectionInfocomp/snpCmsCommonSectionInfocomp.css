@@ -1,0 +1,36 @@
+@import 'c/snpGlobalCssStylingLibrary';
+:host{
+    --three-section-light-blue:#EAECE7;
+}
+.three-section-info-wrapper{
+    background-color: var(--three-section-light-blue);
+    margin-bottom: 3.394rem;
+}
+.three-section-info{
+    display: flex;
+    padding: 2rem 0.938rem;
+    justify-content: space-between;
+}
+
+.common-info-section{
+    line-height: 1.875rem;
+    width: calc(100% / 5);
+}
+
+@media only screen and (max-width: 768px) {
+    .three-section-info-wrapper{
+        margin-bottom: 2.394rem;
+    }
+    .three-section-info {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 19px;
+        text-align: center;
+    }
+    .common-info-section{
+        max-width: 100%;
+        width: 100%;
+    }
+
+}

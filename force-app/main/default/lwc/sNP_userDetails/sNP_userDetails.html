@@ -1,0 +1,14 @@
+<template>
+    <div class="userAccountDetail">
+        <div class="user-Detail">
+            <slot name="userDetailStandard" class="user-Detai">user Detail Standard</slot>
+        </div>
+        <template if:true={nameAvailabel}>
+            <div class="company-wrapper">
+                <label class="comapny-name-wrapper" for="Company-heading-wrapper">Company Name</label>
+                <div class="user-company-name-wrapper" id="Company-heading-wrapper">{userCompanyName}</div>
+            </div>
+        </template>
+        
+    </div>
+</template>

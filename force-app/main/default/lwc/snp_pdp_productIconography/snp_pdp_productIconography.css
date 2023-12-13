@@ -1,0 +1,41 @@
+.Icon-wrapper{
+    width: 100%;
+}
+
+.icon-inner-wrapper{
+    display: flex;
+    padding: calc(10 / 16 * 1rem);
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+    gap: 2.15rem;
+}
+
+.image-wrapper{
+    min-width: calc(20 / 16 * 1rem);
+	max-width: calc(60 / 16 * 1rem);
+}
+
+.icono-graphy-img{
+    max-width: 100%;
+    border-radius: calc(20 / 16 * 1rem);
+}
+
+
+@media only screen and (max-width: 600px) {
+
+    .Icon-wrapper{
+        /* max-width: 100%;
+        margin: 0;
+        left: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center; */
+    }
+    /* ul{
+        padding-left: 0;
+    }
+    li{
+        padding: 5px;
+    }  */
+}

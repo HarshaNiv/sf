@@ -1,0 +1,230 @@
+<template>
+    <div class="main-wrapper">
+        <div class="Feature-wrapper" if:true={ShowFeatureWrapper}>
+            <button class="text-plusMark-wrapper" onclick={showHideControllerFeatures}> 
+                <div class="text-wrapper">Features</div>
+                <div class="expand-wrapper" if:false={featureShowHideContent}>
+                    <!-- <i class="fa fa-plus" aria-hidden="true"></i> -->
+                    <!-- <img src={AddSym} alt="AddSym"> -->
+                    <svg version="1.1"  xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                         viewBox="0 0 56.7 56.7" style="enable-background:new 0 0 56.7 56.7;" xml:space="preserve">
+                         <g >
+                            <path class="plus-icon-container" d="M42.5,27.1H14.2c-0.7,0-1.3,0.6-1.3,1.3l0,0c0,0.7,0.6,1.3,1.3,1.3h28.3c0.7,0,1.3-0.6,1.3-1.3l0,0
+                                C43.8,27.6,43.2,27.1,42.5,27.1z"/>
+                            <path class="plus-icon-container" d="M27.1,14.2v28.3c0,0.7,0.6,1.3,1.3,1.3l0,0c0.7,0,1.3-0.6,1.3-1.3V14.2c0-0.7-0.6-1.3-1.3-1.3l0,0
+                                C27.6,12.9,27.1,13.5,27.1,14.2z"/>
+                        </g>
+                    </svg>
+                </div>
+                <div class="collapse-wrapper" if:true={featureShowHideContent}>
+                    <!-- <i class="fa fa-minus" aria-hidden="true"></i> -->
+                    <!-- <img src={MinusSym} alt="MinusSym"> -->
+                    <svg version="1.1"  xmlns="http://www.w3.org/2000/svg"  x="0px" y="0px"
+                        viewBox="0 0 56.7 56.7" style="enable-background:new 0 0 56.7 56.7;" xml:space="preserve">
+                        <g >
+                            <path class="Minus-icon-container" d="M40,27.1H16.6c-0.7,0-1.3,0.6-1.3,1.3v1.6c0,0.7,0.6,1.3,1.3,1.3H40c0.7,0,1.3-0.6,1.3-1.3V28.4C41.3,27.7,40.7,27.1,40,27.1z"/>
+                        </g>
+                    </svg>
+                </div>
+            </button>
+            <div class="features-contant-wrapper" if:true={featureShowHideContent}>
+                <!-- <p class="contentSpace">{FeaturesData}</p> -->
+                <template if:true={FeaturesDataPoints.length}>
+                    <template for:each={FeaturesDataPoints} for:item="point">
+                        <div class="innere-content-wrapper" key={point}>
+                             <!-- <i class="fa fa-circle icon-wrapper" aria-hidden="true"></i> -->
+                             <div class="img-zero">
+                                <!-- <img src={ZeroSym} alt="ZeroSym"> -->
+                                <svg version="1.1" xmlns="http://www.w3.org/2000/svg"  x="0px" y="0px"
+                                viewBox="0 0 56.7 56.7" style="enable-background:new 0 0 56.7 56.7;" xml:space="preserve">
+                                    <g >
+                                        <circle class="comment-point" cx="28.3" cy="28.3" r="15.1"/>
+                                     </g>
+                                </svg>   
+                            </div>
+                             
+                             <div class="content">{point}</div> 
+                        </div>
+                    </template>
+                </template>
+            </div>
+        </div>
+        <div class="Application-wrapper" if:true={ShowApplictionWrapper}>
+            <button class="text-plusMark-wrapper" onclick={showHideControllerApplication}> 
+                <div class="text-wrapper">Applications</div>
+                <div class="expand-wrapper" if:false={ApplicationShowHideContent}>
+                    <!-- <i class="fa fa-plus" aria-hidden="true"></i> -->
+                    <!-- <img src={AddSym} alt="AddSym"> -->
+                    <svg version="1.1"  xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                         viewBox="0 0 56.7 56.7" style="enable-background:new 0 0 56.7 56.7;" xml:space="preserve">
+                         <g >
+                            <path class="plus-icon-container" d="M42.5,27.1H14.2c-0.7,0-1.3,0.6-1.3,1.3l0,0c0,0.7,0.6,1.3,1.3,1.3h28.3c0.7,0,1.3-0.6,1.3-1.3l0,0
+                                C43.8,27.6,43.2,27.1,42.5,27.1z"/>
+                            <path class="plus-icon-container" d="M27.1,14.2v28.3c0,0.7,0.6,1.3,1.3,1.3l0,0c0.7,0,1.3-0.6,1.3-1.3V14.2c0-0.7-0.6-1.3-1.3-1.3l0,0
+                                C27.6,12.9,27.1,13.5,27.1,14.2z"/>
+                        </g>
+                    </svg>
+                </div>
+                <div class="collapse-wrapper" if:true={ApplicationShowHideContent}>
+                    <!-- <i class="fa fa-minus" aria-hidden="true"></i> -->
+                    <!-- <img src={MinusSym} alt="MinusSym"> -->
+                    <svg version="1.1"  xmlns="http://www.w3.org/2000/svg"  x="0px" y="0px"
+                        viewBox="0 0 56.7 56.7" style="enable-background:new 0 0 56.7 56.7;" xml:space="preserve">
+                        <g >
+                            <path class="Minus-icon-container" d="M40,27.1H16.6c-0.7,0-1.3,0.6-1.3,1.3v1.6c0,0.7,0.6,1.3,1.3,1.3H40c0.7,0,1.3-0.6,1.3-1.3V28.4C41.3,27.7,40.7,27.1,40,27.1z"/>
+                        </g>
+                    </svg>
+                </div>
+            </button>
+            <div class="Application-contant-wrapper" if:true={ApplicationShowHideContent}>
+                <!-- <p class="contentSpace">{ApplicationsData}</p> -->
+                <template if:true={ApplicationsDataPoints.length}>
+                    <template for:each={ApplicationsDataPoints} for:item="point">
+                        <div class="innere-content-wrapper" key={point}>
+                             <!-- <i class="fa fa-circle icon-wrapper" aria-hidden="true"></i> -->
+                             <div class="img-zero">
+                                <!-- <img src={ZeroSym} alt="ZeroSym"> -->
+                                <svg version="1.1" xmlns="http://www.w3.org/2000/svg"  x="0px" y="0px"
+                                viewBox="0 0 56.7 56.7" style="enable-background:new 0 0 56.7 56.7;" xml:space="preserve">
+                                    <g >
+                                    <circle class="comment-point" cx="28.3" cy="28.3" r="15.1"/>
+                                </g>
+                           </svg>
+                            </div>
+                             <div class="content">{point}</div> 
+                        </div>
+                    </template>
+                </template>
+            </div>
+        </div>
+        <div class="Specification-wrapper" if:true={ShowSpecificationWrapper}>
+            <button class="text-plusMark-wrapper" onclick={showHideControllerSpecification}> 
+                <div class="text-wrapper">Specifications</div>
+                <div class="expand-wrapper" if:false={SpecificationShowHideContent}>
+                    <!-- <i class="fa fa-plus" aria-hidden="true"></i> -->
+                    <!-- <img src={AddSym} alt="AddSym"> -->
+                    <svg version="1.1"  xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                         viewBox="0 0 56.7 56.7" style="enable-background:new 0 0 56.7 56.7;" xml:space="preserve">
+                         <g >
+                            <path class="plus-icon-container" d="M42.5,27.1H14.2c-0.7,0-1.3,0.6-1.3,1.3l0,0c0,0.7,0.6,1.3,1.3,1.3h28.3c0.7,0,1.3-0.6,1.3-1.3l0,0
+                                C43.8,27.6,43.2,27.1,42.5,27.1z"/>
+                            <path class="plus-icon-container" d="M27.1,14.2v28.3c0,0.7,0.6,1.3,1.3,1.3l0,0c0.7,0,1.3-0.6,1.3-1.3V14.2c0-0.7-0.6-1.3-1.3-1.3l0,0
+                                C27.6,12.9,27.1,13.5,27.1,14.2z"/>
+                        </g>
+                    </svg>
+                </div>
+                <div class="collapse-wrapper" if:true={SpecificationShowHideContent}>
+                    <!-- <i class="fa fa-minus" aria-hidden="true"></i> -->
+                    <!-- <img src={MinusSym} alt="MinusSym"> -->
+                    <svg version="1.1"  xmlns="http://www.w3.org/2000/svg"  x="0px" y="0px"
+                        viewBox="0 0 56.7 56.7" style="enable-background:new 0 0 56.7 56.7;" xml:space="preserve">
+                        <g >
+                            <path class="Minus-icon-container" d="M40,27.1H16.6c-0.7,0-1.3,0.6-1.3,1.3v1.6c0,0.7,0.6,1.3,1.3,1.3H40c0.7,0,1.3-0.6,1.3-1.3V28.4C41.3,27.7,40.7,27.1,40,27.1z"/>
+                        </g>
+                    </svg>
+                </div>
+            </button>
+            <div class="Specification-contant-wrapper" if:true={SpecificationShowHideContent}>
+                    <template if:true={SpecificationDataList}>
+                        <template for:each={SpecificationDataList} for:item="point">
+                            <div class="innere-content-wrapper" key={point.field}>
+                                 <!-- <i class="fa fa-circle icon-wrapper" aria-hidden="true"></i> -->
+                                 <div class="img-zero">
+                                    <!-- <img src={ZeroSym} alt="ZeroSym"> -->
+                                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg"  x="0px" y="0px"
+                                    viewBox="0 0 56.7 56.7" style="enable-background:new 0 0 56.7 56.7;" xml:space="preserve">
+                                            <g >
+                                            <circle class="comment-point" cx="28.3" cy="28.3" r="15.1"/>
+                                        </g>
+                                    </svg>
+                                </div>
+                                 
+                               
+                                 <div class="content">{point.field} : {point.value}</div> 
+                            </div>
+                        </template>
+                    </template>
+            </div>
+        </div>
+        <div class="Download-wrapper" if:true={ShowDownLoadWrapper}>
+            <button class=" text-plusMark-wrapper" onclick={showHideControllerDownload}> 
+                <div class="text-wrapper">Downloads</div>
+                <div class="expand-wrapper" if:false={DownloadShowHideContent}>
+                    <!-- <i class="fa fa-plus" aria-hidden="true"></i> -->
+                    <!-- <img src={AddSym} alt="AddSym"> -->
+                    <svg version="1.1"  xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                         viewBox="0 0 56.7 56.7" style="enable-background:new 0 0 56.7 56.7;" xml:space="preserve">
+                         <g >
+                            <path class="plus-icon-container" d="M42.5,27.1H14.2c-0.7,0-1.3,0.6-1.3,1.3l0,0c0,0.7,0.6,1.3,1.3,1.3h28.3c0.7,0,1.3-0.6,1.3-1.3l0,0
+                                C43.8,27.6,43.2,27.1,42.5,27.1z"/>
+                            <path class="plus-icon-container" d="M27.1,14.2v28.3c0,0.7,0.6,1.3,1.3,1.3l0,0c0.7,0,1.3-0.6,1.3-1.3V14.2c0-0.7-0.6-1.3-1.3-1.3l0,0
+                                C27.6,12.9,27.1,13.5,27.1,14.2z"/>
+                        </g>
+                    </svg>
+                </div>
+                <div class="collapse-wrapper" if:true={DownloadShowHideContent}>
+                    <!-- <i class="fa fa-minus" aria-hidden="true"></i> -->
+                    <!-- <img src={MinusSym} alt="MinusSym"> -->
+                    <svg version="1.1"  xmlns="http://www.w3.org/2000/svg"  x="0px" y="0px"
+                        viewBox="0 0 56.7 56.7" style="enable-background:new 0 0 56.7 56.7;" xml:space="preserve">
+                        <g >
+                            <path class="Minus-icon-container" d="M40,27.1H16.6c-0.7,0-1.3,0.6-1.3,1.3v1.6c0,0.7,0.6,1.3,1.3,1.3H40c0.7,0,1.3-0.6,1.3-1.3V28.4C41.3,27.7,40.7,27.1,40,27.1z"/>
+                        </g>
+                    </svg>
+                </div>
+            </button>
+            <!-- css this component in head markup -->
+            <div class="Download-contant-wrapper" if:true={DownloadShowHideContent} >
+                <slot name="Downloadcontant">Download product Information</slot>
+            </div>
+        </div>
+        <div class="Alternative-Identifiers-wrapper" if:true={ShowAlternativeIdentifiersWrapper}>
+            <button class="text-plusMark-wrapper" onclick={showHideControllerAlternativeIdentifiers}> 
+                <div class="text-wrapper">Alternative Identifiers</div>
+                <div class="expand-wrapper" if:false={AlternativeIdentifiersContent}>
+                    <!-- <i class="fa fa-plus" aria-hidden="true"></i> -->
+                    <!-- <img src={AddSym} alt="AddSym"> -->
+                    <svg version="1.1"  xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                         viewBox="0 0 56.7 56.7" style="enable-background:new 0 0 56.7 56.7;" xml:space="preserve">
+                         <g >
+                            <path class="plus-icon-container" d="M42.5,27.1H14.2c-0.7,0-1.3,0.6-1.3,1.3l0,0c0,0.7,0.6,1.3,1.3,1.3h28.3c0.7,0,1.3-0.6,1.3-1.3l0,0
+                                C43.8,27.6,43.2,27.1,42.5,27.1z"/>
+                            <path class="plus-icon-container" d="M27.1,14.2v28.3c0,0.7,0.6,1.3,1.3,1.3l0,0c0.7,0,1.3-0.6,1.3-1.3V14.2c0-0.7-0.6-1.3-1.3-1.3l0,0
+                                C27.6,12.9,27.1,13.5,27.1,14.2z"/>
+                        </g>
+                    </svg>
+                </div>
+                <div class="collapse-wrapper" if:true={AlternativeIdentifiersContent}>
+                    <!-- <i class="fa fa-minus" aria-hidden="true"></i> -->
+                    <!-- <img src={MinusSym} alt="MinusSym"> -->
+                    <svg version="1.1"  xmlns="http://www.w3.org/2000/svg"  x="0px" y="0px"
+                        viewBox="0 0 56.7 56.7" style="enable-background:new 0 0 56.7 56.7;" xml:space="preserve">
+                        <g >
+                            <path class="Minus-icon-container" d="M40,27.1H16.6c-0.7,0-1.3,0.6-1.3,1.3v1.6c0,0.7,0.6,1.3,1.3,1.3H40c0.7,0,1.3-0.6,1.3-1.3V28.4C41.3,27.7,40.7,27.1,40,27.1z"/>
+                        </g>
+                    </svg>
+                </div>
+            </button>
+            <div class="Specification-contant-wrapper" if:true={AlternativeIdentifiersContent}>
+                    <template if:true={AlternativeIdentifiersDataList}>
+                        <template for:each={AlternativeIdentifiersDataList} for:item="point">
+                            <div class="innere-content-wrapper" key={point.field}>
+                                 <!-- <i class="fa fa-circle icon-wrapper" aria-hidden="true"></i> -->
+                                 <div class="img-zero">
+                                    <!-- <img src={ZeroSym} alt="ZeroSym"> -->
+                                <svg version="1.1" xmlns="http://www.w3.org/2000/svg"  x="0px" y="0px"
+                                     viewBox="0 0 56.7 56.7" style="enable-background:new 0 0 56.7 56.7;" xml:space="preserve">
+                                     <g >
+                                        <circle class="comment-point" cx="28.3" cy="28.3" r="15.1"/>
+                                    </g>
+                                </svg>
+                                
+                                </div>
+                                 <div class="content">{point.field} : {point.value}</div> 
+                            </div>
+                        </template>
+                    </template>
+            </div>
+        </div>
+    </div>
+</template>

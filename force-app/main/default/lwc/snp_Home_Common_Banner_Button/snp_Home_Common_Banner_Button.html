@@ -1,0 +1,11 @@
+<!-- imageWithButton.html -->
+<template>
+    <div class={getBannerTypeClass}>
+        <div class="banner-image-wrapper">
+            <img class="about-us-image" src={imageSource} alt="About Us" />
+        </div>
+        <div class={getButtonPositionStyleClass}>
+            <slot name="aboutUsStandardButton"></slot>
+        </div>
+    </div>
+</template>

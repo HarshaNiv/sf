@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>58.0</apiVersion>
+        <isExposed>true</isExposed>
+    <targets>
+        <target>lightningCommunity__Page</target>
+        <target>lightningCommunity__Default</target>
+    </targets>
+<targetConfigs>
+    <targetConfig targets="lightningCommunity__Default">
+        <property type="String" name="categoryId" label="Category Id" description="Mention Category Id Expression" default=""/>
+        <property type="ContentReference" name="contentId" label="Content ID" filter="cms_image"/>
+        <property label="Select for Banner Page Type" name="bannerPageType" type="String" datasource="CMS-Hero-Banner,Category-Hero-Banner,Home-Page-Hero-Banner,Home-Page-Sub-Banner" default="Home-Page-Hero-Banner"/>
+        <property type="String" name="contentFirstHeading" label="Content First Heading" default="Heading"/>
+        <property type="String" name="contentSecondHeading" label="Content Second Heading" default="Title"/>
+        <property label="Select for Button Position" name="buttonPosition" type="String" datasource="Left,right,center" default="Left"/>
+        <property type="Color" name="headTextColor" default="#ffffff" />
+        <property type="Color" name="subHeadTextColor" default="#ffffff" />
+    </targetConfig>
+</targetConfigs>
+</LightningComponentBundle>

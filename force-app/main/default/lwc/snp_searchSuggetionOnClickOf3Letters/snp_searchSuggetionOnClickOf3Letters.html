@@ -1,0 +1,65 @@
+<template>
+    <div class="search-container">
+  <div class="search-bar" onclick={toggleSearchBar}>
+    <!-- <lightning-icon icon-name="utility:search" class="comments-icn" alternative-text="Search" size="small"></lightning-icon> -->
+    <!-- <i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i> -->
+    <img class="image" src={searchIconImageIMage} alt="">
+  </div>
+  <div class="search-input-container" if:true={isSearchBarVisible}>
+    <input
+      type="text"
+      class="search-input"
+      placeholder="Search over (number) products here"
+      onfocus={handleSearchFocus}
+      oninput={handleSearchInput}
+      onblur={handleSearchBlur}
+      onkeydown={handleKeyDown}
+    />
+    <!-- if:true={isSearchFlyoutVisible} -->
+    <div class="search-flyout" if:true={isSearchFlyoutVisible} >
+      <!-- Display search suggestions here -->
+      <div class="products"></div>
+      <div class="category"></div>
+      <!-- <div class="cms-list" if:true={isSearchFlyoutVisible} >
+        <ul class="cms-outer-wrapper">
+          <li class ="cms-inner-wrapper">
+            <a class="cms-link" href="#" onclick={handelBlogPage}>
+              <div class="cms-image-wrapper">
+                <img class="cms-image"  src={cmsImageWrapperjs} alt="">
+              </div>
+              <div class="cms-description">
+                <h3 class="cms-title">Power LED Blog 1 </h3>
+                <i class="fa fa-chevron-right" style="color:orange;"></i>
+              </div>
+            </a>
+          </li>
+          <li class ="cms-inner-wrapper">
+            <a class="cms-link" href="#" onclick={handelBlogPage}>
+              <div class="cms-image-wrapper">
+                <img class="cms-image"  src={cmsImageWrapperjs} alt="">
+              </div>
+              <div class="cms-description">
+                <h3 class="cms-title">Power LED Blog 2</h3>
+                <i class="fa fa-chevron-right" style="color:orange;"></i>
+              </div>
+            </a>
+          </li>
+          <li class ="cms-inner-wrapper">
+            <a class="cms-link" href="#" onclick={handelBlogPage}>
+              <div class="cms-image-wrapper">
+                <img class="cms-image"  src={cmsImageWrapperjs} alt="">
+              </div>
+              <div class="cms-description">
+                <h3 class="cms-title">Power LED Blog 3</h3>
+                <i class="fa fa-chevron-right" style="color:orange;"></i>
+              </div>
+            </a>
+          </li>
+          
+        </ul>
+      </div> -->
+    </div>
+  </div>
+</div>
+<div class="modal-background"></div>
+</template>

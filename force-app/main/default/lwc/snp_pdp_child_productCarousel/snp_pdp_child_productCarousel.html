@@ -1,0 +1,106 @@
+<template>
+    <!-- {recordId}, {communityId} -->
+            <div class="carousel-wrapper">
+                <div class="inner-wrapper">
+                    <div class="up-arrow-image arrow-buttons" onclick={handleUp}>
+                        <img class="arrow-img" src={downArrow} alt="upArrow" />
+                    </div>
+                    <div class="row slider">
+                        <template for:each={imgList} for:item="product" for:index="index">
+                                <div class="image-wrapper" key={product} data-id={index} onclick={handleThumbnailClicked}>
+                                    <img class="carousel-img" src={product.url} alt="prodImg" />
+                                </div>
+                        </template>
+                    </div>
+                    <div class="down-arrow-image arrow-buttons" onclick={handleDown}>
+                        <img class="arrow-img" src={downArrow} alt="downArrow" />
+                    </div>
+                </div>
+                <div class="inner-wrapper-mob">
+                    <div class="left-arrow-image arrow-buttons" onclick={handleLeft}>
+                        <img class="hero-arrow-img" src={leftArrow} alt="leftArrow" />
+                    </div>
+                    <div class="slider-mob">
+                        <template for:each={imgList} for:item="product" for:index="index">
+                                <div class="image-wrapper" key={product} data-id={index}>
+                                    <img class="carousel-img" src={product.url} alt="prodImg" />
+                                </div>
+                        </template>
+                    </div>
+                    <div class="right-arrow-image arrow-buttons" onclick={handleRight}>
+                        <img class="hero-arrow-img" src={rightArrow} alt="rightArrow" />
+                    </div>
+                </div>
+
+                <div class="hero-image-wrapper">
+                    <div class="hero-image-inner-wrapper">
+                        <button class="left-arrow-image arrow-buttons" onclick={handleUp}>
+                            <img class="hero-arrow-img" src={leftArrow} alt="leftArrow" />
+                        </button>
+                        <img class="hero-img" src={initialImageUrl} alt="heroImage">
+                        <button class="right-arrow-image arrow-buttons" onclick={handleDown}>
+                            <img class="hero-arrow-img" src={rightArrow} alt="rightArrow" />
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+    <!-- <div class="outer-wrapper-single">
+        <div class="inner-wrapper-single">
+            <div class="up-arrow-image-single arrow-buttons-single" onclick={handleUp}>
+                <img class="arrow-img-single" src={downArrow} alt="upArrow" />
+            </div>
+            <div class="row slider-single">
+
+                <template for:each={imgList} for:item="product" for:index="index">
+                        <div class="image-wrapper-single" key={product} data-id={index}>
+                            <img class="carousel-img-single" src={product.url} alt="prodImg" />
+                        </div>
+                </template>  
+  
+            </div> 
+            <div class="down-arrow-image-single arrow-buttons-single" onclick={handleDown}>
+                <img class="arrow-img-single" src={downArrow} alt="downArrow" />
+            </div>    
+        </div>
+    </div> -->
+    <!-- <div class="pdp-hero-container">
+        <div class="product-detail-inner-wrapper">
+            <div class="left-hero-image-section firstLayout">
+                <div class="inner-wrapper">
+                    <div class="up-arrow-image arrow-buttons" onclick={handleUp}>
+                        <img class="arrow-img" src={downArrow} alt="upArrow" />
+                    </div>
+                    <div class="row slider">
+    
+                        <template for:each={imgList} for:item="product" for:index="index">
+                                <div class="image-wrapper" key={product} data-id={index} onclick={handleThumbnailClicked}>
+                                    <img class="carousel-img" src={product.url} alt="prodImg" />
+                                </div>
+                        </template>  
+          
+                    </div> 
+                    <div class="down-arrow-image arrow-buttons" onclick={handleDown}>
+                        <img class="arrow-img" src={downArrow} alt="downArrow" />
+                    </div>    
+                </div>
+            </div>
+            <div class="right-product-prop-section">
+                <div class="hero-image-wrapper">
+
+                    <div class="hero-image-inner-wrapper">
+                        <div class="left-arrow-image arrow-buttons" onclick={handleUp}>
+                            <img class="hero-arrow-img" src={leftArrow} alt="leftArrow" />
+                    </div>
+                        <img class="hero-img" src={initialImageUrl} alt="heroImage">
+                        <div class="right-arrow-image arrow-buttons" onclick={handleDown}>
+                            <img class="hero-arrow-img" src={rightArrow} alt="rightArrow" />
+                        </div>  
+                    </div>
+    
+                </div>
+            </div>
+        </div>
+
+    </div> -->
+</template>

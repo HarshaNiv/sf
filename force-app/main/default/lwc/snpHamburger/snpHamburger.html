@@ -1,0 +1,78 @@
+<template>
+    <div class={menuIconClass} onclick={toggleMenu}>
+
+        <span class="material-icons white100"></span>
+    </div>
+
+    <div class={menuClass}>
+        <ul class="nav-list">
+            <!-- Why Powerled Category -->
+            <li class="nav-item">
+                <a data-id="Why_Powerled__c" onclick={showSubNav}>Why Powerled</a>
+
+                <ul class="sub-nav">
+                    <li class="sub-item">
+                        <a data-id="About_Us__c" onclick={navigateToPage}>About Us</a>
+                    </li>
+                    <li class="sub-item">
+                        <a data-id="Approach__c" onclick={showSubSubNav}>Our Approach &nbsp; &nbsp; &nbsp; &gt;</a>
+                        <ul class="sub-sub-nav">
+                            <template for:each={whyPowerledSubItems} for:item="subItem">
+                                <li key={subItem.name} class="sub-item">
+                                    <a data-id={subItem.link} onclick={navigateToPage}>{subItem.name}</a>
+                                </li>
+                            </template>
+                        </ul>
+                    </li>
+                    <li class="sub-item">
+                        <a data-id="Sustainability__c" onclick={navigateToPage}>Sustainability</a>
+                    </li>
+                </ul>
+            </li>
+
+
+            <!-- Our Products Category  -->
+            <li class="nav-item">
+                <a onclick={showOurProductSubNav} data-id={parentCategoryId}>{parentCategoryName}</a>
+
+                <ul class="sub-nav">
+                    <li class="sub-item">
+                        <a data-id={parentCategoryId} onclick={handleCategoryPage}>All</a>
+                    </li>
+                    <template for:each={subCategories} for:item="subItem">
+                        <li key={subItem.id} class="sub-item">
+                            <a data-id={subItem.id} onclick={handleCategoryPage}>{subItem.name}</a>
+                        </li>
+                    </template>
+                </ul>
+            </li>
+            <!-- Solutions Category -->
+            <li class="nav-item">
+                <a data-id="Solutions__c" onclick={showSubNav}>Solutions</a>
+                <ul class="sub-nav">
+                    <template for:each={solutionsSubItems} for:item="subItem">
+                        <li key={subItem.name} class="sub-item">
+                            <a data-id={subItem.link} onclick={navigateToPage}>{subItem.name}</a>
+
+                        </li>
+                    </template>
+                </ul>
+            </li>
+
+            <!-- Explore More Category -->
+            <li class="nav-item">
+                <a data-id="Explore_More__c" onclick={showSubNav}>Explore More</a>
+                <ul class="sub-nav">
+                    <template for:each={exploreMoreSubItems} for:item="subItem">
+                        <li key={subItem.name} class="sub-item">
+                            <a data-id={subItem.link} onclick={navigateToPage}>{subItem.name}</a>
+
+                        </li>
+                    </template>
+                </ul>
+            </li>
+
+        </ul>
+    </div>
+
+</template>

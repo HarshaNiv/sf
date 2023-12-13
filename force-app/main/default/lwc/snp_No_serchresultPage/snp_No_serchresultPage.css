@@ -1,0 +1,25 @@
+.text-wrapper {
+    text-align: center;
+    margin: 1.25rem 0 1.25rem 0;
+
+}
+
+.no-search-image {
+    width: 50%;
+    height: auto;
+}
+
+.no-search-text {
+    font-size: 2em;
+    padding: 6.25rem 0 3.125rem 0;
+}
+
+.image-wrapper {
+    margin: 1.25rem 0 1.25rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.no-search-page-button {
+    margin-bottom: 3.125rem;
+}

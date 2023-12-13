@@ -1,0 +1,192 @@
+.currency-selector {
+    display: inline-block;
+    position: relative;
+  }
+  
+  .currency-selector .icon-container {
+    cursor: pointer;
+  }
+
+  .multiple-currency-image {
+    height: 1.75rem;
+    /* to show the currency symbol in the round*/
+    /* border-radius: 50%; */
+  }
+  .currency-image-icon {
+    /* height: 27px; */
+    max-width: 100%;
+    /* height: 27px; */
+    /* max-width: 100%;
+    z-index: 2;
+    position: relative; */
+  }
+
+  .icon-btn{
+    display: inline-block;
+
+  }
+  
+  .currency-selector .currency-list {
+    position: absolute;
+    top: 2.5625rem;
+    right: -0.25rem;
+    background-color: rgb(255, 255, 255);
+    border: 0.0625rem solid lightgray;
+    border-radius: 0.25rem;
+    padding: 0;
+    list-style: none;
+  }
+
+  .currency-list{
+    z-index: 16;
+  }
+  .selected-option{
+    background-color: gray;
+  }
+  
+  .currency-selector .currency-list li {
+    padding: 0.25rem 0.5rem;
+    cursor: pointer;
+    width: 5.625rem;
+  }
+  
+  .currency-selector .currency-list li:hover {
+    background-color:#eaece7;
+  }
+
+  .guest-user-model{
+    display: flex !important;
+    justify-content: space-evenly !important;
+    align-items: center;
+  }
+  
+  .closee-model-popup{
+    border: none !important;
+  }
+
+  .register-user-model{
+    display: flex !important;
+    justify-content: space-evenly !important;
+    align-items: center;
+  }
+
+  .loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:transparent;
+    transition: opacity 0.75s, visibility 0.75s;
+    z-index: 10;
+  }
+  
+  .loader--hidden {
+    opacity: 0;
+    visibility: hidden;
+    z-index: 0;
+  }
+  
+  .loader::after {
+    content: "";
+    width: 3.75rem;
+    height: 3.75rem;
+    border: 0.375rem solid #dddddd;
+    border-top-color: #fdc300;
+    border-radius: 50%;
+    animation: loading 0.75s ease infinite;
+  }
+  @keyframes loading {
+    from {
+      transform: rotate(0turn);
+    }
+    to {
+      transform: rotate(1turn);
+    }
+  }
+  .log-in {
+    width: 7.625rem !important;
+    height: 2.375rem !important;
+    background-color: #eaece7;
+    border: 0.0625rem solid black !important;
+    color:black !important;
+  }
+
+   .sign-in {
+    width: 7.625rem;
+    height: 2.375rem;
+    background-color: #eaece7;
+    border: 1px solid black !important;
+    color:black !important;
+  }
+
+  .register-user {
+    width: 7.625rem !important;
+    height: 2.375rem !important;
+    background-color: #eaece7;
+    border: 0.0625rem solid black !important;
+  }
+  .log-in:hover{
+    background-color: #fdc300 !important;
+  }
+  .sign-in:hover{
+    background-color: #fdc300 !important;
+  }
+  .register-user:hover{
+    background-color: #fdc300 !important;
+  }
+  .icon-color{
+    color: white !important;
+  }
+  .guest-popup-header , .register-popup-header {
+    background: #fdc300 !important;
+    background-color: #fdc300 !important;
+  }
+  .slds-modal__header {
+  
+    background-color: #fdc300 !important;
+  }
+  .slds-button_icon-inverse {
+    background: none !important;
+  }
+  .Model-body-conteny{
+    display: flex !important; 
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  .slds-icon-utility-close {
+    background-color: none !important;
+    background: none !important;
+  }
+ 
+  p {
+    color:black !important;
+  }
+  h2 {
+    color: black !important;
+  }
+
+  .icon-btn{
+    background: black;
+    padding: 0;
+    /* z-index: 3;
+    position: relative;
+    background: transparent; */
+    width: 2.125rem;
+    border: none;
+    outline: none;
+  }
+
+  .currency-list::before{
+    content: "";
+    position: absolute;
+    top: -23%;
+    right: 0.5625rem;
+    margin-left: -0.3125rem;
+    border-width: 0.75rem;
+    border-style: solid;
+    border-color: transparent transparent white transparent;
+    }

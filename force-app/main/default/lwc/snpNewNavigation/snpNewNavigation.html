@@ -1,0 +1,92 @@
+<template>
+    <div class="navigation">
+        <ul class="nav-list">
+            <!-- Why Powerled Category -->
+            <li class="nav-item">
+                <a data-id="Why_Powerled__c" onclick={navigateToPage} onmouseleave={removeDisplayNoneProperty}>Why
+                    Powerled</a>
+                <ul class=" sub-nav">
+                    <li class="sub-item">
+                        <a class="nav-items-sub" data-id="About_Us__c" onclick={navigateToPage} onmouseleave={removeDisplayNoneProperty}>About
+                            Us</a>
+                    </li>
+                    <li class="sub-item">
+                        <a class="nav-items-sub" data-id="Approach__c" onclick={navigateToPage} onmouseleave={removeDisplayNoneProperty}>Our
+                            Approach &nbsp; &nbsp; &nbsp; &nbsp;
+                            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &gt;</a>
+                        <ul class="sub-sub-nav">
+                            <template for:each={whyPowerledSubItems} for:item="subItem">
+                                <li key={subItem.name} class="sub-item">
+                                    <a class="nav-items-sub" data-id={subItem.link} onclick={navigateToPage}
+                                        onmouseleave={removeDisplayNoneProperty}>{subItem.name}</a>
+                                </li>
+                            </template>
+                        </ul>
+                    </li>
+                    <li class="sub-item">
+                        <a class="nav-items-sub" data-id="Sustainability__c" onclick={navigateToPage}
+                            onmouseleave={removeDisplayNoneProperty}>Sustainability</a>
+                    </li>
+                </ul>
+            </li>
+
+            <!-- Our Products Category  -->
+            <li class="nav-item">
+                <a onclick={handleCategoryPage} onmouseleave={removeDisplayNoneProperty} data-id={parentCategoryId}
+                    onmouseenter={getSubCategories}>{parentCategoryName}</a>
+                <div class="sub-nav-wrapper">
+
+                    <ul class="sub-sub-nav">
+                        <template for:each={subCategories} for:item="subItem">
+                            <li key={subItem.id} class="sub-item" onmouseenter={handleSubcategoryImage}
+                                data-id={subItem.id}>
+                                <a class="nav-items-sub" data-id={subItem.id} onclick={handleCategoryPage}
+                                    onmouseleave={removeDisplayNoneProperty}>{subItem.name}</a>
+                            </li>
+                        </template>
+                    </ul>
+
+                    <div class="images-wrapper">
+                        <template for:each={imageUrls} for:item="imageUrl">
+                            <img key={imageUrl.id} src={imageUrl.url} alt="Image not found !">
+                        </template>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Solutions Category -->
+            <li class="nav-item">
+                <a data-id="Solutions__c" onclick={navigateToPage}
+                    onmouseleave={removeDisplayNoneProperty}>Solutions</a>
+                <ul class="sub-nav">
+                    <template for:each={solutionsSubItems} for:item="subItem">
+                        <li key={subItem.name} class="sub-item">
+                            <a class="nav-items-sub" data-id={subItem.link} onclick={navigateToPage}
+                                onmouseleave={removeDisplayNoneProperty}>{subItem.name}</a>
+
+                        </li>
+                    </template>
+                </ul>
+            </li>
+
+            <!-- Explore More Category -->
+            <li class="nav-item">
+                <a data-id="Explore_More__c" onclick={navigateToPage} onmouseleave={removeDisplayNoneProperty}>Explore
+                    More</a>
+                <ul class="sub-nav">
+                    <template for:each={exploreMoreSubItems} for:item="subItem">
+                        <li key={subItem.name} class="sub-item">
+                            <a class="nav-items-sub" data-id={subItem.link} onclick={navigateToPage}
+                                onmouseleave={removeDisplayNoneProperty}>{subItem.name}</a>
+
+                        </li>
+                    </template>
+                </ul>
+            </li>
+
+        </ul>
+    </div>
+
+
+
+</template>

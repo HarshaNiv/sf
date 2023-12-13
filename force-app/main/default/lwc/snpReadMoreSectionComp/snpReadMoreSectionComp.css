@@ -1,0 +1,61 @@
+.dummy{
+	color : black;
+}
+@font-face {
+
+    font-family: 'Sunpower Font';
+  
+    src: url('/resource/ASSETS/Futura-CondensedLight.otf') format('opentype');
+  
+  }
+.container {
+    text-align: center;
+    width: 100%;
+}
+
+.image-container {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.about-button {
+    font-family: 'Sunpower Font';
+    position: absolute;
+    width:7.6rem;
+    height: 2.3rem;
+    bottom: 25%;
+    border: 1px solid black !important;
+    transform: translateX(-50%);
+    /* padding: 8px 14px; */
+    background-color: #EAECE7;
+    border: none;
+    border-radius: 3.7px;
+    font-size: 16px;
+    cursor: pointer;
+    right: 10%;
+}
+
+.image {
+    width: 100%;
+}
+.about-button.hovered {
+    background-color: #ddd;
+}
+
+.banner-wrapper{
+    position: relative;
+}
+
+.about-button:hover {
+    background-color: #fdc300;
+    color: black;
+}
+@media only screen and (max-width: 768px) {
+    .image {
+    height: 350px;
+	}
+   .about-button {    
+    font-size: 16px;
+	}
+}

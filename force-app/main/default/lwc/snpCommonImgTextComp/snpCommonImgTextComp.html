@@ -1,0 +1,36 @@
+<template>
+    <div class="content-common-img-txt-wrapper">
+        <div class={getStyleBasedOnPageType}>
+            <div class="content-common-left">
+                <div class="content-left-top">
+                    <div class="content-img-wrapper">
+                        <img loading="lazy" class="common-content-img" src={leftImgUrl} alt="content-img1">
+                    </div>
+                </div>
+                <div class="content-left-bottom">
+                    <div class="content-bottom-slot-wrapper">
+                        <slot name="htmlEditorStandartCompLeft"></slot>
+                    </div>
+                </div>
+            </div>
+            <div class="content-common-right">
+                <div class="content-right-top">
+                    <div class="content-img-wrapper">
+                        <img loading="lazy" class="common-content-img" src={rightImgUrl} alt="content-img2">
+                    </div>
+                </div>
+                <div class="content-right-bottom">
+                    <div class="content-bottom-slot-wrapper">
+                        <slot name="htmlEditorStandartCompRight"></slot>
+                    </div>
+                </div>
+                <div class="content-button-wrapper">
+                    <slot name="redirectCmsPageBtn"></slot>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="one" style={getTopStyle}>Hii-{leftTopImage}  </div>
+    <div class="two" style={getBottomStyle}>heloo-{rightTopImage}</div> -->
+</template>

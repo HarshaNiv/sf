@@ -1,0 +1,184 @@
+<!--
+
+  @description     :   This component is  for quote modal. 
+
+  @author            :  yeswanthkamaraju    
+
+  @Createddate   :   17-jul-2023
+
+  @Controller Class: N/A
+
+  @Test Class:  N/A
+
+  @modification summary: Nameofmodifier - modification date - modifications made
+
+-->
+<template>
+    <lightning-modal-header>
+        <h4>Quote Request</h4>
+    </lightning-modal-header>
+
+
+    
+
+    <lightning-modal-body>
+        <div class="modal-body col-6">
+            <div lwc:if={property1}>
+                <form action="https://pr.sunpowermarketing.co.uk/l/308921/2018-06-14/n6xy5" method="post">
+
+                    <lightning-layout>
+                        <lightning-layout-item padding="around-small" class="layout-item">
+                            <label>Product Name</label>
+                            <input type="text" name="product" value={productname} class="slds-input input-element">
+                        </lightning-layout-item>
+                    </lightning-layout>
+
+                    <lightning-layout>
+                        <lightning-layout-item padding="around-small" class="layout-item">
+                            <label>SKU</label>
+                            <input type="text" name="sku" value={productsku} class="slds-input input-element">
+                        </lightning-layout-item>
+                    </lightning-layout>
+
+                    <lightning-layout>
+                        <lightning-layout-item padding="around-small" class="layout-item">
+                            <label>Name<span class="required-symbol">*</span></label>
+                            <input type="text" name="first-name" class="slds-input input-element" onblur={namehandler}>
+                            <div class="error-message" if:true={showError1}>Please enter name</div>
+                        </lightning-layout-item>
+                    </lightning-layout>
+
+                    <lightning-layout>
+                        <lightning-layout-item padding="around-small" class="layout-item">
+                            <label>Company<span class="required-symbol">*</span></label>
+                            <input type="text" name="company" class="slds-input input-element" onblur={companyhandler}>
+                            <div class="error-message" if:true={showError2}>Please enter company</div>
+                        </lightning-layout-item>
+                    </lightning-layout>
+
+                    <lightning-layout>
+                        <lightning-layout-item padding="around-small" class="layout-item">
+                            <label>Email<span class="required-symbol">*</span></label>
+                            <input type="email" name="your-email"
+                                pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$"
+                                class="slds-input input-element" onchange={emailhandler}>
+                            <div class="error-message" if:true={showError4}>Please enter valid email</div>
+                        </lightning-layout-item>
+                    </lightning-layout>
+
+                    <lightning-layout>
+                        <lightning-layout-item padding="around-small" class="layout-item">
+                            <label>Quantity<span class="required-symbol">*</span></label>
+                            <input type="text" name="quantity" class="slds-input input-element"
+                                onblur={quantityhandler}>
+                            <div class="error-message" if:true={showError3}>Please enter quantity</div>
+                        </lightning-layout-item>
+                    </lightning-layout>
+
+                    <lightning-layout>
+                        <lightning-layout-item padding="around-small" class="layout-item">
+                            <label>Description</label>
+                            <textarea class="slds-input input-element" name="information" rows="4" cols="50"
+                                onchange={descriptionhandler}></textarea>
+                        </lightning-layout-item>
+                    </lightning-layout>
+
+                    <div class="slds-m-vertical_medium mobsubmit-Button"><button class="submit-Button"
+                            onclick={submitForm}>Submit</button></div>
+                    <!-- <div class="error-message slds-align_absolute-center" if:true={showError5}>Please enter all the required fields</div> -->
+                </form>
+            </div>
+
+            <div lwc:else>
+                <!-- action="https://go.demo.pardot.com/l/555143/2023-07-17/7gmknl" -->   
+                <form>
+                    <lightning-layout>
+                        <lightning-layout-item padding="around-small" class="layout-item">
+                            <label for="field1">Product Name</label>
+                            <input type="text" id="field1" name="product" value={productname}
+                                class="slds-input input-element" onchange={productnamehandler}>
+                        </lightning-layout-item>
+                        <lightning-layout-item padding="around-small" class="layout-item">
+                            <label for="field7">SKU</label>
+                            <input type="text" id="field7" name="sku" value={productsku}
+                                class="slds-input input-element" onchange={skuhandler}>
+                        </lightning-layout-item>
+                    </lightning-layout>
+                    <lightning-layout>
+                        <lightning-layout-item padding="around-small" class="layout-item">
+                            <label for="field2">Name<span class="required-symbol">*</span></label>
+                            <input type="text" id="field2" name="first-name" class="slds-input input-element"
+                                onblur={namehandler}>
+                            <div class="error-message" if:true={showError1}>Please enter name</div>
+                        </lightning-layout-item>
+                        <lightning-layout-item padding="around-small" class="layout-item">
+                            <label for="field3">Company<span class="required-symbol">*</span></label>
+                            <input type="text" id="field3" name="company" class="slds-input input-element"
+                                onblur={companyhandler}>
+                            <div class="error-message" if:true={showError2}>Please enter company</div>
+                        </lightning-layout-item>
+                    </lightning-layout>
+                    <lightning-layout>
+                        <lightning-layout-item padding="around-small" class="layout-item">
+                            <label for="field4">Email<span class="required-symbol">*</span></label>
+                            <input type="email" id="field4" name="your-email"
+                                pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$"
+                                class="slds-input input-element" onchange={emailhandler}>
+                            <div class="error-message" if:true={showError4}>Please enter valid email</div>
+                        </lightning-layout-item>
+                        <lightning-layout-item padding="around-small" class="layout-item">
+                            <label for="field5">Quantity<span class="required-symbol">*</span></label>
+                            <input type="text" id="field5" name="quantity" class="slds-input input-element"
+                                onblur={quantityhandler}>
+                            <div class="error-message" if:true={showError3}>Please enter quantity</div>
+                        </lightning-layout-item>
+                    </lightning-layout>
+                    <lightning-layout>
+                        <lightning-layout-item padding="around-small" class="description-layout-item">
+                            <label for="field6">Description</label>
+                            <textarea class="slds-input input-element" name="information" id="myTextArea" rows="4"
+                                cols="50" onchange={descriptionhandler}></textarea>
+                        </lightning-layout-item>
+                    </lightning-layout>
+
+                    <div class="slds-m-vertical_medium slds-align_absolute-center "><button class="submit-Button"
+                            onclick={submitForm}>Submit</button></div>
+                    <!-- <div class="error-message slds-align_absolute-center" if:true={showError5}>Please enter all the required fields</div> -->
+                </form>
+            </div>
+        </div>
+
+    </lightning-modal-body>
+
+
+    <template if:true={successModel}>
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+  <div class="slds-modal__container">
+      <!-- modal header start "slds-modal__header"-->
+      <header class="slds-modal__header guest-popup-header">
+          <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={hideModalBoxGuest}>
+            <lightning-icon icon-name="utility:close"
+                alternative-text="close"
+                variant="inverse"
+                size="small" ></lightning-icon>
+            <span class="slds-assistive-text">Close</span>
+          </button>
+          <h6 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Quote Sent Successfully</h6>
+      </header>
+  
+      <!-- modal body start -->
+      <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+            <p class="Model-body-conteny">Thank you ! Our team will get back to you soon ! </p>
+      </div>
+  
+      <!-- modal footer start-->
+      <footer class="slds-modal__footer guest-user-model model-footer">
+          <button class="slds-button slds-button_neutral log-in" onclick={hideModalBoxGuest}>OK</button>
+          <!-- <button class="slds-button slds-button_neutral sign-in" onclick={SignInPageRedirection}>SignUp</button> -->
+      </footer>
+  
+      </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+     </template>
+</template>

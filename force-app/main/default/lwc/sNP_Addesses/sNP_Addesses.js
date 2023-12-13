@@ -47,6 +47,7 @@ export default class SNP_Addesses extends LightningElement {
         this.isModalOpen = false;   
     }
     
+    // for show more and show less 
     value='Show More';
     showmore(){
         this.buttonvalid= !this.buttonvalid;
@@ -57,13 +58,13 @@ export default class SNP_Addesses extends LightningElement {
         }
         else if(this.value=='Show less')
         {
-            this.value='Show More';
+            this.value='Show More';     
         }
     }
 
 connectedCallback(){
     debugger;
-    let formurl=window.location.href;
+    let formurl=window.location.href;   
     console.log(formurl);
     const urlParams = new URLSearchParams(window.location.search);
      this.addressTypeParam = urlParams.get('addressType');

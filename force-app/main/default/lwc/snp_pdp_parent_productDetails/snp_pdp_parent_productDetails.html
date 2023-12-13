@@ -1,0 +1,15 @@
+<template>
+    <div class="pdp-container">
+        <div class="left-child-product-deatils">
+            <div class="left-child-top-product">
+                <slot name="productCarousel">snp_pdp_child_productCarousel</slot>
+            </div>
+            <div class="left-child-bottom-product">
+                <slot name="productIconography">snp_pdp_productIconography</slot>
+            </div>
+        </div>
+        <div class="right-child-product-deatils">
+            <slot name="productDeatails">snp_pdp_child_productDeatils</slot>
+        </div>
+    </div>
+</template>

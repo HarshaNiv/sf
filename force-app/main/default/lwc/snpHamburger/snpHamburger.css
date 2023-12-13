@@ -1,0 +1,90 @@
+.nav-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.nav-item {
+    margin: 10px 0;
+    border-bottom: 1px solid #fff;
+}
+
+.nav-item a {
+    color: white;
+    padding: 12px 20px;
+    display: block;
+    text-decoration: none;
+    
+}
+
+.sub-nav,
+.sub-sub-nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: none;
+}
+.show-sub-nav{
+    display: block;
+}
+.show-sub-sub-nav{
+    display: block;
+}
+.sub-item{
+    border-bottom: 1px solid #fff;
+}
+.sub-item a {
+    padding: 12px 40px;
+    
+}
+
+.sub-sub-nav .sub-item a {
+    padding: 12px 60px;
+}
+
+.menu-icon {
+    position: absolute;
+    top: 40px;
+    left: 10px;
+    cursor: pointer;
+    z-index: 18;
+    
+}
+
+
+/*Hamburger*/
+ .menu-icon .material-icons:before {
+    content: "\e5d2";
+}
+
+.material-icons.white100 {
+    color: #fff;
+    font-size: 2rem;
+}
+.menu-open {
+    top: 20px;
+    left:auto;
+    right: 25px;
+}
+/*Close*/
+.menu-open .material-icons:before {
+    content: "\e5cd";
+
+
+}
+
+.menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #A5A49B;
+    display: none;
+    z-index: 17;
+    overflow: auto;
+}
+
+.menu.active {
+    display: block;
+}

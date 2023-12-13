@@ -9,35 +9,35 @@
 }
 
 .tab-2 {
-  margin-left: 57px;
+  margin-left: 3.5625rem;
 }
 
 .tab-1 {
-  margin-left: 50px;
+  margin-left: 3.125rem;
 
 }
 
 .tab-1:focus {
-  border-bottom: 4px solid #FDC300;
+  border-bottom: 0.25rem solid #FDC300;
   font-weight: bold;
 }
 
 .tab-2:focus {
-  border-bottom: 4px solid #FDC300;
+  border-bottom: 0.25rem solid #FDC300;
   font-weight: bold;
 }
 
 .active {
-  border-bottom: 4px solid #FDC300;
+  border-bottom: 0.25rem solid #FDC300;
   font-weight: bold;
 }
 
 .data-conatiner {
   width: 280px;
-  padding: 10px 0px 54px 34px;
+  padding: 0.625rem 0rem 3.375rem 2.125rem;
   flex-shrink: 1;
   border: 1px solid black;
-  margin: 5px 5px 5px 5px;
+  margin: 0.3125rem 0.3125rem 0.3125rem 0.3125rem;
   position: relative;
 }
 
@@ -47,34 +47,36 @@
 
 .Name-wrapper {
   font-weight: bold;
-  margin-bottom: 10px;
-  margin-top: 31px;
+  margin-bottom: 0.625rem;
+  margin-top: 1.9375rem;
 }
 
 
 .main-conatiner-wrapper {
   display: flex;
-  margin-top: 15px;
+  margin-top: 0.9375rem;
   flex-wrap: wrap;
+  
 }
 
 /* show more Button */
 .btn-wrapper {
   display: flex;
   justify-content: center;
-  margin-bottom: 35px;
-  margin-top: 15px;
+  margin-bottom: 2.1875rem;
+  margin-top: 0.9375rem;
 }
 
 .btn-wrapper-1 {
   display: flex;
   justify-content: center;
-  margin-bottom: 35px;
-  margin-top: 15px;
+  margin-bottom: 2.1875rem;
+  margin-top: 0.9375rem;
+
 }
 
 .common-btn-hover {
-  background-color: white;
+  background-color:#EAECE7;
   border: 1px solid black;
 }
 
@@ -89,7 +91,7 @@
 }
 
 .btn-wrapper-container {
-  margin-top: 28px;
+  margin-top: 1.75rem;
 }
 
 /* MODAL  */
@@ -123,7 +125,7 @@
 
 .slds-modal__header {
   background-color: #fdc300;
-  padding: 20px;
+  padding: 1.25rem;
 }
 
 .empty-conatiner
@@ -135,7 +137,7 @@
 .empty-content-1
 {
   text-align: center;
-  font-size: 18px;
+  font-size: 1.125rem;
 }
 .close-btn {
   position: absolute;
@@ -145,9 +147,9 @@
 
 .default-btn
 {
-  border-radius: 10px;
-  border: 1px solid black;
-  padding: 2px;
+  border-radius: 0.625rem;
+  border: 0.0625rem solid black;
+  padding: 0.125rem;
   background: #B3B2A8;
   position: absolute;
   /* left: 20%; */
@@ -157,6 +159,8 @@
 .modal-footer 
 {
   padding: .75rem;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .close-btn
@@ -166,9 +170,10 @@
 .common-footer-btn
 {
   background: #EAECE7;
-  padding: 2px;
+  padding: 0.125rem;
   width: 122px;
   color:black;
+  border:1px solid;
 }
 
 .tab-line
@@ -191,13 +196,13 @@
 
   .data-conatiner {
     margin: auto;
-    margin-top: 15px;
+    margin-top: 0.9375rem;
     width: 280px !important;
-    padding: 10px 0px 54px 34px !important
+    padding: 0.625rem 0rem 3.375rem 2.125rem !important
   }
 
   .common-btn-hover {
-    margin-top: 15px;
+    margin-top: 0.9375rem;
   }
 
   .slds-modal-container {
@@ -212,6 +217,7 @@
     display: flex;
     justify-content: space-evenly;
 
+
   }
 
   .close-btn {
@@ -219,7 +225,8 @@
   }
 
   .modal-content {
-    padding: 0%;
+    /* padding: 0%; */
+    padding: 10px;
 
   }
   .outer-container {
@@ -229,7 +236,7 @@
   display: flex;
 
   margin-left: 10%;
-  margin-top: 10px;
+  margin-top: 0.625rem;
 }
 
 .empty-content-1
@@ -245,7 +252,7 @@
 
 .data-conatiner {
   width: 246px;
-  padding: 10px 0px 5px 30px;
+  padding: 0.625rem 0rem 0.3125rem 1.875rem;
  }
 
 }

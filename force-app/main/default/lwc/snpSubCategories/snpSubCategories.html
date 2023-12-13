@@ -1,0 +1,34 @@
+<!--
+  @description       : Template for displaying 8 sub categories
+  @author            : Owais Amin Ahanger          : 
+  @last modified on  : 07-15-2023
+ 
+-->
+<template>
+    <template if:true={showSubCategoryGrid}>
+        <div class="parent-container">
+            <template for:each={displayedImages} for:item="categoryDetail">
+                <div class="tile" key={categoryDetail.id}>
+                    <a onclick={handleCategoryPage} data-id={categoryDetail.id} class="image-wrapper">
+                        <img src={categoryDetail.url} alt="Image not found !" class="image-container">
+                    </a>
+                    <a onclick={handleCategoryPage} data-id={categoryDetail.id} class="text-container">
+                        <span>{categoryDetail.name}</span>
+                    </a>
+                </div>
+            </template>
+        </div>
+
+        <div if:true={showPagination} class="main-pagination">
+            <button onclick={handlePreviousPage} disabled={isFirstPage} class="btn-icon-pages">&lt;</button>
+            <div class="tabs-pagination">
+                <template for:each={pages} for:item="pageNumber">
+                    <button key={pageNumber} onclick={handlePageClick} value={pageNumber} class="btn-number-pages">
+                        {pageNumber}
+                    </button>
+                </template>
+            </div>
+            <button onclick={handleNextPage} disabled={isLastPage} class="btn-icon-pages">&gt;</button>
+        </div>
+    </template>
+</template>

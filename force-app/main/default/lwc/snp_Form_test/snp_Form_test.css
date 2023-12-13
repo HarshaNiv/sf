@@ -1,0 +1,31 @@
+.notification-confirmation {
+    color: var(--snp-clr-black);
+        font-weight: 500;
+        margin-bottom: 2.5rem;
+    }
+
+    .check-box-notification {
+        margin: 0 0.625rem 0 5.625rem;
+    }
+    .EmailNotification {
+        width: 1rem;
+        height: 1rem;
+    }
+
+    .input-fields {
+        outline: none;
+        border: 0.0625rem solid var(--snp-clr-black);
+        width: 15.3125rem;
+        color: var(--snp-clr-black);
+        border-radius: 1mm;
+    }
+    .input-fields:hover {
+        outline: none;
+        border: 0.0625rem solid var(--snp-theme-clr-yellow);
+        
+    }
+
+    .Email-NotificationCheck-label {
+        color: var(--snp-clr-black);
+        display: inline;
+    }

@@ -1,0 +1,7 @@
+@font-face {
+    font-family: 'Sunpower Font';
+    src: url('/resource/ASSETS/futura medium bt.ttf') format('opentype');
+}
+    *{
+        font-family:'Sunpower Font';
+    }

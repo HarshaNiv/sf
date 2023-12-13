@@ -1,0 +1,45 @@
+<!--
+  @description       : 
+  @author            : Jonny Harte
+  @group             : 
+  @last modified on  : 10-02-2021
+  @last modified by  : Jonny Harte
+  Modifications Log 
+  Ver   Date         Author        Modification
+  1.0   04-02-2021   Jonny Harte   Initial Version
+-->
+<template>
+    <header class="slds-modal__header">
+      <h2 class="slds-modal__title slds-hyphenate">PDF Preview</h2>
+    </header>
+  
+    <template if:true={record.data}>
+      <div class="slds-modal__content slds-p-around_medium">
+        <iframe src={visualForceUrl}></iframe>
+      </div>
+    </template>
+  
+    <footer class="slds-modal__footer">
+      <button class="slds-button slds-button_neutral" onclick={handleCancel}>
+        Cancel 
+      </button>
+  
+      <button
+        class="slds-button slds-button_brand"
+        onclick={handleSaveAndSend}
+        data-send-email="false"
+      >
+        <template if:true={hasPdf}>Update PDF</template>
+        <template if:false={hasPdf}>Save PDF</template>
+      </button>
+  
+      <!-- <button
+        class="slds-button slds-button_brand"
+        onclick={handleSaveAndSend}
+        data-send-email="true"
+      >
+        <template if:true={hasPdf}>Update &amp; Send</template>
+        <template if:false={hasPdf}>Save &amp; Send</template>
+      </button> -->
+    </footer>
+  </template>

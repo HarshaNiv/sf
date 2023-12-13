@@ -1,0 +1,86 @@
+<!--
+
+  @description     :   This component is used to redirect user to login page
+
+  @author            :  yeswanthkamaraju
+
+  @Createddate   :   21-jun-2023
+
+  @Controller Class: CommunityAuthController
+
+  @Test Class:  N/A
+
+  @modification summary: Nameofmodifier - modification date - modifications made
+
+-->
+<template>
+    <div class="input-wrapper">
+        <div class="form-wrapper">
+            <div class=" slds-grid slds-grid_vertical">
+                <div class="slds-col form-header-wrapper">
+                     <h1 class="slds-var-p-top_medium slds-align_absolute-center form-heading">Login</h1>
+                    <template if:true={errorCheck}>
+                        <div class="error slds-var-p-around_x-small slds-var-p-top_small slds-align_absolute-center" role="alert">
+                            <p class="error-msg">{errorMessage}</p>
+                        </div>
+                    </template>
+                </div>
+
+                <div class="slds-col slds-var-p-top_small forminput ">
+                    <div class="slds-form-element">
+                        <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon_left ">
+                            <input type="email" data-id="inputUsername" placeholder="Username" class="slds-input input-element" onchange={handleUserNameChange} required />
+                            <template lwc:if={emailerrormsg}>
+                                <div class="email-error">
+                                    <p>Please enter your email id</p>
+                                </div>
+                            </template>
+                            <template lwc:if={emailerrormsg2}>
+                                <div class="email-error">
+                                    <p>Please enter your valid email id</p>
+                                </div>
+                            </template>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-col slds-var-p-top_small">
+                    <div class="slds-form-element">
+                        <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon_right">
+                            <!-- <lightning-icon icon-name='utility:hide' alternative-text='hide' size='xx-small' title='hide' class='slds-icon slds-input__icon slds-input__icon_right slds-icon-text-default' onclick={passwordtoggle}></lightning-icon> -->
+                            <input type="password" data-id="inputPassword" placeholder="Password" class="slds-input input-element input-password-element" onchange={handlePasswordChange} required/>
+                            <template lwc:if={ispassword}>
+                                <i class="fa fa-eye-slash eye-sign" aria-hidden="true" onclick={passwordtoggle} ></i>
+                            </template>
+                            <template lwc:else>
+                            <i class="fa fa-eye eye-sign" aria-hidden="true" onclick={passwordtoggle} ></i>
+                            </template>
+                            <template lwc:if={passerrormsg}>
+                                <div class="email-error">
+                                    <p>Please enter your password</p>
+                                </div>
+                            </template>
+                            <!-- <i class="fa fa-eye-slash eye-sign" aria-hidden="true" onclick={passwordtoggle} ></i>
+                            <i class="fa fa-eye-slash eye-sign" aria-hidden="true" onclick={passwordtoggle} ></i> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-col slds-m-top_medium forgot-password-wrapper">
+                    <a  class="forgot-password-text slds-align_absolute-center forgot-password" onclick={forgotpasswordhandler} >Forgot your password?</a>
+                </div>
+                <div class="slds-col  login-button-wrapper">
+                    <!-- <lightning-button variant="brand" label="Login" title="Login" onclick={handleLogin} class="slds-m-left_x-small slds-align_absolute-center"></lightning-button> -->
+                    <button type="submit" class="login-form-button" onclick={handleLogin}>Login</button>  
+                </div>
+            </div>
+        </div>
+
+        <div class="login-form-separator"></div>
+        <div class="sign-up-wrapper">
+            <div class="slds-col no-account-title">Don't have an account?</div>
+            <div class="slds-col  login-button-wrapper">
+                <!-- <lightning-button variant="brand" label="Login" title="Login" onclick={handleLogin} class="slds-m-left_x-small slds-align_absolute-center"></lightning-button> -->
+                 <button type="submit" class="signup-form-button" onclick={signuphandler}>Sign Up</button>  
+            </div>
+        </div>
+    </div>
+</template>

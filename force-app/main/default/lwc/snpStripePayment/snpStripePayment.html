@@ -1,0 +1,20 @@
+<template>
+    <lightning-card title="Credit Card Payment" icon-name="standard:account">
+        <div class="slds-var-m-around_medium">
+            <template if:true={errorMsg}>
+                <p class="slds-text-color_error">{errorMsg}</p>
+            </template>
+
+
+            <div lwc:ref="cardContainer">
+                <!-- Stripe.js injects the Card Element -->
+            </div>
+
+
+            <div class="slds-var-m-top_medium">
+                <lightning-button label="Submit Payment" variant="brand" onclick={submitPayment}
+                    class="slds-align_absolute-center"></lightning-button>
+            </div>
+        </div>
+    </lightning-card>
+</template>

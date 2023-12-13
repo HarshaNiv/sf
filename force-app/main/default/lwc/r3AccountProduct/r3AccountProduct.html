@@ -1,0 +1,28 @@
+<template>
+    <div class="slds-media">
+        <div class="slds-media__body">
+            <div class="slds-grid slds-hint-parent">
+                <a onclick={navigateToRecord}>
+                    <h3 class="slds-text-heading_small slds-m-bottom_xx-small">{item.ProductCode}</h3>
+                </a>
+            </div>
+            <lightning-record-view-form object-api-name="PricebookEntry"
+                                        record-id={item.Id}>
+                <lightning-layout multiple-rows>
+                    <lightning-layout-item size="2">
+                        <lightning-output-field field-name="Product2Id"></lightning-output-field>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="2">
+                        <lightning-output-field field-name="UnitPrice"></lightning-output-field>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="3">
+                            <lightning-output-field field-name="Volume_Pricing__c"></lightning-output-field>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="5">
+                        <lightning-output-field field-name="Product_Description__c"></lightning-output-field>
+                    </lightning-layout-item>
+                </lightning-layout>
+            </lightning-record-view-form>
+        </div>
+    </div>
+</template>

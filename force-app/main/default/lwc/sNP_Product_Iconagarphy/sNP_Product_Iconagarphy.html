@@ -1,0 +1,349 @@
+<!-- <template>
+    <div class="Specification-wrapper" >
+        <div class="Specification-contant-wrapper">
+                <template if:true={SpecificationDataList}>
+                    <template for:each={SpecificationDataList} for:item="point">
+                        <div class="innere-content-wrapper" key={point.field}>
+                             <div class="content">
+                                <img src={point.field} alt="">
+                                {point.field} : {point.value}</div> 
+                        </div>
+                    </template>
+                </template>
+        </div>
+    </div>
+</template> -->
+
+<template>
+    <div class="icon-main-wrapper">
+        <div class="icon-outer-wrapper" if:true={Power}>
+            <div class="icon-inner-wrapper icon-image-wrapper">
+                <img src={p_NRND} alt="p_NRND" class="iconography-img"/>
+            </div>
+            <div class="icon-inner-value">
+                {PowerValue}
+            </div>
+        </div>
+        <div class="icon-outer-wrapper" if:true={LED_Colour}>
+            <div class="icon-inner-wrapper icon-image-wrapper">
+                <img src={p_On_Site_Survey} alt="p_On_Site_Survey" class="iconography-img"/>
+            </div>
+            <div class="icon-inner-value">
+                {LedColourValue}
+            </div>
+        </div>
+        <div class="icon-outer-wrapper" if:true={IP_Rating}>
+            <div class="icon-inner-wrapper icon-image-wrapper">
+                <img src={p_IP_Rating} alt="p_NRND" class="iconography-img"/>
+            </div>
+            <div class="icon-inner-value">{IpRatingValue}</div>
+        </div>
+        <div class="icon-outer-wrapper" if:true={Impact_Protection}>
+            <div class="icon-inner-wrapper icon-image-wrapper">
+                <img src={p_IK_Rating} alt="p_IK_Rating" class="iconography-img"/>
+            </div>
+            <div class="icon-inner-value">{ImpactProtectionValue}</div>
+        </div>
+        <div class="icon-outer-wrapper" if:true={Beam_Angle}>
+            <div class="icon-inner-wrapper icon-image-wrapper">
+                <img src={p_NRND} alt="p_NRND" class="iconography-img"/>
+            </div>
+            <div class="icon-inner-value">
+                {BeamAngleValue}
+            </div>
+        </div>
+        <div class="icon-outer-wrapper" if:true={UGR}>
+            <div class="icon-inner-wrapper icon-image-wrapper">
+                <img src={p_UGR} alt="p_UGR" class="iconography-img"/>
+            </div>
+            <div class="icon-inner-value">{UgrValue}</div>
+        </div>
+        <div class="icon-outer-wrapper" if:true={Energy_Rating}>
+            <div class="icon-inner-wrapper icon-image-wrapper">
+                <img src={energyRatingResult} alt="energyRatingResult" class="iconography-img"/>
+            </div>
+            <!-- <div class="icon-inner-value">{EnergyRatingValue}</div> -->
+        </div>
+        <div class="icon-outer-wrapper" if:true={Life_Time}>
+            <div class="icon-inner-wrapper icon-image-wrapper">
+                <img src={p_NRND} alt="Life_Time" class="iconography-img"/>
+            </div>
+            <div class="icon-inner-value">{LifeTimeValue}</div>
+        </div>
+        <div class="icon-outer-wrapper" if:true={Warranty}>
+            <div class="icon-inner-wrapper icon-image-wrapper">
+                <img src={p_NRND} alt="Warranty" class="iconography-img"/>
+            </div>
+            <div class="icon-inner-value">{WarrantyValue}</div>
+        </div>
+        <div class="icon-outer-wrapper" if:true={Function1}>
+            <div class="icon-inner-wrapper icon-image-wrapper">
+                <img src={function1Result} alt="Function1" class="iconography-img"/>
+            </div>
+            
+        </div>
+        <div class="icon-outer-wrapper" if:true={Product_Technology}>
+            <div class="icon-inner-wrapper icon-image-wrapper">
+                <img src={Product_TechnologyResult} alt="Product_TechnologyResult" class="iconography-img"/>
+            </div>
+            
+        </div>
+        <!-- <div class="icon-outer-wrapper" if:true={Trust_Message_Icon}>
+            <div class="icon-inner-wrapper icon-image-wrapper">
+                <img src={TrustMessageIconValue} alt="Trust_Message_Icon" class="iconography-img"/>
+            </div> -->
+            
+        </div>
+
+
+
+
+
+        <!-- <div class="icon-outer-wrapper" if:true={Outputs}>
+            <div class="icon-inner-wrapper icon-image-wrapper">
+                <img src={p_A_Energy_Rating} alt="Outputs" class="iconography-img"/>
+                Outputs is present
+            </div>
+            
+        </div>
+        <div class="icon-outer-wrapper" if:true={Output_Voltage}>
+            <div class="icon-inner-wrapper icon-image-wrapper">
+                <img src={p_A_Energy_Rating} alt="Output_Voltage" class="iconography-img"/>
+                Output_Voltage is present
+            </div>
+            
+        </div>
+        <div class="icon-outer-wrapper" if:true={Output_Current}>
+            <div class="icon-inner-wrapper icon-image-wrapper">
+                <img src={p_A_Energy_Rating} alt="Output_Current" class="iconography-img"/>
+                Output_Current is present
+            </div>
+            
+        </div>
+        <div class="icon-outer-wrapper" if:true={Voltage_Adj_Range}>
+            <div class="icon-inner-wrapper icon-image-wrapper">
+                <img src={p_A_Energy_Rating} alt="Voltage_Adj_Range" class="iconography-img"/>
+                Voltage_Adj_Range is present
+            </div>
+            
+        </div>
+        <div class="icon-outer-wrapper" if:true={Current_Adj_Range}>
+            <div class="icon-inner-wrapper icon-image-wrapper">
+                <img src={p_A_Energy_Rating} alt="Current_Adj_Range" class="iconography-img"/>
+                Current_Adj_Range is present
+            </div>
+            
+        </div>
+        <div class="icon-outer-wrapper" if:true={Constant_Current_Region}>
+            <div class="icon-inner-wrapper icon-image-wrapper"> 
+                <img src={p_A_Energy_Rating} alt="Constant_Current_Region" class="iconography-img"/>
+                Constant_Current_Region is present
+            </div>
+            
+        </div>
+        <div class="icon-outer-wrapper" if:true={Inputs}>
+            <div class="icon-inner-wrapper icon-image-wrapper">
+                <img src={p_A_Energy_Rating} alt="Inputs" class="iconography-img"/>
+                Inputs is present
+            </div>
+            
+        </div>
+        <div class="icon-outer-wrapper" if:true={Input_Voltage}>
+            <div class="icon-inner-wrapper icon-image-wrapper">
+                <img src={p_A_Energy_Rating} alt="Input_Voltage" class="iconography-img"/>
+                Input_Voltage is present
+            </div>
+            
+        </div>
+        <div class="icon-outer-wrapper" if:true={Input_DC_Voltage_Range}>
+            <div class="icon-inner-wrapper icon-image-wrapper">
+                <img src={p_A_Energy_Rating} alt="Input_DC_Voltage_Range" class="iconography-img"/>
+                Input_DC_Voltage_Range is present
+            </div>
+            
+        </div>
+        <div class="icon-outer-wrapper" if:true={Input_Current}>
+            <div class="icon-inner-wrapper icon-image-wrapper">
+                <img src={p_A_Energy_Rating} alt="Input_Current" class="iconography-img"/>
+                Input_Current is present
+            </div>
+            
+        </div>
+        <div class="icon-outer-wrapper" if:true={LEDs_Per_Metre}>
+            <div class="icon-inner-wrapper icon-image-wrapper">
+                <img src={p_A_Energy_Rating} alt="LEDs_Per_Metre" class="iconography-img"/>
+                LEDs_Per_Metre is present
+            </div>
+            
+        </div>
+        <div class="icon-outer-wrapper" if:true={Ah}>
+            <div class="icon-inner-wrapper icon-image-wrapper">
+                <img src={p_A_Energy_Rating} alt="Ah" class="iconography-img"/>
+                Ah is present
+            </div>
+            
+        </div>
+        <div class="icon-outer-wrapper" if:true={Battery_Type}>
+            <div class="icon-inner-wrapper icon-image-wrapper">
+                <img src={p_A_Energy_Rating} alt="Battery_Type" class="iconography-img"/>
+                Battery_Type is present
+            </div>
+            
+        </div>
+        <div class="icon-outer-wrapper" if:true={Lumens}>
+            <div class="icon-inner-wrapper icon-image-wrapper">
+                <img src={p_A_Energy_Rating} alt="Lumens" class="iconography-img"/>
+                Lumens is present
+            </div>
+            
+        </div>
+        <div class="icon-outer-wrapper" if:true={CRI}>
+            <div class="icon-inner-wrapper icon-image-wrapper">
+                <img src={p_A_Energy_Rating} alt="CRI" class="iconography-img"/>
+                CRI is present
+            </div>
+            
+        </div>
+        <div class="icon-outer-wrapper" if:true={Cut_Point}>
+            <div class="icon-inner-wrapper icon-image-wrapper">
+                <img src={p_A_Energy_Rating} alt="Cut_Point" class="iconography-img"/>
+                Cut_Point is present
+            </div>
+            
+        </div>
+        <div class="icon-outer-wrapper" if:true={IP_Rating}>
+            <div class="icon-inner-wrapper icon-image-wrapper">
+                <img src={p_A_Energy_Rating} alt="IP_Rating" class="iconography-img"/>
+                IP_Rating is present
+            </div>
+            
+        </div>
+        <div class="icon-outer-wrapper" if:true={Lens}>
+            <div class="icon-inner-wrapper icon-image-wrapper">
+                <img src={p_A_Energy_Rating} alt="Lens" class="iconography-img"/>
+                Lens is present
+            </div>
+            
+        </div>
+        <div class="icon-outer-wrapper" if:true={Profile}>
+            <div class="icon-inner-wrapper icon-image-wrapper">
+                <img src={p_A_Energy_Rating} alt="Profile" class="iconography-img"/>
+                Profile is present
+            </div>
+            
+        </div>
+        <div class="icon-outer-wrapper" if:true={Finish}>
+            <div class="icon-inner-wrapper icon-image-wrapper">
+                <img src={p_A_Energy_Rating} alt="Finish" class="iconography-img"/>
+                Finish is present
+            </div>
+            
+        </div>
+        <div class="icon-outer-wrapper" if:true={Cutting_Measurement}>
+            <div class="icon-inner-wrapper icon-image-wrapper">
+                <img src={p_A_Energy_Rating} alt="Cutting_Measurement" class="iconography-img"/>
+                Cutting_Measurement is present
+            </div>
+            
+        </div>
+        <div class="icon-outer-wrapper" if:true={Product_Bend}>
+            <div class="icon-inner-wrapper icon-image-wrapper">
+                <img src={p_A_Energy_Rating} alt="Product_Bend" class="iconography-img"/>
+                Product_Bend is present
+            </div>
+            
+        </div>
+        <div class="icon-outer-wrapper" if:true={LED_Count}>
+            <div class="icon-inner-wrapper icon-image-wrapper">
+                <img src={p_A_Energy_Rating} alt="LED_Count" class="iconography-img"/>
+                LED_Count is present
+            </div>
+            
+        </div>
+        <div class="icon-outer-wrapper" if:true={LED_Chip_Type}>
+            <div class="icon-inner-wrapper icon-image-wrapper">
+                <img src={p_A_Energy_Rating} alt="LED_Chip_Type" class="iconography-img"/>
+                LED_Chip_Type is present
+            </div>
+            
+        </div>
+        <div class="icon-outer-wrapper" if:true={Product_Length}>
+            <div class="icon-inner-wrapper icon-image-wrapper">
+                <img src={p_A_Energy_Rating} alt="Product_Length" class="iconography-img"/>
+                Product_Length is present
+            </div>
+            
+        </div>
+        <div class="icon-outer-wrapper" if:true={PCB_Width}>
+            <div class="icon-inner-wrapper icon-image-wrapper">
+                <img src={p_A_Energy_Rating} alt="PCB_Width" class="iconography-img"/>
+                PCB_Width is present
+            </div>
+            
+        </div>
+        <div class="icon-outer-wrapper" if:true={Style}>
+            <div class="icon-inner-wrapper icon-image-wrapper">
+                <img src={p_A_Energy_Rating} alt="Style" class="iconography-img"/>
+                Style is present
+            </div>
+            
+        </div>
+        <div class="icon-outer-wrapper" if:true={Product_Technology}>
+            <div class="icon-inner-wrapper icon-image-wrapper">
+                <img src={p_A_Energy_Rating} alt="Product_Technology" class="iconography-img"/>
+                Product_Technology is present
+            </div>
+            
+        </div>
+        <div class="icon-outer-wrapper" if:true={Detection_Distance}>
+            <div class="icon-inner-wrapper icon-image-wrapper">
+                <img src={p_A_Energy_Rating} alt="Detection_Distance" class="iconography-img"/>
+                Detection_Distance is present
+            </div>
+            
+        </div>
+        <div class="icon-outer-wrapper" if:true={Detection_Range}>
+            <div class="icon-inner-wrapper icon-image-wrapper">
+                <img src={p_A_Energy_Rating} alt="Detection_Range" class="iconography-img"/>
+                Detection_Range is present
+            </div>
+            
+        </div>
+        <div class="icon-outer-wrapper" if:true={IEC_320}>
+            <div class="icon-inner-wrapper icon-image-wrapper">
+                <img src={p_A_Energy_Rating} alt="IEC_320" class="iconography-img"/>
+                IEC_320 is present
+            </div>
+            
+        </div>
+        <div class="icon-outer-wrapper" if:true={Plug}>
+            <div class="icon-inner-wrapper icon-image-wrapper">
+                <img src={p_A_Energy_Rating} alt="Plug" class="iconography-img"/>
+                Plug is present
+            </div>
+            
+        </div>
+        <div class="icon-outer-wrapper" if:true={Polarity}>
+            <div class="icon-inner-wrapper icon-image-wrapper">
+                <img src={p_A_Energy_Rating} alt="Polarity" class="iconography-img"/>
+                Polarity is present
+            </div>
+            
+        </div>
+        <div class="icon-outer-wrapper" if:true={Standards}>
+            <div class="icon-inner-wrapper icon-image-wrapper">
+                <img src={p_A_Energy_Rating} alt="Standards" class="iconography-img"/>
+                Standards is present
+            </div>
+            
+        </div>
+        <div class="icon-outer-wrapper" if:true={Dimensions}>
+            <div class="icon-inner-wrapper icon-image-wrapper">
+                <img src={p_A_Energy_Rating} alt="Dimensions" class="iconography-img"/>
+                Dimensions is present
+            </div>
+            
+        </div> -->
+    </div>
+
+</template>

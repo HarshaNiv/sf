@@ -1,0 +1,196 @@
+.nav-items-sub{
+    color: black !important;
+}
+.navigation{
+    background-color: #000000;
+    position: relative;
+}
+.navigation .nav-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    gap: 8.125rem;
+}
+
+.navigation .nav-list .nav-item {
+    display: inline-block;
+    position: relative;
+}
+
+
+.navigation .nav-list .nav-item:last-child {
+    margin-right: 1.25rem;
+    
+}
+
+.navigation .nav-list .nav-item:nth-child(2) {
+    position: static;
+   
+}
+.navigation .nav-list .nav-item:nth-child(3) .sub-nav {
+    left:-75px;
+   
+
+}
+
+.navigation .nav-list .nav-item>a {
+    text-decoration: none;
+    color: #fff;
+}
+
+ .navigation .nav-list .nav-item>a:hover {
+    
+        text-decoration: underline;
+        text-decoration-color: #FDC300;
+} 
+
+.navigation .nav-list .nav-item .sub-nav {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    background-color:#A5A49B;
+    display: block;
+    box-sizing: border-box;
+    transform: scale(0);
+    transform-origin: top;
+    transition: transform 0.6s ease-in-out;
+   width:15.625rem;
+    pointer-events: none;
+}
+
+.navigation .nav-list .nav-item:hover .sub-nav {
+
+    transform: scale(1);
+    pointer-events: auto;
+}
+
+.navigation .nav-list .nav-item:last-child {
+    position: static;
+   
+}
+
+.navigation .nav-list .nav-item:last-child .sub-nav {
+    left: auto;
+    right: 0;
+   
+}
+
+.navigation .nav-list .nav-item .sub-nav .sub-item {
+    display: block;
+    margin: 0;
+    position: relative;
+    padding: 0.625rem 0.9375rem;
+}
+
+.navigation .nav-list .nav-item .sub-nav .sub-item>a {
+   text-decoration: none;
+    color: #fff;
+}
+.navigation .nav-list .nav-item .sub-nav .sub-item:hover {
+    background-color: #FDC300;
+} 
+
+
+
+
+.navigation .nav-list .nav-item .sub-nav .sub-item .sub-sub-nav {
+   
+    position: absolute;
+    top: 0;
+    left: 100%;
+    background-color: #A5A49B;
+    opacity: 0;
+    transform: scale(0);
+    transform-origin: left;
+    transition: all 0.6s ease-in-out;
+    pointer-events: none;
+    width: 15.625rem;
+}
+
+.navigation .nav-list .nav-item .sub-nav .sub-item:hover .sub-sub-nav {
+   
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: auto;
+}
+
+.navigation .nav-list .nav-item .sub-nav .sub-item .sub-sub-nav .sub-item {
+    display: block;
+    margin: 0;
+}
+
+
+.navigation .nav-list .nav-item .sub-nav .sub-item .sub-sub-nav .sub-item>a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.navigation .nav-list .nav-item .sub-nav .sub-item .sub-sub-nav .sub-item:hover {
+    background-color: #FDC300;
+}
+ 
+
+
+.navigation .nav-list .nav-item .sub-nav-wrapper {
+    display: flex;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #A5A49B;
+    transform: scale(0);
+    transform-origin: top;
+    transition: transform 0.6s ease-in-out;
+    pointer-events: none;
+    box-sizing: border-box;
+    width: 100%;
+    max-height: 28.125rem;
+    overflow: auto;
+}
+
+.navigation .nav-list .nav-item:hover .sub-nav-wrapper {
+    transform: scale(1);
+    pointer-events: auto;
+}
+
+.navigation .nav-list .nav-item .sub-nav-wrapper .sub-sub-nav  {
+    display: flex;
+    flex-wrap: wrap;
+    width:70%;
+    
+}
+
+.navigation .nav-list .nav-item .sub-nav-wrapper .sub-sub-nav .sub-item{
+        width:50%;
+        display: block;
+        margin: 0;
+        padding: 0.625rem 0.9375rem;
+        
+}
+.navigation .nav-list .nav-item .sub-nav-wrapper .sub-sub-nav .sub-item>a {
+    color:#fff;
+    text-decoration: none;
+}
+.navigation .nav-list .nav-item .sub-nav-wrapper .sub-sub-nav .sub-item:hover {
+    background-color: #FDC300;
+}
+
+
+
+.navigation .nav-list .nav-item .sub-nav-wrapper .images-wrapper {
+   
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        max-width: 12.1875rem;;
+       
+}
+
+.navigation .nav-list .nav-item .sub-nav-wrapper .images-wrapper img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    aspect-ratio: 1/1;
+}

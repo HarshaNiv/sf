@@ -1,0 +1,10 @@
+.main-section-wrapper{
+    display: flex;
+}
+
+.right-section-wrapper{
+    width: 50%;
+}
+.left-section-wrapper {
+    width: 50%;
+}

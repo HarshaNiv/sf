@@ -1,0 +1,17 @@
+.sec-heading-wrapper{
+    margin-top:5rem;
+}
+
+.sec-heading{
+    font-size: 1.875rem;
+    color: var(--snp-clr-black);
+}
+.sec-heading:hover{
+    color: var(--snp-theme-clr-yellow);
+}
+
+@media only screen and (max-width: 576px) {
+    .sec-heading{
+        font-size: 1.5rem;
+    }
+}

@@ -1,0 +1,68 @@
+<!--
+@description       : Template for custom navigation list
+@author            : Owais Amin Ahanger          : 
+@last modified on  : 09-11-2023
+
+-->
+<template>
+  <div class="m-0 p-0">
+    <!-- Display main category container -->
+    <nav class="m-0 p-0 parent-nav">
+      <div>
+        <ul class="navbar-nav nav-list">
+          <li class="nav-items">
+            <a class="nav-links">Why PowerLed</a>
+          </li>
+          <!-- Iterate over main category items -->
+          <template for:each={mainCategoryItems} for:item="mainCategoryItem">
+            <li class="nav-items" key={mainCategoryItem.id} data-id={mainCategoryItem.id}
+              onmouseenter={handleMainCategoryMouseEnter} onmouseleave={handleMouseLeave}>
+              <a class="nav-links" onclick={handleCategoryPage}
+                data-id={mainCategoryItem.id}>{mainCategoryItem.name}</a>
+            </li>
+          </template>
+          <li class="nav-items">
+            <a class="nav-links">Solutions</a>
+          </li>
+          <li class="nav-items">
+            <a class="nav-links">Explore More</a>
+          </li>
+        </ul>
+
+        <!-- Display sub category container -->
+        <template if:true={displaySubCategoryContainer}>
+          <div class="navigation-menu-container" onmouseenter={handleSubCategoryContainerMouseEnter}
+            onmouseleave={handleMouseLeave}>
+            <div class="row flex column m-0 navigation-menu-wrapper">
+              <!-- Display sub category items -->
+              <div class="navigation-menu-main-category col-8 p-0 navigation-menu-height-controller">
+                <ul class="navigation-menu">
+                  <!-- Iterate over sub category items -->
+                  <template for:each={subCategoryItems} for:item="subCategoryItem">
+                    <li class="navigation-menu-list" key={subCategoryItem.id} onmouseenter={handleSubCategoryMouseEnter}
+                      data-id={subCategoryItem.id} onclick={handleCategoryPage}>
+                      <a class="nav-links navigation-menu-link " data-id={subCategoryItem.id}>{subCategoryItem.name}</a>
+                    </li>
+                  </template>
+                </ul>
+              </div>
+
+              <!-- Display main category / subcategory Images -->
+              <div class="col-4 p-0 image-container navigation-menu-height-controller">
+                <div class="row flex-column m-0 py-2 w-100">
+                  <!-- Iterate over image URLs -->
+                  <template for:each={imageUrls} for:item="imageUrl">
+                    <picture key={imageUrl.id}>
+                      <img class="category-images" src={imageUrl.url} alt="Image not found !">
+                    </picture>
+                  </template>
+                </div>
+              </div>
+            </div>
+          </div>
+        </template>
+      </div>
+    </nav>
+  </div>
+  <div class="modal-backgrounds"></div>
+</template>

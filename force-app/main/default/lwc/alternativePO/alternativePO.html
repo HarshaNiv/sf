@@ -1,0 +1,122 @@
+<template>
+    <div>
+        <h3 if:false={hideHeading}
+            data-heading
+            class="slds-text-heading_small slds-p-bottom_medium">
+            {headerLabel}
+        </h3>
+        <lightning-input
+            lwc:ref="poInput"
+            data-purchase-order-input
+            name="po-number"
+            label={inputLabel}
+            placeholder={placeholderLabel}
+            required
+        ></lightning-input>
+        <div>
+            <div class="slds-form-element">
+                <div class="slds-form-element__control">
+                  <div class="slds-checkbox">
+                    <input type="checkbox" name="options" id="checkbox-unique-id-81" value="checkbox-unique-id-81" checked={checkval} onchange={checkboxinp} />
+                    <label class="slds-checkbox__label" for="checkbox-unique-id-81">
+                      <span class="slds-checkbox_faux"></span>
+                      <span class="slds-form-element__label">Same as shipping address</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <template if:false={checkval}>
+                <div>
+                    <div>
+            <lightning-combobox
+            lwc:ref="countryInput"
+                name="progress"
+                label="Country"
+                value=''
+                placeholder="Select Progress"
+                options={countries}
+                onchange={handleCountry}
+                required></lightning-combobox>
+            <div> 
+            </div>
+        </div>
+         
+            <div class="slds-form-element">
+                <fieldset class="slds-form-element slds-form-element_compound slds-form-element_address">
+                    <div class="slds-form-element__control">
+                      <div class="slds-form-element__row">
+                        <div class="slds-size_1-of-1">
+                          <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="form-element-id-01"><abbr class="slds-required" title="required">* </abbr><span class="Common-class">Street Address</span></label>
+                            <div class="slds-form-element__control">
+                              <textarea lwc:ref="addressInput" id="form-element-id-01" required placeholder="" class="slds-textarea area-inp" onfocusout={textareainp} ></textarea>  
+                            <template if:true={addressinp}>
+                                <div class="slds-form-element__help slds-has-error">Complete this field.</div>
+                            </template>
+                         </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="slds-form-element__row">
+                        <div class="slds-size_4-of-6">
+                          <div class="slds-form-element ">
+                            <label class="slds-form-element__label" for="form-element-id-02"><abbr class="slds-required" title="required" >* </abbr><span class="Common-class">City</span></label>
+                            <div class="slds-form-element__control">
+                              <input lwc:ref="cityInput" type="text" id="form-element-id-02" required class="slds-input city-input" value="" aria-describedby={checkinp1} onfocusout={checkinp} />
+                            </div>
+                            <template if:true={cityinp}>
+                            <div class="slds-form-element__help slds-has-error">Complete this field.</div>
+                            </template>
+                          </div>
+                        </div>
+                        <div class="slds-size_2-of-6">
+                          <div class="slds-form-element">
+                          <template if:true={statedata}>
+                            <lightning-combobox
+                           lwc:ref="provinceInput"
+                           name="progress"
+                           label="Province"
+                          value=''
+                          placeholder="Select Progress"
+                          options={states}
+                          onchange={handleState}
+                          required
+                          ></lightning-combobox>
+                          </template>
+                          <template if:false={statedata}>
+                            <label class="slds-form-element__label" for="form-element-id-03">Province</label>
+                            <div class="slds-form-element__control">
+                              <input lwc:ref="provinceInput" type="text" id="form-element-id-03" required class="slds-input province-inp" value="" onfocusout={provinceinp1} disabled/>
+                              <template if:true={provinceinp}>
+                                <div class="slds-form-element__help slds-has-error">Complete this field.</div>
+                                </template>
+                            </div>
+                          </template>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="slds-form-element__row">
+                        <div class="slds-size_1-of-1">
+                          <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="form-element-id-04"><abbr class="slds-required" title="required">* </abbr><span class="Common-class">Postal</span></label>
+                            <div class="slds-form-element__control">
+                              <input lwc:ref="postalInput" type="text" id="form-element-id-04" required class="slds-input postal-input" value="" onfocusout={postalinp1}/>
+                            </div>
+                            <template if:true={postalinp}>
+                                <div class="slds-form-element__help slds-has-error" >Complete this field.</div>
+                              </template>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </fieldset>
+                    
+                 </div>
+                </div>
+            </template>
+        <label if:true={showError} class="slds-text-color_error slds-m-top_small">
+            {error}
+        </label>
+    </div>
+</template>

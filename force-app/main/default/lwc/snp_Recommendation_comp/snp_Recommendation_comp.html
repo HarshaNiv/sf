@@ -1,0 +1,37 @@
+<!--
+
+  @description     :   This component is used to display recommendations and client can upload image and product image by himself 
+
+  @author            :  yeswanthkamaraju    
+
+  @Createddate   :   16-jun-2023
+
+  @Controller Class: ManagedContentController
+
+  @Test Class:  N/A
+
+  @modification summary: Nameofmodifier - modification date - modifications made
+
+-->
+<template>
+    <div class="slds-m-around_medium">
+<!-- <lightning-card > -->
+    <div class="outer-class">
+    <!-- <div class="image-outer-wrapper slds-align_absolute-center image-outer-wrapper">
+         <div class="slds-align_absolute-center image-inner-wrapper "> -->
+          <div class="slds-align_absolute-center image-outer-wrapper ">
+               <a> <img src={url} class="image-inner-wrapper" alt="Image" onclick={navigateToWebPage} ></a>
+            </div>
+         <!-- </div>
+    </div> -->
+    <!-- <div class="slds-align_absolute-center slds-m-vertical_large slds-truncate_container_33">
+         <p><b>{strTitle} </b></P>
+    </div> -->
+   <div class="slds-align_absolute-center slds-m-vertical_large">
+       <!-- <lightning-button variant="brand" label="Buy Now" title="Buy Now" class="buynow-button" onclick={navigateToWebPage} ></lightning-button> -->
+       <button class="buynow-button"  onclick={navigateToWebPage}    >Buy Now</button>
+   </div>
+   </div>
+<!-- </lightning-card> -->
+    </div>
+</template>

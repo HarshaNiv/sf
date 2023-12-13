@@ -1,0 +1,236 @@
+:host{
+	--slds-g-color-border-base-1: transparent;
+}
+
+.MainDiv{
+	/* font-family: 'SunFont' !important; */
+	max-width: 100%;
+	width: 100%;
+	padding: 10px;
+}
+.getQuote{
+	padding: 3px 0 0 0;
+}
+.quantityAndQuoteWrapper{
+	margin-left: -30px;
+}
+.productName{
+	/* height: 30px; */
+	overflow: hidden;
+}
+.ProductQuantitySelector{
+	gap: 0;
+	flex-wrap: nowrap;
+    align-content: center;
+}
+.seeMoreOrLessLink{
+	color: #fac400;
+}
+.seeMoreOrLessLink:hover{
+	cursor: pointer;
+	color: #fac400;
+}
+.productTierDiscount{
+	position: relative;
+}
+.tierDiscount{
+	position: absolute;
+    top: 30%;
+}
+.productSKU{
+	margin: 8px 0;
+}
+.productPrice{
+	margin: 0 0 8px 0;
+}
+
+/* Css for dropdown */
+.outer {
+	/* max-width: 400px;
+	width: 400px; */
+	margin: 10px 0;
+	position: relative;
+}
+.inner {
+	width: 100%;
+	outline: none;
+	background-color: white;
+	border: 2px solid grey;
+	padding: 11px 10px;
+	position: relative;
+    display: flex;
+	border-radius: 3.7px;
+}
+.inner:hover{
+	border: 2px solid #fdc300;
+}
+.inner-values-wrapper {
+	background-color: yellow;
+	width: 100%;
+}
+.inner-values {
+	position: absolute;
+    top: 100%;
+    z-index: 1;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	border: 1px solid gray;
+	background-color: white;
+	border-radius: 3.7px;
+}
+.inner-values li {
+	list-style-type: none;
+}
+li {
+	padding: 5px 10px;
+}
+li:hover {
+	background-color: lightgray;
+	cursor: pointer;
+}
+.arrowImage{
+	position: absolute;
+    width: 25px;
+    right: 5px;
+}
+.hideDiv{
+	display: none;
+}
+
+/* Aditya */
+
+.productDescriptionWrapper,
+.productTierDiscount,
+.productPrice,
+.productVarientsWrapper,
+.ProductQuantitySelector{
+    display: flex;
+    gap: 1.688rem;
+	padding: 0.25rem 0.5rem;
+}
+
+.ProductQuantitySelector{
+	/* gap: 0; */
+	flex-wrap: wrap;
+    align-content: center;
+}
+
+.product-desc-title,
+.product-discount-tile,
+.product-price-title,
+.product-quantity-title
+
+{
+/* flex-basis: 100px; */
+}
+.heading,
+.productName,
+.product-desc-title,
+.product-discount-tile,
+.product-price-title,
+.product-quantity-title {
+	/* padding: 4px 8px; */
+}
+.productName{
+	padding: 0.25rem 0.50rem;
+}
+
+.productVarientsWrapper{
+	/* padding: 0 4.9rem 0 8rem; */
+	
+}
+
+.ProductQuantitySelector{
+/* align-items: center; */
+display:flex;
+gap: 1.688rem;
+align-items: flex-start;
+flex-wrap: nowrap;
+}
+.get-qoute-details{
+	margin-top: 0.75rem;
+	flex-grow: 1;
+}
+.product-quantity-deatils{
+	/* margin-left: auto; */
+}
+
+.product-discount-details{
+	max-width: 100%;
+	width: 100%;
+}
+
+/* Aditya */
+
+
+.product-desc-title,
+.product-variants-title,
+.product-discount-tile,
+.product-price-title,
+.product-quantity-title{
+	width: 18%;
+	max-width: 93px;
+}
+
+
+.product-desc-details,
+.product-variants,
+.product-discount-details,
+.product-price-details,
+.pruchase-qoute-wrapper{
+	width: 80%;
+}
+
+.product-desc-content{
+	word-break: break-all;
+}
+
+.product-variants{
+	width: 66%;
+}
+.pruchase-qoute-wrapper{
+	display: flex;
+	justify-content: flex-start;
+	/* align-items: center; */
+	align-items: flex-start;
+	flex-wrap: wrap;
+}
+
+.product-quantity-deatils{
+	width: 68%;
+}
+
+.product-quantity-title{
+	margin-top: 0.375rem;
+}
+@media only screen and (max-width: 1024px) {
+	.MainDiv{
+		font-family: 'SunFont' !important;
+		max-width: 100%;
+		width: 100%;
+		padding:0;
+        font-size: 12px;
+	}
+    .Discount{
+        font-size: 6px;
+		padding: 0 0 0 10px;
+    }
+	.getQuote{
+		padding-left: 25px;
+	}
+}
+
+@media only screen and (max-width: 768px) {
+	.get-qoute-details{
+		flex-grow: 1;
+    	width: 100%;
+	}
+	
+}
+@media only screen and (max-width: 1024px) {
+	.productVarientsWrapper{
+		/* padding: 0 0 0 8rem; */
+	}
+	
+}

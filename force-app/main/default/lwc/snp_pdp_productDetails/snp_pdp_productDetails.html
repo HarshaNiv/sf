@@ -1,0 +1,141 @@
+<template>
+    <template if:true={showDetailSection}>
+        <div class="MainDiv">
+            
+            <div class="productName">
+                <slot name="productName">Product Name</slot>
+            </div>
+            <div class="productInfoWrapper">
+                <div class="productDescriptionWrapper">
+                    <lightning-layout multiple-rows>
+                        <lightning-layout-item size="12" small-device-size="3" medium-device-size="3" large-device-size="3">
+                            Product Description
+                        </lightning-layout-item>
+                        <lightning-layout-item size="12" small-device-size="9" medium-device-size="9" large-device-size="9">
+                            {productDescription}<span if:true={showMore} onclick={handleSeeMore} class="seeMoreOrLessLink"> See more...</span><span if:true={showLess} onclick={handleSeeLess} class="seeMoreOrLessLink"> See less...</span>
+                        </lightning-layout-item>
+                    </lightning-layout>
+                </div>
+                <div class="productVarientsWrapper">
+                    <lightning-layout multiple-rows>
+                        <lightning-layout-item size="12" small-device-size="3" medium-device-size="3" large-device-size="3">
+                            
+                        </lightning-layout-item>
+                        <lightning-layout-item size="12" small-device-size="9" medium-device-size="9" large-device-size="9">
+                            <div class="productVarients">
+                                <slot name="varients">Product Varients</slot>
+                            </div>
+                        </lightning-layout-item>
+                    </lightning-layout>
+                </div>
+                <div class="productTierDiscount">
+                    <lightning-layout multiple-rows>
+                        <lightning-layout-item size="12" small-device-size="3" medium-device-size="3" large-device-size="3" if:true={showTierDiscountSection}>
+                            Tiered Discounts
+                        </lightning-layout-item>
+                        <lightning-layout-item size="12" small-device-size="9" medium-device-size="9" large-device-size="9">
+                            <div class="Discount">
+                                <slot name="tierDiscount">Tier discount section</slot>
+                            </div>
+                        </lightning-layout-item>
+                    </lightning-layout>
+                </div>
+                <div class="productSKU">
+                    <lightning-layout multiple-rows>
+                        <!-- <lightning-layout-item size="12" small-device-size="3" medium-device-size="3" large-device-size="3">
+                            SKU
+                        </lightning-layout-item> -->
+                        <lightning-layout-item size="12" small-device-size="12" medium-device-size="12" large-device-size="12">
+                            <div class="Discount">
+                                <slot name="SKU">SKU section</slot>
+                            </div>
+                        </lightning-layout-item>
+                    </lightning-layout>
+                </div> 
+                <div class="productPrice">
+                    <lightning-layout multiple-rows>
+                        <lightning-layout-item size="3" small-device-size="3" medium-device-size="3" large-device-size="3">
+                            Price
+                        </lightning-layout-item>
+                        <lightning-layout-item size="3" small-device-size="9" medium-device-size="9" large-device-size="9">
+                            <div class="Discount">
+                                <slot name="Price">Price section</slot>
+                            </div>
+                        </lightning-layout-item>
+                    </lightning-layout>
+                </div>
+                <div class="ProductQuantitySelector">
+                    <lightning-layout multiple-rows>
+                        <lightning-layout-item size="12" small-device-size="3" medium-device-size="3" large-device-size="3">
+                            Quantity
+                        </lightning-layout-item>
+                        <lightning-layout-item size="12" small-device-size="9" medium-device-size="9" large-device-size="9" class="quantityAndQuoteWrapper">
+                            <lightning-layout multiple-rows>
+                                <lightning-layout-item size="12" small-device-size="8" medium-device-size="8" large-device-size="8" padding="horizontal-small">
+                                    <slot name="quantity">Quantity section</slot>
+                                </lightning-layout-item>
+                                <lightning-layout-item size="12" small-device-size="4" medium-device-size="4" large-device-size="4" padding="horizontal-small" class="getQuote">
+                                    <slot name="GetQuote">Get Quote section</slot>
+                                </lightning-layout-item>
+                            </lightning-layout>
+                        </lightning-layout-item>
+                    </lightning-layout>
+                </div> 
+            </div>
+            
+            
+            
+            
+            
+            <!-- <div class="productName">
+                {productInfo.Name}
+                <slot name="productName">Product Name section</slot>
+            </div>
+
+            <div class="productDescriptionWrapper">
+                <div class="productDescription">
+                    <lightning-layout multiple-rows>
+                        <lightning-layout-item size="12" small-device-size="3" medium-device-size="3"
+                            large-device-size="3" padding="horizontal-small">
+                            Product Description:
+                        </lightning-layout-item>
+                        <lightning-layout-item size="12" small-device-size="9" medium-device-size="9"
+                            large-device-size="9" padding="horizontal-small">
+                            <div class="description">
+                                {productInfo.Description}
+                            </div>
+                            <div class="seeMoreButton">
+                                <a onclick={handleSeeMore} if:true={showMore}>See More...</a>
+                                <a onclick={handleSeeLess} if:false={showMore}>See Less...</a>
+                            </div>
+                        </lightning-layout-item>
+                    </lightning-layout>
+                </div>
+            </div>
+
+            <div class="productVarients">
+                <slot name="varients">Product Varients</slot>
+            </div>
+            <div class="Discount">
+                <slot name="tierDiscount">Tier discount section</slot>
+            </div>
+            <div class="sku">
+                <slot name="SKU">SKU section</slot>
+            </div>
+            <div class="Price">
+                <slot name="Price">Price section</slot>
+            </div>
+            <div class="QuantitySelector">
+                <lightning-layout multiple-rows>
+                    <lightning-layout-item size="12" small-device-size="7" medium-device-size="7" large-device-size="6" padding="horizontal-small">
+                        <slot name="quantity">Quantity section</slot>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="12" small-device-size="5" medium-device-size="5" large-device-size="6" padding="horizontal-small" class="getQuote">
+                        <slot name="GetQuote">Get Quote section</slot>
+                    </lightning-layout-item>
+                </lightning-layout>
+                
+            </div> -->
+        </div>
+    </template>
+</template>

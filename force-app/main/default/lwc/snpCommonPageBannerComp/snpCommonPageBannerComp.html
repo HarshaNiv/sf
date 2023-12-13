@@ -1,0 +1,15 @@
+<template>
+    <div class={getStyleClassBasedPageType}>
+        <div class="banner-heading-wrapper">
+            <h1 class="banner-heading" style={getHeadTextColorStyle}>{contentFirstHeading}</h1>
+            <h2 class="banner-heading" style={getSubHeadTextColorStyle}>{contentSecondHeading}</h2>
+        </div>
+        <div class="banner-image-wrapper">
+            <img loading="lazy" src={imageUrl} class="banner-image" />
+            <div class={getButtonPositionStyleClass}>
+                <slot name="aboutUsStandardButton"></slot>
+            </div>
+        </div>
+
+    </div>
+</template>

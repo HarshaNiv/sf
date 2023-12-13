@@ -1,0 +1,52 @@
+<template>
+    <div class="container">
+      
+        <div class="two-field-contaoiner">
+            <div class="form-group">
+                <input class="text-holder-container"  type="text"  name="name" id="cpssword" required="required" onchange={handelChange} onfocus={removeplaceholder} />
+                <template if:true={apple}>
+                    <label class="textholder" for="cpssword">Enter first name</label>
+                </template>
+            </div>
+            <div class="form-group">
+                <input class="text-holder-container"  type="text"  name="name"  required="required" />
+                <label class="textholder" >Enter Last name</label>
+            </div>
+        </div>
+        
+        <div class="two-field-contaoiner">
+            <div class="form-group">
+                <input class="text-holder-container"  type="text"  name="name" required="required" />
+                <label class="textholder" >password</label>
+            </div>
+            <div class="form-group">
+                <input class="text-holder-container" type="text"  name="name" required="required" />
+                <label  class="textholder" >conform Password</label>
+            </div>
+        </div>
+        
+        <div class="two-field-contaoiner">
+            <div class="form-group">
+                <input class="text-holder-container" type="text"  name="name" required="required" />
+                <label  class="textholder" >email</label>
+            </div>
+            <div class="form-group">
+                <input class="text-holder-container" type="text"  name="name" required="required" />
+                <label  class="textholder" >conform email</label>
+            </div>
+        </div>
+        
+    </div>
+</template>
+
+  <!-- <button class="buttonforchecking" onclick={buttonclicked}> click</button>
+        <template if:true={checkTheword}>
+            <div class="home">
+                happpy<span style="color:red;">*</span>
+            </div>
+        </template>
+        <template if:false={checkTheword}>
+            <div class="home">
+                happpy<span style="color:blue;">*</span>
+            </div>
+        </template> -->

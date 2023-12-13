@@ -1,0 +1,614 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+
+}
+
+:host {
+    --dxp-g-neutral-3: #fff;
+}
+
+.arrow {
+    position: absolute;
+    bottom: 0.6875rem;
+    z-index: 0;
+    left: 91%;
+    width: 1.25rem;
+}
+
+.st0{fill:#231F20;}
+
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button,
+input[type="tel"]::-webkit-inner-spin-button,
+input[type="tel"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.contact-us-form {
+    margin-top: 3.75rem;
+    margin-bottom: 3.75rem;
+}
+
+.common-field-wrapper {
+    display: flex;
+}
+
+.inner-field-wrapper {
+    position: relative;
+}
+
+.inner-field-wrapper-indutstry {
+    position: relative;
+}
+
+.inner-field-wrapper-indutstry label {
+
+    position: absolute;
+    /* right: 57px; */
+    width: 226px !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    top: 12%;
+    right: 32%;
+    color: rgba(0, 0, 0, 0.50);
+    text-align: center;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    color: grey;
+
+}
+
+.inner-field-wrapper label {
+    position: absolute;
+    top: 12%;
+    left: 2%;
+    /* color: rgba(0, 0, 0, 0.50) ; */
+    text-align: center;
+    /* font-family: Sans Serif Collection; */
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    color: grey;
+    font-weight: bold;
+
+
+}
+
+/* .inner-field-wrapper label
+{
+    color: black !important;
+} */
+
+.lname-wrapper,
+.Phone-wrapper,
+.Your-Message-wrapper,
+.Iname-wrapper {
+    margin-left: 0rem;
+}
+
+.common-field-wrapper {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.required-field {
+    color: #ff0000;
+}
+
+.input-common-fields-country {
+    width: 224px;
+    padding-left: 0.3125rem;
+    height: 38px;
+    flex-shrink: 0;
+    border-radius: 0.125rem;
+    border: 1px solid #000;
+    background: transparent;
+    z-index: 1;
+    position: relative;
+  
+}
+
+.input-common-fields {
+    width: 224px;
+    padding-left: 0.3125rem;
+    z-index: 1;
+    position: relative;
+    height: 38px;
+    flex-shrink: 0;
+    border-radius: 0.125rem;
+    border: 1px solid #000;
+    background: #fff0;
+
+}
+
+.Name-field-wrapper,
+.Email-Phone-field-wrapper {
+    margin-bottom: 2.5rem;
+}
+
+.Company-Industry-field-wrapper {
+    margin-bottom: 2.5rem;
+}
+
+.Country-Your-Message-wrapper {
+    margin-bottom: 2.9375rem;
+}
+
+.field-error {
+    position: absolute;
+    bottom: -19px;
+    color: #E91919;
+    text-align: justify;
+    font-family: sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.input-common-fields:hover {
+    cursor: pointer;
+}
+
+.input-common-fields-country:hover {
+    cursor: pointer;
+}
+
+.input-common-label:hover {
+    cursor: pointer;
+}
+.input-common-label
+{
+    user-select: none;
+}
+
+.industry-label:hover {
+    cursor: pointer;
+}
+
+.Country-label {
+    position: absolute;
+    top: 12%;
+    left: 2%;
+    /* color: rgba(0, 0, 0, 0.50); */
+    text-align: center;
+    /* font-family: Sans Serif Collection; */
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    color: grey;
+    font-weight: bold;
+}
+
+.Country-label:hover {
+    cursor: pointer;
+}
+
+.Sumbit-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.sumbit-btn {
+    width: 7rem;
+    padding: 8px;
+    color: #000;
+    font-weight: 400;
+    border-radius: 2px;
+    border: 1px solid #000;
+    background: #EAECE7;
+}
+
+.labelup {
+    display: none !important;
+}
+
+.input-common-fields:focus+.input-common-label {
+    color: transparent;
+
+    .required-field {
+        color: transparent;
+    }
+}
+
+.industry-label-value {
+    overflow: hidden !important;
+    width: 92% !important;
+    text-overflow: ellipsis !important;
+    text-align: left !important;
+    white-space: nowrap !important;
+    color: gray;
+    font-weight: bold;
+}
+
+
+/* ss */
+/* sss */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup {
+    background-color: white;
+    padding: 1.25rem;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.ok-button {
+    margin-top: 1.25rem;
+    padding: 0.625rem 1.25rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.submit-button {
+    margin-top: 1.25rem;
+    padding: 0.625rem 1.25rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* indutsry */
+.industry-options {
+    position: absolute;
+    z-index: 2;
+    background-color: #ffffff;
+    width: 100%;
+    margin-top: -0.3125rem;
+    border: 1px solid black;
+    overflow: hidden;
+    overflow-y: scroll;
+    height: 200px;
+    padding: 0.3125rem 0rem 0.375rem 0.25rem;
+}
+
+.Industry-Hover:hover {
+    background-color: #eaece7;
+}
+
+.Country-Hover:hover {
+    background-color: #eaece7;
+}
+
+.input-common-fields {
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* country */
+.Country-options {
+    position: absolute;
+    z-index: 10;
+    background-color: #ffffff;
+    width: 100%;
+    margin-top: -0.3125rem;
+    border: 1px solid black;
+    overflow: hidden;
+    overflow-y: scroll;
+    height: 200px;
+    padding: 0.3125rem 0rem 0.375rem 0.25rem;
+}
+
+/* model */
+/*  */
+.slds-modal-container {
+
+    width: 45%;
+    height: 190px;
+    flex-shrink: 0;
+    background: #FFF;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+}
+
+.outer-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 14rem;
+}
+
+.head {
+    color: #000;
+    text-align: justify;
+    font-family: Sans Serif Collection;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    /* width: 900px; */
+    flex-shrink: 0;
+    background-color: #FDC300;
+    text-align: center;
+    padding: 1.25rem;
+
+}
+
+.selected-option {
+    background-color: #b4b2a8 !important;
+}
+
+.Button-label:hover {
+    background-color: #fdc300 !important;
+}
+
+.Button-label {
+    padding: 0.1875rem 2.0625rem 0.1875rem 1.8125rem;
+    margin-top: 1.1875rem;
+    border-radius: 0.125rem;
+    background-color: #EAECE7;
+    border: 0.0625rem solid #000;
+}
+
+.slds-modal-content {
+    color: black;
+    padding: 0.625rem;
+    text-align: center;
+}
+
+.sumbit-btn:hover {
+    background-color: #fdc300 !important;
+}
+
+.input-common-fields:hover {
+    border-color: #FDC300 !important;
+
+}
+
+.input-common-fields-country:hover {
+    border-color: #FDC300 !important;
+}
+
+.input-common-fields:focus {
+    border: 0.0625rem solid #fdc300;
+    outline: none;
+}
+
+.input-common-fields-country:focus {
+    border: 0.0625rem solid #fdc300;
+    outline: none;
+}
+
+/* model */
+
+/* test */
+.main-container-wrapper {
+    display: flex;
+    margin-top: 3rem;
+    /* flex-wrap: wrap; */
+    /* width: 100%; */
+    padding: 0 0.9375rem;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 3rem auto;
+    justify-content: space-between;
+
+}
+
+.call-info,
+.contact-us-form {
+    /* width: 50%; */
+    flex-grow: 1;
+}
+
+.call-info {
+    flex-shrink: 1;
+}
+
+/* lightning-primitive-icon > .slds-icon {
+    background-color: white !important;
+} */
+
+.contact-us-form {
+    margin-top: 2.4375rem;
+    /* width: 50%; */
+}
+
+.top-section h3 {
+    display: inline-block;
+    font-size: 20px;
+    padding: 0.375rem;
+}
+
+.top-section p {
+    font-size: 20px;
+    font-style: normal;
+    /* font-weight: 400; */
+    /* line-height: normal; */
+    color: #000;
+    padding: 0.7rem;
+}
+
+.top-section-title {
+    font-weight: 600;
+}
+
+.botton-section {
+    margin-left: 3.9375rem;
+}
+
+.top-section-head {
+    font-weight: 400;
+}
+
+.contact-us-heading {
+    font-size: 16px;
+    padding: 0.75rem 0rem;
+}
+
+
+
+.contact-us-time {
+    font-size: 16px;
+    padding: 8px 0;
+}
+
+.contact-calleva-park {
+    display: inline-block;
+    padding: 0;
+}
+
+.contact-us-orion {
+    font-size: 16px;
+    padding: 0.3125rem 0;
+    font-weight: 400;
+}
+
+address {
+    margin-top: 0.625rem;
+    font-weight: 400;
+}
+
+
+@media only screen and (max-width: 576px) {
+    .main-container-wrapper {
+        padding: 0 1.875rem;
+        margin-bottom: 0;
+    }
+
+    .arrow {
+        bottom: 2.625rem;
+    }
+    .slds-modal-content {
+        
+        padding: 0rem;
+    }
+
+    .call-info {
+        flex-direction: column;
+    }
+
+    .contact-us-form {
+        margin-top: 2.125rem;
+    }
+
+    .section-bottom-margin {
+        flex-wrap: wrap;
+        flex-direction: column;
+        width: 100%;
+        margin-bottom: 0;
+    }
+
+    .input-common-fields {
+        width: 100%;
+        margin-bottom: 2.1875rem;
+    }
+
+    .input-common-fields-country {
+        width: 100%;
+        margin-bottom: 2.1875rem;
+    }
+
+    .inner-field-wrapper-indutstry label {
+        right: 70%;
+    }
+
+    .sumbit-btn {
+        width: 50%;
+        margin-top: 1.5rem;
+    }
+
+    .top-section-head {
+        font-size: 1.75rem !important;
+        padding: 0.3125rem !important;
+    }
+
+    .top-section-title {
+        font-size: 1.25rem !important;
+        font-weight: 700;
+        padding: 0 !important;
+    }
+
+    .contact-us-heading {
+        padding: 0.375rem 0;
+    }
+
+    .contact-us-time {
+        padding: 0.375rem 0;
+    }
+
+    .slds-modal-container {
+        width: 90%;
+        height: 150px;
+    }
+
+    .field-error {
+        bottom: 1.0625rem;
+        font-size: 0.875rem;
+
+    }
+
+    .Button-label {
+        padding: 0px 1.25rem 0.0625rem 1.25rem;
+        margin-top: 0.625rem;
+        /* color: transparent; */
+
+    }
+
+    .slds-button_icon {
+        margin-top: 0.8125rem;
+    }
+
+    .head {
+
+        padding: 0.625rem;
+
+    }
+
+    .industry-options {
+        margin-top: -2.25rem;
+        height: 13.75rem;
+    }
+
+
+    .Country-options {
+        margin-top: -2.25rem;
+    }
+
+
+}
+
+@media only screen and (max-width: 991px) {
+    .call-info {
+        display: flex;
+        justify-content: center;
+    }
+}

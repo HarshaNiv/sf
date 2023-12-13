@@ -10,6 +10,7 @@ public class QueryUtils
     private SelectClause selectClause;
     private FromClause fromClause;
     private String whereClause;
+
     // ============================================================================
     // Methods
     // ============================================================================
@@ -31,6 +32,7 @@ public class QueryUtils
         selectClause = new SelectClause(table, enforceFLS);
         fromClause = new FromClause(table.getDescribe().getName());
     }
+
     /**
       * Returns SELECT clause.
       */
@@ -38,6 +40,7 @@ public class QueryUtils
     {
         return selectClause;
     }
+
     /**
      * Generates SOQL string.
      */
@@ -51,6 +54,7 @@ public class QueryUtils
         String rt = soql.trim();
         return rt;
     }
+
     /**
       * Joins specified array of Expression values using specified separator.
       */
@@ -65,6 +69,7 @@ public class QueryUtils
         {
             separator = '';
         }
+
         String result = '';
         for (Expression value : values)
         {
@@ -84,6 +89,7 @@ public class QueryUtils
         result = result.substring(0,result.length() - separator.length());
         return result;
     }
+
     /**
      * Contract for a class capabale of generating SOQL expressions.
      */
@@ -94,12 +100,14 @@ public class QueryUtils
          */
         String buildSOQL();
     }
+
     /**
      * Expression implementation that supports nested expressions.
      */
     public abstract class ComplexExpression implements Expression
     {
         private List<Expression> expressions = new List<Expression>();
+
         /**
          * Adds specified expression to the list of expressions maintained by this clause.
          */
@@ -111,6 +119,7 @@ public class QueryUtils
             }
             return this;
         }
+
         /**
          * Returns the list of expressions accumulated by this clause.
          */
@@ -119,6 +128,7 @@ public class QueryUtils
             return expressions;
         }
     }
+
     /**
      * Simple Expression implementation that constructs a field path.
      */
@@ -127,6 +137,7 @@ public class QueryUtils
         private String field;
         private String relationship;
         private Boolean translatable;
+
         /**
          * Default constructor.
          */
@@ -136,12 +147,14 @@ public class QueryUtils
             this.relationship = relationship;
             this.translatable = translatable;
         }
+
         public FieldExpression(String field, Boolean translatable)
         {
             //this.field = field;
             //this.relationship = relationship;
             this(null, field, translatable);
         }
+
         /**
          * Generates SOQL fragment.
          */
@@ -156,13 +169,16 @@ public class QueryUtils
             {
                 fieldValue = field;
             }
+
             if ( translatable )
             {
                 fieldValue = 'toLabel(' + fieldValue + ')';
             }
+
             return fieldValue;
         }
     }
+
     /**
      * Expression implementation that knows how to build SELECT clause.
      */
@@ -171,12 +187,14 @@ public class QueryUtils
         private Set<String> existing = new Set<String>();
         private Schema.SObjectType table;
         private Boolean enforceFLS;
+
         public SelectClause(Schema.SObjectType table, Boolean enforceFLS)
         {
             super();
             this.table = table;
             this.enforceFLS = enforceFLS;
         }
+
         /**
          * @name addField
          * @description method to add a field to SelectClause
@@ -200,6 +218,7 @@ public class QueryUtils
             }
             return this;
         }
+
         /**
           * Convenience method to add several fields expressed as Schema.SObjectField
           */
@@ -211,6 +230,7 @@ public class QueryUtils
             }
             return this;
         }
+
         public SelectClause addField(String field, Boolean translatable)
         {
             if (!existing.contains(field.toLowerCase())) {
@@ -219,6 +239,7 @@ public class QueryUtils
             }
             return this;
         }
+
         /**
          * Generates SOQL for the WHERE clause.
          */
@@ -226,6 +247,7 @@ public class QueryUtils
         {
             return 'SELECT ' + QueryUtils.join(getExpressions(), ',');
         }
+
         /*
         * To test if field is translatable in the SOQL
         */
@@ -236,15 +258,18 @@ public class QueryUtils
                     Schema.DisplayType.MultiPicklist,
                     Schema.DisplayType.Picklist
             };
+
             return translatableTypeList.contains(field.getDescribe().getType());
         }
     }
+
     /**
      * Expression implementation that knows how to build FROM clause.
      */
     public class FromClause implements Expression
     {
         private String objectName;
+
         /**
          * Default constructor;
          */
@@ -252,6 +277,7 @@ public class QueryUtils
         {
             this.objectName = objectName;
         }
+
         /**
          * Generates SOQL for the WHERE clause.
          */

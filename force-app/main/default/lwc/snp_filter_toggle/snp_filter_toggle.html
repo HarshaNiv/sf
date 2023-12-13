@@ -1,0 +1,38 @@
+<template>
+    <div class="category-listing-wrapper" if:true={showSubCategory} >
+        <div class="filter-section">
+            <div class="filter-top">
+                <div class="Filter-titel-toggle-Button">
+                    <div class="toggle-wrapper">
+                        <h2 class="filter-title">Filters By</h2>
+                    </div>
+                    <div class="togglr-button-hide">
+                        <label class="switch">
+                            <input type="checkbox" onclick={toggleCheckbox} checked>
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                </div>
+                    
+            </div>
+            <div class="filter-bottom">
+                <slot name="Filters" class="filters">Filters Section Slot</slot>
+            </div>
+        </div>
+
+
+        <div class="product-listing-section">
+            <div class="sortby-filters-wrapper">
+                <div class="sortby-filters " >
+                    <slot name="SortBySlot" class="sort-by-slot">Sorty By Filter Section</slot>
+                </div>
+            </div>
+            <div class="product-tiles-wrapper" if:true={showSubCategryProducts}>
+                <slot name="PoductTileSlot">Product Tiles Grid</slot>
+            </div>
+            <div class="product-tiles-wrapper-off" if:false={showSubCategryProducts} >
+                <slot name="PoductTileSlotOff">Product Tiles Grid Off</slot>
+            </div>
+        </div>
+    </div>
+</template>

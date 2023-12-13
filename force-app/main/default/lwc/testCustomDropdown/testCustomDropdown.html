@@ -1,0 +1,15 @@
+<template>
+    <div clas="main-wrapper">
+        <div class="drop-down-wrapper">
+            <button class="drop-down-btn drp-label arrow-down" onclick={btnClickDrop}>{selectedLabel}</button>
+            <ul class="drop-down-options toogle-option ok">
+                <template for:item="car" for:each={cars} >
+                    <li class="options" key={car.index} onclick={handleOptions}>{car}</li>
+                </template>
+            </ul>
+    
+        </div>
+        <slot name="ok" class="myslot"></slot>
+    </div>
+
+</template>

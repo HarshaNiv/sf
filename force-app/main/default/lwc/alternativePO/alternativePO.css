@@ -1,0 +1,20 @@
+.sample{
+    box-shadow:"none"
+}
+.selectclass{
+    display: block;
+    
+}
+/* .containerclass{
+    
+} */
+.selectclass1{
+    width: 100% !important;
+    height: 34px !important;
+    border-radius: 4.5px !important;
+    border: 1px solid black !important;
+}
+.Common-class{
+    position: absolute;
+    left: 0.8rem;
+}

@@ -1,0 +1,172 @@
+<template>
+    <!-- sldsValidatorIgnore -->
+    <!-- author: Shreyash   -->
+    <div class="main-container-wrapper">
+        <div class="call-info">
+            <div class="top-section">
+                <h3 class="top-section-head">Call Us</h3>
+                <p class="top-section-title">+ 44(0)1189823745</p>
+                <p class="top-section-title">or fill the form</p>
+            </div>
+            <div class="botton-section">
+                <p class="contact-us-heading">Don't hesitate to contact us!</p>
+                <p class="contact-us-time">Mon - Fri: 8:45 - 17:30 / Closed on Weekends </p>
+                <address><p> <strong class="contact-us-orion">Orion House,</strong><br> <span class="contact-calleva-park">Calleva Park,</span><br> <span>Aldermaston,</span><br> <span>Berkshire,</span><br> <span>RG7 8SN United Kingdom</span></p></address>
+            </div>
+         
+        </div>
+        <div class="contact-us-form">
+            <div class="Name-field-wrapper section-bottom-margin common-field-wrapper">
+                <div class="fname-wrapper inner-field-wrapper">
+                    <input class="input-common-fields fname-field" type="text" id="fname"  onfocusout={handleInputLabelFirstname}
+                        onchange={handleFirstNameChange} required>
+                    <label for="fname" class="input-common-label fname-label ">First name<span class="required-field">*</span></label>
+                    <div class="field-error" if:true={handelfnameError}>Please Enter First Name</div>
+                </div>
+                <div class="lname-wrapper inner-field-wrapper">
+                    <input class="input-common-fields lname-field " id="lname" type="text" onfocusout={handleInputLabelLastname}
+                        onchange={handleLastNameChange} required>
+                    <label for="lname" class="input-common-label lname-label ">Last Name<span class="required-field">*</span></label>
+                    <div class="field-error" if:true={handellnameError}>Please Enter Last Name</div>
+                </div>
+            </div>
+            <div class="Company-Industry-field-wrapper section-bottom-margin common-field-wrapper">
+                <div class="Company-wrapper inner-field-wrapper">
+                    <input class=" input-common-fields Company-field" type="text" id="cname" onfocusout={handleInputLabelCompany}
+                        onchange={handleCompanyChange} required>
+                    <label for="cname" class="input-common-label Comapany-label">Company</label>
+                </div>
+            <!-- inner-field-wrapper-indutstry -->
+                <div class="Iname-wrapper inner-field-wrapper">
+                    <!-- <div class="arrow" if:false={IndustryListValue}><i class="fa fa-angle-down" aria-hidden="true"></i></div> -->
+                    <div class="arrow" if:false={IndustryListValue}>
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg"  x="0px" y="0px"
+                                viewBox="0 0 56.7 56.7" style="enable-background:new 0 0 56.7 56.7;" xml:space="preserve">
+                                <g >
+                                    <path class="st0" d="M30.8,34.3l11.6-11.5c0.7-0.7,0.7-1.9,0-2.6s-1.9-0.7-2.6,0L28.3,31.7L16.8,20.2c-0.7-0.7-1.9-0.7-2.6,0
+                                        s-0.7,1.9,0,2.6l11.5,11.5l2.6,2.6L30.8,34.3z"/>
+                                </g>
+                            </svg>
+                    </div>
+                    <!-- <div class="arrow" if:true={IndustryListValue}><i class="fa fa-angle-up" aria-hidden="true"></i></div> -->
+                    <div class="arrow" if:true={IndustryListValue}>
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                        viewBox="0 0 56.7 56.7" style="enable-background:new 0 0 56.7 56.7;" xml:space="preserve">                   
+                       <g >
+                           <path class="st0" d="M25.8,22.3L14.2,33.9c-0.7,0.7-0.7,1.9,0,2.6s1.9,0.7,2.6,0L28.3,25l11.6,11.4c0.7,0.7,1.9,0.7,2.6,0
+                               s0.7-1.9,0-2.6L31,22.3l-2.6-2.6L25.8,22.3z"/>
+                       </g>
+                   </svg>
+
+                    </div>
+                    <button class="input-common-fields Iname-field" id="iname" type="text" onblur={handleInputLabelIndustry}
+                        onchange={handleIndustryChange} onclick={listOpen}>
+                    <div for="iname" class="industry-label industry-label-value">{Industry}<span class="required-field required-industry">*</span></div></button>
+                    <template if:true={IndustryListValue}>
+                        <div class="industry-options">
+                        <template for:each={IndustryList} for:item="values">
+                                  <div class="Industry-Hover options-list" key={values.label} onclick={IndustryData} data-item={values.label}>{values.label}</div>
+                        </template> 
+                      </div>
+                    </template>
+                    <div class="field-error" if:true={handelIndustryError}>Please Enter Industry</div>
+                </div>
+            </div>      
+            <div class="Email-Phone-field-wrapper section-bottom-margin common-field-wrapper">
+                <div class="Email-wrapper inner-field-wrapper">
+                    <input class="input-common-fields Email-field " type="email" id="ename"  onfocusout={handleInputLabelEmail}
+                        onchange={handleEmailChange} required>
+                    <label for="ename" class=" input-common-label Email-label">Email<span class="required-field">*</span></label>
+                    <div class="field-error" if:true={handelEmailError}>Please Enter Email</div>
+                    <div class="field-error" if:true={handelEmailValidError} >Enter a valid Email Id </div>
+                </div>
+                <div class="Phone-wrapper inner-field-wrapper">
+                    <input class="input-common-fields Phone-field" type="tel" id="Phone" onfocusout={handleInputLabelPhone}
+                        onchange={handlePhoneChange} required>
+                        <!-- <span class="required-field">*</span> -->
+                    <label for="Phone" class="input-common-label Phone-label">Phone</label>
+                    <div class="field-error" if:true={handelPhoneValidError} >Please Enter valid Phone</div>
+                    <!-- <div class="field-error" if:true={handlePhoneError}>Please Enter Phone</div> -->
+                </div>
+            </div>
+            <!--  -->
+            <!--  -->
+
+            <div class="Country-Your-Message-wrapper section-bottom-margin common-field-wrapper">
+                <div class="Country-wrapper inner-field-wrapper">
+                    <!-- <div class="arrow" if:false={CountryListValue}><i class="fa fa-angle-down" aria-hidden="true" ></i></div> -->
+                    <div class="arrow" if:false={CountryListValue}>
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg"  x="0px" y="0px"
+                                viewBox="0 0 56.7 56.7" style="enable-background:new 0 0 56.7 56.7;" xml:space="preserve">
+                                <g >
+                                    <path class="st0" d="M30.8,34.3l11.6-11.5c0.7-0.7,0.7-1.9,0-2.6s-1.9-0.7-2.6,0L28.3,31.7L16.8,20.2c-0.7-0.7-1.9-0.7-2.6,0
+                                        s-0.7,1.9,0,2.6l11.5,11.5l2.6,2.6L30.8,34.3z"/>
+                                </g>
+                            </svg>
+                    </div>
+                    <!-- <div class="arrow" if:true={CountryListValue}><i class="fa fa-angle-up" aria-hidden="true" ></i></div> -->
+                    <div class="arrow" if:true={CountryListValue}>
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                        viewBox="0 0 56.7 56.7" style="enable-background:new 0 0 56.7 56.7;" xml:space="preserve">                   
+                       <g >
+                           <path class="st0" d="M25.8,22.3L14.2,33.9c-0.7,0.7-0.7,1.9,0,2.6s1.9,0.7,2.6,0L28.3,25l11.6,11.4c0.7,0.7,1.9,0.7,2.6,0
+                               s0.7-1.9,0-2.6L31,22.3l-2.6-2.6L25.8,22.3z"/>
+                       </g>
+                   </svg>
+                    </div>
+                    <button class="input-common-fields-country Country-field" type="text" id="country"  onblur={handleInputLabelCountry}
+                        onchange={handleCountryChange} onclick={listOpenCountry} >
+                    <div for="country" class="input-common-label Country-label">{Country}<span class="required-field required-Country">*</span></div></button>
+                    <template if:true={CountryListValue}>
+                        <div class="Country-options">      
+                        <template for:each={countryLabels} for:item="Cvalues">
+                                  <div class="Country-Hover options-lists" key={Cvalues.Label} onclick={CountryData} data-item={Cvalues.Label}>{Cvalues.Label}</div>
+                        </template>
+                    </div>
+                    </template>
+                    <div class="field-error" if:true={handelCountryError}>Please Enter Country</div>
+                </div>
+                <!--  -->
+                <!-- your-message -->
+                <div class="Your-Message-wrapper inner-field-wrapper">
+                    <input class=" input-common-fields lname-field" id="message" type="text" onfocusout={handleInputLabelMessage}
+                        onchange={handleLMessageChange} required>
+                    <label for="message" class="input-common-label Message-label">Your Message<span class="required-field">*</span></label>
+                    <div class="field-error" if:true={handelMessageError} >Please Enter Your Message</div>
+                </div>
+            </div>
+            <div class="Sumbit-wrapper" >
+                <button type="button" onclick={handleSumbit} class="sumbit-btn">Submit</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- modal -->
+    <!-- modal -->
+    <template if:true={isModalOpen}>
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="outer-container">
+                <div class="slds-modal-container">
+                    <div class="slds-modal__header">
+                        <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeModal}>
+                            <lightning-icon icon-name="utility:close"
+                                alternative-text="close"
+                                variant="inverse"
+                                size="small" ></lightning-icon>
+                            <span class="slds-assistive-text">Close</span>
+                        </button>
+                        <h2 id="heading" class="head">Submitted successfully</h2>
+                    </div>   
+                    <div class="slds-modal-content" id="modal-content-id-1">
+                        <p>ThankYou ! our team will be get back soon !</p>
+                        <button class="Button-label" onclick={submitDetails} title="OK">OK</button>
+    
+                        </div>
+                    <!-- <footer>
+                    </footer> -->
+                </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template> 
+</template>

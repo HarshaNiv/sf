@@ -1,0 +1,66 @@
+:host {
+  --banner-common-dark-clr: #ffffff;
+}
+
+.banner-image-wrapper {
+  text-align: center;
+}
+.banner-heading-wrapper{
+  position: absolute;
+  left: 4.4%;
+  top: 29%;
+} 
+.banner-heading {
+  color: var(--banner-common-dark-clr);
+  padding: 0.313rem;
+  font-size: 2.25rem;
+  font-style: normal;
+  font-weight: 400;
+  /* width:24.875rem; */
+ text-align: start;
+}
+
+.banner-heading:first-child{
+  margin-bottom: 1.75rem;
+}
+.banner-heading:last-child{
+  margin: 0;
+}
+
+.banner-image {
+  max-height: 31.25rem;
+  text-align: center;
+  max-width: 100%;
+  height: auto;
+  width: 100%;
+  object-fit: cover;
+}
+
+
+
+@media only screen and (max-width: 768px) {
+  .banner-heading {
+    top: 13%;
+    /* width:13.875rem; */
+    font-size: 1.188rem;
+    /* line-height: 2.125rem; */
+  
+  }
+  .banner-heading:first-child{
+    margin-bottom: 0.75rem;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .banner-heading-wrapper{
+    left: 0;
+    right: 0;
+  }
+  .banner-heading{
+    text-align: center;
+    margin: 0;
+  }
+  .banner-heading:first-child{
+    margin-bottom: 2px;
+  }
+}

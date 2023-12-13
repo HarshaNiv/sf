@@ -1,0 +1,58 @@
+/* @font-face {
+	font-family: 'Sunpower';
+	src: url('/s/sfsites/c/resource/CENTURYGOTHIC/GOTHICB.ttf') format('TrueType');
+} */
+
+.MainDiv{
+	font-family: 'SunFont' !important;
+	max-width: 100%;
+	width: 100%;
+	padding: 10px;
+}
+.getQuote{
+	padding: 3px 0 0 0;
+}
+.quantityAndQuoteWrapper{
+	margin-left: -30px;
+}
+.productName{
+	height: 30px;
+	overflow: hidden;
+}
+.ProductQuantitySelector{
+	height: 70px;
+}
+.seeMoreOrLessLink{
+	color: #fac400;
+}
+.seeMoreOrLessLink:hover{
+	cursor: pointer;
+	color: #fac400;
+}
+
+/* .productDescription {
+	font-family: 'Sunpower' !important;
+}
+
+.productDescription {
+	position: relative;
+}
+
+.description {
+	height: 71px;
+	overflow: hidden;
+}
+
+.seeMoreButton {
+	position: absolute;
+	right: 0;
+	color: blue;
+}
+
+.seeMoreButton:hover {
+	cursor: pointer;
+
+}
+.getQuote{
+	padding: 3px 0 0 15px;
+} */

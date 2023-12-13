@@ -1,0 +1,33 @@
+<!--
+
+  @description     :   This component is just for Heading 
+
+  @author            :  yeswanthkamaraju    
+
+  @Createddate   :   14-jul-2023
+
+  @Controller Class: ManagedContentController
+
+  @Test Class:  N/A
+
+  @modification summary: Nameofmodifier - modification date - modifications made
+
+-->
+<template>
+    <nav role="navigation" aria-label="Breadcrumbs" class="slds-m-vertical_medium breadcrumb-wrapper">
+        <ol class="slds-breadcrumb breadcrumb-wrapper">
+            <li class="slds-breadcrumb__item link-hover breadcrumb-link-wrapper">
+                <a href="https://sunpowergroupholdingsltd--commerce.sandbox.my.site.com/powerleduk/en-US" class="breadcrumb-link" >Home</a>
+             </li>
+             <template for:each={navitem} for:item="nav">
+                <li class="slds-breadcrumb__item link-hover breadcrumb-link-wrapper" key={nav.id}>
+                    <a  onclick={handlelinkclick} data-id={nav.id} class="breadcrumb-link">{nav.name}</a>
+                 </li>
+            </template>
+            <li class="slds-breadcrumb__item breadcrumb-link-wrapper">
+                <a href="#" class="breadcrumb-link">{productname}</a>
+            </li>
+        </ol>
+    </nav>
+
+</template>
