@@ -1,0 +1,53 @@
+<!--
+@description       :Template for custom header using slots
+@author            : Owais Amin Ahanger
+@last modified on  : 08-29-2023
+-->
+
+
+<template>
+    <div class="header-wrapper">
+        <div class="promo-banner-slot" >
+            <!-- Promo Banner Section -->
+            <slot name="PromoBanner">Promo Banner Section</slot>
+        </div>
+        <div class="header-inner-wrapper">
+            <div class="left-section">
+                <div class="standard-Navigation-component-slot">
+                    <!-- Standard Multilevel Navigation -->
+                    <slot name="StandardNavigationComponent">Standard Multilevel Navigation</slot>
+                </div>
+                <div class="company-logo-slot">
+                    <!-- Standard Site Logo Section -->
+                    <slot name="CompanyLogo">Standard Site Logo Section</slot>
+                </div>
+            </div>
+            <div class="right-section">
+                <div class="top">
+                    <!-- Standard and Custom Icons Section -->
+                    <div class="search-icon-slot">
+                        <slot name="SearchIcon">Holds Search Icon</slot>
+                    </div>
+                    <div class="my-account-icon-slot">
+                        <slot name="MyAccountIcon">Holds My Account Icon</slot>
+                    </div>
+                    <div class="contact-us-icon-slot">
+                        <slot name="ContactUsIcon">Holds My Contact Icon</slot>
+                    </div>
+                    <div class="currency-selector-icon-slot">
+                        <slot name="CurrencySelectorIcon">Holds Currency Selector Icon</slot>
+                    </div>
+                    <div class="cart-icon-slot">
+                        <slot name="CartIcon">Holds Cart Icon</slot>
+                    </div>
+                </div>
+                <div class="bottom">
+                    <!-- Custom Multilevel Navigation Section -->
+                    <div class="custom-navigation-component-slot">
+                        <slot name="CustomNavigationComponent">Custom Multilevel Navigation Section</slot>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

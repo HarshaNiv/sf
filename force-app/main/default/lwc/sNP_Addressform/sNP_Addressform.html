@@ -1,0 +1,177 @@
+<template>
+    <!-- author-Harsha/shreyash -->
+    <!-- sldsValidatorIgnore -->
+    <div class="loader" if:true={showLoader}></div>
+    <div class="address-form">
+        <!-- header -->
+        <div class="header">
+            <h3>New Address</h3>
+        </div> 
+        <!-- address -->
+        <div class="address-field">
+            <div class="address-info">
+                <div class="arrow" if:false={showOptions}><i class="fa fa-angle-down" aria-hidden="true"></i></div>
+                <div class="arrow" if:true={showOptions}><i class="fa fa-angle-up" aria-hidden="true"></i></div>
+                <!-- <button class="address-label" for="Address" onfocusout={handleInputAddress1} onclick={buttonevent}  ><span
+                        class="required-field address-requried-field">*</span>{Addresslabel}</button> -->
+                <button class="Btn-address button-common-field border-common-fields" onclick={buttonevent}
+                    onblur={handleInputAddress}><span
+                    class="required-field address-requried-field">*</span><div class="label-change">{Addresslabel}</div>
+                </button>
+            </div>
+            <template if:true={addressData}>
+                <div class="list-options-address">
+                    <template for:each={listaddress} for:item="item">
+                        <ul key={item}>
+                            <li data-item={item} class="options-list" onclick={itemhandler}>{item}</li>
+                        </ul>
+                    </template>
+                </div>
+            </template>
+            <div class="field-error" if:true={handleAddressError}>Complete this Field</div>
+        </div>
+
+        <!-- first and last name -->
+        <div class="Name-field-wrapper common-field-wrapper">
+            <div class="fname-wrapper inner-field-wrapper">
+                <input class="input-common-fields fname-field border-common-fields" type="text" id="fname"
+                    onfocusout={handleInputLabelFirstname} onchange={handleFirstNameChange} required>
+                <label for="fname" class="input-common-label fname-label"><span class="required-field">*</span>First
+                    Name</label>
+                <div class="field-error-name" if:true={handleFirstNameError}>Complete this Field</div>
+            </div>
+
+            <div class="lname-wrapper inner-field-wrapper">
+                <input class="input-common-fields lname-field border-common-fields" id="lname" type="text"
+                    onfocusout={handleInputLabelLastname} onchange={handleLastNameChange} required>
+                <label for="lname" class="input-common-label lname-label "><span class="required-field">*</span>Last
+                    Name</label>
+                <div class="field-error-name" if:true={handleLastNameError}>Complete this Field</div>
+            </div>
+        </div>
+        <!-- company -->
+
+        <div class="company-wrapper">
+            <input onfocusout={handleInputCompany} onchange={handleCompanyChange}
+                id="company" class="company-field input-common-fields border-common-fields"></input>
+            <label for="company" class="input-common-label company-label"><span
+                    class="required-field">*</span>Company</label>
+            <div class="field-error-company" if:true={handlecompanyError}>Complete this Field</div>
+        </div>
+    <!-- </div> -->
+    <!--  -->
+        <div class="street-country-wrapper">
+           
+            <!-- for country -->
+            <div class="country-field">
+                <div class="arrow" if:false={showOptions}><i class="fa fa-angle-down" aria-hidden="true"></i></div>
+                <div class="arrow" if:true={showOptions}><i class="fa fa-angle-up" aria-hidden="true"></i></div>
+                <!-- <div class="label-btn-wrapper" onclick={buttoneventCountry} > -->
+                <!-- <button class="address-label"  for="country" onfocusout={handleInputCountry} onclick={buttoneventCountry} ><span class="required-field  country-requried-field">*</span>{Countrylabel}</button> -->
+                <button class="Btn-address button-common-field border-common-fields country-margin" onclick={buttoneventCountry} onblur={handleInputCountry}  ><span class="required-field  country-requried-field">*</span> <div class="label-change-street"> {Countrylabel}</div> </button>
+                <!-- </div> -->
+                <template if:true={Countrydata}>
+                    <div class="list-options">
+                        <template for:each={listCountry} for:item="item">
+                            <div key={item.label} data-item={item.label} data-item1={item.value} class="options-list"
+                                onclick={itemhandlerCountry}>{item.label}</div>
+                        </template>
+                    </div>
+                </template>
+                <div class="field-error" if:true={handleCountryError}>Complete this Field</div>
+            </div>
+
+            <!-- for street address -->
+            <div class="street-address-wrapper">
+                
+                <textarea type="textArea" onfocusout={handleInputLabeStreetAddress} onchange={handleStreetAddressChange}
+                    id="street-address" class="street-address-field text-street-fields border-common-fields"></textarea>
+                <label for="street-address" class="input-common-label street-label"><span
+                        class="required-field">*</span>Street Address</label>
+                <div class="field-error-street" if:true={handleStreetError}>Complete this Field</div>
+            </div>
+        </div>
+
+        <!-- for city-state -->
+        <div class="city-state-wrapper common-field-wrapper">
+            <div class="city-wrapper inner-field-wrapper">
+                <input class="input-common-fields city-field border-common-fields" id="city"
+                    onfocusout={handleInputLabeCity} onchange={handleCityChange} required>
+                <label for="city" class="input-common-label city-label"><span
+                        class="required-field">*</span>City</label>
+                        <!-- <div class="field-error" if:true={handelPhoneValidError}>Enter a valid Phone</div> -->
+                <div class="field-error-city" if:true={handleCityError}>Complete this Field</div>
+                <div class="field-error-city" if:true={handleCityValidError}>Enter valid city</div>
+            </div>
+<!--  -->
+<!--  -->
+<!--  -->
+<!--  -->
+<!-- state -->
+            <div class="state-wrapper inner-field-wrapper">
+                <div class="arrow" if:false={showOptions}><i class="fa fa-angle-down" aria-hidden="true"></i></div>
+                <div class="arrow" if:true={showOptions}><i class="fa fa-angle-up" aria-hidden="true"></i></div>
+                <!-- <button  class="address-label" for="state" onfocusout={handleInputState} onclick={buttoneventState}><span
+                        class="required-field  state-requried-field">*</span>{StateLabel}</button> -->
+                <button class="state-btn input-common-fields button-common-field border-common-fields"
+                   onclick={buttoneventState}  onblur={handleInputState} ><span
+                   class="required-field  state-requried-field">*</span><div class="state-label-change">{StateLabel}</div></button>
+                <template if:true={stateData}>  
+                    <div class="list-options-state">
+                        <template for:each={listState} for:item="item">
+                            <div key={item} data-item={item.label} class="options-list" onclick={itemhandlerstate}
+                                onfocusout={handleInputState}>{item.label}</div>
+                        </template>
+                    </div>
+                </template>
+                <template if:true={stateData1}> 
+                    <div class="list-options-state-none ">
+                        <div  data-item={newlist.label}  data-value={newlist.value} class="options-list" onclick={itemhandlerstate}
+                            onfocusout={handleInputState}>{newlist.label}</div>
+                    </div>
+                </template>
+                <div class="field-error" if:true={handleStateError}>Complete this Field</div>
+            </div>
+        </div>
+        <!-- zip / phone number -->
+        <div class="Zip-Phone-wrapper common-field-wrapper">
+            <div class="Zip-wrapper inner-field-wrapper">
+                <input class="input-common-fields Zip-field border-common-fields" id="Zip"
+                    onfocusout={handleInputLabeZip} onchange={handleZipChange} required>
+                <label for="Zip" class="input-common-label Zip-label"><span class="required-field">*</span>ZIP/Postal
+                    code</label>
+                <div class="field-error" if:true={handleZipError}>Complete this Field</div>
+            </div>
+            <div class="Phone-wrapper inner-phone-wrapper">
+                <!-- <button type="button"></button> -->
+                <button type="button" class="phone-number-field border-common-fields" ><span class="dial-code">{dialcode}</span></button>   
+                 <input class="input-Phone-fields Phone-field border-common-fields " type="Phone" id="Phone"
+                    onfocusout={handleInputLabePhone} onchange={handlePhoneChange} required>
+                <label for="Phone" class="input-common-label Phone-label"><span class="required-field">*</span>Phone
+                    Number</label>
+                <div class="field-error" if:true={handlePhoneError}>Complete this Field</div>
+                <div class="field-error" if:true={handelPhoneValidError}>Enter a valid Phone</div>
+            </div>
+        </div>
+        <!-- checkbox -->
+       
+        <!-- <div class="checkbox-contaier"> -->
+            <span class="Notification">
+                <div class="notification-confirmation">
+                    <span class="check-box-notification">
+                        </span>
+                        <input class="EmailNotification input-fields" id="EmailNotificationCheck" type="checkbox" onchange={checkboxValidation} onfocusout={handleInputLabel}>
+                    <label class="Email-NotificationCheck-label" for="EmailNotificationCheck">Make this as default address.</label>
+                </div>
+            </span>
+            <!-- <input class="checkbox input-fields" id="EmailNotificationCheck" type="checkbox"
+                onfocusout={handleInputLabel} onchange={checkboxValidation}>
+            <div class="checkbox-label">Make this as default address</div> -->
+        <!-- </div> -->
+        <!-- buttons -->
+        <div class="button-wrapper">
+            <button class="cancel-button common-button" onclick={handlerCancel}>Cancel</button>
+            <button class="save-button common-button" onclick={handlerSumbit}>Save</button>
+        </div>
+    </div>
+</template>

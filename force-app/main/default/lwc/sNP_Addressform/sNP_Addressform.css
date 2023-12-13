@@ -1,0 +1,700 @@
+ul{
+    padding: 0;
+    margin: 0;
+}
+li {
+    padding: 0;
+    margin: 0;
+}
+.header
+{
+  
+    font-size: 20px;
+    font-style: normal;
+    text-align: center;
+    padding: 25px;
+}
+.address-label 
+{
+    border: none;
+    background-color: white;
+    position: relative;
+    top: 30px;
+    margin-left: 1px;
+}
+.state-wrapper
+{
+    bottom: 25px;
+}
+.street-label
+{
+    position: relative;
+    bottom: 60px;
+    margin-left: 5px;
+}
+.required-field
+{
+    color: #ff0000;
+}
+.required-field1
+{
+    color: #ff0000;
+}
+.Btn-address
+{
+    width: 100%;
+    padding: 15px;
+    background-color: white;
+    border: 1px solid black;
+}
+.state-btn
+{
+    width: 100%;
+    padding: 15px;
+    background-color: white;
+    border: 1px solid black;
+    margin-top: 25px;
+}
+.state-requried-field{
+    position: absolute;
+    bottom: 8px;
+    left: 4px;
+}
+.state-label-change{
+    position: absolute;
+    bottom: 6px;
+    left: 10px;
+}
+
+.label-remove
+{
+    display: none ;
+}
+.list-options-address
+{
+    position: absolute;
+    z-index: 2;
+    background-color: #ffffff;
+    width: 100%;
+    border: 1px solid black;
+    overflow: hidden;
+}
+.list-options{
+    position: absolute;
+    z-index: 2;
+    background-color: #ffffff;
+    width: 100%;
+    border: 1px solid black;
+    overflow: hidden;
+    overflow-y: scroll;
+    height: 300px;
+}
+.list-options-state
+{
+    position: absolute;
+    z-index: 2;
+    background-color: #ffffff;
+    width: 100%;
+    border: 1px solid black;
+    overflow: hidden;
+    overflow-y: scroll;
+    height: 200px;
+}
+.list-options-state-none
+{
+    position: absolute;
+    z-index: 10;
+    background-color: #ffffff;
+    width: 100%;
+    border: 1px solid black;
+    overflow: hidden;
+}
+
+/* for firts and last name */
+.common-field-wrapper {
+    margin-top: 24px;
+    width:100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 35px;
+   
+
+}
+
+.inner-field-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.inner-field-wrapper label {
+    position: absolute;
+    top: 13%;
+    left: 1%;
+    color: black;
+    text-align: center;
+    /* font-family: Sans Serif Collection; */
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.inner-phone-wrapper
+{
+    position: relative;
+    width: 100%;
+}
+.inner-phone-wrapper label {
+    position: absolute;
+    top: 18%;
+    left: 56px;
+    color: black;
+    text-align: center;
+    /* font-family: Sans Serif Collection; */
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.input-common-fields {
+    width:100%;
+    padding-left: 5px;
+    height: 38px;
+    flex-shrink: 0;
+    border-radius: 2px;
+    border: 1px solid #000;
+    background: #FFF;
+}
+.labelup {
+    display: none;
+}
+
+.input-Phone-fields 
+{
+    width: 100%;
+    padding-left: 55px;
+    height: 38px;
+    flex-shrink: 0;
+    border-radius: 2px;
+    border: 1px solid #000;
+    background: #FFF;
+    /* margin-left: 42px; */
+}
+
+.phone-number-field
+{
+    height: 38px;
+    width: 10%;
+    border: 1px solid black;
+    position: absolute;
+    background-color: white;
+}
+.input-Phone-fields:focus+.input-common-label {
+    color: transparent;
+
+    .required-field {
+        color: transparent;
+    }
+}   
+
+
+.input-common-fields:focus+.input-common-label {
+    color: transparent;
+
+    .required-field {
+        color: transparent;
+    }
+}   
+.text-street-fields:focus+.input-common-label {
+    color: transparent;
+
+    .required-field {
+        color: transparent;
+    }
+}   
+.text-street-fields
+{
+    height: 70px;
+    resize: none;
+    overflow: hidden;
+}
+
+.address-form
+{
+    max-width: 75%;
+    margin:auto;
+    margin-bottom: 84px;
+    /* margin-left: 24%; */
+}
+.Name-field-wrapper ,.Zip-Phone-wrapper
+{
+    margin-top: 10px;   
+    margin-bottom: 10px;
+}
+.Zip-Phone-wrapper
+{
+    margin-top: 20px;
+    margin-bottom: 35px;
+}
+.options-list
+{
+    padding: 5px 0px 5px 10px;
+    width: 100%;
+    display: block;
+}
+
+.button-common-field
+{
+    height: 38px;
+    text-align:start;
+}
+
+
+.field-error
+{
+ 
+    bottom: -19px;
+    color: #E91919;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    /*  */
+    position: absolute;
+   /*  */
+}
+
+.field-error-name
+{
+    position: absolute;
+    bottom: -19px;
+    color: #E91919;
+    top: 36px;
+    font-size: 14px;
+}
+.field-error-street
+{
+    
+    color: #E91919;
+    font-size: 14px;
+    font-style: normal;
+    position: absolute;
+    top:69px;
+
+}
+.street-address-wrapper
+{
+    margin: 44px 0;
+    position: relative;
+    
+}
+.field-error-city
+{
+    color: #E91919;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+}
+.street-address-field 
+{
+    width: 100%;
+    padding-bottom: 36px;
+    height: 70px;
+    border: 1px solid black;
+}
+.field-error-company
+{
+    position: absolute;
+    /* bottom: -19px; */
+    color: #E91919;
+    font-size: 14px;
+}
+
+.company-field 
+{
+
+    width: 100%;
+    height: 38px;
+    border: 1px solid black;
+}
+/* comapny */
+.company-label{
+    position: absolute;
+    /* bottom: 32px; */
+    top: 5px;
+    left: 0px;
+    margin-left: 5px;
+}
+.company-wrapper 
+{
+    position: relative;
+    margin-top: 24px;
+}
+.street-country-wrapper
+{
+    margin-top: 20px;
+}
+.street-label
+{
+    position: absolute;
+    top: 5px;
+    left: 0px;
+}
+.checkbox-contaier
+{
+    position: relative;
+}
+.checkbox
+{
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    bottom: 4px;
+}
+.checkbox-label
+{
+    margin-left: 35px;
+}
+
+/*  button */
+
+.button-wrapper{
+    margin-top: 36px;
+}
+.common-button{
+    width: 122px;
+    height: 38px;
+    border-radius: 2px;
+    border: 1px solid #000;
+    background: #EAECE7;
+}
+.cancel-button 
+{
+    margin-right: 55px;
+}
+.common-button:hover
+{
+background-color:#fdc300;
+}
+
+
+/* for border hover */
+.border-common-fields:hover
+{
+    border: 1px solid #fdc300;
+    outline: none;
+}
+
+/*  position changing error */
+.address-field
+{
+    position: relative;
+    /* parent */
+}
+.country-field
+{
+    position: relative; 
+    /* parent */
+}
+
+/*  */
+.dial-code
+{
+    position: relative;
+    /* left: 2px; */
+    right: 15%;
+
+}
+.options-list:hover
+{
+    background-color: #eaece7;
+}
+.options-list:hover{
+    background-color: #eaece7;
+}
+
+.arrow{
+    right: 20px;
+    position: absolute;
+    bottom: 7px;
+}
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:transparent;
+    transition: opacity 0.75s, visibility 0.75s;
+    z-index: 10;
+  }
+  .loader--hidden {
+    opacity: 0;
+    visibility: hidden;
+    z-index: 0;
+  }
+  
+  .loader::after {
+    content: "";
+    width: 75px;
+    height: 75px;
+    border: 10px solid #dddddd;
+    border-top-color: #fdc300;
+    border-radius: 50%;
+    animation: loading 0.75s ease infinite;
+  }
+
+  /* new chnges */
+
+  .address-requried-field
+  {
+    left: 7px;
+    position: absolute;
+    top: 20%;
+  }
+  .country-requried-field
+  {
+    left: 6px;
+    position: absolute;
+    top: 50%;
+  }
+.label-change
+{
+    position: absolute;
+    top: 19%;
+    left: 13px;
+}
+.label-change-street{
+    position: absolute;
+    top: 50%;
+    left: 13px;
+}
+.country-margin
+{
+    margin-top: 30px;
+}
+
+/* new change */
+/* checkbox */
+
+.Notification:hover {
+    color: #fdc300;
+}
+
+.notification-confirmation {
+    color: black;
+        font-weight: 500;
+        margin-bottom: 2.5rem;
+    }
+
+    .notification-confirmation{
+        margin-bottom: 36px;
+        /* display: flex; */
+        font-size: 15px;  
+    }
+    .EmailNotification {
+        width: 1rem;
+        height: 1rem;
+    }
+    .EmailNotification:hover
+    {
+        border: 1px solid #fdc300;
+    }
+    .input-fields {
+        outline: none;
+        border: 1px solid black;
+        color: black;
+        border-radius: 1mm;
+    }
+    .Email-NotificationCheck-label {
+        color: black;
+        font-family: 'SunFont' !important ;
+        display: inline;
+    }
+    .Email-NotificationCheck-label{
+        /* margin-left: 15px; */
+        padding: 0 15px;
+    }
+    .check-box-notification{
+        margin-left: 5px;
+    }
+    .EmailNotification {
+        width: 1rem;
+        height: 1rem;
+    }
+    .input-fields:hover {
+        outline: none;
+        border: 1px solid #fdc300;
+        
+    }
+    .input-fields:focus {
+        outline: none;
+        border: 1px solid #fdc300;
+    }
+    
+    /* checkbox */
+    .fname-field:focus {
+        border:  1px solid #fdc300;
+        outline: none;
+    
+    }
+    .border-common-fields:focus
+    {
+        border:  1px solid #fdc300;
+        outline: none;
+        
+    }
+    .selected-option {
+        background-color: #b4b2a8;
+      }
+    .border-common-fields:hover
+    {
+        cursor: pointer;
+    }
+  .options-list:hover
+  {
+    cursor: pointer;
+   }
+   .input-common-label:hover{
+    cursor: pointer;
+   }
+   
+    input[type=checkbox] + label:before {
+        content: "";
+        background-color: white;
+        border: 0.1em solid #000;
+        border-radius: 0.2em;
+        display: inline-block;
+        width: 1em;
+        height: 1em;
+        padding-left: 0.2em;
+        padding-bottom: 0.3em;
+        margin-right: 0.2em;
+        vertical-align: bottom;
+        color: transparent;
+        transition: .2s;
+        margin-bottom: 4px;
+        margin-left: -10px !important;
+        margin-right: 12px;
+      }
+  
+
+  /* Checkbox */
+  input[type=checkbox] + label {
+    /* display: block; */
+    margin: 0.2em;
+    cursor: pointer;
+    padding: 0.2em;
+  }
+  
+   
+  
+  input[type=checkbox] {
+  display: none;
+  }
+  input[type=checkbox] + label:before {
+    content: "";
+    background-color: white;
+    border: 0.1em solid #000;
+    border-radius: 0.2em;
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    padding-left: 0.2em;
+    padding-bottom: 0.3em;
+    margin-right: 0.2em;
+    vertical-align: bottom;
+    color: transparent;
+    transition: .2s;
+    margin-bottom: 4px;
+    /* margin-left: 64px; */
+    margin-right: 12px;
+  }
+  input[type=checkbox]:checked + label::before {
+    background-color: white;
+    border-color: black;
+    color: #fff;
+      background-image: url("data:image/svg+xml,%3Csvg width='710' height='543' viewBox='0 0 710 543' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M248.4 542.64L0 294.24L81.672 212.584L248.392 379.317L627.659 0.0373535L709.331 81.6934L248.4 542.64Z' fill='black'/%3E%3C/svg%3E");
+    background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+  }
+  input[type=checkbox]:disabled + label::before {
+    transform: scale(1);
+  }
+
+  input[type=checkbox]:checked:disabled + label:before {
+    transform: scale(1);
+  }
+
+  input[type=checkbox] + label:hover::before {
+    border-color: #fdc300;
+  }
+
+  @keyframes loading {
+    from {
+      transform: rotate(0turn);
+    }
+    to {
+      transform: rotate(1turn);
+    }
+  }
+
+
+@media only screen and (max-width: 576px) 
+{
+.address-form 
+{
+    max-width: 95%;
+}
+.common-field-wrapper{
+    column-gap: 20px;
+}
+.Phone-label
+{
+    /* left: 22%; */
+    left: 20%;
+    font-size: 15px;
+}
+.inner-phone-wrapper label
+{
+    left: 28%; 
+    top: 14%;
+}
+.phone-number-field{
+    width: 28%;
+    
+}
+
+.dial-code{
+    right: 6px;
+}
+.Zip-label
+{
+    top: 19% !important;
+}
+
+}
+
+/* for ipad */
+@media only screen  and (max-width: 991px ) and (min-width:576px)
+{
+   
+
+.phone-number-field {
+   
+    width: 18%;
+    min-width: 38px;
+}
+.inner-phone-wrapper> label {
+    left: 19%;
+} 
+
+
+}
+/*  */
+/*  */
+/*  */
+/*  */

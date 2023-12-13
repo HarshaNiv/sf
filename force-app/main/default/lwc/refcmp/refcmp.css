@@ -1,0 +1,96 @@
+.maincontainer{
+    width: 600px;
+    margin-left: 28%;
+}
+.header
+{
+    font-weight: bold;
+    text-align: center;
+    padding: 25px;
+}
+
+.address-label
+{
+    position: relative;
+    top: 28px;
+    margin-left: 5px;
+
+}
+
+.requried-field
+{
+    color: #ff0000;
+}
+
+.Btn-address
+{
+    width: 100%;
+    padding: 15px;
+}
+
+.label-remove
+{
+    display: none;
+}
+.show-toggle {
+    display: block !important;
+  }
+
+.country-options{
+    width:600px;
+    position: absolute;
+    z-index: 2;
+    background-color: white;
+  /* width: 200px; */
+  /* height: 100px; */
+  border: 1px solid black;
+  overflow: hidden;
+  display: none; 
+}
+
+.address-type:hover{
+    background-color: lightgrey;
+}
+.address-type{
+padding: 2px 0px 2px 2px;
+border:none;
+display: block;
+background-color: white;
+width:600px;
+text-align: left;
+}
+/* .name-label{
+position: relative;
+    /* margin-bottom: -26px; */
+    /* position: realtive;
+    bottom: 24px;
+    left: 77px
+} */
+.name-class{
+margin-top: 28px;
+display: grid;
+column-gap:203px;
+  grid-template-columns: auto auto ;
+/* width: 552px; */
+/* max-width: 70%; */
+}
+.fname-field{ 
+    width: 283px;
+    height:34px;
+}
+.lname-field{
+position: relative;
+    /* margin-right: 81px; */
+    width: 276px;
+    right: 162px;
+    height:34px;
+}
+/* .fname-label{
+position: relative;
+    right: 66px;
+} */
+.lname-label{
+    position: relative;
+    /* margin-right: 111px; */
+    right: 162px
+}

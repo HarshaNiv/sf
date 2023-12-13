@@ -1,0 +1,34 @@
+<template>
+    <lightning-button  variant = "brand" label ="Create New Task" onclick={projectevent}>
+    </lightning-button>
+    <br><br>
+    <template if:true={data}>
+        <template for:each = {data} for:item="pro" >
+        <table key = {pro.id} style ="border:2px double black;text-align:center"> 
+            <tbody>
+        <tr>
+            <td>Project Name </td>
+            <td>Project Tasks </td>
+            <td>CompletedTasks </td>
+            <td>Pending_Tasks </td>
+            <td>Description </td>
+        </tr>
+        <tr>
+            <td>{pro.Name}</td>
+            <td>{pro.Total_no_of_Tasks__c}</td>
+            <td>{pro.Total_no_of_Completed_Tasks__c}</td>
+            <td>{pro.Total_no_of_Pending_Tasks__c}</td>
+            <td>{pro.Description__c}</td>
+        </tr>
+        </tbody>
+        </table>
+        </template>
+    </template>
+    <template if:true={error}>
+        {error}
+        </template>
+        <template if:true={cmpevent}>
+        <c-task-component1>
+        </c-task-component1>
+    </template>
+    </template>

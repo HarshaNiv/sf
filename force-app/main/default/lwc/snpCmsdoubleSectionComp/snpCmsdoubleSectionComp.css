@@ -1,0 +1,17 @@
+:host{
+    --three-section-light-blue:#EAECE7;
+}
+.three-section-info-wrapper{
+    background-color: var(--three-section-light-blue);
+    margin-bottom: 3.394rem;
+}
+.three-section-info{
+    display: flex;
+    padding: 2rem 0.938rem;
+    justify-content: space-between;
+}
+
+.common-info-section{
+    line-height: 1.875rem;
+    width: calc(100% / 2);
+}

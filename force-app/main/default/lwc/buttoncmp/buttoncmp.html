@@ -1,0 +1,12 @@
+<template>
+    <label onclick={buttonevent} class="address-label" for="Address"><template if:true={require}><span class="requried-field address-field">*</span></template>{label}</label>
+    <button  class="Btn-address" onclick={buttonevent} onblur={removelist}> hi</button>           
+    <template if:false={addressData}>  
+    <div class="country-options">        
+    <template for:each={listaddress} for:item="item">
+        <button key={item} onclick={itemhandler} class="address-type" data-value={item}>{item}</button> 
+        <!-- <div key={item} data-item={item}  ></div> -->
+    </template>
+</div>
+</template>
+</template>

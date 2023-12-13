@@ -1,0 +1,15 @@
+<template>
+    <lightning-card>
+        <p class="var">This is harsh</p>
+    <lightning-input label="search" placeholder="Search Accounts"  onchange={inpevent}></lightning-input>
+    <lightning-input label="style" placeholder="Change Colour" onchange={clrevent}></lightning-input>
+    <lightning-button label="change" onclick={cssevent}> </lightning-button>
+    <template if:true ={accounts.data}>
+    <template for:each={accounts.data} for:item="acc">
+       <p key= {acc.id}>
+        {acc.Name}
+       </p>
+    </template>
+</template>
+     </lightning-card>
+</template>

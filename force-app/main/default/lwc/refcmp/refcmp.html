@@ -1,0 +1,55 @@
+<template>
+<div class="maincontainer">
+    <div class="address-form">
+        <div class="address-field">
+            <div class="header">
+                <h3>New Address</h3>
+        </div>
+        <!-- Address Type -->
+        <label onclick={buttonevent} class="address-label" for="Address"><template if:true={require}><span class="requried-field address-field">*</span></template>{label}</label>
+            <button  class="Btn-address" onclick={buttonevent} onblur={removelist}> </button>           
+            <!-- <template if:true={addressData}>   -->
+            <div class="country-options">        
+            <template for:each={listaddress} for:item="item">
+                <button key={item} onfocus={itemhandler} class="address-type" data-value={item} onclick={buttonevent}>{item}</button> 
+                <!-- <div key={item} data-item={item}  ></div> -->
+            </template>
+        </div>
+    <!-- </template> -->
+     <template if:true={Address1}>
+        <div class="field-error">please enter Address</div>
+    </template>
+  </div>
+  <div class="name-class">
+            <div class="firstname">
+            <label class="common-label fname-label" for="firstname"><span class="requried-field firstname-field">*</span>firstname</label>
+        <input class="common-name-field top fname-field" onchange={firstname}>
+            </div> 
+            <template if:true={fname1}>
+            <div class="field-error fspace">please enter first name</div>
+        </template>
+            <div class="lastname">
+            <label class="common-label lname-label" for="lastname"><span class="requried-field lastname-field">*</span>lastname</label>
+            <input class="common-name-field lname-field top" onchange={lastname}>
+        </div>
+        <template if:true={lname1}>
+            <div class="field-error  fspace lspace">please enter last name</div>
+        </template>
+        </div>
+    </div>
+</div>
+<label for="cars">Choose a car:</label>
+  <select name="cars" id="cars">
+    <option value="volvo">Volvo</option>
+    <option value="saab">Saab</option>
+    <option value="opel">Opel</option>
+    <option value="audi">Audi</option>
+  </select>
+  <lightning-combobox
+            name="progress"
+            label="Status"
+            value="new"
+            placeholder="Select Progress"
+            options='new'
+            onchange={handleChange} ></lightning-combobox>
+</template>

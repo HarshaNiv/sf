@@ -1,0 +1,24 @@
+.title {
+    text-align: center;
+    font-weight: 800;
+    font-size: 2em;
+}
+.products {
+    height: 400px;
+    text-align: center;
+    display: flex;
+}
+.products .product  {
+    width: 25%;
+    height: 450px;
+    padding: 10px;
+    display: inline-block;
+}
+.products .product img  {
+    cursor: pointer;
+    max-height: 300px;
+    width: auto;
+}
+.products .product .name  {
+    display: block;
+}

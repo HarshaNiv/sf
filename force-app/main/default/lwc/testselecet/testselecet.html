@@ -1,0 +1,39 @@
+<template>
+    <lightning-input-address
+    address-label="Address"
+    street-label="Street"
+    city-label="City"
+    country-label="Country"
+    province-label="Province"
+    postal-code-label="PostalCode"
+    street={address.street}
+    city={address.city}
+    country={address.country}
+    province={address.province}
+    postal-code={address.postalCode}
+    field-level-help="Help Text for inputAddress field" 
+    country-options={getCountryOptions}
+    province-options={getProvinceOptions}
+    onchange={handleChange} ></lightning-input-address>
+    <lightning-combobox
+    name="progress"
+    label="Status"
+    value=""
+    placeholder="Select Progress"
+    options={options}
+    onchange={handleChange} ></lightning-combobox>
+    <div class="containerclass">
+    <label for="cars">Choose a car:</label> 
+    <div class="selectclass">
+    <select name="cars" id="cars" class="selectclass1" style="width: 100%;height: 34px;border-radius: 4.5px;border: 1px solid black;"  onchange={chooseopt} onfocus={focusinp} onblur={clickinp}>
+      <template for:each={options} for:item="option"> 
+      <option  key={option.label} value={option.label} onblur={clickinp}>{option.label}</option>
+    </template>
+    </select>
+    <template if:true={countryinp1}>
+      <div class="slds-form-element__help slds-has-error">Complete this field.</div>
+  </template>
+  </div>
+  </div>
+ 
+</template>

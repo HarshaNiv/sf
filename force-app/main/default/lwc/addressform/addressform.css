@@ -1,0 +1,4 @@
+.samnple:focus {
+    border:  2px solid #fdc300;
+    outline: none;
+}

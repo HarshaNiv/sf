@@ -1,0 +1,34 @@
+<template>
+    sample:{sample}
+   <!-- {trackViewReco}
+    {trackClickReco}-->
+   <!--<commerce-activitiesApi data-id="activitiesApi" ></commerce-activitiesApi>-->
+    <!-- Tag needed to import Commerce Activity Tracking-->
+        <template if:true={loading}>LOADING...</template>
+    
+        <template if:true={showProducts}>
+            <div class="title">{title}</div>
+            <template if:false={recentproducts}>
+            <div class="products">
+                <template for:each={products} for:item="product">
+                    <div key={product.id} class="product" onclick={handleClickProduct} >
+                        <img data-pid={product.id} name={product.name} data-id="image" src={product.defaultImage.url} onclick={handleClickProduct} />
+                        <a class="name" data-pid={product.id} name={product.defaultImage.url} data-id="text" onclick={handleClickProduct}>{product.name}</a>
+                    </div>
+                </template>
+            </div>
+            </template>
+             <!-- <template if:false={products}>  -->
+                <template if:true={recentproducts}>
+         <div class="products">
+            <template for:each={products} for:item="recent">
+                <div key={recent.proid} class="product">
+                    <img data-pid={recent.proid}  name={recent.productname} data-id="image" src={recent.productImg} onclick={handleClickProduct}/>
+                    <a class="name" data-pid={recent.proid} name={recent.productImg} data-id="text" onclick={handleClickProduct}>{recent.productname}</a>
+                </div>
+            </template>
+        </div> 
+    </template>
+         <!-- </template> -->
+        </template>
+    </template>

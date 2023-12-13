@@ -1,0 +1,14 @@
+<template>
+    <div style="height: 300px;">
+        <lightning-button label="submit" onclick={handler}></lightning-button>
+        <lightning-button label="finish" onclick={finish}></lightning-button>   
+        <template if:true={ischeck}>
+        <lightning-datatable
+                key-field="id"
+                data={data}
+                columns={columns}>
+                
+        </lightning-datatable>
+    </template>
+    </div>
+</template>
