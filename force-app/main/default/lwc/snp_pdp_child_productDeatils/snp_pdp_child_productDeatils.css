@@ -3,7 +3,7 @@
 }
 
 .MainDiv{
-	/* font-family: 'SunFont' !important; */
+	/*font-family: 'SunFont' !important;*/
 	max-width: 100%;
 	width: 100%;
 	padding: 10px;
@@ -50,13 +50,14 @@
 	width: 400px; */
 	margin: 10px 0;
 	position: relative;
+	width: 80%;
 }
 .inner {
 	width: 100%;
 	outline: none;
 	background-color: white;
-	border: 2px solid grey;
-	padding: 11px 10px;
+	border: 2px solid var(--snp-clr-black);
+	padding: 4px 10px;
 	position: relative;
     display: flex;
 	border-radius: 3.7px;
@@ -86,7 +87,7 @@ li {
 	padding: 5px 10px;
 }
 li:hover {
-	background-color: lightgray;
+	background-color: #eaece7;
 	cursor: pointer;
 }
 .arrowImage{
@@ -206,7 +207,7 @@ flex-wrap: nowrap;
 }
 @media only screen and (max-width: 1024px) {
 	.MainDiv{
-		font-family: 'SunFont' !important;
+		/*font-family: 'SunFont' !important;*/
 		max-width: 100%;
 		width: 100%;
 		padding:0;

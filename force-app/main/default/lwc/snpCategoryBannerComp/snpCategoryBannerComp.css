@@ -28,7 +28,8 @@
 /* category-hero-banner page css */
 
 .category-hero-banner .banner-image {
-    aspect-ratio: 3.21/1;
+    /* aspect-ratio: 3.21/1; */
+    /* aspect-ratio: 6/1; */
 }
 
 .category-hero-banner .banner-image-wrapper {
@@ -117,9 +118,9 @@
 
     /* category-hero-banner page css */
     .category-hero-banner .banner-heading{
-        max-width: 161px;
+        max-width: 170px;
         word-spacing: 0.1rem;
-        line-height: 0.6rem;
+        line-height: 1.9rem;
     }
     .category-hero-banner .banner-heading:first-child{
         margin-bottom: 0.3rem;
@@ -130,7 +131,8 @@
     .category-hero-banner .banner-heading:last-child{
         max-height: 125px;
         /* font-size: 0.4rem;
-        line-height: 0.7rem; */
+        line-height: 0.7rem;*/
+        line-height: 1.25rem;
     }
 
 }

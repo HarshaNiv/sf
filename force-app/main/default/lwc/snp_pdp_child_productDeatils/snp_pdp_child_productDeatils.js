@@ -8,7 +8,7 @@ import upArrow from '@salesforce/resourceUrl/upArrow';
 import downArrow from '@salesforce/resourceUrl/downArrow';
 import communityId from '@salesforce/community/Id';
   /**
-  * @slot productName
+  * @slot productNameSlot
   * @slot varients
   * @slot tierDiscount
   * @slot SKU
@@ -21,6 +21,11 @@ export default class snp_pdp_child_productDeatils extends LightningElement {
   @api product;
   productFullDescription;
   productDescription;
+  shortDescription;
+  fullDescription;
+  productTittle;
+  isVariation=false;
+  isparent=true;
   //showDetailSection = false;
   showMore = true;
   showLess = false;
@@ -165,15 +170,64 @@ export default class snp_pdp_child_productDeatils extends LightningElement {
     // console.log('Snp_pdp_productDetails product Details- ', this.ProductDetails);
     getProductData({productId : this.recordId})
     .then(result => {
-      this.productFullDescription = result.Description;
-      if(result.Description.length > 225){
-        let desc = result.Description.slice(0, 225);
-        this.productDescription = desc;
+      debugger;
+      console.log('descrip----'+JSON.stringify(result));
+      const hasHtmlTags = /<\/?[a-z][\s\S]*>/i.test(result.Full_Description__c);
+      const hasHtmlTags_SD = /<\/?[a-z][\s\S]*>/i.test(result.Short_Description__c);
+
+      this.productTittle=result.Product_Title__c;
+      if(result.productclass=='Variation'){
+        if (hasHtmlTags_SD) {
+        this.productFullDescription = this.extractTextFromHTML(result.Short_Description__c);
+        }
+        else{
+          this.productFullDescription = result.Short_Description__c;
+        }
+        this.isVariation=true;
+        this.isparent=false;
+        if( this.productFullDescription > 225){
+          if (hasHtmlTags_SD) {
+          let desc = this.extractTextFromHTML(result.Short_Description__c).slice(0, 225);
+          this.productDescription = desc;
+          }
+          else{
+            let desc = result.Short_Description__c.slice(0, 225);
+            this.productDescription = desc;
+          }
+        }else{
+          this.showMore = false;
+          this.showLess = false;
+          if (hasHtmlTags_SD) {
+          this.productDescription = this.extractTextFromHTML(result.Short_Description__c);
+          }
+          else{
+            this.productDescription = result.Short_Description__c;
+          }
+        }
       }else{
-        this.showMore = false;
-        this.showLess = false;
-        this.productDescription = result.Description;
+        if (hasHtmlTags) {
+        this.productFullDescription = this.extractTextFromHTML(result.Full_Description__c);
+        }
+        else{
+          this.productFullDescription = result.Full_Description__c;
+        }
+        this.isparent=true;
+        this.isVariation=false;
+        if(this.productFullDescription > 225){
+          let desc = result.Description.slice(0, 225);
+          this.productDescription = desc;
+        }else{
+          this.showMore = false;
+          this.showLess = false;
+          if (hasHtmlTags) {
+          this.productDescription =this.extractTextFromHTML(result.Full_Description__c);
+          }
+          else{
+            this.productDescription = result.Full_Description__c;
+          }
+        }
       }
+     
       //this.showDetailSection = true;       
     })
     .catch(error => {
@@ -229,7 +283,7 @@ export default class snp_pdp_child_productDeatils extends LightningElement {
       const upArrowElement = this.template.querySelectorAll('div .upArrowImage');
       // console.log('upArrowElement : ', upArrowElement);
       upArrowElement[budrIndex].classList.add('hideDiv');
-    }, 200);
+    }, 500);
     
   }
 
@@ -274,12 +328,12 @@ export default class snp_pdp_child_productDeatils extends LightningElement {
         }
 
         //console.log('selectedValues' + JSON.stringify(this.selectedValues));
-        if(this.selectedAttribute!=9){
+        if(this.selectedAttribute!=this.attributeList.length-1){
           this.queryattributes=this.attributeList[this.nextIndex].label;
         }
         //console.log('queryattributes'+this.queryAttributes);
     }
-    if(this.selectedAttribute==9){
+    if(this.selectedAttribute==this.attributeList.length-1){
       queryProductid({ selectedValues:this.selectedValues,variantParentId:this.variationparentid})
       .then(result => {
             console.log('*****'+JSON.stringify(result));
@@ -348,4 +402,10 @@ export default class snp_pdp_child_productDeatils extends LightningElement {
     //}
 
   }
+
+  extractTextFromHTML(htmlString) {
+    const parser = new DOMParser();
+    const htmlDoc = parser.parseFromString(htmlString, 'text/html');
+    return htmlDoc.body.textContent || "";
+}
 }
