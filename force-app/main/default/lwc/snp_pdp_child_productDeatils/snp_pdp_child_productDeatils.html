@@ -7,6 +7,7 @@
                  <div>{productTittle}</div>
              </div>
              <div class="productInfoWrapper">
+                <template if:true={productDescription}>
                  <div class="productDescriptionWrapper">
                      <!-- <lightning-layout multiple-rows>
                          <lightning-layout-item size="12" small-device-size="3" medium-device-size="3" large-device-size="3">
@@ -22,7 +23,8 @@
                      
                      <!-- <div class="product-desc-title">Product Description</div> -->
                      <div class="product-desc-details"> <span class="product-desc-content">{productDescription}</span><span if:true={showMore} onclick={handleSeeMore} class="seeMoreOrLessLink"> See more...</span><span if:true={showLess} onclick={handleSeeLess} class="seeMoreOrLessLink"> See less...</span></div>
-                 </div>
+                    </div>
+                </template>
                  <div class="productVarientsWrapper">
                      <!-- <lightning-layout multiple-rows>
                          <lightning-layout-item size="12" small-device-size="3" medium-device-size="3" large-device-size="3">
@@ -96,10 +98,11 @@
                              </div>
                          </lightning-layout-item>
                      </lightning-layout> -->
-                     <div class="product-discount-tile">Tiered Discounts</div>
+
+                     <!-- <div class="product-discount-tile">Tiered Discounts</div>
                      <div class="product-discount-details">
                          <slot name="tierDiscount"></slot>
-                     </div>
+                     </div> -->
                  </div>
                  <!-- <div class="productSKU"> -->
                      <!-- <lightning-layout multiple-rows>

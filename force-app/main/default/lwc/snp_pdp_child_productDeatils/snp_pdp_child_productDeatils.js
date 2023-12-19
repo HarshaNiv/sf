@@ -53,11 +53,11 @@ export default class snp_pdp_child_productDeatils extends LightningElement {
     if(trierDiscountSection !== null){
       this.showTierDiscountSection = true;
     }
-
+ console.log('OUTPUT attributeList: ',JSON.stringify(this.attributeList));
   }
 
   connectedCallback(){   
-   // debugger;
+   debugger;
     const pageurl=window.location.href
    // Find the last occurrence of "/"
     const lastSlashIndex = pageurl.lastIndexOf('/');
@@ -79,26 +79,32 @@ export default class snp_pdp_child_productDeatils extends LightningElement {
     
     getProductVariationInfo({productId:this.productId,communityId:communityId})
         .then(result => {
-          //console.log('getProductVariationInfo --', result);
+          debugger;
+          console.log('getProductVariationInfo --', JSON.stringify(result));
           if(result.productClass=='VariationParent'){
             this.variationparentid=this.productId;
           }else{
             this.variationparentid=result.variationParentId;
           }
-          //console.log('this.variationparentid'+this.variationparentid);
+          console.log('this.variationparentid'+this.variationparentid);
           let attributeSetInfo=result.attributeSetInfo;
           let attributesetname=Object.keys(attributeSetInfo);
-          //console.log(attributesetname[0]);
+          console.log(attributesetname[0]);
           let simpleData =attributeSetInfo[attributesetname[0]].attributeInfo;
+          console.log('simpleData--'+ JSON.stringify(simpleData));
           //result.attributeSetInfo.LED_Flexible_Strip
           let childattributes=result.variationAttributeSet.attributes;
-          this.productattributes=Object.keys(simpleData);
-          //console.log('----------->productattributes'+this.productattributes);
+          console.log('childattributes--->'+JSON.stringify(childattributes));
+          this.productattributes=Object.keys(simpleData).sort((a, b) => simpleData[a].sequence - simpleData[b].sequence);
+          console.log('----------->productattributes'+JSON.stringify(this.productattributes));
+          const sortdata=Object.values(simpleData);
+          sortdata.sort((a, b) => a.sequence - b.sequence);
           const labels = [];
-          for (const attribute of Object.values(simpleData)) {
+         
+          for (const attribute of sortdata) {
               labels.push(attribute.label);
-              //console.log('---->labels'+labels)
           }
+          console.log('---->labels'+labels)
 
          // console.log(labels);
           if(result.productClass != 'Simple'){
@@ -118,7 +124,7 @@ export default class snp_pdp_child_productDeatils extends LightningElement {
             for (let i = 0; i <this.attributeList.length; i++) {
               this.attributeList[i].Name = labels[i];
           }
-           //console.log('OUTPUT attributeList: ',JSON.stringify(this.attributeList));
+           console.log('OUTPUT attributeListHI--: ',JSON.stringify(this.attributeList));
             //add select option in list
             this.attributeList.forEach(Element =>{
             //Element.values.unshift('Select...');
@@ -132,28 +138,30 @@ export default class snp_pdp_child_productDeatils extends LightningElement {
           }
 
           }
-            // console.log('68 updated list : ', JSON.stringify(this.attributeList));
+            console.log('68 updated list : ', JSON.stringify(this.attributeList));
             //Set the present selected values to the attributeList
             // console.log('Selected attribute Values : ',typeof result.variationAttributeSet.attributes);
-            let currentselectedAttribute = result.variationAttributeSet.attributes;
-            let indexOfCurrentAttrubuteList = 0;
 
-            for(let value in currentselectedAttribute){
-              // console.log('OUTPUT : ',this.attributeList[value]);
-              this.attributeList[indexOfCurrentAttrubuteList].selectedValue = currentselectedAttribute[value] === null ? 'Select...' :currentselectedAttribute[value];
-              // console.log('OUTPUT : ', currentselectedAttribute[value]);
-              indexOfCurrentAttrubuteList++;
-            }
+            // let currentselectedAttribute = result.variationAttributeSet.attributes;
+            // let indexOfCurrentAttrubuteList = 0;
+            //   console.log('currentselectedAttribute--->'+JSON.stringify(currentselectedAttribute));
+            // for(let value in currentselectedAttribute){
+            //   console.log('OUTPUT : ',this.attributeList[value]);
+            //   this.attributeList[indexOfCurrentAttrubuteList].selectedValue = currentselectedAttribute[value] === null ? 'Select...' :currentselectedAttribute[value];
+            //   // console.log('OUTPUT : ', currentselectedAttribute[value]);
+            //   indexOfCurrentAttrubuteList++;
+            // }
             // console.log('this.attributeList after ', JSON.stringify(this.attributeList));
           }
           //debugger;
           getAttributeValues({ attribute: this.attributeList[0].label,variantParentId:this.variationparentid})
           .then(result => {
-            //console.log('attribute values----------->'+ JSON.stringify(result))  
+            debugger;
+            console.log('attribute values----------->'+ JSON.stringify(result))  
             this.attributevalues1=result; 
             this.attributeList[0].values = [...this.attributeList[0].values, ...this.attributevalues1];
-           // console.log('this.attributeList[0].values'+this.attributeList[0].values);
-           // console.log('attributelist'+JSON.stringify(this.attributeList));
+           console.log('this.attributeList[0].values'+this.attributeList[0].values);
+            console.log('attributelist'+JSON.stringify(this.attributeList));
             this.queryattributes=this.attributeList[1].label;
            // console.log('queryattributes'+this.queryattributes);
           })
@@ -336,6 +344,7 @@ export default class snp_pdp_child_productDeatils extends LightningElement {
     if(this.selectedAttribute==this.attributeList.length-1){
       queryProductid({ selectedValues:this.selectedValues,variantParentId:this.variationparentid})
       .then(result => {
+        debugger;
             console.log('*****'+JSON.stringify(result));
             //this.attributeList[this.nextIndex].values =result ;
            // console.log('queryattributes'+queryattributes);
@@ -347,6 +356,7 @@ export default class snp_pdp_child_productDeatils extends LightningElement {
     }else{
     queryProductAttributes({queryAttributes:this.queryattributes , selectedValues:this.selectedValues,variantParentId:this.variationparentid})
     .then(result => {
+      debugger;
           //console.log('*****'+JSON.stringify(result));
           this.attributeList[this.nextIndex].values =result ;
          // console.log('queryattributes'+queryattributes);
