@@ -351,7 +351,7 @@ map<id,PriceAdjustmentSchedule> adjid= new map<id,PriceAdjustmentSchedule>();
                                                 break;
                                             }
                                        
-                                        }
+                                        } 
                                         system.debug(upbound);
                                         cartItemPro.UnitAdjustedPrice=upbound/cartitemlist.Quantity;
                                        cartItemPro.UnitAdjustmentAmount=(lowestPriceEntry.UnitPrice-(cartItemPro.UnitAdjustedPrice));
