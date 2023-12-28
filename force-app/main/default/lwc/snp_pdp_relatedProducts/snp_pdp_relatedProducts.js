@@ -26,14 +26,8 @@ export default class Snp_pdp_relatedProducts extends NavigationMixin(LightningEl
     showRelatedProdcts=false;
 
     connectedCallback() {
-        //console.log('userId : ', userId);
-        //console.log('OUTPUT isguest user : ', isguest);
-        // console.log('communityBasePath-- ',communityBasePath);
         let splitStoreName = basePath.split("/");
-        // console.log('splitStoreName -- ', splitStoreName);
-        // console.log('splitStoreName -- ', splitStoreName[0]);
         this.CurrentStoreName = splitStoreName[1];
-        console.log('relatedProduct store Name : ', this.CurrentStoreName);
         this.onLoadComponent();
     }
 
@@ -57,13 +51,12 @@ export default class Snp_pdp_relatedProducts extends NavigationMixin(LightningEl
             id: product.Id,
             price: product.prices ? product.prices.listPrice : undefined,
         };
-        // console.log('productToSend'+productToSend);
         trackClickReco(recName, uuid, productToSend);
 
         let storeName = this.CurrentStoreName;
         let productName = product.name || 'detail';
-        let newHref = `/${storeName}/product/${productName}/${productId}`;
-        // console.log('newHref'+newHref);
+        var baseurl = window.location.origin;
+        let newHref = `${baseurl}/product/${productName}/${productId}`;
         window.location.href = newHref;
 
     }
@@ -78,66 +71,49 @@ export default class Snp_pdp_relatedProducts extends NavigationMixin(LightningEl
                 communityId : communityId
             })
                 .then((result) => {
-                    console.log('relatedProduct getRecords - ', result);
-                    //console.log('recommendation result- ', result);
                         let data = JSON.parse(result);
-                            console.log('relatedProduct result after Parse- ',data);
                             let pro = data.productPage.products;
                             if(pro.length > 0){
                                 this.showRelatedProdcts=true;
                             }
-                            // console.log('products- ', pro);
-                            // console.log('pro lenght- ', pro.length);
+                         
                             let pro1 = pro.slice(0, 2);
                             let pro2 = pro.slice(pro.length - 2, pro.length);
-                            // console.log('pro1 - ' , pro1.length ,' ', JSON.stringify(pro1));
-                            // console.log('pro2 - ' , pro2.length ,' ', JSON.stringify(pro2));
                             let proList = pro1.concat(pro2); 
-                            console.log('relatedProduct final product list- ', proList);
                             proList.forEach((item) => {
                                 this.productIdListForPrice.push(item.id)
                             })
-                            //console.log('this.productIdListForPrice- ', this.productIdListForPrice);
                             this.products = proList;
                             this.productList = this.products.map(item => {
                                 return {
-                                    url: basePath + '/sfsites/c' + item.defaultImage.url,
+                                    url: window.location.origin +'/sfsites/c' + item.defaultImage.url,
                                     Name: item.name,
                                     Id: item.id
                                 };
                             });
                             this.getProductPrices();
 
-                            // console.log('Slice Product- ', this.products);
                             this.uuid = data.uuid;
-                            // console.log('uuid ', this.uuid);
                             this.loading = false;
                         let prolen =pro.length > 0;
                         if (prolen) {
                             this.sendViewRecoActivity();
                         }
-                        // this.showProducts = true;
 
                     })
                     .catch ((error) => {
-                        console.error('Error fetching recommendations', error);
                         this.loading = false;
                     })
         } catch (error) {
-            console.error('Failed to load recommendations: ', error);
             this.loading = false;
         }
     }
 
     sendViewRecoActivity() {
         let recName = this.recommenderNames();
-        //console.log('recname-'+recName);
         let products = this.products.map(p => ({ id: p.id }));
-        //console.log('products-'+ products);
         let uuid = this.uuid;
-        //console.log('uuid-'+ uuid);
         trackViewReco(recName, uuid, products);
-        //console.log('trackViewReco(recName, uuid, products)'+ trackViewReco(recName, uuid, products));
     }
     
     getProductDetailProductId() { 
@@ -171,30 +147,21 @@ export default class Snp_pdp_relatedProducts extends NavigationMixin(LightningEl
                 return "customers-who-bought-also-bought"
                 break;
             default:
-                console.log('Condition is not  a recomender');
                 break;
         }
     }
 
-    getProductPrices(){
-        // debugger;
-        // console.log('Product Prices UserId- ', userId);
-        // console.log('this.productIdListForPrice in getProductPrices method- ', this.productIdListForPrice);
+    getProductPrices(){    
         // let prodIdList = ['01t0Y00000Bg4YtQAJ','01t1n00000Cky8qAAB','01t7Y00000Au3L3QAJ'];
-        console.log('relatedProduct Inside getProductPrices : ');
         ProductPrice({userId: userId, productIds: this.productIdListForPrice, isGuest: isguest, communityId: communityId})
         .then(result => {
-            // debugger;
             let i = 0;
             this.priceList = result.pricingLineItemResults;
-            console.log('relatedProduct Product Prices- ',result);
             (result.pricingLineItemResults).forEach(item => {
-                this.productIdPriceMap[item.productId] = item.listPrice;
-                this.productList[i]['Price'] = item.listPrice;
+                this.productIdPriceMap[item.productId] = item.unitPrice;
+                this.productList[i]['Price'] = item.unitPrice;
                 i++
             });
-            //console.log('this.productIdPriceMap- ' , this.productIdPriceMap);
-            //console.log('this.productList -- ', this.productList);
             this.showProducts = true;
 
             
