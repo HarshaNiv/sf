@@ -34,7 +34,6 @@ export default class Snp_AddressForm extends LightningElement {
         //let addressidurl=window.location.href;
         const urlParams = new URLSearchParams(window.location.search);
         this.addressidurl = urlParams.get('addressId');
-        console.log('this.addressidurl --', this.addressidurl);
         if (this.addressidurl != null) {
             this.handledata();
         }
@@ -44,12 +43,10 @@ export default class Snp_AddressForm extends LightningElement {
 
         editaddress({ formid: this.addressidurl })
             .then((result) => {
-                console.log('result-->' + JSON.stringify(result));
                 if (result.AddressType != null) {
                     this.Addresslabel = result.AddressType;
                     this.addressRequried = '';
                 }
-                debugger;
                 if (result.AddressFirstName != null) {
                     this.FirstName1 = '';
                     this.FirstNameRequried = '';
@@ -101,21 +98,15 @@ export default class Snp_AddressForm extends LightningElement {
                     this.Countrylabel = result.Country;
                     getCountryAndDialCode({ countrylabel: this.Countrylabel })
                         .then((result) => {
-                            debugger;
-                            console.log('result----------->' + JSON.stringify(result));
                             this.dialcode = '+' + result;
-                            console.log('this.dialcode----------->' + this.dialcode);
                         })
                         .catch((error) => {
                             console.log('error' + error);
                         })
-                    debugger;
                     //this.itemhandlerCountry(event);
                     this.countryvalue = result.CountryCode;
-                    console.log(' this.countryvalue---' + this.countryvalue);
                 }
 
-                debugger;
                 if (result.IsDefault != null) {
                     this.checkval = result.IsDefault;
                 }
@@ -151,7 +142,6 @@ export default class Snp_AddressForm extends LightningElement {
         if (data) {
             const rtis = data.recordTypeInfos;
             this.Recordtype = data.defaultRecordTypeId;
-            console.log('sample------------>' + this.Recordtype);
         }
         if (error) {
             console.log('error' + error);
@@ -161,32 +151,25 @@ export default class Snp_AddressForm extends LightningElement {
         recordTypeId: '$Recordtype',
         fieldApiName: COUNTRY_CODE
     }) wiredCountires({ data }) {
-        console.log('datacountries1' + JSON.stringify(data));
         this.listCountry = data.values;
-        console.log('datacountries' + this.listCountry);
     }
 
 
     @wire(getPicklistValues, { recordTypeId: '$Recordtype', fieldApiName: BILLING_STATE_CODE })
     wiredStates({ data }) {
         if (!data) {
-            debugger;
             return;
         }
-        debugger;
-        console.log('data' + JSON.stringify(data));
+
         const validForNumberToCountry = Object.fromEntries(Object.entries(data.controllerValues).map(([key, value]) => [value, key]));
-        console.log('validForNumberToCountry' + JSON.stringify(validForNumberToCountry));
         this._countryToStates = data.values.reduce((accumulatedStates, state) => {
             const countryIsoCode = validForNumberToCountry[state.validFor[0]];
             return { ...accumulatedStates, [countryIsoCode]: [...(accumulatedStates?.[countryIsoCode] || []), state] };
         }, {});
-        console.log('this._countryToStates' + JSON.stringify(this._countryToStates));
         if (this.countryvalue != null) {
             this.stateData1 = false;
             this.listState = this._countryToStates[this.countryvalue];
             this.listState1 = this.listState;
-            console.log('this.listState' + JSON.stringify(this.listState));
         }
     }
     // 
@@ -234,8 +217,7 @@ export default class Snp_AddressForm extends LightningElement {
     newlist = { 'label': '--None--', 'value': null };
     listaddress = ['Billing', 'Shipping'];
     itemhandler(event) {
-        // debugger;
-        // console.log("ok");
+
         let selectedAddress = event.currentTarget.dataset.item;
         this.Addresslabel = selectedAddress;
         this.showOptions = !this.showOptions;
@@ -249,8 +231,7 @@ export default class Snp_AddressForm extends LightningElement {
 
 
     buttonevent(event) {
-        // console.log('hi');
-        // debugger;
+
         event.currentTarget.focus();
         this.addressData = !this.addressData;
         this.showOptions = !this.showOptions;
@@ -259,8 +240,6 @@ export default class Snp_AddressForm extends LightningElement {
         setTimeout(() => {
             var selectedaAddress = this.template.querySelectorAll('.options-list');
             var selectedaAddress1 = selectedaAddress[0].dataset.item;
-            console.log('selectedaAddress--->' + selectedaAddress);
-            console.log('selectedaAddress------->' + selectedaAddress1);
             for (var i = 0; i < selectedaAddress.length; i++) {
                 if (selectedaAddress[i].dataset.item == this.Addresslabel) {
                     selectedaAddress[i].classList.add('selected-option');
@@ -274,7 +253,6 @@ export default class Snp_AddressForm extends LightningElement {
     Countrylabel = 'Country';
     listCountry = ['india', 'usa', 'China'];
     itemhandlerCountry(event) {
-        debugger;
         this.showOptionsCountry = !this.showOptionsCountry;
         let selectedCountry = event.currentTarget.dataset.item;
         this.Countrylabel = selectedCountry;
@@ -283,10 +261,7 @@ export default class Snp_AddressForm extends LightningElement {
         this.handleCountryError = false;
         getCountryAndDialCode({ countrylabel: selectedCountry })
             .then((result) => {
-                debugger;
-                console.log('result----------->' + JSON.stringify(result));
                 this.dialcode = '+' + result;
-                console.log('this.dialcode----------->' + this.dialcode);
             })
             .catch((error) => {
                 console.log('error' + error);
@@ -310,16 +285,12 @@ export default class Snp_AddressForm extends LightningElement {
         this.Countrydata = false
     }
     buttoneventCountry(event) {
-        debugger;
         event.currentTarget.focus();
-        //console.log('-------------------->Ok');
         this.Countrydata = !this.Countrydata;
         this.showOptionsCountry = !this.showOptionsCountry;
         setTimeout(() => {
             var selectedaAddress = this.template.querySelectorAll('.options-list');
             var selectedaAddress1 = selectedaAddress[0].dataset.item;
-            console.log('selectedaAddress--->' + selectedaAddress);
-            console.log('selectedaAddress------->' + selectedaAddress1);
             for (var i = 0; i < selectedaAddress.length; i++) {
                 if (selectedaAddress[i].dataset.item == this.Countrylabel) {
                     selectedaAddress[i].classList.add('selected-option');
@@ -331,7 +302,6 @@ export default class Snp_AddressForm extends LightningElement {
     //for state
     @track StateLabel = 'State/Province';
     itemhandlerstate(event) {
-        //  debugger;
         this.showOptionsState = !this.showOptionsState;
         let selectedstate = event.currentTarget.dataset.item;
         this.StateLabel = selectedstate;
@@ -356,8 +326,6 @@ export default class Snp_AddressForm extends LightningElement {
         setTimeout(() => {
             var selectedaAddress = this.template.querySelectorAll('.options-list');
             var selectedaAddress1 = selectedaAddress[0].dataset.item;
-            console.log('selectedaAddress--->' + selectedaAddress);
-            console.log('selectedaAddress------->' + selectedaAddress1);
             for (var i = 0; i < selectedaAddress.length; i++) {
                 if (selectedaAddress[i].dataset.item == this.StateLabel) {
                     selectedaAddress[i].classList.add('selected-option');
@@ -370,7 +338,6 @@ export default class Snp_AddressForm extends LightningElement {
 
     // for address
     handleInputAddress() {
-        console.log("Hi blur ");
         setTimeout(() => {
             this.addressData = false;
             this.showOptions = false;
@@ -389,7 +356,6 @@ export default class Snp_AddressForm extends LightningElement {
     }
     //for country
     handleInputCountry() {
-        //console.log('------------------------------> okoko');
         setTimeout(() => {
             this.Countrydata = false;
             this.showOptionsCountry = false;
@@ -439,16 +405,13 @@ export default class Snp_AddressForm extends LightningElement {
 
     //First Name Handler
     handleFirstNameChange(event) {
-        // console.log('i am code' , event.target.value);
 
         this.firstName = event.target.value;
         //this.FN=this.firstName
-        debugger;
         // if(this.addressidurl != null){
         //     this.FN=this.firstName
         // }
 
-        console.log(this.firstName)
         if (this.firstName == '' || this.firstName) {
             this.handleFirstNameError = false;
         } else {
@@ -458,7 +421,6 @@ export default class Snp_AddressForm extends LightningElement {
 
         if (event.target.value !== "") {
             var targetLabel = this.template.querySelector(".fname-label");
-            // console.log('I am first -->');
             targetLabel.classList.add("labelup");
         }
         else {
@@ -492,7 +454,6 @@ export default class Snp_AddressForm extends LightningElement {
         //if(this.addressidurl != null){
         //this.LN=this.LastName
         //}
-        console.log(this.LastName)
         if (this.LastName == '' || this.LastName) {
             this.handleLastNameError = false;
 
@@ -536,7 +497,6 @@ export default class Snp_AddressForm extends LightningElement {
         // if(this.addressidurl != null){
         //this.comp=this.Company
         //  }
-        console.log(this.Company)
         if (this.Company == '' || this.Company) {
             this.handlecompanyError = false;
 
@@ -559,7 +519,6 @@ export default class Snp_AddressForm extends LightningElement {
 
     //for street address
     handleInputLabeStreetAddress(event) {
-        debugger;
         if (this.StreetAddress == '') {
             this.StreetAddress1 = 'Street Address';
             this.StreetRequried = '*';
@@ -582,7 +541,6 @@ export default class Snp_AddressForm extends LightningElement {
         //if(this.addressidurl != null){
         //this.str=this.StreetAddress;
         // }
-        console.log(this.StreetAddress)
         if (this.StreetAddress == '' || this.StreetAddress) {
             this.handleStreetError = false;
         } else {
@@ -628,9 +586,7 @@ export default class Snp_AddressForm extends LightningElement {
         // if(this.addressidurl != null){
         // this.cities=this.city
         //  }
-        console.log(this.city)
         const isValidCity = this.validateCity(this.city)
-        console.log('validateCity-------->' + isValidCity);
         if (isValidCity != false) {
             this.handleCityValidError = false;
         } else {
@@ -683,16 +639,13 @@ export default class Snp_AddressForm extends LightningElement {
         //   if(this.addressidurl != null){
         // this.postal=this.zip
         //   }
-        console.log(this.zip)
         const isValidzip = this.validatezip(this.zip);
-        console.log('isValidzip------>' + isValidzip);
         if (isValidzip != true) {
             this.handleZipValidError = false;
         } else {
             this.handleZipValidError = true;
             this.handleZipError = false;
         }
-        console.log(this.zip)
         if (this.zip == '' || this.zip) {
             this.handleZipError = false;
         } else {
@@ -739,9 +692,7 @@ export default class Snp_AddressForm extends LightningElement {
         // if(this.addressidurl != null){
         //this.phnum=this.Phone
         //  }
-        console.log(this.Phone)
         const isValidPhoneNumber = this.validatePhoneNumber(this.Phone)
-        console.log('isValidPhoneNumber-------->' + isValidPhoneNumber);
         if (isValidPhoneNumber != false) {
             this.handelPhoneValidError = false;
         } else {
@@ -765,13 +716,11 @@ export default class Snp_AddressForm extends LightningElement {
 
     //checkbox
     handleInputLabel() {
-        console.log('this.checkval');
+        //console.log('this.checkval');
 
     }
     checkboxValidation(event) {
-        // debugger;
         this.checkval = event.target.checked;
-        console.log('this.checkval----------->' + this.checkval);
     }
     //on click of sumbit
     handlerSumbit() {
@@ -892,7 +841,6 @@ export default class Snp_AddressForm extends LightningElement {
             //     this.StateLabel=  this.selectedstate1;
             // }
 
-            debugger;
             if (this.addressidurl == null) {
                 pointaddress({
                     fname: this.firstName, lname: this.LastName, addresstype: this.Addresslabel, isdefault: this.checkval, country: this.Countrylabel, city: this.city,
@@ -901,13 +849,10 @@ export default class Snp_AddressForm extends LightningElement {
                     address: this.StreetAddress, userId: UserId
                 })
                     .then((result) => {
-                        console.log('result----------->' + JSON.stringify(result));
                         var newurl = window.location.pathname;
                         var orginurl = window.location.origin;
                         var newurl1 = newurl.replace('/addressForm', '')
                         var finalurl = newurl1;
-                        console.log('newurl----------->' + newurl);
-                        console.log('orginurl----------->' + orginurl);
                         window.location.href = orginurl + finalurl + '/addresses?addressType=' + this.Addresslabel;
                         window.location.href
                         // this.url=window.location.href;
@@ -926,7 +871,6 @@ export default class Snp_AddressForm extends LightningElement {
                     .catch((error) => {
                         this.showLoader = true;
                         // alert(JSON.stringify(error));
-                        console.log('error' + JSON.stringify(error));
                         this.showLoader = false;
 
                     })
@@ -939,20 +883,16 @@ export default class Snp_AddressForm extends LightningElement {
                     address: this.StreetAddress, formid: this.addressidurl
                 })
                     .then((result) => {
-                        console.log('result----------->' + JSON.stringify(result));
                         var newurl = window.location.pathname;
                         var orginurl = window.location.origin;
                         var newurl1 = newurl.replace('/addressForm', '')
                         var finalurl = newurl1;
-                        console.log('newurl----------->' + newurl);
-                        console.log('orginurl----------->' + orginurl);
                         window.location.href = orginurl + finalurl + '/addresses?addressType=' + this.Addresslabel;
                         window.location.href;
                     })
                     .catch((error) => {
                         this.showLoader = true;
                         //alert(JSON.stringify(error));
-                        console.log('error' + JSON.stringify(error));
                         this.showLoader = false;
 
                     })
@@ -964,13 +904,11 @@ export default class Snp_AddressForm extends LightningElement {
         // this.url=window.location.href;
         // window.location.href=this.url;
         // window.location.href;
-        // debugger;
         var newurl = window.location.pathname;
         var orginurl = window.location.origin;
         var newurl1 = newurl.replace('/addressForm', '')
         var finalurl = newurl1;
-        console.log('newurl----------->' + newurl);
-        console.log('orginurl----------->' + orginurl);
+
         window.location.href = orginurl + finalurl + '/addresses';
         window.location.href
         // this[NavigationMixin.Navigate]({

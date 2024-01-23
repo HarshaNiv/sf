@@ -1,4 +1,6 @@
 import { LightningElement } from 'lwc';
+import ValidAccount from '@salesforce/apex/Snp_CustomerPO.ValidAccount';
+import userId from '@salesforce/user/Id';
 /**
 * @slot CreditCardRegion
 * @slot CreditCardRegion1
@@ -10,6 +12,13 @@ export default class SNP_PaymentSection extends LightningElement {
     value2 = '';
     property1=false;
     property2=false;
+    checkuser=false;
+    connectedCallback(){
+        if(userId){
+             this.checkuser=true;
+             this.checkAccount();
+        }
+    }
 
     get options1() {
         return [
@@ -37,5 +46,17 @@ export default class SNP_PaymentSection extends LightningElement {
         this.property1=false;
         this.property2=true;
     }
-    
+    checkAccount(){
+        ValidAccount({userid:userId})
+        .then(result =>{
+            if(result== true){
+                this.checkuser=false;
+            }else{
+                this.checkuser=true;            
+            }
+        })
+        .catch(error=>{
+            console.log(error);
+        })
+    }
 }

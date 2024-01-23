@@ -14,97 +14,215 @@
 
 -->
 <template>
-<div class="footer-outer-wrapper ">
- <div class="custom-container footer-inner-wrapper">
-    <!-- Row 1 -->
-    <div class="slds-grid slds-wrap">
-	    <div class="slds-col slds-small-size_12-of-12 slds-medium-size_2-of-12 slds-large-size_2-of-12 slds-m-top_x-large">
-		    <ul class="footer-links-wrapper">
-                 <li class="slds-p-vertical_xx-small" data-name="About_Us__c" onclick={handleNavigateToCmsPage}><span class="footer-links">COMPANY</span></li>
-                 <li class="slds-p-vertical_xx-small" data-name="About_Us__c" onclick={handleNavigateToCmsPage}><span class="footer-links">ABOUT</span></li>
-                 <li class="slds-p-vertical_xx-small" data-name="Contact_Us__c" onclick={handleNavigateToCmsPage}><span class="footer-links">CONTACT</span></li>
-                 <li class="slds-p-vertical_xx-small" data-name="Solutions__c" onclick={handleNavigateToCmsPage}><span class="footer-links">SOLUTIONS</span></li>
-                 <li class="slds-p-vertical_xx-small" data-name="Careers__c" onclick={redirectToCareer}><span class="footer-links">CAREERS</span></li>
-             </ul>
-	    </div>
-	    <div class="slds-col slds-small-size_12-of-12 slds-medium-size_2-of-12 slds-large-size_2-of-12 slds-m-top_x-large">
-		    <ul class="footer-links-wrapper">
-                <li class="slds-p-vertical_xx-small" data-name="Contact_Us__c" onclick={handleNavigateToCmsPage}><span class="footer-links">HELP &amp; SUPPORT</span></li>
-                <li class="slds-p-vertical_xx-small" data-name="Delivery_and_Returns__c" onclick={handleNavigateToCmsPage}><span class="footer-links">DELIVERY &amp; RETURNS</span></li>
-                <li class="slds-p-vertical_xx-small" data-name="Shipping__c" onclick={handleNavigateToCmsPage}><span class="footer-links">SHIPPING</span></li>
-             </ul>
-	    </div>
-	    <div class="slds-col slds-small-size_12-of-12 slds-medium-size_2-of-12 slds-large-size_2-of-12 slds-m-top_x-large">
-		    <ul class="footer-links-wrapper">
-                <li class="slds-p-vertical_xx-small"> ORION HOUSE </li>
-                <li class="slds-p-vertical_xx-small"> CALLEVA PARK </li>
-                <li class="slds-p-vertical_xx-small"> ALDERMASTON </li>
-                <li class="slds-p-vertical_xx-small"> BERKSHIRE&#44; RG7 8SN </li>
-                <li class="slds-p-vertical_xx-small" >UNITED KINGDOM </li>
-             </ul>
-	    </div>
-	    <div class="slds-col slds-small-size_12-of-12 slds-medium-size_2-of-12 slds-large-size_2-of-12 slds-m-top_x-large">
-		    <ul class="footer-links-wrapper">
-                <li class="slds-p-vertical_xx-small"> CONTACT US </li>
-                <li class="slds-p-vertical_xx-small"><img src={contactUsIcon} alt="Contact Us" class="contactUsIcon"> +44(0)118 9823745 </li>
-                <li class="slds-p-vertical_xx-small">Mon-Fri&#8282; 08:45-17:30</li>
-             </ul>
-	    </div>
-	    <div class="slds-col slds-small-size_12-of-12 slds-medium-size_4-of-12 slds-large-size_4-of-12 slds-m-top_x-large">
-            <ul style="padding-top:5px;" class="socialLinksList footer-links-wrapper">
-                <li class="slds-align_absolute-center slds-p-bottom_large followUs">
-                    <h5>Follow Us On</h5>
-                </li>
-                <li >
-                    <ul class="slds-grid social-links-wrapper">
-                        <li class="slds-col social-links"><a href="https://www.facebook.com/PowerLEDUK" target="_blank" class="imgWrapperSocialLink"><img src={facebookImg} alt="FaceBook Icon" class="social-img"></a></li>
-                        <li class="slds-col social-links"><a href="https://www.linkedin.com/company/powerled-uk-ltd/" target="_blank" class="imgWrapperSocialLink"><img src={LinkedIn_Icon} alt="linkedIn Icon" class="social-img"></a></li>
-                        <li class="slds-col social-links"><a href="https://twitter.com/i/flow/login?redirect_after_login=%2Fpowerleduk" target="_blank" class="imgWrapperSocialLink"><img src={twitterImage} alt="Twitter Icon" class="social-img"></a></li>
-                        <li class="slds-col social-links"><a href="https://www.youtube.com/channel/UCiT8MG-WhqHRXTXgAV20Rgw" target="_blank" class="imgWrapperSocialLink"><img src={youtubeImage} alt="YouTube Icon" class="social-img"></a></li>
+    <div class="footer-outer-wrapper ">
+        <div class="custom-container footer-inner-wrapper">
+            <!-- Row 1 -->
+            <div class="slds-grid slds-wrap">
+                <div
+                    class="slds-col slds-small-size_12-of-12 slds-medium-size_2-of-12 slds-large-size_2-of-12 slds-m-top_x-large">
+                    <ul class="footer-links-wrapper">
+                        <li class="slds-p-vertical_xx-small" data-name="About_Us__c" onclick={handleNavigateToCmsPage}>
+                            <span class="footer-links">COMPANY</span>
+                        </li>
+                        <li class="slds-p-vertical_xx-small" data-name="About_Us__c" onclick={handleNavigateToCmsPage}>
+                            <span class="footer-links">ABOUT</span>
+                        </li>
+                        <li class="slds-p-vertical_xx-small" data-name="Contact_Us__c"
+                            onclick={handleNavigateToCmsPage}><span class="footer-links">CONTACT</span></li>
+                        <li class="slds-p-vertical_xx-small" data-name="Solutions__c" onclick={handleNavigateToCmsPage}>
+                            <span class="footer-links">SERVICES</span>
+                        </li>
+                        <li class="slds-p-vertical_xx-small" >
+                            <span>
+                                <a class="career-link sunpower-link" href="https://www.sunpowergroupholdings.com/careers/">CAREERS</a></span>
+                        </li>
                     </ul>
-                </li>
-            </ul>
-	    </div>
-    </div>
-<!-- Row 2 -->
-    <div class="slds-grid slds-wrap slds-m-vertical_medium emailSubscribe">
-	    <div class="slds-col slds-small-size_12-of-12 slds-medium-size_12-of-12 slds-large-size_12-of-12 ">
-            <div class="slds-grid slds-wrap slds-grid_align-end email-wrapper">
-                <form action="https://pr.sunpowermarketing.co.uk/l/308921/2018-10-31/w8q66" class="email-subscribe-form">
-                    <div class="emailInput">
-                        <!-- <lightning-input class="emailinput" type="text" data-id="txtEmailAddress" placeholder="Email Address"></lightning-input> -->
-                        <input type="email" id="text-input-id-47" placeholder="Enter Email To Subscribe" name="your-message" onkeyup={inputHandler} class="slds-input subscribe-input-field" />
-                    </div>
-                    <div class="subscribeButton">
-                        <lightning-button classs="slds-m-left_small  slds-col subscribeButton" variant="brand" label="Subscribe" title="" onclick={handleAlertClick} ></lightning-button>
-                    </div>
-                </form>
+                </div>
+                <div
+                    class="slds-col slds-small-size_12-of-12 slds-medium-size_2-of-12 slds-large-size_2-of-12 slds-m-top_x-large">
+                    <ul class="footer-links-wrapper">
+                        <li class="slds-p-vertical_xx-small" data-name="Contact_Us__c"
+                            onclick={handleNavigateToCmsPage}><span class="footer-links">HELP &amp; SUPPORT</span></li>
+                        <li class="slds-p-vertical_xx-small" data-name="Delivery_and_Returns_1__c"
+                            onclick={handleNavigateToCmsPage}><span class="footer-links">DELIVERY &amp; RETURNS</span>
+                        </li>
+                        <li class="slds-p-vertical_xx-small" data-name="Shipping__c" onclick={handleNavigateToCmsPage}>
+                            <span class="footer-links">SHIPPING</span>
+                        </li>
+                    </ul>
+                </div>
+                <div
+                    class="slds-col slds-small-size_12-of-12 slds-medium-size_2-of-12 slds-large-size_2-of-12 slds-m-top_x-large">
+                    <ul class="footer-links-wrapper">
+                        <li class="slds-p-vertical_xx-small"> ORION HOUSE </li>
+                        <li class="slds-p-vertical_xx-small"> CALLEVA PARK </li>
+                        <li class="slds-p-vertical_xx-small"> ALDERMASTON </li>
+                        <li class="slds-p-vertical_xx-small"> BERKSHIRE&#44; RG7 8SN </li>
+                        <li class="slds-p-vertical_xx-small">UNITED KINGDOM </li>
+                    </ul>
+                </div>
+                <div
+                    class="slds-col slds-small-size_12-of-12 slds-medium-size_2-of-12 slds-large-size_2-of-12 slds-m-top_x-large">
+                    <ul class="footer-links-wrapper">
+                        <li class="slds-p-vertical_xx-small"> CONTACT US </li>
+                        <li class="slds-p-vertical_xx-small">
+                            <div class="svg-image-number">
+                                <div class="svg-phone-icon">
+                                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                        viewBox="0 0 56.7 56.7" style="enable-background:new 0 0 56.7 56.7;" xml:space="preserve">
+                                    <g id="Layer_2_00000148636643391540252450000013086190005787495296_">
+                                        <path class="st45" d="M46.6,42.1c0.4-1.1,0.1-2.3-0.8-3l-5.2-4c-0.9-0.7-2.2-0.7-3.2,0c-1.6,1.3-3,2.8-4,3.2
+                                            c-1.1,0.4-4.9-4.1-6.6-6.6S22.2,24,23,23.2s2.7-1.6,4.5-2.6c1-0.6,1.5-1.8,1.2-2.9l-1.8-6.4c-0.3-1.1-1.3-1.8-2.5-1.9
+                                            c-2.2,0-5.8,0.5-7.6,4.2c-2.8,5.6-1.6,13.5,4.1,22s12.7,12.5,18.9,12C43.9,47.2,45.8,44.2,46.6,42.1z"/>
+                                    </g>
+                                </svg>
+                                </div>
+                                +44(0)118 9823745 
+                            </div>
+                        </li>
+                        <li class="slds-p-vertical_xx-small">Mon-Fri&#8282; 08:45-17:30</li>
+                    </ul>
+                </div>
+                <div
+                    class="slds-col slds-small-size_12-of-12 slds-medium-size_4-of-12 slds-large-size_4-of-12 slds-m-top_x-large">
+                    <ul style="padding-top:5px;" class="socialLinksList footer-links-wrapper">
+                        <li class="slds-align_absolute-center slds-p-bottom_large followUs">
+                            <h5>Follow Us On</h5>
+                        </li>
+                        <li>
+                            <ul class="slds-grid social-links-wrapper">
+                                <li class="slds-col social-links"><a href="https://www.facebook.com/PowerLEDUK"
+                                        target="_blank" class="imgWrapperSocialLink">
+                                        <div class="Common_icon">
+                                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                viewBox="0 0 56.7 56.7" xml:space="preserve">
+                                                <g>
+                                                    <path class="st0" d="M42.4,27.4c0-8-6.5-14.5-14.5-14.5s-14.5,6.5-14.5,14.5c0,6.8,4.7,12.5,11,14v-9.6h-3v-4.4h3
+                                                   v-1.9c0-4.9,2.2-7.2,7.1-7.2c0.9,0,2.5,0.2,3.1,0.4v4c-0.3,0-0.9-0.1-1.7-0.1c-2.4,0-3.3,0.9-3.3,3.2v1.6h4.7l-0.8,4.4h-3.9v9.9
+                                                   C36.8,40.9,42.4,34.8,42.4,27.4z" />
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </a></li>
+
+                                <li class="slds-col social-links"><a
+                                        href="https://www.linkedin.com/company/powerled-uk-ltd/" target="_blank"
+                                        class="imgWrapperSocialLink">
+                                        <div class="Common_icon">
+                                            <svg version="1.1" id="Layer_2" xmlns="http://www.w3.org/2000/svg" x="0px"
+                                                y="0px" viewBox="0 0 56.7 56.7"
+                                                style="enable-background:new 0 0 56.7 56.7;" xml:space="preserve">
+                                                <g>
+                                                    <path class="st0"
+                                                        d="M35.4,16.2H21.3c-2.8,0-5,2.3-5,5v14.1c0,2.8,2.3,5,5,5h14.1c2.8,0,5-2.3,5-5v-14
+                                                        C40.5,18.5,38.2,16.2,35.4,16.2z M24.3,35.4h-3V24.3h3V35.4z M22.8,23c-1,0-1.8-0.8-1.8-1.8s0.8-1.8,1.8-1.8s1.8,0.8,1.8,1.8
+                                                        S23.8,23,22.8,23z M36.4,35.4h-3v-5.7c0-3.4-4-3.1-4,0v5.7h-3V24.3h3v1.8c1.4-2.6,7.1-2.8,7.1,2.5L36.4,35.4L36.4,35.4z" />
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </a></li>
+                                <li class="slds-col social-links"><a
+                                        href="https://twitter.com/i/flow/login?redirect_after_login=%2Fpowerleduk"
+                                        target="_blank" class="imgWrapperSocialLink">
+                                        <div class="Common_icon">
+                                            <svg version="1.1" id="Layer_3" xmlns="http://www.w3.org/2000/svg" x="0px"
+                                                y="0px" viewBox="0 0 56.7 56.7"
+                                                style="enable-background:new 0 0 56.7 56.7;" xml:space="preserve">
+
+
+                                                <g id="Layer_1_00000102527083314974679670000006290443953559328927_">
+                                                    <path class="st0"
+                                                        d="M30.6,26.5l8.8-10.3h-2.1l-7.7,8.9l-6.1-8.9h-7.1l9.3,13.5l-9.3,10.8h2.1l8.1-9.4l6.5,9.4h7.1L30.6,26.5
+                                               L30.6,26.5z M27.7,29.8l-0.9-1.3l-7.5-10.7h3.2l6,8.6l0.9,1.3L37.3,39h-3.2L27.7,29.8L27.7,29.8z" />
+                                                </g>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </a></li>
+                                <li class="slds-col social-links"><a
+                                        href="https://www.youtube.com/channel/UCiT8MG-WhqHRXTXgAV20Rgw" target="_blank"
+                                        class="imgWrapperSocialLink">
+                                        <div class="Common_icon">
+                                            <svg version="1.1" id="Layer_4" xmlns="http://www.w3.org/2000/svg" x="0px"
+                                                y="0px" viewBox="0 0 56.7 56.7"
+                                                style="enable-background:new 0 0 56.7 56.7;" xml:space="preserve">
+                                                <g id="Layer_1_00000013190639043737019450000011888738780832930951_">
+                                                    <path class="st0" d="M45.3,19c-0.4-1.5-1.6-2.7-3.1-3.1c-2.7-0.7-13.5-0.7-13.5-0.7s-10.8,0-13.5,0.7c-1.5,0.4-2.7,1.6-3.1,3.1
+            c-0.7,2.7-0.7,8.3-0.7,8.3s0,5.6,0.7,8.3c0.4,1.5,1.6,2.7,3.1,3.1c2.7,0.7,13.5,0.7,13.5,0.7s10.8,0,13.5-0.7
+            c1.5-0.4,2.7-1.6,3.1-3.1c0.7-2.7,0.7-8.3,0.7-8.3S46.1,21.7,45.3,19z M25.3,32.5V22.1l9,5.2L25.3,32.5z" />
+                                                </g>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
             </div>
-	    </div>
+            <!-- Row 2 -->
+            <div class="slds-grid slds-wrap slds-m-vertical_medium emailSubscribe">
+                <div class="slds-col slds-small-size_12-of-12 slds-medium-size_12-of-12 slds-large-size_12-of-12 ">
+                    <div class="slds-grid slds-wrap slds-grid_align-end email-wrapper">
+                        <form action="https://pr.sunpowermarketing.co.uk/l/308921/2018-10-31/w8q66" class="email-subscribe-form">
+                            <div class="emailInput">
+                                <input type="email" id="text-input-id-47" placeholder="Enter Email To Subscribe"
+                                    name="your-message" onkeyup={inputHandler}
+                                    class="slds-input subscribe-input-field" />
+                            </div>
+                            <div class="subscribeButton">
+                                <lightning-button classs="slds-m-left_small  slds-col subscribeButton" variant="brand"
+                                    label="Subscribe" title="" onclick={handleAlertClick}></lightning-button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- Row 3 -->
+            <div class="slds-grid slds-wrap slds-m-vertical_medium">
+                <div
+                    class="slds-col slds-small-size_12-of-12 slds-medium-size_12-of-12 slds-large-size_12-of-12 slds-align_absolute-center">
+                    <ul class="slds-grid slds-gutters privacySection">
+                        <li class="slds-col policyLinks slds-align_absolute-center" data-name="Privacy__c"
+                            onclick={handleNavigateToCmsPage}>
+                            <P class="footer-links">PRIVACY</P>
+                        </li>
+                        <li class="slds-col slds-m-horizontal_x-small policyLinks slds-align_absolute-center"
+                            data-name="Terms_and_Conditions__c" onclick={handleNavigateToCmsPage}>
+                            <p class="footer-links">TERMS &amp; CONDITIONS</p>
+                        </li>
+                        <li class="slds-col slds-m-horizontal_x-small policyLinks slds-align_absolute-center"
+                            data-name="Cookie_Policy__c" onclick={handleNavigateToCmsPage}>
+                            <p class="footer-links">COOKIE POLICY</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Row 4 -->
+            <div class="slds-grid ">
+                <div
+                    class="slds-col slds-small-size_12-of-12 slds-medium-size_12-of-12 slds-large-size_12-of-12 slds-align_absolute-center slds-p-bottom_large copyright">
+                    <span class="custom-box">COPYRIGHT 
+                            <div class="copyroght-container">
+                                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                viewBox="0 0 56.7 56.7" style="enable-background:new 0 0 56.7 56.7;" xml:space="preserve">
+                                <g>
+                                    <path class="copyright" d="M9.7,28.3C9.7,18,17.9,9.8,28.3,9.8S47,18,47,28.3s-8.2,18.6-18.6,18.6S9.7,38.7,9.7,28.3z M12.7,28.3
+                                        c0,8.7,7.1,15.6,15.6,15.6s15.6-6.8,15.6-15.6s-7.1-15.6-15.6-15.6C19.8,12.8,12.7,19.6,12.7,28.3z M36.9,38.9h-3.5l-5.3-9.6
+                                        h-3.9v9.6h-3V18H30c3.8,0,7.2,1.1,7.2,5.5c0,4.1-2.8,5.6-5.6,5.7L36.9,38.9z M24.2,21.1v5.2h3.2c2.8,0,6.7,0.5,6.7-2.4
+                                        c0-2.6-2.2-2.8-4.7-2.8H24.2z"/>
+                                </g>
+                            </svg>
+                            </div>
+                        2023 SUNPOWER GROUP HOLDINGS LTD</span>
+                </div>
+            </div>
+        </div>
     </div>
-<!-- Row 3 -->
-    <div class="slds-grid slds-wrap slds-m-vertical_medium">
-	    <div class="slds-col slds-small-size_12-of-12 slds-medium-size_12-of-12 slds-large-size_12-of-12 slds-align_absolute-center">
-            <ul class="slds-grid slds-gutters privacySection">
-                <li class="slds-col policyLinks slds-align_absolute-center" data-name="Privacy__c" onclick={handleNavigateToCmsPage}><P class="footer-links">PRIVACY</P></li>
-                <li class="slds-col slds-m-horizontal_x-small policyLinks slds-align_absolute-center" data-name="Terms_and_Conditions__c" onclick={handleNavigateToCmsPage}><p class="footer-links">TERMS &amp; CONDITIONS</p></li>
-                <li class="slds-c0l slds-m-horizontal_x-small policyLinks slds-align_absolute-center" data-name="Cookie_Policy__c" onclick={handleNavigateToCmsPage}><p class="footer-links">COOKIE POLICY</p></li>
-            </ul>
-	    </div>
-    </div>
-<!-- Row 4 -->
-    <div class="slds-grid ">
-	    <div class="slds-col slds-small-size_12-of-12 slds-medium-size_12-of-12 slds-large-size_12-of-12 slds-align_absolute-center slds-p-bottom_large copyright">
-		    <span class="custom-box">COPYRIGHT © 2023 SUNPOWER GROUP HOLDINGS LTD</span>
-	    </div>
-    </div>
-    </div>
-</div>
 <!-- model Popup -->
 <template if:true={modelSuccess}>
     <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
 <div class="slds-modal__container">
-  <!-- modal header start "slds-modal__header"-->
   <header class="slds-modal__header guest-popup-header">
       <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={modelHandlerSuccess}>
         <lightning-icon icon-name="utility:close"
@@ -133,31 +251,25 @@
 
  <!-- model 2 -->
  <template if:true={modelFail}>
-    <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
-<div class="slds-modal__container">
-  <!-- modal header start "slds-modal__header"-->
-  <header class="slds-modal__header guest-popup-header">
-      <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={modelHandlerFail}>
-        <lightning-icon icon-name="utility:close"
-            alternative-text="close"
-            variant="inverse"
-            size="small" ></lightning-icon>
-        <span class="slds-assistive-text">Close</span>
-      </button>
-      <h5 id="modal-heading-02" class="slds-text-heading_medium slds-hyphenate model-succes-font">Email Not valid !!</h5>
-  </header>
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+    <div class="slds-modal__container">
+    <!-- modal header start "slds-modal__header"-->
+    <header class="slds-modal__header guest-popup-header">
+        <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={modelHandlerFail}>
+            <lightning-icon icon-name="utility:close"
+                alternative-text="close"
+                variant="inverse"
+                size="small" ></lightning-icon>
+            <span class="slds-assistive-text">Close</span>
+        </button>
+        <h5 id="modal-heading-02" class="slds-text-heading_medium slds-hyphenate model-succes-font">Email Not valid !!</h5>
+    </header>
+    <footer class="slds-modal__footer guest-user-model  model-succes-footer">
+        <button class="slds-button slds-button_neutral log-in" onclick={modelHandlerFail}>Ok</button>
+    </footer>
 
-  <!-- modal body start -->
-  <!-- <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
-        <p class="Model-body-conteny">To change the currency, Kindly login or signup. </p>
-  </div>     -->
-  <!-- modal footer start-->
-  <footer class="slds-modal__footer guest-user-model  model-succes-footer">
-      <button class="slds-button slds-button_neutral log-in" onclick={modelHandlerFail}>Ok</button>
-  </footer>
-
-  </div>
-    </section>
-    <div class="slds-backdrop slds-backdrop_open"></div>
- </template>
+    </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+ </template> 
 </template>

@@ -1,146 +1,146 @@
-ul{
-    padding: 0;
-    margin: 0;
-}
-.footer-links-wrapper{
-    /* margin-left: 2rem; */
-    margin-bottom: 1rem;
-}
-.footer-outer-wrapper{
-    background-color: black;
-    color: white;
-    /* font-family: 'SunFont' !important; */
-    letter-spacing:  0.1rem;
-}
-.slds-align_absolute-center{
-    margin-top:0em;
+ul {
+  padding: 0;
+  margin: 0;
 }
 
-
-.emailInput{
-    margin-right: 1rem;
-    max-width: 14.75rem;
-    width: 14.563rem;
-
-}
-.footer-links:hover{
-    cursor: pointer;
-    color: white !important; 
-    border-bottom: 2px solid #fdc300 !important;
-    text-decoration: none !important;
+.footer-links-wrapper {
+  /* margin-left: 2rem; */
+  margin-bottom: 1rem;
 }
 
-.email-wrapper{
-    align-items: center;
-    margin-right: 2.75rem;
-    
-}
-.social-img{
-    max-width: 100%;
-}
-.imgWrapperSocialLink{
-    display: inline-block;
+.footer-outer-wrapper {
+  background-color: black;
+  color: white;
+  /* font-family: 'SunFont' !important; */
+  letter-spacing: 0.1rem;
 }
 
-.social-links{
-    width:1.875rem;
-    /* margin-left: 70px; */
-    min-width: 1.25rem;
-    max-width: 1.75rem;
+.slds-align_absolute-center {
+  margin-top: 0em;
 }
-.emailSubscribe{
-    margin: 10px 0 70px 0;
-}
-.slds-input{
-    background-color: black;
-    color: white;
-    border:1px solid white;
-    width: 250px;
-    height: 35px;
-}
-.slds-input:hover{
-    border:1px solid #fdc300;
-}
-.slds-input::placeholder{
-    color: white;
-    /* font-family: Sunpower Font; */
-}
-.slds-input:focus::placeholder{
-    color: transparent;
-}
-.social-links-wrapper{
-    padding: 0;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    margin: 0.75rem 0 2.25rem 0;
-}
-.contactUsIcon{
-    width: 17px;
-    height: 17px;
-}
-.policyLinks{
-    padding: 0 50px 0 0;
-}
-.privacySection{
-    height: 30px;
-    margin-left: 20px;
-}
-form{
-    display: flex;
-}
-.subscribe-input-field{
-    width: 100%;
-    height: 0;
-}
-.subscribe-input-field::placeholder{
-    /* font-family: 'SunFont'; */
+.footer-inner-wrapper .career-link:hover {
+  cursor: pointer;
+  color: white !important;
+  border-bottom: 2px solid #fdc300 !important;
+  text-decoration: none !important;
 }
 
-
-/* model */
-
-.model-succes-font
-{
-    font-weight: 400;
+.emailInput {
+  margin-right: 1rem;
+  max-width: 14.75rem;
+  width: 14.563rem;
 }
 
-.model-succes-footer
-{
-    display: flex;
-    /* margin: auto; */
-    align-items: center;
-    justify-content: center;
-}
-.log-in
-{
-    color: black;
-    border: 1px solid black;
-    background-color: #EAECE7;
+.footer-links:hover {
+  cursor: pointer;
+  color: white !important;
+  border-bottom: 2px solid #fdc300 !important;
+  text-decoration: none !important;
 }
 
+.email-wrapper {
+  align-items: center;
+  margin-right: 2.75rem;
+}
 
+.social-img {
+  max-width: 100%;
+}
 
+.imgWrapperSocialLink {
+  display: inline-block;
+  width: 130px;
+}
 
+.social-links {
+  width: 1.875rem;
+  /* margin-left: 70px; */
+  min-width: 1.25rem;
+  max-width: 1.75rem;
+}
 
+.sunpower-link {
+  color: white !important;
+}
+.emailSubscribe {
+  margin: 10px 0 70px 0;
+}
 
+.slds-input {
+  background-color: black;
+  color: white;
+  border: 1px solid white;
+  width: 250px;
+  height: 35px;
+}
 
+.slds-input:hover {
+  border: 1px solid #fdc300;
+}
 
+.slds-input::placeholder {
+  color: white;
+  /* font-family: Sunpower Font; */
+}
+
+.slds-input:focus::placeholder {
+  color: transparent;
+}
+
+.social-links-wrapper {
+  padding: 0;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 0.75rem 0 2.25rem 0;
+}
+.social-links-wrapper .social-links > a {
+  display: inline-block;
+}
+
+.contactUsIcon {
+  width: 17px;
+  height: 17px;
+}
+
+.policyLinks {
+  padding: 0 50px 0 0;
+}
+
+.privacySection {
+  height: 30px;
+  margin-left: 20px;
+}
+
+form {
+  display: flex;
+}
+
+.subscribe-input-field {
+  width: 100%;
+  height: 0;
+}
+
+/* .subscribe-input-field::placeholder{
+    /* font-family: '   ';
+} */
 
 @media only screen and (max-width: 768px) {
-    .footer-links-wrapper{
-        margin: 0;
-}
-    .emailSubscribe{
-        position: relative;
-        margin: auto;
-        max-width: 360px;
-        margin-bottom: 50px;
+  .footer-links-wrapper {
+    margin: 0;
+  }
 
-        /* position: relative;
+  .emailSubscribe {
+    position: relative;
+    margin: auto;
+    max-width: 360px;
+    margin-bottom: 50px;
+
+    /* position: relative;
         margin: 35px 0; */
-    }
-    /* .emailInput{
+  }
+
+  /* .emailInput{
         position: absolute;
         left: 0;
     }
@@ -148,21 +148,23 @@ form{
         position: absolute;
         right: 0;
     } */
-    .footer-outer-wrapper{
-        padding-top: 10px;
-    }
-    .privacySection{
-        height: 50px;
-        margin: 10px 0 0 0;
-        padding-left: 0 !important;
-        align-items: center;
-        text-align: center;
+  .footer-outer-wrapper {
+    padding-top: 10px;
+  }
 
-    }
-    .footer-inner-wrapper>:first-child{
-        display: block;
-    }
-    /* .social-links{
+  .privacySection {
+    height: 50px;
+    margin: 10px 0 0 0;
+    padding-left: 0 !important;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-inner-wrapper > :first-child {
+    display: block;
+  }
+
+  /* .social-links{
         padding: 30px;
         margin: auto;
         max-width: 100px;
@@ -170,43 +172,116 @@ form{
         /* margin-left: 0;
         padding-left: 0;
         padding: 25px; */
-    /* }  */
-    .socialLinksList{
-        padding-left: 0 !important;
-    }
-    .copyright{
-        margin-top: 10px;
-        text-align: center;
-    }
-    .policyLinks{
-        padding: 5px;
-    }
-    .followUs{
-        padding-bottom: 0px !important;
-    }
-    .email-subscribe-form{
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        flex-wrap: wrap;
-        gap: 1.25rem;
-    }
-    .emailInput{
-        flex: 1 0 12.5rem;
-    }
-    .email-wrapper{
-        width: 100%;
-        display: flex;
-        margin-right: 0;
-    }
-    
+  /* }  */
+  .socialLinksList {
+    padding-left: 0 !important;
+  }
+
+  .copyright {
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  .policyLinks {
+    padding: 5px;
+  }
+
+  .followUs {
+    padding-bottom: 0px !important;
+  }
+
+  .email-subscribe-form {
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+  }
+
+  .emailInput {
+    flex: 1 0 12.5rem;
+  }
+
+  .email-wrapper {
+    width: 100%;
+    display: flex;
+    margin-right: 0;
+  }
+}
+
+.Common_icon {
+  width: 50%;
+}
+
+.st0 {
+  fill: #fdc300;
+  width: 50%;
+}
+
+.st45 {
+  fill: #fdc300;
+}
+
+.svg-phone-icon {
+  width: 20px;
+}
+
+.svg-image-number {
+  display: flex;
+}
+
+.copyright {
+  fill: #fdc300;
+}
+
+.copyroght-container {
+  width: 22px;
+  /* background-color: yellow; */
+}
+
+.custom-box {
+  display: flex;
+}
+/* model */
+
+.model-succes-font {
+  font-weight: 400;
+}
+
+.model-succes-footer {
+  display: flex;
+  /* margin: auto; */
+  align-items: center;
+  justify-content: center;
+}
+.log-in {
+  color: black;
+  border: 1px solid black;
+  background-color: #eaece7;
 }
 
 @media only screen and (max-width: 991px) and (min-width: 768px) {
-    .social-links-wrapper{
-        gap: 2.375rem;
-    }
-    .email-wrapper{
-        margin-right: 0;
-    }
+  * {
+    font-size: 0.75rem;
+  }
+
+  .social-links-wrapper {
+    gap: 2.375rem;
+  }
+
+  .email-wrapper {
+    margin-right: 0;
+  }
+}
+@media only screen and (max-width: 1240px) and (min-width: 830px) {
+.imgWrapperSocialLink {
+  display: inline-block;
+  width: 90px;
+}
+}
+@media only screen and (max-width: 829px)  {
+.imgWrapperSocialLink {
+  display: inline-block;
+  width: 65px;
+}
 }

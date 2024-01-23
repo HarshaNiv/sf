@@ -335,7 +335,7 @@ li {
     font-size: 0.875rem;
     font-style: normal;
     position: absolute;
-    top: 69px;
+    top: 60px;
 
 }
 
@@ -582,8 +582,10 @@ li {
 
 .Email-NotificationCheck-label {
     color: black;
-    font-family: 'SunFont' !important;
+    font-family: 'Salesforce sans' !important;
     display: inline;
+    font-size: 0.875 rem;
+
 }
 
 .Email-NotificationCheck-label {
@@ -759,6 +761,10 @@ input[type=checkbox]+label:hover::before {
     .Zip-label {
         top: 19% !important;
     }
+   .field-error-street
+   {
+           top: 51px;
+   }
 
 }
 
@@ -775,6 +781,7 @@ input[type=checkbox]+label:hover::before {
     .inner-phone-wrapper>label {
         left: 19%;
     }
+
 
 
 }

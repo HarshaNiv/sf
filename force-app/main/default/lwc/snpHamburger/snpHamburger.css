@@ -10,11 +10,12 @@
 }
 
 .nav-item a {
-    color: white;
+    /* color: white; */
+     color: var(--snp-clr-black);
     padding: 12px 20px;
     display: block;
     text-decoration: none;
-    
+
 }
 
 .sub-nav,
@@ -24,18 +25,22 @@
     padding: 0;
     display: none;
 }
-.show-sub-nav{
+
+.show-sub-nav {
     display: block;
 }
-.show-sub-sub-nav{
+
+.show-sub-sub-nav {
     display: block;
 }
-.sub-item{
+
+.sub-item {
     border-bottom: 1px solid #fff;
 }
+
 .sub-item a {
     padding: 12px 40px;
-    
+
 }
 
 .sub-sub-nav .sub-item a {
@@ -48,28 +53,29 @@
     left: 10px;
     cursor: pointer;
     z-index: 18;
-    
+
 }
 
 
 /*Hamburger*/
- .menu-icon .material-icons:before {
+.menu-icon .material-icons:before {
     content: "\e5d2";
 }
 
 .material-icons.white100 {
-    color: #fff;
+    color: #fdc300;
     font-size: 2rem;
 }
+
 .menu-open {
     top: 20px;
-    left:auto;
+    left: auto;
     right: 25px;
 }
+
 /*Close*/
 .menu-open .material-icons:before {
     content: "\e5cd";
-
 
 }
 

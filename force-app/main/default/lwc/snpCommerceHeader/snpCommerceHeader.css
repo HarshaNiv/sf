@@ -23,21 +23,21 @@
     justify-content: flex-end;
     align-items: center;
     margin-top: 0.625rem;
-    gap:0.9375rem;
+    gap: 0.9375rem;
 }
 
-.standard-Navigation-component-slot {
-   
+.standard-navigation-component-slot {
     margin-left: 0.625rem;
     display: none;
 
 }
-.cart-icon-slot{
+
+.cart-icon-slot {
     margin: 0px 1.25rem 0px 0px;
 }
 
-@media only screen and (max-width: 64rem) {
-    .standard-Navigation-component-slot {
+@media only screen and (max-width: 1200px) {
+    .standard-navigation-component-slot {
         display: block;
     }
 

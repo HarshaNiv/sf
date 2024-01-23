@@ -2,14 +2,14 @@ import { LightningElement, track, wire } from 'lwc';
 import communityId from '@salesforce/community/Id';
 import { NavigationMixin } from 'lightning/navigation';
 import getCategories from '@salesforce/apex/SNP_MultiLevelNavigationController.getSubCategories';
-
+import HAMBURGERICON from '@salesforce/resourceUrl/SR_HAMBURGERICON';
 export default class SnpHamburger extends NavigationMixin(LightningElement) {
 
     @track menuOpen = false;
     parentCategoryName;
     parentCategoryId;
     subCategories;
-
+    hamburgerIconUrl = `${HAMBURGERICON}/HamburgerIcon/white-hamburger.svg`;
     //Why PowerLed > Our Approach Sub Items
     whyPowerledSubItems = [
         {
@@ -44,17 +44,17 @@ export default class SnpHamburger extends NavigationMixin(LightningElement) {
     solutionsSubItems = [
         {
             name: 'Architectural Lighting',
-            link: 'architectural_led_lighting_manufacturers__c',
+            link: 'Architectural_Lighting__c',
 
         },
         {
             name: 'Cabinet LED Lighting',
-            link: 'cabinet_led_lighting_1__c',
+            link: 'Cabinet_LED_Lighting__c',
 
         },
         {
             name: 'Commercial Lighting',
-            link: 'commercial_led_lighting__c',
+            link: 'Commercial_LED_Lighting__c',
 
         },
         {
@@ -69,7 +69,7 @@ export default class SnpHamburger extends NavigationMixin(LightningElement) {
         },
         {
             name: 'Marine & Harsh Environments',
-            link: 'Marine_and_harsh_environments__c',
+            link: 'Marine_and_Harsh_Environments__c',
 
         },
         {
@@ -84,7 +84,7 @@ export default class SnpHamburger extends NavigationMixin(LightningElement) {
         },
         {
             name: 'Vapour Proof LED Lights',
-            link: 'vapour_proof_led_lights__c',
+            link: 'Vapour_Proof_LED_Lights__c',
 
         },
         {
@@ -108,7 +108,7 @@ export default class SnpHamburger extends NavigationMixin(LightningElement) {
         },
         {
             name: 'Mean Well Authorized Resellers',
-            link: 'MEAN_WELL_Authorised_Resellers__c',
+            link: 'MEAN_WELL_Partners__c',
 
         },
         {
@@ -118,7 +118,12 @@ export default class SnpHamburger extends NavigationMixin(LightningElement) {
         },
         {
             name: 'How To Power Your Sign and Display Solutions',
-            link: 'How_To_Power_Sign_And_Display_Solutions__c',
+            link: 'How_To_Power_Sign_And_Display_Solution__c',
+
+        },
+        {
+            name: 'Lighting Schemes',
+            link: 'Lighting_Schemes__c',
 
         }
     ];

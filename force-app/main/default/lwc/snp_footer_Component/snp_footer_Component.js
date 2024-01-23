@@ -1,4 +1,4 @@
-import { LightningElement ,track } from 'lwc';
+import { LightningElement } from 'lwc';
 import LightningAlert from 'lightning/alert';
 import { NavigationMixin } from 'lightning/navigation';
 import SUNPOWERICONS from '@salesforce/resourceUrl/SUNPOWERICONS';
@@ -14,40 +14,36 @@ export default class Footer_Component extends NavigationMixin(LightningElement) 
     instagramImage=Instagram;
     twitterImage=Twitter;
     youtubeImage=Youtube;
-  @track modelSuccess=false;
-  @track modelFail=false;
-
     LinkedIn_Icon = LinkedIn_Icon;
     inputvalue=' ';
     contactUsIcon=SUNPOWERICONS+'/contactusicon.png';
+    modelSuccess=false;
+    modelFail=false;
 
     inputHandler(event){
         this.inputvalue=event.target.value;
         console.log('++'+this.inputvalue);
     }
     handleAlertClick(event) {
+        debugger;
         event.preventDefault();
-        console.log(this.inputvalue);
-        console.log(!this.inputvalue.match(/[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/));
+
         if (this.inputvalue.match(/[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/)) {
             const form = this.template.querySelector('form');
-            // form.submit(); 
-            console.log();
-            console.log('Krishnamurthy --------> success');
-                  this.modelSuccess=true;
+            form.submit();
             // LightningAlert.open({
             //     message: 'Please enter a valid email id',
             //     theme: 'error', // a red theme intended for error states
             //     label: 'error!', // this is the header text
             // });
+            this.modelSuccess=true;
         }else{
-            console.log('Krishnamurthy --------> fail');
-                   this.modelFail=true;
             // LightningAlert.open({
             //     message: 'Thank you for subscribing',
             //     theme: 'warning', // a red theme intended for error states
             //     label: 'SUCCESS!', // this is the header text
             // });
+            this.modelFail=true;
         }
 
         // Commented to add validations for the email input.
@@ -72,7 +68,7 @@ export default class Footer_Component extends NavigationMixin(LightningElement) 
     }
 
     handleNavigateToCmsPage(event){
-        console.log('Navigate to - ', event.currentTarget.dataset.name);     
+        console.log('Navigate to - ', event.currentTarget.dataset.name);       
         let navigationTab = event.currentTarget.dataset.name;
         this[NavigationMixin.Navigate]({
             type: 'comm__namedPage',
@@ -82,13 +78,6 @@ export default class Footer_Component extends NavigationMixin(LightningElement) 
         });
         
     }
-    redirectToCareer()
-    {
-        var newPageURL = "https://www.sunpowergroupholdings.com/careers/";
-         // Use window.location.href to set the new URL.
-         window.location.href = newPageURL;
-         //use to change th location
-    }
     modelHandlerSuccess()
     {
         this.modelSuccess=false;
@@ -97,4 +86,5 @@ export default class Footer_Component extends NavigationMixin(LightningElement) 
     {
         this.modelFail=false;
     }
+
 }
