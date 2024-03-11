@@ -48,16 +48,13 @@ export default class snp_pdp_child_productDeatils extends LightningElement {
   
 
   renderedCallback(){
-    // debugger;
     const trierDiscountSection = this.template.querySelector('.commerce_product_details-pricingTiers_pricingTiers');
     if(trierDiscountSection !== null){
       this.showTierDiscountSection = true;
     }
- console.log('OUTPUT attributeList: ',JSON.stringify(this.attributeList));
   }
 
   connectedCallback(){   
-   debugger;
     const pageurl=window.location.href
    // Find the last occurrence of "/"
     const lastSlashIndex = pageurl.lastIndexOf('/');
@@ -65,38 +62,28 @@ export default class snp_pdp_child_productDeatils extends LightningElement {
 
   // Get the part of the URL before the last "/"
     this.url2 = pageurl.substring(0, secondLastSlashIndex);
-  //console.log('pageurl----->'+this.url);
     
 
-    //console.log('storename'+this.storeName);
     this.url=window.location.href;
     this.spliturl=this.url.split('/');
     this.productname=this.spliturl[this.spliturl.length-2]
     this.product=this.spliturl[this.spliturl.length-1];
     this.productId=this.product.substring(0,18);
-    //console.log('this.productId----->'+this.productId);
 
     
     getProductVariationInfo({productId:this.productId,communityId:communityId})
         .then(result => {
-          debugger;
-          console.log('getProductVariationInfo --', JSON.stringify(result));
           if(result.productClass=='VariationParent'){
             this.variationparentid=this.productId;
           }else{
             this.variationparentid=result.variationParentId;
           }
-          console.log('this.variationparentid'+this.variationparentid);
           let attributeSetInfo=result.attributeSetInfo;
           let attributesetname=Object.keys(attributeSetInfo);
-          console.log(attributesetname[0]);
           let simpleData =attributeSetInfo[attributesetname[0]].attributeInfo;
-          console.log('simpleData--'+ JSON.stringify(simpleData));
           //result.attributeSetInfo.LED_Flexible_Strip
           let childattributes=result.variationAttributeSet.attributes;
-          console.log('childattributes--->'+JSON.stringify(childattributes));
           this.productattributes=Object.keys(simpleData).sort((a, b) => simpleData[a].sequence - simpleData[b].sequence);
-          console.log('----------->productattributes'+JSON.stringify(this.productattributes));
           const sortdata=Object.values(simpleData);
           sortdata.sort((a, b) => a.sequence - b.sequence);
           const labels = [];
@@ -104,13 +91,9 @@ export default class snp_pdp_child_productDeatils extends LightningElement {
           for (const attribute of sortdata) {
               labels.push(attribute.label);
           }
-          console.log('---->labels'+labels)
 
-         // console.log(labels);
           if(result.productClass != 'Simple'){
-            //console.log('OUTPUT 40 : ', result.attributeSetInfo.LED_Flexible_Strip.attributeInfo);
             for (const value of this.productattributes) {
-              // console.log(`${key} : ${simpleData[key].availableValues}`);
               let sampleMAp = {
                 label : value,
                 //values : simpleData[key].availableValues,
@@ -124,11 +107,9 @@ export default class snp_pdp_child_productDeatils extends LightningElement {
             for (let i = 0; i <this.attributeList.length; i++) {
               this.attributeList[i].Name = labels[i];
           }
-           console.log('OUTPUT attributeListHI--: ',JSON.stringify(this.attributeList));
             //add select option in list
             this.attributeList.forEach(Element =>{
             //Element.values.unshift('Select...');
-            // console.log('attributeList Element : ', JSON.stringify(Element.values));
           })
           if(result.productClass=='Variation'){
             for (let attribute of this.attributeList) {
@@ -138,32 +119,25 @@ export default class snp_pdp_child_productDeatils extends LightningElement {
           }
 
           }
-            console.log('68 updated list : ', JSON.stringify(this.attributeList));
             //Set the present selected values to the attributeList
-            // console.log('Selected attribute Values : ',typeof result.variationAttributeSet.attributes);
 
             // let currentselectedAttribute = result.variationAttributeSet.attributes;
             // let indexOfCurrentAttrubuteList = 0;
-            //   console.log('currentselectedAttribute--->'+JSON.stringify(currentselectedAttribute));
+
             // for(let value in currentselectedAttribute){
-            //   console.log('OUTPUT : ',this.attributeList[value]);
+
             //   this.attributeList[indexOfCurrentAttrubuteList].selectedValue = currentselectedAttribute[value] === null ? 'Select...' :currentselectedAttribute[value];
-            //   // console.log('OUTPUT : ', currentselectedAttribute[value]);
+
+
             //   indexOfCurrentAttrubuteList++;
             // }
-            // console.log('this.attributeList after ', JSON.stringify(this.attributeList));
+
           }
-          //debugger;
           getAttributeValues({ attribute: this.attributeList[0].label,variantParentId:this.variationparentid})
           .then(result => {
-            debugger;
-            console.log('attribute values----------->'+ JSON.stringify(result))  
             this.attributevalues1=result; 
             this.attributeList[0].values = [...this.attributeList[0].values, ...this.attributevalues1];
-           console.log('this.attributeList[0].values'+this.attributeList[0].values);
-            console.log('attributelist'+JSON.stringify(this.attributeList));
             this.queryattributes=this.attributeList[1].label;
-           // console.log('queryattributes'+this.queryattributes);
           })
           .catch(error => {
             console.log('error',error);
@@ -174,15 +148,11 @@ export default class snp_pdp_child_productDeatils extends LightningElement {
         });
   
     
-    // console.log('Snp_pdp_productDetails recordId- ', this.recordId);
-    // console.log('Snp_pdp_productDetails product Details- ', this.ProductDetails);
     getProductData({productId : this.recordId})
     .then(result => {
-      debugger;
-      console.log('descrip----'+JSON.stringify(result));
+      //console.log('short_descriptions'+ json.stringify(result.Short_Description__c));
       const hasHtmlTags = /<\/?[a-z][\s\S]*>/i.test(result.Full_Description__c);
       const hasHtmlTags_SD = /<\/?[a-z][\s\S]*>/i.test(result.Short_Description__c);
-
       this.productTittle=result.Product_Title__c;
       if(result.productclass=='Variation'){
         if (hasHtmlTags_SD) {
@@ -193,7 +163,7 @@ export default class snp_pdp_child_productDeatils extends LightningElement {
         }
         this.isVariation=true;
         this.isparent=false;
-        if( this.productFullDescription > 225){
+        if( this.productFullDescription.length > 225){
           if (hasHtmlTags_SD) {
           let desc = this.extractTextFromHTML(result.Short_Description__c).slice(0, 225);
           this.productDescription = desc;
@@ -217,12 +187,13 @@ export default class snp_pdp_child_productDeatils extends LightningElement {
         this.productFullDescription = this.extractTextFromHTML(result.Full_Description__c);
         }
         else{
+
           this.productFullDescription = result.Full_Description__c;
-        }
+                  }
         this.isparent=true;
         this.isVariation=false;
-        if(this.productFullDescription > 225){
-          let desc = result.Description.slice(0, 225);
+        if(this.productFullDescription.length > 225){
+          let desc =this.extractTextFromHTML(result.Full_Description__c).slice(0, 225);
           this.productDescription = desc;
         }else{
           this.showMore = false;
@@ -257,7 +228,6 @@ export default class snp_pdp_child_productDeatils extends LightningElement {
 
 	  handleShowHideOptions(event){
     event.preventDefault();
-    // console.log('click event');
     event.stopPropagation()
     let currentIndex = event.currentTarget.dataset.id;
     this.selectedAttribute = currentIndex;
@@ -265,39 +235,31 @@ export default class snp_pdp_child_productDeatils extends LightningElement {
     const clickedElement = this.template.querySelectorAll('div .inner');
     clickedElement[currentIndex].focus();
     const downArrowElement = this.template.querySelectorAll('div .downArrowImage');
-    // console.log('downArrowElement : ', downArrowElement);
     downArrowElement[currentIndex].classList.toggle("hideDiv");
     const upArrowElement = this.template.querySelectorAll('div .upArrowImage');
-    // console.log('upArrowElement : ', upArrowElement);
     upArrowElement[currentIndex].classList.toggle("hideDiv");
     const ulElement = this.template.querySelectorAll('ul');
-    // console.log('ulElement : ', ulElement);
     ulElement[currentIndex].classList.toggle("hideDiv");
     
   }
   
   focusOutEvent(event){
     event.stopPropagation()
-    // console.log("this is blur current target", event.currentTarget.dataset.id);
     var budrIndex = event.currentTarget.dataset.id;
     setTimeout(()=>{
       const ulElement = this.template.querySelectorAll('ul');
       ulElement[budrIndex].classList.add('hideDiv');
-      // console.log('ulElement : ', ulElement);
       const downArrowElement = this.template.querySelectorAll('div .downArrowImage');
-      // console.log('downArrowElement : ', downArrowElement);
       downArrowElement[budrIndex].classList.remove('hideDiv');
   
       const upArrowElement = this.template.querySelectorAll('div .upArrowImage');
-      // console.log('upArrowElement : ', upArrowElement);
       upArrowElement[budrIndex].classList.add('hideDiv');
     }, 500);
     
   }
 
   handleSelectListItem(event){
-    debugger;
-    // console.log('select List Id : ', event.target.dataset.id);
+   
     if(this.selectedAttribute<this.previndex){
       const index=parseInt(this.selectedAttribute)+1;
       let indexstring=index.toString();
@@ -308,12 +270,9 @@ export default class snp_pdp_child_productDeatils extends LightningElement {
 
     }
     let slectedIndex = event.target.dataset.id;
-    //console.log('slectedIndex'+slectedIndex);
     const index=parseInt(this.selectedAttribute)+1;
     this.nextIndex=index.toString();
-    //console.log(this.nextIndex);
     let selectedValue = this.attributeList[this.selectedAttribute].values[slectedIndex];
-    //console.log('selectedValue'+selectedValue);
     if (selectedValue !== 'Select...') {
       this.attributeList[this.selectedAttribute].selectedValue = selectedValue;
 
@@ -331,23 +290,17 @@ export default class snp_pdp_child_productDeatils extends LightningElement {
             this.selectedValues.push(selectedvaluemap);
            // const index=this.selectedAttribute+1
            // this.queryattributes=this.attributeList[index].label;
-            //console.log(queryattributes)
 
         }
 
-        //console.log('selectedValues' + JSON.stringify(this.selectedValues));
         if(this.selectedAttribute!=this.attributeList.length-1){
           this.queryattributes=this.attributeList[this.nextIndex].label;
         }
-        //console.log('queryattributes'+this.queryAttributes);
     }
     if(this.selectedAttribute==this.attributeList.length-1){
       queryProductid({ selectedValues:this.selectedValues,variantParentId:this.variationparentid})
       .then(result => {
-        debugger;
-            console.log('*****'+JSON.stringify(result));
             //this.attributeList[this.nextIndex].values =result ;
-           // console.log('queryattributes'+queryattributes);
            window.location.href=this.url2+'/'+result[0];
       })
       .catch(error => {
@@ -356,12 +309,8 @@ export default class snp_pdp_child_productDeatils extends LightningElement {
     }else{
     queryProductAttributes({queryAttributes:this.queryattributes , selectedValues:this.selectedValues,variantParentId:this.variationparentid})
     .then(result => {
-      debugger;
-          //console.log('*****'+JSON.stringify(result));
           this.attributeList[this.nextIndex].values =result ;
-         // console.log('queryattributes'+queryattributes);
           this.previndex=this.selectedAttribute;
-          //console.log('this.previndex'+this.previndex);
     })
     .catch(error => {
       console.log('*****'+JSON.stringify(error))
@@ -377,18 +326,14 @@ export default class snp_pdp_child_productDeatils extends LightningElement {
 
     // }
     // this.selectedValues.push(selectedvaluemap);
-    // console.log('selectedValues'+JSON.stringify(this.selectedValues));
 
     const downArrowElement = this.template.querySelectorAll('div .downArrowImage');
-    // console.log('downArrowElement : ', downArrowElement);
     downArrowElement[this.selectedAttribute].classList.toggle("hideDiv");
 
     const upArrowElement = this.template.querySelectorAll('div .upArrowImage');
-    // console.log('upArrowElement : ', upArrowElement);
     upArrowElement[this.selectedAttribute].classList.toggle("hideDiv");
 
     const ulElement = this.template.querySelectorAll('ul');
-    // console.log('ulElement : ', ulElement);
     ulElement[this.selectedAttribute].classList.toggle("hideDiv");
 
     // Get all innerlabel elements to check if value is not equals select and get new product id through apex
@@ -408,7 +353,6 @@ export default class snp_pdp_child_productDeatils extends LightningElement {
     },1000);
     //let checkPoint = innerLabelElements.every((ele)=> ele.innerText != "Select...");
     //if(checkPoint){
-     // console.log("MAKE APEX CALL");
     //}
 
   }

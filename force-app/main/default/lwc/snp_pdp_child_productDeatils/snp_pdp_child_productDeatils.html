@@ -18,8 +18,8 @@
                          </lightning-layout-item>
                      </lightning-layout> -->
                      
-                        <template lwc:if={isparent}><div class="product-desc-title">Full Description</div> </template>
-                        <template lwc:elseif={isVariation}><div class="product-desc-title"> Short Description</div> </template>
+                        <!-- <template lwc:if={isparent}><div class="product-desc-title">Full Description</div> </template>  -->
+                        <template lwc:if={isVariation}><div class="product-desc-title"> Short Description</div> </template>
                      
                      <!-- <div class="product-desc-title">Product Description</div> -->
                      <div class="product-desc-details"> <span class="product-desc-content">{productDescription}</span><span if:true={showMore} onclick={handleSeeMore} class="seeMoreOrLessLink"> See more...</span><span if:true={showLess} onclick={handleSeeLess} class="seeMoreOrLessLink"> See less...</span></div>

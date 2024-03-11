@@ -1,0 +1,21 @@
+<template>
+  <template for:each={parentChildList} for:item="parentItem">
+    <div key={parentItem[0].cartItemId}>
+        <p>{parentItem[0].name}</p>
+        <p>Quantity: {parentItem[0].quantity}</p>
+        <!-- Add other parent item properties as needed -->
+
+        <!-- Iterate over child products if present -->
+        <template if:true={parentItem.child_Products}>
+            <template for:each={parentItem.child_Products} for:item="childProducts">
+                <div key={childProducts.cartItemId}>
+                    <!-- Display child product properties -->
+                    <p>{childProducts.name}</p>
+                    <p>Quantity: {childProducts.quantity}</p>
+                    <!-- Add other child product properties as needed -->
+                </div>
+            </template>
+        </template>
+    </div>
+</template>
+</template>

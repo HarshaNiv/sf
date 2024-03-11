@@ -1,0 +1,223 @@
+<!-- sldsValidatorIgnore -->
+<template>
+    <template if:true={spinnerloader}>
+       <div class="demo-only demo-only_viewport" style="height:6rem;position:relative">
+          <div role="status" class="slds-spinner slds-spinner_medium">
+             <span class="slds-assistive-text">Loading</span>
+             <div class="slds-spinner__dot-a"></div>
+             <div class="slds-spinner__dot-b"></div>
+          </div>
+       </div>
+    </template>
+    <div class="selector-pdp">
+       <template if:true={prod_Visible}>
+          <!-- fretching kits here -->
+          <lightning-select
+             name="tickets"
+             class="water-supply-class"
+             label="Water Supply"
+             options={options}
+             value={value}
+             placeholder="Select..."
+             onchange={handleSelectChange}
+             required ></lightning-select>
+       </template>
+       <div class="slds-form-element__help slds-has-error" if:true={watersupplyerror}>Complete this field.</div>
+    </div>
+    <div class="pdp-main-container">
+       <!-- price , cart and quanity button -->
+       <div class="pdp-price-slot-wrapper">
+          <div class="section-common-content">
+             <slot name="slot1">slot-1</slot>
+          </div>
+       </div>
+       <div class="qunatity-cart-wrapper">
+          <div class="quantityClass">
+             <div class="quanity-controller">
+                <button class="decrementClass-quantity-1" onclick={decrementQuantity} disabled={isButtonDisabled}>-</button>
+                <input class="inputClass-quantity-1" value={quantityVal} onchange={handleQuantityChange} disabled={inputQuantity}>
+                <button class="incrementClass-quantity-1" onclick={incrementQuantity} disabled={incrementButtonDisabled} >+</button>
+             </div>
+             <div class="field-error" if:true={handleCartError} >Enter a valid number.</div>
+          </div>
+          <button class="addToCart-pdp" onclick={checkMiscProd} disabled={isCartButton}>{cartButton}</button>
+       </div>
+       <!-- Frecthing miscellaneous here -->
+       <template if:true={prod_Visible}>
+          <div class="miscellaneous-wrapper">
+             <template if:true={miscProdData}>
+                <template for:each={miscProdData} for:item="miscProduct" for:index="indexval">
+                   <div key={miscProduct.id}>
+                      <div class="misc-productdata-conatiner">
+                         <lightning-input type="checkbox" name="checks" data-index={miscProduct.index} data-sku={miscProduct.stockKeepingUnit} checked={miscProduct.checkedVal} disabled={miscProduct.disabled} class="mis-checkbox" onchange={miscProd}></lightning-input>
+                         <!-- <div class="mis-content"> -->
+                         <div class="mis-product-name">{miscProduct.Name}</div>
+                         <div class="mis-product-sku">{miscProduct.stockKeepingUnit}</div>
+                         <div class="mis-product-quatity">QTY: {miscProduct.quantityVal}</div>
+                         <div class="mis-product-productPrice">${miscProduct.productPrice}</div>
+                         <!-- </div> -->
+                      </div>
+                   </div>
+                </template>
+             </template>
+          </div>
+          <!--Frecthing kits  here -->
+          <div class="kits-controller-main-wrapper">
+             <h1 class="miscellaneous-header">Kits</h1>
+             <template if:true={productData}>
+                <ul class="kits-controller-wrapper">
+                   <template for:each={productData} for:item="item" for:index="indexitem">
+                      <li class="kits-content-wrapper" key={item.Name} data-index={indexitem}>
+                         <div class="image-container-kit">
+                            <!-- <template if:true={indexitem==1}> -->
+                            <lightning-input type="checkbox" checked={item.checkedVal} data-id={item.index}  class="kits-checkbox" onchange={kitsProdEvent}/>
+                            </lightning-input>
+                            <img class="kits-pdp-image" src={item.contentDataKey} alt={item.Name} />
+                         </div>
+                         <div class="pdp-kits-content">
+                            <div class="product-name-pdp"><b>Product Name: </b>{item.Name}</div>
+                            <div class="product-sku-pdp"><b>SKU: </b>{item.stockKeepingUnit}</div>
+                            <div class="product-desc-pdp"><b>Product Description: </b>{item.Description}</div>
+                            <div class="product-price-pdp"><b>Price: </b>${item.productPrice}</div>
+                            <div class="quantityClass">
+                               <b style="margin-right: 5px" >QTY: </b>
+                               <div class="quantitySelectorClass">
+                                  <template class="quantiy-value" if:true={item.showQuantitySelector}>
+                                     <button class="decrementClass-quantity" onclick={kitdecrementQuantity} disabled={iskitButtonDisabled} data-id={item.quantityVal}>-</button>
+                                     <input  class="inputClass-quantity" value={item.quantityVal} onchange={handleKitQuantityChange} >
+                                     <button class="incrementClass-quantity" onclick={kitincrementQuantity} data-id={item.quantityVal}>+</button>
+                                     <div class="field-kit-error" if:true={handlekitError} >Enter a valid number.</div>
+                                  </template>
+                               </div>
+                               <template if:false={item.showQuantitySelector}>
+                                  {kitQuantity}
+                               </template>
+                            </div>
+                         </div>
+                      </li>
+                   </template>
+                </ul>
+             </template>
+          </div>
+          <!-- fretching services SUB AND COMMISSION here -->
+          <div class="services-wrapper">
+             <template if:true={serviceProdData}>
+                <template for:each={serviceProdData} for:item="serviceProduct" for:index="indexval">
+                   <div    key={serviceProduct.id}>
+                      <div class="misc-productdata-conatiner services-wrapper-main">
+                         <lightning-input type="checkbox" name="checks" data-index={serviceProduct.index} checked={serviceProduct.checkedVal} disabled={serviceProduct.disabled} class="mis-checkbox" ></lightning-input>
+                         <!-- <div class="mis-content"> -->
+                         <div class="mis-product-name">{serviceProduct.Name}</div>
+                         <div class="mis-product-sku">{serviceProduct.stockKeepingUnit}</div>
+                         <div class="mis-product-quatity">QTY: {serviceProduct.quantityVal}</div>
+                         <div class="mis-product-productPrice">${serviceProduct.productPrice}</div>
+                         <!-- </div> -->
+                      </div>
+                   </div>
+                </template>
+             </template>
+          </div>
+          <div class="checkbox-mail-container">
+             <lightning-input type="checkbox" name="checks" class="mail-checkbox" onclick={mailHandler}></lightning-input>
+             <div class="mail-content">Check if you would like to hear more about our on-site commissioning services.</div>
+          </div>
+       </template>
+    </div>
+    <!-- modal 1 -->
+    <template if:true={isModalOpen}>
+       <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+          aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+          <div class="outer-container">
+             <div class="slds-modal-container kit-prod-class">
+                <div class="slds-modal-content" id="modal-content-id-1">
+                   <p class="modal-header">Do you want an ultrasonic flowmeter with this FCJC</p>
+                   <div class="modal-btn-container-pdp">
+                      <button class="Button-label common-btn-class" onclick={selectProdModal} title="yes">Yes</button>
+                      <button class="Button-label common-btn-class" onclick={closeModal} title="no">No</button>
+                   </div>
+                </div>
+             </div>
+          </div>
+       </section>
+       <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+    <!-- modal 2 -->
+    <template if:true={isModalOpen2}>
+       <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+          aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+          <div class="outer-container">
+             <div class="slds-modal-container kit-prod-class">
+                <div class="slds-modal-content" id="modal-content-id-2">
+                   <p class="modal-header">Do you want diesel Fuel Monitoring with this FCJC</p>
+                   <div class="modal-btn-container-pdp">
+                      <button class="Button-label common-btn-class" onclick={selectProdModal2} title="yes">Yes</button>
+                      <button class="Button-label common-btn-class" onclick={closeModal2} title="no">No</button>
+                   </div>
+                </div>
+             </div>
+          </div>
+       </section>
+       <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+    <!-- modals work while addimg to cart -->
+    <!-- model 3-->
+    <template if:true={prod_Visible}>
+       <template if:true={isModalOpen3}>
+          <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+             aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+             <div class="outer-container">
+                <div class=".slds-modal-container cart-class">
+                   <div class="slds-modal-content" id="modal-content-id-3">
+                      <p class="modal-cart-font">Commissioning is NOT installation,installation must be sourced seperately,
+                         The Commissioning process will take place AFTER installation is completed and is a Mandatory selection. 
+                         Please Contact FCSupport for any questions on the commissioning process
+                      </p>
+                      <div class="modal-btn-container-pdp">
+                         <button class="Button-label common-btn-class" onclick={addToCart} title="OK">OK</button>
+                      </div>
+                   </div>
+                </div>
+             </div>
+          </section>
+          <div class="slds-backdrop slds-backdrop_open"></div>
+       </template>
+       <!-- model 4-->
+       <template if:true={isModalOpen4}>
+          <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+             aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+             <div class="outer-container">
+                <div class=".slds-modal-container cart-class">
+                   <div class="slds-modal-content" id="modal-content-id-4">
+                      <p  class="modal-cart-font">The FCJC configuration selected has more than 10 options on it, are you sure all options selected are needed? if you are not sure, please contact FCSupport for assistance</p>
+                      <p  class="modal-cart-font">Commissioning is NOT installation,installation must be sourced seperately,
+                         The Commissioning process will take place AFTER installation is completed and is a Mandatory selection. 
+                         Please Contact FCSupport for any questions on the commissioning process
+                      </p>
+                      <div class="modal-btn-container-pdp">
+                         <button class="Button-label common-btn-class" onclick={addToCart} title="OK">OK</button>
+                      </div>
+                   </div>
+                </div>
+             </div>
+          </section>
+          <div class="slds-backdrop slds-backdrop_open"></div>
+       </template>
+    </template>
+    <template if:true={showCartOptions}>
+       <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+          aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+          <div class="outer-container">
+             <div class=".slds-modal-container cart-class">
+                <div class="slds-modal-content" id="modal-content-id-5">
+                   <p>Item was added to cart</p>
+                   <div class="modal-btn-container-pdp">
+                      <button class="Button-label common-btn-class" onclick={continueShopping} title="Continue Shopping">Continue Shopping</button>
+                      <button class="Button-label common-btn-class" onclick={viewCart} title="View Cart">View Cart</button>
+                   </div>
+                </div>
+             </div>
+          </div>
+       </section>
+       <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+ </template>

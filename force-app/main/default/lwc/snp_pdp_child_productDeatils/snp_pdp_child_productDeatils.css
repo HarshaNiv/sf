@@ -184,7 +184,7 @@ flex-wrap: nowrap;
 }
 
 .product-desc-content{
-	word-break: break-all;
+	word-break: auto-phrase;
 }
 
 .product-variants{
